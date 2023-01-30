@@ -11,6 +11,25 @@
 		39A9631A2988443F00F0C055 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963192988443F00F0C055 /* ContentView.swift */; };
 		39A9631C2988444200F0C055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A9631B2988444200F0C055 /* Assets.xcassets */; };
 		39A9631F2988444200F0C055 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A9631E2988444200F0C055 /* Preview Assets.xcassets */; };
+		39A9632B2988449600F0C055 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963262988449600F0C055 /* NetworkError.swift */; };
+		39A9632C2988449600F0C055 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963272988449600F0C055 /* NetworkRequest.swift */; };
+		39A9632D2988449600F0C055 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963282988449600F0C055 /* Requester.swift */; };
+		39A9632E2988449600F0C055 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963292988449600F0C055 /* Constants.swift */; };
+		39A9632F2988449700F0C055 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9632A2988449600F0C055 /* APIRequest.swift */; };
+		39A963382988464E00F0C055 /* BooksRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963372988464E00F0C055 /* BooksRequest.swift */; };
+		39A9633A29884EA200F0C055 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9633929884EA200F0C055 /* Book.swift */; };
+		39A9633C29884EE800F0C055 /* BooksRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9633B29884EE800F0C055 /* BooksRepositoryProtocol.swift */; };
+		39A9633E29884FB000F0C055 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9633D29884FB000F0C055 /* Author.swift */; };
+		39A9634029884FF200F0C055 /* BooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9633F29884FF200F0C055 /* BooksRepository.swift */; };
+		39A96342298850A400F0C055 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96341298850A400F0C055 /* Client.swift */; };
+		39A96344298851A300F0C055 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96343298851A300F0C055 /* Order.swift */; };
+		39A963462988524B00F0C055 /* ClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963452988524B00F0C055 /* ClientRequest.swift */; };
+		39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9634A2988544400F0C055 /* ShopRequest.swift */; };
+		39A9634F29887DD400F0C055 /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9634E29887DD400F0C055 /* Encodable+Ext.swift */; };
+		39A9635129887E3D00F0C055 /* ClientsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9635029887E3D00F0C055 /* ClientsRepositoryProtocol.swift */; };
+		39A9635329887F6F00F0C055 /* ClientsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9635229887F6F00F0C055 /* ClientsRepository.swift */; };
+		39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96354298881E500F0C055 /* ShopRepositoryProtocol.swift */; };
+		39A963572988825800F0C055 /* ShopRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963562988825800F0C055 /* ShopRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +38,25 @@
 		39A963192988443F00F0C055 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		39A9631B2988444200F0C055 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39A9631E2988444200F0C055 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		39A963262988449600F0C055 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		39A963272988449600F0C055 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		39A963282988449600F0C055 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		39A963292988449600F0C055 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		39A9632A2988449600F0C055 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		39A963372988464E00F0C055 /* BooksRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRequest.swift; sourceTree = "<group>"; };
+		39A9633929884EA200F0C055 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		39A9633B29884EE800F0C055 /* BooksRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepositoryProtocol.swift; sourceTree = "<group>"; };
+		39A9633D29884FB000F0C055 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		39A9633F29884FF200F0C055 /* BooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepository.swift; sourceTree = "<group>"; };
+		39A96341298850A400F0C055 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		39A96343298851A300F0C055 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		39A963452988524B00F0C055 /* ClientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRequest.swift; sourceTree = "<group>"; };
+		39A9634A2988544400F0C055 /* ShopRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRequest.swift; sourceTree = "<group>"; };
+		39A9634E29887DD400F0C055 /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
+		39A9635029887E3D00F0C055 /* ClientsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		39A9635229887F6F00F0C055 /* ClientsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsRepository.swift; sourceTree = "<group>"; };
+		39A96354298881E500F0C055 /* ShopRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepositoryProtocol.swift; sourceTree = "<group>"; };
+		39A963562988825800F0C055 /* ShopRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +89,10 @@
 		39A963162988443F00F0C055 /* BookStore */ = {
 			isa = PBXGroup;
 			children = (
-				39A963172988443F00F0C055 /* BookStoreApp.swift */,
-				39A963192988443F00F0C055 /* ContentView.swift */,
+				39A96331298844DD00F0C055 /* App */,
+				39A9634C29887DB000F0C055 /* Common */,
+				39A96358298882E700F0C055 /* Data */,
+				39A96330298844B100F0C055 /* Modules */,
 				39A9631B2988444200F0C055 /* Assets.xcassets */,
 				39A9631D2988444200F0C055 /* Preview Content */,
 			);
@@ -65,6 +105,135 @@
 				39A9631E2988444200F0C055 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		39A963252988445100F0C055 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				39A9632A2988449600F0C055 /* APIRequest.swift */,
+				39A963292988449600F0C055 /* Constants.swift */,
+				39A963262988449600F0C055 /* NetworkError.swift */,
+				39A963272988449600F0C055 /* NetworkRequest.swift */,
+				39A963282988449600F0C055 /* Requester.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		39A96330298844B100F0C055 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				39A963192988443F00F0C055 /* ContentView.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		39A96331298844DD00F0C055 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				39A963172988443F00F0C055 /* BookStoreApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		39A963322988459100F0C055 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				39A963362988462900F0C055 /* Login */,
+				39A963352988461A00F0C055 /* Shop */,
+				39A96334298845AE00F0C055 /* Clients */,
+				39A96333298845A300F0C055 /* Books */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		39A96333298845A300F0C055 /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				39A963472988525900F0C055 /* Entity */,
+				39A963372988464E00F0C055 /* BooksRequest.swift */,
+				39A9633B29884EE800F0C055 /* BooksRepositoryProtocol.swift */,
+				39A9633F29884FF200F0C055 /* BooksRepository.swift */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
+		39A96334298845AE00F0C055 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				39A963482988527100F0C055 /* Entity */,
+				39A963452988524B00F0C055 /* ClientRequest.swift */,
+				39A9635029887E3D00F0C055 /* ClientsRepositoryProtocol.swift */,
+				39A9635229887F6F00F0C055 /* ClientsRepository.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		39A963352988461A00F0C055 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				39A963492988527E00F0C055 /* Entity */,
+				39A9634A2988544400F0C055 /* ShopRequest.swift */,
+				39A96354298881E500F0C055 /* ShopRepositoryProtocol.swift */,
+				39A963562988825800F0C055 /* ShopRepository.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		39A963362988462900F0C055 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		39A963472988525900F0C055 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				39A9633929884EA200F0C055 /* Book.swift */,
+				39A9633D29884FB000F0C055 /* Author.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		39A963482988527100F0C055 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				39A96341298850A400F0C055 /* Client.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		39A963492988527E00F0C055 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				39A96343298851A300F0C055 /* Order.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		39A9634C29887DB000F0C055 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				39A9634D29887DC400F0C055 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		39A9634D29887DC400F0C055 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				39A9634E29887DD400F0C055 /* Encodable+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		39A96358298882E700F0C055 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				39A963322988459100F0C055 /* Repositories */,
+				39A963252988445100F0C055 /* API */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +306,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39A963462988524B00F0C055 /* ClientRequest.swift in Sources */,
+				39A9632B2988449600F0C055 /* NetworkError.swift in Sources */,
+				39A9632F2988449700F0C055 /* APIRequest.swift in Sources */,
 				39A9631A2988443F00F0C055 /* ContentView.swift in Sources */,
+				39A9632C2988449600F0C055 /* NetworkRequest.swift in Sources */,
+				39A963382988464E00F0C055 /* BooksRequest.swift in Sources */,
+				39A9633A29884EA200F0C055 /* Book.swift in Sources */,
+				39A96344298851A300F0C055 /* Order.swift in Sources */,
+				39A96342298850A400F0C055 /* Client.swift in Sources */,
+				39A963572988825800F0C055 /* ShopRepository.swift in Sources */,
+				39A9633C29884EE800F0C055 /* BooksRepositoryProtocol.swift in Sources */,
+				39A9633E29884FB000F0C055 /* Author.swift in Sources */,
+				39A9632D2988449600F0C055 /* Requester.swift in Sources */,
+				39A9635129887E3D00F0C055 /* ClientsRepositoryProtocol.swift in Sources */,
 				39A963182988443F00F0C055 /* BookStoreApp.swift in Sources */,
+				39A9634F29887DD400F0C055 /* Encodable+Ext.swift in Sources */,
+				39A9634029884FF200F0C055 /* BooksRepository.swift in Sources */,
+				39A9632E2988449600F0C055 /* Constants.swift in Sources */,
+				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,
+				39A9635329887F6F00F0C055 /* ClientsRepository.swift in Sources */,
+				39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
