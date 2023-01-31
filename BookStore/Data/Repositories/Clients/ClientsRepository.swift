@@ -8,7 +8,7 @@
 import Foundation
 
 final class ClientsRepository: ClientsRepositoryProtocol {
-    let networkRequester = Requester()
+    private let networkRequester = Requester()
     
     func findClient(by email: String) async throws -> Client {
         let request = ClientRequest.find(email)
@@ -17,11 +17,11 @@ final class ClientsRepository: ClientsRepositoryProtocol {
     
     func new(_ client: Client) async throws {
         let request = ClientRequest.new(client)
-//        try await networkRequester.doRequest(request: request) // TODO: Review this empty response
+        _ = try await networkRequester.doRequest(request: request)
     }
     
-    func modify(_ client: Client) async throws -> Client {
+    func modify(_ client: Client) async throws {
         let request = ClientRequest.modify(client)
-        return try await networkRequester.doRequest(request: request)
+        _ = try await networkRequester.doRequest(request: request)
     }
 }

@@ -13,9 +13,9 @@ struct NetworkRequest {
     init(apiRequest: APIRequest) {
         var urlComponents = URLComponents(string: apiRequest.url?.description ?? Constants.urlBase)
         let subpath = urlComponents?.path.appending(apiRequest.subPath) ?? ""
-        let path = urlComponents?.path.appending(apiRequest.path) ?? ""
+        let path = subpath.appending(apiRequest.path)
         
-        urlComponents?.path = subpath + path
+        urlComponents?.path = path
         
         if let queryItems = apiRequest.queryItems {
             urlComponents?.queryItems = queryItems
@@ -29,10 +29,11 @@ struct NetworkRequest {
         
         request = URLRequest(url: fullURL)
         request.httpMethod = apiRequest.method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = apiRequest.timeoutInterval
         
         if let params = apiRequest.params,
-            apiRequest.method == .post || apiRequest.method == .put {
+           apiRequest.method == .post || apiRequest.method == .put || apiRequest.method == .patch {
             let jsonData = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
             request.httpBody = jsonData
         }

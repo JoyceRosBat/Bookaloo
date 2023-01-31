@@ -8,7 +8,7 @@
 import Foundation
 
 final class BooksRepository: BooksRepositoryProtocol {
-    let networkRequester = Requester()
+    private let networkRequester = Requester()
     
     func getBooks() async throws -> [Book] {
         let request = BooksRequest.list

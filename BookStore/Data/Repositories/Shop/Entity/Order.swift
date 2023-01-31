@@ -9,6 +9,7 @@ import Foundation
 
 struct Order: Codable {
     let email: String
-    let books: [Int]
-    let npedido: String
+    var pedido: [Int]? = nil
+    var books: [Int]? = nil
+    var npedido: String? = nil
 }

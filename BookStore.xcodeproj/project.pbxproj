@@ -30,6 +30,8 @@
 		39A9635329887F6F00F0C055 /* ClientsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9635229887F6F00F0C055 /* ClientsRepository.swift */; };
 		39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96354298881E500F0C055 /* ShopRepositoryProtocol.swift */; };
 		39A963572988825800F0C055 /* ShopRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963562988825800F0C055 /* ShopRepository.swift */; };
+		39A9635A298909F100F0C055 /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96359298909F100F0C055 /* APIErrorResponse.swift */; };
+		39A9635C29890F7700F0C055 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9635B29890F7700F0C055 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		39A9635229887F6F00F0C055 /* ClientsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsRepository.swift; sourceTree = "<group>"; };
 		39A96354298881E500F0C055 /* ShopRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepositoryProtocol.swift; sourceTree = "<group>"; };
 		39A963562988825800F0C055 /* ShopRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepository.swift; sourceTree = "<group>"; };
+		39A96359298909F100F0C055 /* APIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResponse.swift; sourceTree = "<group>"; };
+		39A9635B29890F7700F0C055 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +114,9 @@
 		39A963252988445100F0C055 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				39A9632A2988449600F0C055 /* APIRequest.swift */,
 				39A963292988449600F0C055 /* Constants.swift */,
+				39A9632A2988449600F0C055 /* APIRequest.swift */,
+				39A96359298909F100F0C055 /* APIErrorResponse.swift */,
 				39A963262988449600F0C055 /* NetworkError.swift */,
 				39A963272988449600F0C055 /* NetworkRequest.swift */,
 				39A963282988449600F0C055 /* Requester.swift */,
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				39A963192988443F00F0C055 /* ContentView.swift */,
+				39A9635B29890F7700F0C055 /* ViewModel.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 				39A9632F2988449700F0C055 /* APIRequest.swift in Sources */,
 				39A9631A2988443F00F0C055 /* ContentView.swift in Sources */,
 				39A9632C2988449600F0C055 /* NetworkRequest.swift in Sources */,
+				39A9635C29890F7700F0C055 /* ViewModel.swift in Sources */,
 				39A963382988464E00F0C055 /* BooksRequest.swift in Sources */,
 				39A9633A29884EA200F0C055 /* Book.swift in Sources */,
 				39A96344298851A300F0C055 /* Order.swift in Sources */,
@@ -322,6 +329,7 @@
 				39A9635129887E3D00F0C055 /* ClientsRepositoryProtocol.swift in Sources */,
 				39A963182988443F00F0C055 /* BookStoreApp.swift in Sources */,
 				39A9634F29887DD400F0C055 /* Encodable+Ext.swift in Sources */,
+				39A9635A298909F100F0C055 /* APIErrorResponse.swift in Sources */,
 				39A9634029884FF200F0C055 /* BooksRepository.swift in Sources */,
 				39A9632E2988449600F0C055 /* Constants.swift in Sources */,
 				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,

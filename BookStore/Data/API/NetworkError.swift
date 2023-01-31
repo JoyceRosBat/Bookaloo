@@ -13,6 +13,7 @@ enum NetworkError: Error {
     case parsing
     case dataError(Error)
     case httpError
+    case apiError(APIErrorResponse)
     
     var description: String {
         switch self {
@@ -21,6 +22,7 @@ enum NetworkError: Error {
         case .parsing: return "Error parsing data"
         case .dataError(let error): return "Data error: \(error)"
         case .httpError: return "Conection is not http"
+        case .apiError(let apiError): return apiError.reason
         }
     }
 }

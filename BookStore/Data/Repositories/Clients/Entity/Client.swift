@@ -8,7 +8,7 @@
 import Foundation
 
 struct Client: Codable {
-    let name: String
+    var name: String
     let email: String
-    let location: String
+    var location: String
 }
