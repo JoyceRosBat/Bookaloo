@@ -13,8 +13,8 @@ final class ViewModel: ObservableObject {
     var shopRepo = ShopRepository()
     
     init() {
-//        clients()
-//        books()
+        clients()
+        books()
         shop()
     }
     
