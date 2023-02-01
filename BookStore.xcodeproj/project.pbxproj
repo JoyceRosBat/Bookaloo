@@ -36,6 +36,7 @@
 		39A963672989644A00F0C055 /* BooksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963662989644A00F0C055 /* BooksUseCase.swift */; };
 		39A96369298964BF00F0C055 /* BooksDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96368298964BF00F0C055 /* BooksDependenciesResolver.swift */; };
 		39A9636B2989686500F0C055 /* ModuleDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9636A2989686500F0C055 /* ModuleDependencies.swift */; };
+		39A9636E2989B1E300F0C055 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9636D2989B1E300F0C055 /* PopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		39A963662989644A00F0C055 /* BooksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksUseCase.swift; sourceTree = "<group>"; };
 		39A96368298964BF00F0C055 /* BooksDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksDependenciesResolver.swift; sourceTree = "<group>"; };
 		39A9636A2989686500F0C055 /* ModuleDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleDependencies.swift; sourceTree = "<group>"; };
+		39A9636D2989B1E300F0C055 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +155,6 @@
 		39A963322988459100F0C055 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				39A963362988462900F0C055 /* Login */,
 				39A963352988461A00F0C055 /* Shop */,
 				39A96334298845AE00F0C055 /* Clients */,
 				39A96333298845A300F0C055 /* Books */,
@@ -194,13 +195,6 @@
 			path = Shop;
 			sourceTree = "<group>";
 		};
-		39A963362988462900F0C055 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
 		39A963472988525900F0C055 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +223,7 @@
 		39A9634C29887DB000F0C055 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				39A9636C2989B1CF00F0C055 /* PopupView */,
 				39A9634D29887DC400F0C055 /* Extensions */,
 			);
 			path = Common;
@@ -260,6 +255,14 @@
 				39A963622989640500F0C055 /* BooksView.swift */,
 			);
 			path = Books;
+			sourceTree = "<group>";
+		};
+		39A9636C2989B1CF00F0C055 /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				39A9636D2989B1E300F0C055 /* PopupView.swift */,
+			);
+			path = PopupView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +356,7 @@
 				39A9635A298909F100F0C055 /* APIErrorResponse.swift in Sources */,
 				39A9634029884FF200F0C055 /* BooksRepository.swift in Sources */,
 				39A963632989640500F0C055 /* BooksView.swift in Sources */,
+				39A9636E2989B1E300F0C055 /* PopupView.swift in Sources */,
 				39A9632E2988449600F0C055 /* Constants.swift in Sources */,
 				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,
 				39A96369298964BF00F0C055 /* BooksDependenciesResolver.swift in Sources */,
