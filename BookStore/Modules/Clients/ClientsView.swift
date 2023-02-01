@@ -11,12 +11,12 @@ struct ClientsView: View {
     @ObservedObject var viewModel: ClientsViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Clients")
     }
 }
 
 struct ClientsView_Previews: PreviewProvider {
     static var previews: some View {
-        ModuleDependencies().clientsView()
+        ModuleDependencies.shared.clientsView()
     }
 }

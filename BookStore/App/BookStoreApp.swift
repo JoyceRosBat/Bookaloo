@@ -9,11 +9,9 @@ import SwiftUI
 
 @main
 struct BookStoreApp: App {
-    var moduleDependencies = ModuleDependencies()
-    
     var body: some Scene {
         WindowGroup {
-            moduleDependencies.booksView()
+            ModuleDependencies.shared.homeView()
         }
     }
 }

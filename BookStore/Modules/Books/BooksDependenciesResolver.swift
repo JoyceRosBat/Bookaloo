@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BooksDependenciesResolver: NetworkDependenciesResolver {
+protocol BooksDependenciesResolver {
     func resolve() -> BooksRepositoryProtocol
     func resolve() -> BooksUseCaseProtocol
     func resolve() -> BooksViewModel

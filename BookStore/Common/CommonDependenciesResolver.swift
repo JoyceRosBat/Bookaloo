@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CommonDependenciesResolver: NetworkDependenciesResolver,
-                                     BooksDependenciesResolver,
-                                     ClientsDependenciesResolver {}
+protocol CommonDependenciesResolver: BooksDependenciesResolver,
+                                     ClientsDependenciesResolver,
+                                     ShopDependenciesResolver {}

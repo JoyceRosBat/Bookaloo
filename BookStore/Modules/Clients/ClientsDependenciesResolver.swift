@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ClientsDependenciesResolver: NetworkDependenciesResolver {
+protocol ClientsDependenciesResolver {
     func resolve() -> ClientsRepositoryProtocol
     func resolve() -> ClientsUseCaseProtocol
     func resolve() -> ClientsViewModel
