@@ -8,7 +8,10 @@
 import Foundation
 
 protocol BooksUseCaseProtocol {
-    func fetchBooks() async throws -> [Book]
+    func fetch() async throws -> [Book]
+    func fetchLatest() async throws -> [Book]
+    func find(startingWith text: String) async throws -> [Book]
+    func fetchAuthors() async throws -> [Author]
 }
 
 final class BooksUseCase: BooksUseCaseProtocol {
@@ -18,7 +21,19 @@ final class BooksUseCase: BooksUseCaseProtocol {
         self.repository = dependencies.resolve()
     }
     
-    func fetchBooks() async throws -> [Book] {
+    func fetch() async throws -> [Book] {
         try await repository.getBooks()
+    }
+    
+    func fetchLatest() async throws -> [Book] {
+        try await repository.getLatestBooks()
+    }
+    
+    func find(startingWith text: String) async throws -> [Book] {
+        try await repository.findBook(with: text)
+    }
+    
+    func fetchAuthors() async throws -> [Author] {
+        try await repository.getAuthors()
     }
 }

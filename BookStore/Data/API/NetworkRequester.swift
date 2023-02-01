@@ -1,5 +1,5 @@
 //
-//  Requester.swift
+//  NetworkRequester.swift
 //  SurpriseBag
 //
 //  Created by Joyce Rosario Batista on 14/01/23.
@@ -7,7 +7,14 @@
 
 import Foundation
 
-final class Requester {
+struct EmptyResponse: Codable {}
+
+protocol NetworkRequesterProtocol {
+    func doRequest<T: Decodable>(request: APIRequest) async throws -> T
+    func doRequest(request: APIRequest) async throws -> EmptyResponse
+}
+
+final class NetworkRequester: NetworkRequesterProtocol {
     func doRequest<T: Decodable>(request: APIRequest) async throws -> T {
         return try await handleRerequest(request: request)
     }
@@ -15,12 +22,9 @@ final class Requester {
     func doRequest(request: APIRequest) async throws -> EmptyResponse {
         try await handleRerequest(request: request)
     }
-    
 }
 
-extension Requester {
-    struct EmptyResponse: Codable {}
-    
+private extension NetworkRequester {
     func handleRerequest<T: Decodable>(request: APIRequest) async throws -> T {
         do {
             let networkRequest = NetworkRequest(apiRequest: request)

@@ -8,4 +8,4 @@
 import Foundation
 
 final class ModuleDependencies {}
-extension ModuleDependencies: BooksDependenciesResolver {}
+extension ModuleDependencies: CommonDependenciesResolver {}

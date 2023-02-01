@@ -8,7 +8,11 @@
 import Foundation
 
 final class ShopRepository: ShopRepositoryProtocol {
-    private let networkRequester = Requester()
+    let networkRequester: NetworkRequesterProtocol
+    
+    init(dependencies: NetworkDependenciesResolver) {
+        self.networkRequester = dependencies.resolve()
+    }
     
     func new(_ order: Order) async throws -> Order {
         let request = ShopRequest.new(order)

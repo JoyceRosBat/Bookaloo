@@ -8,7 +8,11 @@
 import Foundation
 
 final class BooksRepository: BooksRepositoryProtocol {
-    private let networkRequester = Requester()
+    let networkRequester: NetworkRequesterProtocol
+    
+    init(dependencies: NetworkDependenciesResolver) {
+        self.networkRequester = dependencies.resolve()
+    }
     
     func getBooks() async throws -> [Book] {
         let request = BooksRequest.list
@@ -20,7 +24,7 @@ final class BooksRepository: BooksRepositoryProtocol {
         return try await networkRequester.doRequest(request: request)
     }
     
-    func findBook(startingWith text: String) async throws -> [Book] {
+    func findBook(with text: String) async throws -> [Book] {
         let request = BooksRequest.find(text)
         return try await networkRequester.doRequest(request: request)
     }

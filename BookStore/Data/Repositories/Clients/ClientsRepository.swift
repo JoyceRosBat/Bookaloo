@@ -8,7 +8,11 @@
 import Foundation
 
 final class ClientsRepository: ClientsRepositoryProtocol {
-    private let networkRequester = Requester()
+    let networkRequester: NetworkRequesterProtocol
+    
+    init(dependencies: NetworkDependenciesResolver) {
+        self.networkRequester = dependencies.resolve()
+    }
     
     func findClient(by email: String) async throws -> Client {
         let request = ClientRequest.find(email)

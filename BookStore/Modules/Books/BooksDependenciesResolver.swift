@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BooksDependenciesResolver {
+protocol BooksDependenciesResolver: NetworkDependenciesResolver {
     func resolve() -> BooksRepositoryProtocol
     func resolve() -> BooksUseCaseProtocol
     func resolve() -> BooksViewModel
@@ -15,10 +15,6 @@ protocol BooksDependenciesResolver {
 }
 
 extension BooksDependenciesResolver {
-    func resolve() -> BooksRepositoryProtocol {
-        BooksRepository()
-    }
-    
     func resolve() -> BooksUseCaseProtocol {
         BooksUseCase(dependencies: self)
     }

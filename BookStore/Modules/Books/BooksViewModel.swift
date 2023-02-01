@@ -9,7 +9,7 @@ import Foundation
 
 final class BooksViewModel: ObservableObject {
     let dependencies: BooksDependenciesResolver
-    var useCase: BooksUseCaseProtocol {
+    var booksUseCase: BooksUseCaseProtocol {
         dependencies.resolve()
     }
     
@@ -19,7 +19,8 @@ final class BooksViewModel: ObservableObject {
     
     func fetchBooks() {
         Task {
-            try await useCase.fetchBooks()
+            let books = try await booksUseCase.fetch()
+            print(books)
         }
     }
 }
