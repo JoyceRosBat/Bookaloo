@@ -11,7 +11,7 @@ struct NetworkRequest {
     var request: URLRequest
     
     init(apiRequest: APIRequest) {
-        var urlComponents = URLComponents(string: apiRequest.url?.description ?? Constants.urlBase)
+        var urlComponents = URLComponents(string: apiRequest.url?.description ?? NetworkConstants.urlBase)
         let subpath = urlComponents?.path.appending(apiRequest.subPath) ?? ""
         let path = subpath.appending(apiRequest.path)
         

@@ -15,8 +15,13 @@ final class BooksRepository: BooksRepositoryProtocol {
     }
     
     func getBooks() async throws -> [Book] {
+        if let books = Cache.shared.books {
+            return books
+        }
         let request = BooksRequest.list
-        return try await networkRequester.doRequest(request: request)
+        let books = try await networkRequester.doRequest(request: request) as [Book]
+        Cache.shared.books = books
+        return books
     }
     
     func getLatestBooks() async throws -> [Book] {
