@@ -26,7 +26,7 @@ struct PopupView<Content: View>: View {
                 HStack(spacing: 30) {
                     buttons()
                 }
-                .buttonStyle(.miBotonChachi)
+                .buttonStyle(.bookalooStyle)
             }
             .padding()
             .background {

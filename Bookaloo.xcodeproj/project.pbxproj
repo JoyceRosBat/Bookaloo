@@ -47,7 +47,9 @@
 		39A96382298A553000F0C055 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96381298A553000F0C055 /* ShopViewModel.swift */; };
 		39A96385298A554C00F0C055 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96384298A554C00F0C055 /* ShopView.swift */; };
 		39A96387298A573F00F0C055 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96386298A573F00F0C055 /* HomeView.swift */; };
-		39A96ECB298BF13000525E2B /* OrangeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96ECA298BF13000525E2B /* OrangeButtonView.swift */; };
+		39A96ECF298C097100525E2B /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96ECE298C097100525E2B /* Font+Ext.swift */; };
+		39A96ED1298C09AD00525E2B /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96ED0298C09AD00525E2B /* StyleConstants.swift */; };
+		39A96ED3298C09F900525E2B /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96ED2298C09F900525E2B /* Styles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +94,9 @@
 		39A96381298A553000F0C055 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		39A96384298A554C00F0C055 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		39A96386298A573F00F0C055 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		39A96ECA298BF13000525E2B /* OrangeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButtonView.swift; sourceTree = "<group>"; };
+		39A96ECE298C097100525E2B /* Font+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
+		39A96ED0298C09AD00525E2B /* StyleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
+		39A96ED2298C09F900525E2B /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,10 +252,10 @@
 		39A9634C29887DB000F0C055 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				39A96EC9298BF10500525E2B /* BookalooButtonView */,
 				39A9636C2989B1CF00F0C055 /* PopupView */,
 				39A9634D29887DC400F0C055 /* Extensions */,
 				39A96378298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift */,
+				39A96ED4298C0A4200525E2B /* Styles */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -260,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				39A9634E29887DD400F0C055 /* Encodable+Ext.swift */,
+				39A96ECE298C097100525E2B /* Font+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,12 +319,13 @@
 			path = Shop;
 			sourceTree = "<group>";
 		};
-		39A96EC9298BF10500525E2B /* BookalooButtonView */ = {
+		39A96ED4298C0A4200525E2B /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				39A96ECA298BF13000525E2B /* OrangeButtonView.swift */,
+				39A96ED0298C09AD00525E2B /* StyleConstants.swift */,
+				39A96ED2298C09F900525E2B /* Styles.swift */,
 			);
-			path = BookalooButtonView;
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,14 +413,15 @@
 				39A96373298A4EC200F0C055 /* ClientsViewModel.swift in Sources */,
 				39A9633C29884EE800F0C055 /* BooksRepositoryProtocol.swift in Sources */,
 				39A963672989644A00F0C055 /* BooksUseCase.swift in Sources */,
+				39A96ED3298C09F900525E2B /* Styles.swift in Sources */,
 				39A9633E29884FB000F0C055 /* Author.swift in Sources */,
+				39A96ECF298C097100525E2B /* Font+Ext.swift in Sources */,
 				39A96379298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift in Sources */,
 				39A96380298A552300F0C055 /* ShopUseCase.swift in Sources */,
 				39A9632D2988449600F0C055 /* NetworkRequester.swift in Sources */,
 				39A9635129887E3D00F0C055 /* ClientsRepositoryProtocol.swift in Sources */,
 				39A963182988443F00F0C055 /* BookalooApp.swift in Sources */,
 				39A9634F29887DD400F0C055 /* Encodable+Ext.swift in Sources */,
-				39A96ECB298BF13000525E2B /* OrangeButtonView.swift in Sources */,
 				39A9635A298909F100F0C055 /* APIErrorResponse.swift in Sources */,
 				39A96377298A4F2200F0C055 /* ClientsDependenciesResolver.swift in Sources */,
 				39A9634029884FF200F0C055 /* BooksRepository.swift in Sources */,
@@ -430,6 +437,7 @@
 				39A9637B298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift in Sources */,
 				39A963652989641900F0C055 /* BooksViewModel.swift in Sources */,
 				39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */,
+				39A96ED1298C09AD00525E2B /* StyleConstants.swift in Sources */,
 				39A96387298A573F00F0C055 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
