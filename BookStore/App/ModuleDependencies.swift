@@ -14,6 +14,10 @@ final class ModuleDependencies {
     func homeView() -> HomeView {
         HomeView()
     }
+    
+    func resolve() -> NetworkRequesterProtocol {
+        NetworkRequester()
+    }
 }
-extension ModuleDependencies: CommonDependenciesResolver {}
-extension ModuleDependencies: NetworkDependenciesResolver {}
+extension ModuleDependencies: CommonModulesDependenciesResolver {}
+extension ModuleDependencies: NetworkRepositoryDependenciesResolver {}

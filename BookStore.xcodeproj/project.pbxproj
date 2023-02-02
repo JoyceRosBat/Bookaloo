@@ -40,8 +40,8 @@
 		39A96373298A4EC200F0C055 /* ClientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96372298A4EC200F0C055 /* ClientsViewModel.swift */; };
 		39A96375298A4EFF00F0C055 /* ClientsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96374298A4EFF00F0C055 /* ClientsUseCase.swift */; };
 		39A96377298A4F2200F0C055 /* ClientsDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96376298A4F2200F0C055 /* ClientsDependenciesResolver.swift */; };
-		39A96379298A4F3D00F0C055 /* CommonDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96378298A4F3D00F0C055 /* CommonDependenciesResolver.swift */; };
-		39A9637B298A50F500F0C055 /* NetworkDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9637A298A50F500F0C055 /* NetworkDependenciesResolver.swift */; };
+		39A96379298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96378298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift */; };
+		39A9637B298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9637A298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift */; };
 		39A9637E298A550300F0C055 /* ShopDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9637D298A550300F0C055 /* ShopDependenciesResolver.swift */; };
 		39A96380298A552300F0C055 /* ShopUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A9637F298A552300F0C055 /* ShopUseCase.swift */; };
 		39A96382298A553000F0C055 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96381298A553000F0C055 /* ShopViewModel.swift */; };
@@ -84,8 +84,8 @@
 		39A96372298A4EC200F0C055 /* ClientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewModel.swift; sourceTree = "<group>"; };
 		39A96374298A4EFF00F0C055 /* ClientsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsUseCase.swift; sourceTree = "<group>"; };
 		39A96376298A4F2200F0C055 /* ClientsDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsDependenciesResolver.swift; sourceTree = "<group>"; };
-		39A96378298A4F3D00F0C055 /* CommonDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDependenciesResolver.swift; sourceTree = "<group>"; };
-		39A9637A298A50F500F0C055 /* NetworkDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDependenciesResolver.swift; sourceTree = "<group>"; };
+		39A96378298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModulesDependenciesResolver.swift; sourceTree = "<group>"; };
+		39A9637A298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepositoryDependenciesResolver.swift; sourceTree = "<group>"; };
 		39A9637D298A550300F0C055 /* ShopDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDependenciesResolver.swift; sourceTree = "<group>"; };
 		39A9637F298A552300F0C055 /* ShopUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopUseCase.swift; sourceTree = "<group>"; };
 		39A96381298A553000F0C055 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		39A963322988459100F0C055 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				39A9637A298A50F500F0C055 /* NetworkDependenciesResolver.swift */,
+				39A9637A298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift */,
 				39A963352988461A00F0C055 /* Shop */,
 				39A96334298845AE00F0C055 /* Clients */,
 				39A96333298845A300F0C055 /* Books */,
@@ -248,7 +248,7 @@
 			children = (
 				39A9636C2989B1CF00F0C055 /* PopupView */,
 				39A9634D29887DC400F0C055 /* Extensions */,
-				39A96378298A4F3D00F0C055 /* CommonDependenciesResolver.swift */,
+				39A96378298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -397,7 +397,7 @@
 				39A9633C29884EE800F0C055 /* BooksRepositoryProtocol.swift in Sources */,
 				39A963672989644A00F0C055 /* BooksUseCase.swift in Sources */,
 				39A9633E29884FB000F0C055 /* Author.swift in Sources */,
-				39A96379298A4F3D00F0C055 /* CommonDependenciesResolver.swift in Sources */,
+				39A96379298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift in Sources */,
 				39A96380298A552300F0C055 /* ShopUseCase.swift in Sources */,
 				39A9632D2988449600F0C055 /* NetworkRequester.swift in Sources */,
 				39A9635129887E3D00F0C055 /* ClientsRepositoryProtocol.swift in Sources */,
@@ -415,7 +415,7 @@
 				39A9635329887F6F00F0C055 /* ClientsRepository.swift in Sources */,
 				39A96382298A553000F0C055 /* ShopViewModel.swift in Sources */,
 				39A96385298A554C00F0C055 /* ShopView.swift in Sources */,
-				39A9637B298A50F500F0C055 /* NetworkDependenciesResolver.swift in Sources */,
+				39A9637B298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift in Sources */,
 				39A963652989641900F0C055 /* BooksViewModel.swift in Sources */,
 				39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */,
 				39A96387298A573F00F0C055 /* HomeView.swift in Sources */,

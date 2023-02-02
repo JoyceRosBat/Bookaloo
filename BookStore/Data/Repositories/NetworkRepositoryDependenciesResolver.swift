@@ -1,5 +1,5 @@
 //
-//  NetworkDependenciesResolver.swift
+//  NetworkRepositoryDependenciesResolver.swift
 //  BookStore
 //
 //  Created by Joyce Rosario Batista on 1/2/23.
@@ -7,18 +7,14 @@
 
 import Foundation
 
-protocol NetworkDependenciesResolver {
+protocol NetworkRepositoryDependenciesResolver {
     func resolve() -> NetworkRequesterProtocol
     func resolve() -> BooksRepositoryProtocol
     func resolve() -> ClientsRepositoryProtocol
     func resolve() -> ShopRepositoryProtocol
 }
 
-extension NetworkDependenciesResolver {
-    func resolve() -> NetworkRequesterProtocol {
-        NetworkRequester()
-    }
-    
+extension NetworkRepositoryDependenciesResolver {
     func resolve() -> BooksRepositoryProtocol {
         BooksRepository(dependencies: self)
     }

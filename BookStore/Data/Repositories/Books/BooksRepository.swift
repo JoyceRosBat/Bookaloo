@@ -10,7 +10,7 @@ import Foundation
 final class BooksRepository: BooksRepositoryProtocol {
     let networkRequester: NetworkRequesterProtocol
     
-    init(dependencies: NetworkDependenciesResolver) {
+    init(dependencies: NetworkRepositoryDependenciesResolver) {
         self.networkRequester = dependencies.resolve()
     }
     
