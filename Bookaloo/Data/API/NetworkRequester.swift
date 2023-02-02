@@ -7,8 +7,6 @@
 
 import Foundation
 
-struct EmptyResponse: Codable {}
-
 protocol NetworkRequesterProtocol {
     func doRequest<T: Decodable>(request: APIRequest) async throws -> T
     func doRequest(request: APIRequest) async throws -> EmptyResponse

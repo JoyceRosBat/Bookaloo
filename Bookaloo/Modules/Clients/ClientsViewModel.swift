@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ClientsViewModel: ObservableObject {
+final class ClientsViewModel: ObservableBaseViewModel {
     let dependencies: ClientsDependenciesResolver
     var clientsUseCase: ClientsUseCaseProtocol {
         dependencies.resolve()

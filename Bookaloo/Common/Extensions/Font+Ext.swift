@@ -8,5 +8,7 @@
 import SwiftUI
 
 extension Font {
-    static let futura = Font.custom("Futura", size: 24, relativeTo: .title)
+    static func futura(_ size: CGFloat = 16) -> Font {
+        .custom("Futura", size: size, relativeTo: .title)
+    }
 }

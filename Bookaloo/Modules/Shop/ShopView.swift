@@ -11,7 +11,11 @@ struct ShopView: View {
     @ObservedObject var viewModel: ShopViewModel
     
     var body: some View {
-        Text("Shop")
+        BaseViewContent(viewModel: viewModel) {
+            VStack {
+                Text("Shop")
+            }
+        }
     }
 }
 

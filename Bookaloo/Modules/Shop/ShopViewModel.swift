@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ShopViewModel: ObservableObject {
+final class ShopViewModel: ObservableBaseViewModel {
     let dependencies: ShopDependenciesResolver
     var shopUseCase: ShopUseCaseProtocol {
         dependencies.resolve()

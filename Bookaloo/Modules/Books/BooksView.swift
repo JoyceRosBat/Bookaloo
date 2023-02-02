@@ -11,17 +11,18 @@ struct BooksView: View {
     @ObservedObject var viewModel: BooksViewModel
     
     var body: some View {
-        VStack {
-            Text("Books")
-            Button(action: {
-                
-            }, label: {
-                Text("Botón")
-            })
-            .buttonStyle(.bookalooStyle)
-        }
-        .onAppear {
-            viewModel.fetchBooks()
+        BaseViewContent(viewModel: viewModel) {
+            VStack {
+                Text("Books")
+                Button(action: {
+                    withAnimation{
+                        viewModel.showAlert.toggle()
+                    }
+                }, label: {
+                    Text("Botón")
+                })
+                .buttonStyle(.bookalooStyle)
+            }
         }
     }
 }

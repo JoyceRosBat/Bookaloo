@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class BooksViewModel: ObservableObject {
+final class BooksViewModel: ObservableBaseViewModel {
     let dependencies: BooksDependenciesResolver
     var booksUseCase: BooksUseCaseProtocol {
         dependencies.resolve()
@@ -17,10 +17,14 @@ final class BooksViewModel: ObservableObject {
         self.dependencies = dependencies
     }
     
-    func fetchBooks() {
+    override func onAppear() {
         Task {
-            let books = try await booksUseCase.fetch()
-            print(books)
+            do {
+                let books = try await booksUseCase.fetch()
+                print(books)
+            } catch let error as NetworkError {
+                await showError(error)
+            }
         }
     }
 }

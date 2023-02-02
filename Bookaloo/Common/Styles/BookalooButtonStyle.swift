@@ -1,5 +1,5 @@
 //
-//  Styles.swift
+//  BookalooButtonStyle.swift
 //  Bookaloo
 //
 //  Created by Joyce Rosario Batista on 2/2/23.
@@ -10,7 +10,7 @@ import SwiftUI
 struct BookalooButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.futura)
+            .font(.futura())
             .foregroundStyle(StyleConstants.bookalooGradient)
             .padding()
             .background {

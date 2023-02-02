@@ -31,6 +31,7 @@ struct HomeView: View {
                 Label("Shop", systemImage: "cart")
             }
         }
+//        .toolbarColorScheme(.light, for: .tabBar)
     }
 }
 

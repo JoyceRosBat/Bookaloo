@@ -21,17 +21,19 @@ struct PopupView<Content: View>: View {
             VStack(spacing: 20) {
                 Text(title)
                     .font(.headline)
+                    .padding()
                 Text(message)
-                    .font(.caption)
+                    .font(.body)
                 HStack(spacing: 30) {
                     buttons()
                 }
+                .padding()
                 .buttonStyle(.bookalooStyle)
             }
             .padding()
             .background {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.white)
+                    .fill(Color.backgroundColor)
                     .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
             }
             .opacity(showAlert ? 1 : 0)

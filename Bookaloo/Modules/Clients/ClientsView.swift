@@ -11,7 +11,11 @@ struct ClientsView: View {
     @ObservedObject var viewModel: ClientsViewModel
     
     var body: some View {
-        Text("Clients")
+        BaseViewContent(viewModel: viewModel) {
+            VStack {
+                Text("Clients")
+            }
+        }
     }
 }
 
