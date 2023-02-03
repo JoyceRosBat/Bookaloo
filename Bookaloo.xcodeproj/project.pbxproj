@@ -58,6 +58,15 @@
 		39A96EED298C3CB800525E2B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96EEC298C3CB800525E2B /* Storage.swift */; };
 		39A96EF0298C449100525E2B /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96EEF298C449100525E2B /* StorageKeys.swift */; };
 		39A96EF2298C44B800525E2B /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96EF1298C44B800525E2B /* KeychainConfiguration.swift */; };
+		39A96F0A298D94B000525E2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F09298D94B000525E2B /* User.swift */; };
+		39A96F0F298D950D00525E2B /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F0E298D950D00525E2B /* LoginRequest.swift */; };
+		39A96F11298D951E00525E2B /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F10298D951E00525E2B /* LoginRepositoryProtocol.swift */; };
+		39A96F13298D952D00525E2B /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F12298D952D00525E2B /* LoginRepository.swift */; };
+		39A96F15298D96FD00525E2B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F14298D96FD00525E2B /* LoginView.swift */; };
+		39A96F18298D974400525E2B /* LoginDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F17298D974400525E2B /* LoginDependenciesResolver.swift */; };
+		39A96F1A298D975300525E2B /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F19298D975300525E2B /* LoginUseCase.swift */; };
+		39A96F1C298D976100525E2B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F1B298D976100525E2B /* LoginViewModel.swift */; };
+		39A96F1E298D9BEE00525E2B /* BookalooTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F1D298D9BEE00525E2B /* BookalooTextfield.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +122,15 @@
 		39A96EEC298C3CB800525E2B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		39A96EEF298C449100525E2B /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
 		39A96EF1298C44B800525E2B /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		39A96F09298D94B000525E2B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		39A96F0E298D950D00525E2B /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		39A96F10298D951E00525E2B /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
+		39A96F12298D952D00525E2B /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		39A96F14298D96FD00525E2B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		39A96F17298D974400525E2B /* LoginDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependenciesResolver.swift; sourceTree = "<group>"; };
+		39A96F19298D975300525E2B /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		39A96F1B298D976100525E2B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		39A96F1D298D9BEE00525E2B /* BookalooTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookalooTextfield.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +194,8 @@
 		39A96330298844B100F0C055 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				39A96F16298D971E00525E2B /* Home */,
+				39A96F07298D947F00525E2B /* Login */,
 				39A9637C298A54EF00F0C055 /* Shop */,
 				39A9636F298A4EA200F0C055 /* Clients */,
 				39A96361298963F300F0C055 /* Books */,
@@ -196,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				39A96EE2298C3ABB00525E2B /* Dependencies */,
+				39A96F08298D948E00525E2B /* Login */,
 				39A963352988461A00F0C055 /* Shop */,
 				39A96334298845AE00F0C055 /* Clients */,
 				39A96333298845A300F0C055 /* Books */,
@@ -261,12 +282,11 @@
 		39A9634C29887DB000F0C055 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				39A9636C2989B1CF00F0C055 /* PopupView */,
 				39A9634D29887DC400F0C055 /* Extensions */,
 				39A96ED4298C0A4200525E2B /* Styles */,
 				39A96EDB298C187700525E2B /* Dependencies */,
 				39A96EDC298C188300525E2B /* ViewModel */,
-				39A96EDD298C188C00525E2B /* BaseView */,
+				39A96EDD298C188C00525E2B /* ViewComponents */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -300,14 +320,6 @@
 				39A963622989640500F0C055 /* BooksView.swift */,
 			);
 			path = Books;
-			sourceTree = "<group>";
-		};
-		39A9636C2989B1CF00F0C055 /* PopupView */ = {
-			isa = PBXGroup;
-			children = (
-				39A9636D2989B1E300F0C055 /* PopupView.swift */,
-			);
-			path = PopupView;
 			sourceTree = "<group>";
 		};
 		39A9636F298A4EA200F0C055 /* Clients */ = {
@@ -357,13 +369,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		39A96EDD298C188C00525E2B /* BaseView */ = {
+		39A96EDD298C188C00525E2B /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				39A9636D2989B1E300F0C055 /* PopupView.swift */,
 				39A96ED9298C186400525E2B /* BaseViewContent.swift */,
-				39A96386298A573F00F0C055 /* HomeView.swift */,
+				39A96F1D298D9BEE00525E2B /* BookalooTextfield.swift */,
 			);
-			path = BaseView;
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 		39A96EE2298C3ABB00525E2B /* Dependencies */ = {
@@ -464,6 +477,60 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		39A96F07298D947F00525E2B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				39A96F17298D974400525E2B /* LoginDependenciesResolver.swift */,
+				39A96F19298D975300525E2B /* LoginUseCase.swift */,
+				39A96F1B298D976100525E2B /* LoginViewModel.swift */,
+				39A96F14298D96FD00525E2B /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		39A96F08298D948E00525E2B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				39A96F0B298D94B800525E2B /* Entity */,
+				39A96F0C298D94E700525E2B /* Request */,
+				39A96F0D298D94F000525E2B /* Repository */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		39A96F0B298D94B800525E2B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				39A96F09298D94B000525E2B /* User.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		39A96F0C298D94E700525E2B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				39A96F0E298D950D00525E2B /* LoginRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		39A96F0D298D94F000525E2B /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				39A96F10298D951E00525E2B /* LoginRepositoryProtocol.swift */,
+				39A96F12298D952D00525E2B /* LoginRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		39A96F16298D971E00525E2B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				39A96386298A573F00F0C055 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -550,8 +617,14 @@
 				39A96373298A4EC200F0C055 /* ClientsViewModel.swift in Sources */,
 				39A96ED8298C17CD00525E2B /* ObservableBaseViewModel.swift in Sources */,
 				39A9633C29884EE800F0C055 /* BooksRepositoryProtocol.swift in Sources */,
+				39A96F18298D974400525E2B /* LoginDependenciesResolver.swift in Sources */,
+				39A96F1C298D976100525E2B /* LoginViewModel.swift in Sources */,
 				39A963672989644A00F0C055 /* BooksUseCase.swift in Sources */,
+				39A96F13298D952D00525E2B /* LoginRepository.swift in Sources */,
 				39A96ED3298C09F900525E2B /* BookalooButtonStyle.swift in Sources */,
+				39A96F1E298D9BEE00525E2B /* BookalooTextfield.swift in Sources */,
+				39A96F0F298D950D00525E2B /* LoginRequest.swift in Sources */,
+				39A96F11298D951E00525E2B /* LoginRepositoryProtocol.swift in Sources */,
 				39A9633E29884FB000F0C055 /* Author.swift in Sources */,
 				39A96EF2298C44B800525E2B /* KeychainConfiguration.swift in Sources */,
 				39A96ECF298C097100525E2B /* Font+Ext.swift in Sources */,
@@ -562,12 +635,14 @@
 				39A963182988443F00F0C055 /* BookalooApp.swift in Sources */,
 				39A9634F29887DD400F0C055 /* Encodable+Ext.swift in Sources */,
 				39A9635A298909F100F0C055 /* APIErrorResponse.swift in Sources */,
+				39A96F0A298D94B000525E2B /* User.swift in Sources */,
 				39A96377298A4F2200F0C055 /* ClientsDependenciesResolver.swift in Sources */,
 				39A9634029884FF200F0C055 /* BooksRepository.swift in Sources */,
 				39A963632989640500F0C055 /* BooksView.swift in Sources */,
 				39A96EDF298C1EFA00525E2B /* Color+Ext.swift in Sources */,
 				39A96EDA298C186400525E2B /* BaseViewContent.swift in Sources */,
 				39A9636E2989B1E300F0C055 /* PopupView.swift in Sources */,
+				39A96F1A298D975300525E2B /* LoginUseCase.swift in Sources */,
 				39A9632E2988449600F0C055 /* NetworkConstants.swift in Sources */,
 				39A96371298A4EB300F0C055 /* ClientsView.swift in Sources */,
 				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,
@@ -578,6 +653,7 @@
 				39A96ED6298C10CC00525E2B /* EmptyResponse.swift in Sources */,
 				39A9637B298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift in Sources */,
 				39A963652989641900F0C055 /* BooksViewModel.swift in Sources */,
+				39A96F15298D96FD00525E2B /* LoginView.swift in Sources */,
 				39A96EED298C3CB800525E2B /* Storage.swift in Sources */,
 				39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */,
 				39A96EF0298C449100525E2B /* StorageKeys.swift in Sources */,

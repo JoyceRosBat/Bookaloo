@@ -12,7 +12,8 @@ protocol ViewModelProtocol {
     var alertTitle: String { get nonmutating set  }
     var alertMessage: String { get nonmutating set  }
     
-    func showError(_ error: NetworkError) async
+    func showNetworkError(_ error: NetworkError)
+    func showError(with title: String, message: String)
     func onAppear()
 }
 
@@ -22,19 +23,29 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     @Published var alertMessage: String = ""
     
     func onAppear() {}
-    func showError(_ error: NetworkError) async {
-        await MainActor.run {
-            switch error {
-            case .apiError(let aPIErrorResponse):
-                alertTitle = "Oops... Algo ha salido mal"
-                alertMessage = aPIErrorResponse.reason
+    func showNetworkError(_ error: NetworkError) {
+        Task {
+            await MainActor.run {
+                switch error {
+                case .apiError(let aPIErrorResponse):
+                    alertTitle = "Oops... Algo ha salido mal"
+                    alertMessage = aPIErrorResponse.reason
+                    showAlert = true
+                default:
+                    alertTitle = "Oops... Algo ha salido mal"
+                    alertMessage = "Inténtelo de nuevo más tarde"
+                    showAlert = true
+                }
+            }
+        }
+    }
+    
+    func showError(with title: String, message: String) {
+        Task {
+            await MainActor.run {
+                alertTitle = title
+                alertMessage = message
                 showAlert = true
-                print("")
-            default:
-                alertTitle = "Oops... Algo ha salido mal"
-                alertMessage = "Inténtelo de nuevo más tarde"
-                showAlert = true
-                print("")
             }
         }
     }

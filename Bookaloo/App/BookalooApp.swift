@@ -12,7 +12,7 @@ struct BookalooApp: App {
     let moduleDependencies = ModuleDependencies()
     var body: some Scene {
         WindowGroup {
-            moduleDependencies.homeView()
+            moduleDependencies.loginView()
         }
     }
 }

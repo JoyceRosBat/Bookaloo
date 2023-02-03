@@ -23,7 +23,7 @@ final class BooksViewModel: ObservableBaseViewModel {
                 let books = try await booksUseCase.fetch()
                 print(books)
             } catch let error as NetworkError {
-                await showError(error)
+                showNetworkError(error)
             }
         }
     }
