@@ -29,6 +29,6 @@ struct BooksView: View {
 
 struct BooksView_Previews: PreviewProvider {
     static var previews: some View {
-        ModuleDependencies.shared.booksView()
+        ModuleDependencies().booksView()
     }
 }

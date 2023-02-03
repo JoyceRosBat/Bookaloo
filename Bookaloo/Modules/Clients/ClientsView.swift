@@ -21,6 +21,6 @@ struct ClientsView: View {
 
 struct ClientsView_Previews: PreviewProvider {
     static var previews: some View {
-        ModuleDependencies.shared.clientsView()
+        ModuleDependencies().clientsView()
     }
 }

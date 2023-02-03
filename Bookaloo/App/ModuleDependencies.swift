@@ -8,11 +8,8 @@
 import Foundation
 
 final class ModuleDependencies {
-    static let shared: ModuleDependencies = ModuleDependencies()
-    private init() {}
-    
     func homeView() -> HomeView {
-        HomeView()
+        HomeView(dependencies: self)
     }
     
     func resolve() -> NetworkRequesterProtocol {

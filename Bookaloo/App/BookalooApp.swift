@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct BookalooApp: App {
+    let moduleDependencies = ModuleDependencies()
     var body: some Scene {
         WindowGroup {
-            ModuleDependencies.shared.homeView()
+            moduleDependencies.homeView()
         }
     }
 }

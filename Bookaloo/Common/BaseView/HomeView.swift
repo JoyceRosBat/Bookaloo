@@ -8,24 +8,34 @@
 import SwiftUI
 
 struct HomeView: View {
+    let dependencies: CommonModulesDependenciesResolver
+    var booksView: BooksView {
+        dependencies.booksView()
+    }
+    var clientsView : ClientsView { dependencies.clientsView()
+    }
+    var shopView: ShopView {
+        dependencies.shopView()
+    }
+    
     var body: some View {
         TabView {
             NavigationStack {
-                ModuleDependencies.shared.booksView()
+                booksView
             }
             .tabItem {
                 Label("Books", systemImage: "book")
             }
             
             NavigationStack {
-                ModuleDependencies.shared.clientsView()
+                clientsView
             }
             .tabItem {
                 Label("Clients", systemImage: "person")
             }
             
             NavigationStack {
-                ModuleDependencies.shared.shopView()
+                shopView
             }
             .tabItem {
                 Label("Shop", systemImage: "cart")
@@ -37,6 +47,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(dependencies: ModuleDependencies())
     }
 }
