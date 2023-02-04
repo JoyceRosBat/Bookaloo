@@ -67,6 +67,7 @@
 		39A96F1A298D975300525E2B /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F19298D975300525E2B /* LoginUseCase.swift */; };
 		39A96F1C298D976100525E2B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F1B298D976100525E2B /* LoginViewModel.swift */; };
 		39A96F1E298D9BEE00525E2B /* BookalooTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F1D298D9BEE00525E2B /* BookalooTextfield.swift */; };
+		39A96F24298E64E400525E2B /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F23298E64E400525E2B /* LoginScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		39A96F19298D975300525E2B /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		39A96F1B298D976100525E2B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		39A96F1D298D9BEE00525E2B /* BookalooTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookalooTextfield.swift; sourceTree = "<group>"; };
+		39A96F23298E64E400525E2B /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,6 +486,7 @@
 				39A96F19298D975300525E2B /* LoginUseCase.swift */,
 				39A96F1B298D976100525E2B /* LoginViewModel.swift */,
 				39A96F14298D96FD00525E2B /* LoginView.swift */,
+				39A96F23298E64E400525E2B /* LoginScreenView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 			files = (
 				39A96EE1298C356400525E2B /* Cache.swift in Sources */,
 				39A963462988524B00F0C055 /* ClientRequest.swift in Sources */,
+				39A96F24298E64E400525E2B /* LoginScreenView.swift in Sources */,
 				39A9632B2988449600F0C055 /* NetworkError.swift in Sources */,
 				39A9632F2988449700F0C055 /* APIRequest.swift in Sources */,
 				39A9632C2988449600F0C055 /* NetworkRequest.swift in Sources */,

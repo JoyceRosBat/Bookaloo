@@ -10,8 +10,9 @@ import Foundation
 protocol LoginDependenciesResolver {
     func resolve() -> LoginRepositoryProtocol
     func resolve() -> LoginUseCaseProtocol
-    func resolve() -> LoginViewModel
+    func loginViewModel() -> LoginViewModel
     func loginView() -> LoginView
+    func loginScreenView() -> LoginScreenView
     func homeView() -> HomeView
 }
 
@@ -20,11 +21,15 @@ extension LoginDependenciesResolver {
         LoginUseCase(dependencies: self)
     }
     
-    func resolve() -> LoginViewModel {
+    func loginViewModel() -> LoginViewModel {
         LoginViewModel(dependencies: self)
     }
     
+    func loginScreenView() -> LoginScreenView {
+        LoginScreenView()
+    }
+    
     func loginView() -> LoginView {
-        LoginView(dependencies: self, viewModel: resolve())
+        LoginView(dependencies: self)
     }
 }

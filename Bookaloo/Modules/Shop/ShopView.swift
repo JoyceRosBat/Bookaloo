@@ -21,6 +21,6 @@ struct ShopView: View {
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        ModuleDependencies().shopView()
+        ModuleDependencies.shared.shopView()
     }
 }

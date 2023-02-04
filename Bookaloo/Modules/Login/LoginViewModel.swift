@@ -21,10 +21,9 @@ final class LoginViewModel: ObservableBaseViewModel {
     }
     
     func doLogin() {
-        guard !email.isEmpty,
-              !password.isEmpty
-        else {
-            showError(with: "Ha ocurrido un error", message: "Debe introducir datos de usuario y contraseña")
+        guard !email.isEmpty, !password.isEmpty else {
+            showError(with: "Ha ocurrido un error",
+                      message: "Debe introducir datos de usuario y contraseña")
             return
         }
         Task { [weak self] in

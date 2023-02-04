@@ -40,7 +40,7 @@ struct BaseViewContent<Content: View>: View {
 struct BaseViewContent_Previews: PreviewProvider {
     static var previews: some View {
         BaseViewContent(viewModel: ObservableBaseViewModel(), content: {
-            ModuleDependencies().booksView()
+            ModuleDependencies.shared.booksView()
         })
     }
 }

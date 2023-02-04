@@ -8,6 +8,8 @@
 import Foundation
 
 final class ModuleDependencies {
+    static let shared = ModuleDependencies()
+    private init() {}
     func homeView() -> HomeView {
         HomeView(dependencies: self)
     }
