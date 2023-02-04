@@ -12,13 +12,16 @@ struct BookalooButton: ButtonStyle {
         configuration.label
             .font(StyleConstants.bookalooFont)
             .foregroundStyle(StyleConstants.bookalooGradient)
-            .padding()
+            .padding(.top, 10)
+            .padding(.bottom, 10)
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
             .background {
-                RoundedRectangle(cornerRadius: 32)
+                RoundedRectangle(cornerRadius: 24)
                     .fill(StyleConstants.blackGradient)
             }
             .overlay {
-                RoundedRectangle(cornerRadius: 32, style: .continuous)
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
                     .stroke(StyleConstants.bookalooGradient, lineWidth: 5)
             }
             .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)

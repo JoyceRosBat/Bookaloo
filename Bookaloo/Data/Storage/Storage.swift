@@ -21,7 +21,7 @@ class Storage {
         }
     }
 
-    func get<T: Codable>(key: StorageKeys, of type: T.Type) -> T? {
+    func get<T: Codable>(key: StorageKeys, type: T.Type) -> T? {
         guard let data = read(key) else {
             return nil
         }

@@ -17,6 +17,11 @@ final class LoginRepository: LoginRepositoryProtocol {
     func validate(_ user: User) async throws -> User {
         let request = LoginRequest.validate(user)
 //        return try await networkRequester.doRequest(request: request)
-        return User(email: "joyce.rosbat@gmail.com", token: "test.auth.token")
+        return User(
+            email: "joyce.rosbat@gmail.com",
+            name: "Joyce Rosario Batista",
+            role: .admin,
+            token: "test.auth.token.bookaloo"
+        )
     }
 }

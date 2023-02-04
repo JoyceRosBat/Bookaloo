@@ -8,32 +8,37 @@
 import Foundation
 
 protocol ViewModelProtocol {
-    var showAlert: Bool { get nonmutating set }
-    var alertTitle: String { get nonmutating set  }
-    var alertMessage: String { get nonmutating set  }
-    
     func showNetworkError(_ error: NetworkError)
     func showError(with title: String, message: String)
     func onAppear()
 }
 
 class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
+    @Published var showLoading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertTitle: String = ""
     @Published var alertMessage: String = ""
+    @Published var showError: Bool = false
+    var user: User? {
+        Storage.shared.get(key: .user, type: User.self)
+    }
+    var loggedIn: Bool {
+        user?.token != nil
+    }
     
     func onAppear() {}
     func showNetworkError(_ error: NetworkError) {
+        showLoading = false
         Task {
             await MainActor.run {
                 switch error {
                 case .apiError(let aPIErrorResponse):
-                    alertTitle = "Oops... Algo ha salido mal"
+                    alertTitle = "Oops... Something went wrong"
                     alertMessage = aPIErrorResponse.reason
                     showAlert = true
                 default:
-                    alertTitle = "Oops... Algo ha salido mal"
-                    alertMessage = "Inténtelo de nuevo más tarde"
+                    alertTitle = "Oops... Something went wrong"
+                    alertMessage = "Try again later..."
                     showAlert = true
                 }
             }
@@ -43,10 +48,18 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     func showError(with title: String, message: String) {
         Task {
             await MainActor.run {
+                showLoading = false
                 alertTitle = title
                 alertMessage = message
-                showAlert = true
+                showError = true
             }
         }
+    }
+    
+    func doLogout() {
+        showLoading = true
+        Storage.shared.cleanAll()
+        Cache.shared.clean()
+        showLoading = false
     }
 }

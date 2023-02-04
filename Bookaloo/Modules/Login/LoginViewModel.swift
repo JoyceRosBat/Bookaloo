@@ -10,7 +10,8 @@ import Foundation
 final class LoginViewModel: ObservableBaseViewModel {
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var loggedIn: Bool = false
+    @Published var validEmail: Bool? = true
+    @Published var validPassword: Bool? = true
     let dependencies: LoginDependenciesResolver
     var loginUseCase: LoginUseCaseProtocol {
         dependencies.resolve()
@@ -21,23 +22,29 @@ final class LoginViewModel: ObservableBaseViewModel {
     }
     
     func doLogin() {
-        guard !email.isEmpty, !password.isEmpty else {
-            showError(with: "Ha ocurrido un error",
-                      message: "Debe introducir datos de usuario y contraseña")
-            return
-        }
-        Task { [weak self] in
-            guard let self = self else { return }
-            do {
-                let user = User(email: self.email, password: self.password)
-                let validated = try await self.loginUseCase.validate(user)
-                Storage.shared.save(validated.email, key: .email)
-                Storage.shared.save(validated.token, key: .token)
-                await MainActor.run {
-                    self.loggedIn = true
+        validEmail = email.isValidEmail
+        validPassword = password.count > 8
+        
+        guard validEmail == true, validPassword == true else { return }
+        showLoading = true
+        //TODO: Remove async after. This is to sulate a waitint time to log in:
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            Task { [weak self] in
+                guard let self = self else { return }
+                do {
+                    let user = User(email: self.email, password: self.password)
+                    let validated = try await self.loginUseCase.validate(user)
+                    
+                    Storage.shared.save(validated, key: .user)
+                    
+                    await MainActor.run {
+                        self.showLoading = false
+                        self.email = ""
+                        self.password = ""
+                    }
+                } catch let error as NetworkError {
+                    self.showNetworkError(error)
                 }
-            } catch let error as NetworkError {
-                showNetworkError(error)
             }
         }
     }

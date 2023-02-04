@@ -9,8 +9,10 @@ import SwiftUI
 
 struct BookalooTextfield: View {
     enum Style {
-        case plain
+        case normal
         case secure
+        case email
+        case numeric
     }
     
     enum Orientation {
@@ -20,8 +22,9 @@ struct BookalooTextfield: View {
     
     @State var title: String
     @Binding var textfieldText: String
+    @Binding var valid: Bool?
     @State var placeHolder: String
-    @State var orientation: Orientation = .horizontal(.plain)
+    @State var orientation: Orientation = .horizontal(.normal)
     @State private var isSecure: Bool = true
     
     var body: some View {
@@ -34,7 +37,7 @@ struct BookalooTextfield: View {
 
 private extension BookalooTextfield {
     @ViewBuilder
-    var bodyView: some View {
+    var normalTextView: some View {
             Text(title)
             .font(StyleConstants.bookalooFont)
             
@@ -42,29 +45,86 @@ private extension BookalooTextfield {
                 Text(placeHolder)
                     .font(StyleConstants.bookalooFont)
             }
+            .cornerRadius(8)
             .multilineTextAlignment(.center)
             .textFieldStyle(.roundedBorder)
+            .background(Color.textFieldBackgroundColor)
     }
     
     @ViewBuilder
-    var secureBodyView: some View {
+    var emailTextView: some View {
+            Text(title)
+            .font(StyleConstants.bookalooFont)
+        
+        VStack(alignment: .leading) {
+            TextField(text: $textfieldText) {
+                Text(placeHolder)
+                    .font(StyleConstants.bookalooFont)
+            }
+            .multilineTextAlignment(.center)
+            .textFieldStyle(.roundedBorder)
+            .textContentType(.username)
+            .autocorrectionDisabled()
+            .textInputAutocapitalization(.never)
+            .keyboardType(.emailAddress)
+            .background(Color.textFieldBackgroundColor)
+            
+            if let valid, !valid {
+                Text("* The email has not correct format.\nExample: something@email.com")
+                    .font(.futura(10))
+                    .foregroundColor(.red)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var numericTextView: some View {
+            Text(title)
+            .font(StyleConstants.bookalooFont)
+        
+            TextField(text: $textfieldText) {
+                Text(placeHolder)
+                    .font(StyleConstants.bookalooFont)
+            }
+            .multilineTextAlignment(.center)
+            .textFieldStyle(.roundedBorder)
+            .keyboardType(.numberPad)
+            .background(Color.textFieldBackgroundColor)
+    }
+    
+    @ViewBuilder
+    var secureTextView: some View {
         Text(title)
         .font(StyleConstants.bookalooFont)
 
         ZStack(alignment: .trailing) {
             Group {
-                if isSecure {
-                    SecureField(placeHolder, text: $textfieldText)
-                        .font(StyleConstants.bookalooFont)
+                VStack(alignment: .leading) {
+                    if isSecure {
+                        SecureField(placeHolder, text: $textfieldText)
+                            .font(StyleConstants.bookalooFont)
+                            .multilineTextAlignment(.center)
+                            .textFieldStyle(.roundedBorder)
+                            .textContentType(.password)
+                            .background(Color.textFieldBackgroundColor)
+                    } else {
+                        TextField(text: $textfieldText) {
+                            Text(placeHolder)
+                                .font(StyleConstants.bookalooFont)
+                        }
                         .multilineTextAlignment(.center)
                         .textFieldStyle(.roundedBorder)
-                } else {
-                    TextField(text: $textfieldText) {
-                        Text(placeHolder)
-                            .font(StyleConstants.bookalooFont)
+                        .textContentType(.password)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .background(Color.textFieldBackgroundColor)
                     }
-                    .multilineTextAlignment(.center)
-                    .textFieldStyle(.roundedBorder)
+                    
+                    if let valid, !valid {
+                        Text("* The password should have 8 characters or more")
+                            .font(.futura(10))
+                            .foregroundColor(.red)
+                    }
                 }
             }.padding(.trailing, 32)
             
@@ -77,21 +137,25 @@ private extension BookalooTextfield {
         }
     }
     
-    func horizontalView(_ style: Style = .plain) -> some View {
+    func horizontalView(_ style: Style = .normal) -> some View {
         HStack {
             switch style {
-            case .plain: bodyView.padding()
-            case .secure: secureBodyView.padding()
+            case .normal: normalTextView.padding()
+            case .secure: secureTextView.padding()
+            case .email: emailTextView.padding()
+            case .numeric: numericTextView.padding()
             }
         }
         .padding()
     }
     
-    func verticalView(_ style: Style = .plain) -> some View {
+    func verticalView(_ style: Style = .normal) -> some View {
         VStack {
             switch style {
-            case .plain: bodyView.padding()
-            case .secure: secureBodyView.padding()
+            case .normal: normalTextView.padding()
+            case .secure: secureTextView.padding()
+            case .email: emailTextView.padding()
+            case .numeric: numericTextView.padding()
             }
         }
         .padding()
@@ -100,6 +164,6 @@ private extension BookalooTextfield {
 
 struct BookalooTextfield_Previews: PreviewProvider {
     static var previews: some View {
-        BookalooTextfield(title: "Introduce datos", textfieldText: .constant(""), placeHolder: "Placeholder Datos")
+        BookalooTextfield(title: "Introduce datos", textfieldText: .constant(""), valid: .constant(false), placeHolder: "Placeholder Datos")
     }
 }

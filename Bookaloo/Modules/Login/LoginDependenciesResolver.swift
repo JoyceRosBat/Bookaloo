@@ -12,7 +12,6 @@ protocol LoginDependenciesResolver {
     func resolve() -> LoginUseCaseProtocol
     func loginViewModel() -> LoginViewModel
     func loginView() -> LoginView
-    func loginScreenView() -> LoginScreenView
     func homeView() -> HomeView
 }
 
@@ -23,10 +22,6 @@ extension LoginDependenciesResolver {
     
     func loginViewModel() -> LoginViewModel {
         LoginViewModel(dependencies: self)
-    }
-    
-    func loginScreenView() -> LoginScreenView {
-        LoginScreenView()
     }
     
     func loginView() -> LoginView {

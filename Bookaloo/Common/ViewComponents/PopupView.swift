@@ -19,11 +19,17 @@ struct PopupView<Content: View>: View {
                 .opacity(showAlert ? 0.4 : 0)
                 .ignoresSafeArea()
             VStack(spacing: 20) {
-                Text(title)
-                    .font(.headline)
-                    .padding()
-                Text(message)
-                    .font(.body)
+                Group {
+                    Text(title)
+                        .font(.headline)
+                        .padding(.top, 24)
+                    Text(message)
+                        .font(.body)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.leading, 24)
+                .padding(.trailing, 24)
+                
                 HStack(spacing: 30) {
                     buttons()
                 }
@@ -51,7 +57,6 @@ struct PopupView_Previews: PreviewProvider {
             } label: {
                 Text("Aceptar")
             }
-            
         })
     }
 }

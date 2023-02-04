@@ -9,8 +9,8 @@ import Foundation
 
 enum ClientRequest {
     case find(String)
-    case new(Client)
-    case modify(Client)
+    case new(User)
+    case modify(User)
 }
 
 extension ClientRequest: APIRequest {

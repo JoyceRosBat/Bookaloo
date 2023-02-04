@@ -14,17 +14,17 @@ final class ClientsRepository: ClientsRepositoryProtocol {
         self.networkRequester = dependencies.resolve()
     }
     
-    func findClient(by email: String) async throws -> Client {
+    func findClient(by email: String) async throws -> User {
         let request = ClientRequest.find(email)
         return try await networkRequester.doRequest(request: request)
     }
     
-    func new(_ client: Client) async throws {
+    func new(_ client: User) async throws {
         let request = ClientRequest.new(client)
         _ = try await networkRequester.doRequest(request: request)
     }
     
-    func modify(_ client: Client) async throws {
+    func modify(_ client: User) async throws {
         let request = ClientRequest.modify(client)
         _ = try await networkRequester.doRequest(request: request)
     }

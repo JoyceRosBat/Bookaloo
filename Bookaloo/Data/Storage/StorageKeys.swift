@@ -8,6 +8,5 @@
 import Foundation
 
 enum StorageKeys: String, CaseIterable {
-    case email
-    case token
+    case user
 }

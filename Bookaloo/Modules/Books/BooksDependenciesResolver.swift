@@ -12,6 +12,7 @@ protocol BooksDependenciesResolver {
     func resolve() -> BooksUseCaseProtocol
     func resolve() -> BooksViewModel
     func booksView() -> BooksView
+    func loginView() -> LoginView
 }
 
 extension BooksDependenciesResolver {
@@ -24,6 +25,6 @@ extension BooksDependenciesResolver {
     }
     
     func booksView() -> BooksView {
-        BooksView(viewModel: resolve())
+        BooksView(dependencies: self, viewModel: resolve())
     }
 }

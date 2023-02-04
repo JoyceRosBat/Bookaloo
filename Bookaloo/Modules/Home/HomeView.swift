@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     let dependencies: CommonModulesDependenciesResolver
+    @EnvironmentObject var viewModel: LoginViewModel
     var booksView: BooksView {
         dependencies.booksView()
     }
@@ -26,12 +27,13 @@ struct HomeView: View {
             .tabItem {
                 Label("Books", systemImage: "book")
             }
-            
-            NavigationStack {
-                clientsView
-            }
-            .tabItem {
-                Label("Clients", systemImage: "person")
+            if viewModel.user?.role == .admin {
+                NavigationStack {
+                    clientsView
+                }
+                .tabItem {
+                    Label("Clients", systemImage: "person")
+                }
             }
             
             NavigationStack {
@@ -47,6 +49,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(dependencies: ModuleDependencies.shared)
+        HomeView(dependencies: ModuleDependencies())
+            .environmentObject(ModuleDependencies().loginViewModel())
     }
 }

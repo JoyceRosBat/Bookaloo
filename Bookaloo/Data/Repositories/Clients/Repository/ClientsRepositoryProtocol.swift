@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ClientsRepositoryProtocol {
-    func findClient(by email: String) async throws -> Client
-    func new(_ client: Client) async throws
-    func modify(_ client: Client) async throws
+    func findClient(by email: String) async throws -> User
+    func new(_ client: User) async throws
+    func modify(_ client: User) async throws
 }
