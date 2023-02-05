@@ -12,4 +12,5 @@ protocol BooksRepositoryProtocol {
     func getLatestBooks() async throws -> [Book]
     func findBook(with text: String) async throws -> [Book]
     func getAuthors() async throws -> [Author]
+    func getAuthor(_ id: String) async throws -> Author
 }

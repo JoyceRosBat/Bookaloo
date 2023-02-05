@@ -29,5 +29,13 @@ final class ShopRepository: ShopRepositoryProtocol {
         return try await networkRequester.doRequest(request: request)
     }
     
+    func getStatus(of orderId: String) async throws -> OrderStatus {
+        let request = ShopRequest.status(orderId)
+        return try await networkRequester.doRequest(request: request)
+    }
     
+    func modify(_ data: OrderModify) async throws {
+        let request = ShopRequest.modify(data)
+        _ = try await networkRequester.doRequest(request: request)
+    }
 }

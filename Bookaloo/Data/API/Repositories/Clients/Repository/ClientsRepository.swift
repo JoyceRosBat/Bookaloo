@@ -28,4 +28,19 @@ final class ClientsRepository: ClientsRepositoryProtocol {
         let request = ClientRequest.modify(client)
         _ = try await networkRequester.doRequest(request: request)
     }
+    
+    func markRead(_ readBooks: ReadBooks) async throws {
+        let request = ClientRequest.markRead(readBooks)
+        _ = try await networkRequester.doRequest(request: request)
+    }
+    
+    func report(_ email: String) async throws -> Report {
+        let request = ClientRequest.report(email)
+        return try await networkRequester.doRequest(request: request)
+    }
+    
+    func read(_ email: String) async throws -> Report {
+        let request = ClientRequest.read(email)
+        return try await networkRequester.doRequest(request: request)
+    }
 }

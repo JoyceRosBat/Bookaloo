@@ -16,6 +16,7 @@ enum Status: String, Codable {
 struct Order: Codable {
     let email: String
     var status: Status
+    var date: Date? = nil
     var order: [Int]? = nil
     var books: [Int]? = nil
     var id: String? = nil
@@ -25,5 +26,24 @@ struct Order: Codable {
         case status = "estado"
         case order = "pedido"
         case id = "npedido"
+    }
+}
+
+struct OrderStatus: Codable {
+    let status: Status
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "estado"
+    }
+}
+
+struct OrderModify: Codable {
+    let id: String
+    let status: Status
+    let admin: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, admin
+        case status = "estado"
     }
 }

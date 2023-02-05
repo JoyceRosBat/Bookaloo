@@ -12,11 +12,10 @@ struct BaseViewContent<Content: View>: View {
     @ViewBuilder var content: () -> Content
     
     var body: some View {
-        VStack {
+        ZStack {
+            Color.backgroundColor
             content()
         }
-        .padding(.bottom, 200)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay {
             if viewModel.showLoading {
                 Loader()
@@ -28,7 +27,6 @@ struct BaseViewContent<Content: View>: View {
         .onAppear {
             viewModel.onAppear()
         }
-        .background(Color.backgroundColor)
     }
 }
 

@@ -19,21 +19,21 @@ struct BookCellView: View {
                 .cornerRadius(5)
                 .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
             VStack(alignment: .leading) {
-                HStack {
+                HStack(alignment: .top) {
                     Text("Title:")
                     Text(title)
                         .bold()
                 }
                 .font(StyleConstants.bookalooFont)
                 
-                HStack {
+                HStack(alignment: .top) {
                     Text("Author:")
                     Text(author)
                         .bold()
                 }
                 .font(StyleConstants.bookalooFont)
                 
-                HStack {
+                HStack(alignment: .top) {
                     Text("Year:")
                     Text("\(year)")
                         .bold()

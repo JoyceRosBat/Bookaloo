@@ -13,6 +13,7 @@ protocol BooksDependenciesResolver {
     func booksViewModel() -> BooksViewModel
     func booksView() -> BooksView
     func booksContentView() -> BooksContentView
+    func bookDetailsView(_ book: Book) -> BookDetailsView
     func loginView() -> LoginView
 }
 
@@ -26,10 +27,14 @@ extension BooksDependenciesResolver {
     }
     
     func booksContentView() -> BooksContentView {
-        BooksContentView()
+        BooksContentView(dependencies: self)
     }
     
     func booksView() -> BooksView {
         BooksView(dependencies: self)
+    }
+    
+    func bookDetailsView(_ book: Book) -> BookDetailsView {
+        BookDetailsView(book: book)
     }
 }

@@ -11,6 +11,10 @@
 		39A444E529901EBC00A2658B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E429901EBC00A2658B /* ImageLoader.swift */; };
 		39A444FE29902D8C00A2658B /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FD29902D8C00A2658B /* LoginContentView.swift */; };
 		39A4450029902E7900A2658B /* BooksContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FF29902E7900A2658B /* BooksContentView.swift */; };
+		39A445022990325900A2658B /* BookDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A445012990325900A2658B /* BookDetails.swift */; };
+		39A445042990497500A2658B /* ReadBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A445032990497500A2658B /* ReadBooks.swift */; };
+		39A4450629904AE600A2658B /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4450529904AE600A2658B /* Report.swift */; };
+		39A4450829904D5700A2658B /* DateFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4450729904D5700A2658B /* DateFormatter+Ext.swift */; };
 		39A963182988443F00F0C055 /* BookalooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963172988443F00F0C055 /* BookalooApp.swift */; };
 		39A9631C2988444200F0C055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A9631B2988444200F0C055 /* Assets.xcassets */; };
 		39A9631F2988444200F0C055 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A9631E2988444200F0C055 /* Preview Assets.xcassets */; };
@@ -81,6 +85,10 @@
 		39A444E429901EBC00A2658B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		39A444FD29902D8C00A2658B /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
 		39A444FF29902E7900A2658B /* BooksContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksContentView.swift; sourceTree = "<group>"; };
+		39A445012990325900A2658B /* BookDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetails.swift; sourceTree = "<group>"; };
+		39A445032990497500A2658B /* ReadBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBooks.swift; sourceTree = "<group>"; };
+		39A4450529904AE600A2658B /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		39A4450729904D5700A2658B /* DateFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Ext.swift"; sourceTree = "<group>"; };
 		39A963142988443F00F0C055 /* Bookaloo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookaloo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A963172988443F00F0C055 /* BookalooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookalooApp.swift; sourceTree = "<group>"; };
 		39A9631B2988444200F0C055 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +180,7 @@
 			children = (
 				39A444FF29902E7900A2658B /* BooksContentView.swift */,
 				39A96F2B29901A7E00525E2B /* BookCellView.swift */,
+				39A445012990325900A2658B /* BookDetails.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -385,6 +394,7 @@
 		39A963252988445100F0C055 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				39A963322988459100F0C055 /* Repositories */,
 				39A96EE3298C3AC700525E2B /* Cache */,
 				39A96EE4298C3BEE00525E2B /* Entity */,
 				39A96EEB298C3C6200525E2B /* Request */,
@@ -469,6 +479,8 @@
 			children = (
 				39A96341298850A400F0C055 /* User.swift */,
 				39A96F27298F1DD200525E2B /* Role.swift */,
+				39A445032990497500A2658B /* ReadBooks.swift */,
+				39A4450529904AE600A2658B /* Report.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -501,6 +513,7 @@
 				39A96EDE298C1EFA00525E2B /* Color+Ext.swift */,
 				39A96F29298FF1A400525E2B /* String+Ext.swift */,
 				39A444E229901E7F00A2658B /* Image+Ext.swift */,
+				39A4450729904D5700A2658B /* DateFormatter+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -508,7 +521,6 @@
 		39A96358298882E700F0C055 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				39A963322988459100F0C055 /* Repositories */,
 				39A963252988445100F0C055 /* API */,
 				39A96EEE298C3E4000525E2B /* Storage */,
 			);
@@ -812,6 +824,7 @@
 				39A96375298A4EFF00F0C055 /* ClientsUseCase.swift in Sources */,
 				39A96342298850A400F0C055 /* User.swift in Sources */,
 				39A963572988825800F0C055 /* ShopRepository.swift in Sources */,
+				39A445042990497500A2658B /* ReadBooks.swift in Sources */,
 				39A96F26298E6D7500525E2B /* Loader.swift in Sources */,
 				39A444E529901EBC00A2658B /* ImageLoader.swift in Sources */,
 				39A96373298A4EC200F0C055 /* ClientsViewModel.swift in Sources */,
@@ -844,10 +857,12 @@
 				39A963632989640500F0C055 /* BooksView.swift in Sources */,
 				39A96EDF298C1EFA00525E2B /* Color+Ext.swift in Sources */,
 				39A96EDA298C186400525E2B /* BaseViewContent.swift in Sources */,
+				39A4450829904D5700A2658B /* DateFormatter+Ext.swift in Sources */,
 				39A9636E2989B1E300F0C055 /* PopupView.swift in Sources */,
 				39A96F1A298D975300525E2B /* LoginUseCase.swift in Sources */,
 				39A9632E2988449600F0C055 /* NetworkConstants.swift in Sources */,
 				39A96371298A4EB300F0C055 /* ClientsView.swift in Sources */,
+				39A4450629904AE600A2658B /* Report.swift in Sources */,
 				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,
 				39A96369298964BF00F0C055 /* BooksDependenciesResolver.swift in Sources */,
 				39A9635329887F6F00F0C055 /* ClientsRepository.swift in Sources */,
@@ -863,6 +878,7 @@
 				39A96EF0298C449100525E2B /* StorageKeys.swift in Sources */,
 				39A96ED1298C09AD00525E2B /* StyleConstants.swift in Sources */,
 				39A96387298A573F00F0C055 /* HomeView.swift in Sources */,
+				39A445022990325900A2658B /* BookDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

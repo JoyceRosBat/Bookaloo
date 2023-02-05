@@ -34,6 +34,11 @@ final class BooksRepository: BooksRepositoryProtocol {
         return try await networkRequester.doRequest(request: request)
     }
     
+    func getAuthor(_ id: String) async throws -> Author {
+        let request = BooksRequest.author(id)
+        return try await networkRequester.doRequest(request: request) as Author
+    }
+    
     func getAuthors() async throws -> [Author] {
         if let authors = Cache.shared.authors {
             return authors

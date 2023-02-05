@@ -23,9 +23,7 @@ final class BooksViewModel: ObservableBaseViewModel {
         Task {
             do {
                 books = try await booksUseCase.fetch()
-                await MainActor.run {
-                    showLoading(false)
-                }
+                showLoading(false)
             } catch let error as NetworkError {
                 showNetworkError(error)
             }

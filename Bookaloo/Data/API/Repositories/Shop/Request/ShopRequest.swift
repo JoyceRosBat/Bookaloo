@@ -11,6 +11,8 @@ enum ShopRequest {
     case new(Order)
     case check(String)
     case orders(String)
+    case status(String)
+    case modify(OrderModify)
 }
 
 extension ShopRequest: APIRequest {
@@ -23,13 +25,16 @@ extension ShopRequest: APIRequest {
         case .new: return "/newOrder"
         case .check(let number): return "/order/\(number)"
         case .orders: return "/orders"
+        case .status(let orderId): return "/orderStatus/\(orderId)"
+        case .modify: return "/orderStatus"
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .new, .orders: return .post
-        case .check: return .get
+        case .check, .status: return .get
+        case .modify: return .put
         }
     }
     
@@ -37,6 +42,7 @@ extension ShopRequest: APIRequest {
         switch self {
         case .new(let order): return try? order.toDictionary()
         case .orders(let email): return ["email": email] as [String: String]
+        case .modify(let order): return try? order.toDictionary()
         default: return nil
         }
     }

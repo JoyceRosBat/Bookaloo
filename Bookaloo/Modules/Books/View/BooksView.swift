@@ -12,12 +12,10 @@ struct BooksView: View {
     @EnvironmentObject var viewModel: BooksViewModel
     
     var body: some View {
-        Group {
-            if viewModel.loggedIn {
-                dependencies.booksContentView()
-            } else {
-                dependencies.loginView()
-            }
+        if viewModel.loggedIn {
+            dependencies.booksContentView()
+        } else {
+            dependencies.loginView()
         }
     }
 }

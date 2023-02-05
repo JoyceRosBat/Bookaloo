@@ -12,6 +12,7 @@ enum BooksRequest {
     case latest
     case find(String)
     case authors
+    case author(String)
 }
 
 extension BooksRequest: APIRequest {
@@ -25,6 +26,7 @@ extension BooksRequest: APIRequest {
         case .latest: return "/latest"
         case .find(let text): return "/find/\(text)"
         case .authors: return "/authors"
+        case .author(let id): return "/getAuthor/\(id)"
         }
     }
     

@@ -57,6 +57,7 @@ private extension NetworkRequester {
     
     private func mapResponse<T: Decodable>(data: Data, dataType: T.Type) throws -> T {
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.jsonFormatter)
         return try decoder.decode(T.self, from: data)
     }
 }

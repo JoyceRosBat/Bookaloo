@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BooksContentView: View {
+    var dependencies: BooksDependenciesResolver
     @EnvironmentObject var viewModel: BooksViewModel
     
     var body: some View {
@@ -25,15 +26,21 @@ struct BooksContentView: View {
                 }
             }
         }
-        .navigationDestination(for: Book.self, destination: { book in
-            LoginContentView()
-        })
+        .navigationDestination(for: Book.self) { book in
+            dependencies.bookDetailsView(book)
+        }
         .overlay {
             if viewModel.showAlert {
                 logoutConfirmationPopup
             }
         }
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Text("Bookaloo")
+                    .font(.futura(24))
+                    .bold()
+                    .foregroundStyle(StyleConstants.bookalooGradient)
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     if let name = viewModel.user?.name {
@@ -97,7 +104,7 @@ extension BooksContentView {
 
 struct BooksContentView_Previews: PreviewProvider {
     static var previews: some View {
-        BooksContentView()
+        BooksContentView(dependencies: ModuleDependencies())
             .environmentObject(ModuleDependencies().booksViewModel())
     }
 }
