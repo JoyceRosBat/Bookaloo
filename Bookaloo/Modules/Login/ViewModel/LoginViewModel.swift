@@ -12,6 +12,8 @@ final class LoginViewModel: ObservableBaseViewModel {
     @Published var password: String = ""
     @Published var validEmail: Bool? = true
     @Published var validPassword: Bool? = true
+    @Published var validEmailText: String = "The email format is not valid.\nExmple: something@email.com"
+    @Published var validPasswordText: String = "The password should have 8 characters or more"
     let dependencies: LoginDependenciesResolver
     var loginUseCase: LoginUseCaseProtocol {
         dependencies.resolve()
@@ -23,10 +25,10 @@ final class LoginViewModel: ObservableBaseViewModel {
     
     func doLogin() {
         validEmail = email.isValidEmail
-        validPassword = password.count > 8
+        validPassword = password.count >= 8
         
         guard validEmail == true, validPassword == true else { return }
-        showLoading = true
+        showLoading(true)
         //TODO: Remove async after. This is to sulate a waitint time to log in:
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             Task { [weak self] in
@@ -37,11 +39,10 @@ final class LoginViewModel: ObservableBaseViewModel {
                     
                     Storage.shared.save(validated, key: .user)
                     
-                    await MainActor.run {
-                        self.showLoading = false
-                        self.email = ""
-                        self.password = ""
-                    }
+                    self.showLoading(false)
+                    self.email = ""
+                    self.password = ""
+                    
                 } catch let error as NetworkError {
                     self.showNetworkError(error)
                 }

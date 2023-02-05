@@ -8,9 +8,12 @@
 import Foundation
 
 protocol ViewModelProtocol {
+    func onAppear()
     func showNetworkError(_ error: NetworkError)
     func showError(with title: String, message: String)
-    func onAppear()
+    func showLoading(_ show: Bool)
+    func showAlert(_ show: Bool)
+    func showError(_ show: Bool)
 }
 
 class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
@@ -27,39 +30,59 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     }
     
     func onAppear() {}
-    func showNetworkError(_ error: NetworkError) {
-        showLoading = false
+    
+    func showLoading(_ show: Bool) {
         Task {
             await MainActor.run {
-                switch error {
-                case .apiError(let aPIErrorResponse):
-                    alertTitle = "Oops... Something went wrong"
-                    alertMessage = aPIErrorResponse.reason
-                    showAlert = true
-                default:
-                    alertTitle = "Oops... Something went wrong"
-                    alertMessage = "Try again later..."
-                    showAlert = true
-                }
+                showLoading = show
             }
+        }
+    }
+    
+    func showAlert(_ show: Bool) {
+        Task {
+            await MainActor.run {
+                showAlert = show
+            }
+        }
+    }
+    
+    func showError(_ show: Bool) {
+        Task {
+            await MainActor.run {
+                showError = show
+            }
+        }
+    }
+    
+    func showNetworkError(_ error: NetworkError) {
+        showLoading(false)
+        Task {
+            switch error {
+            case .apiError(let aPIErrorResponse):
+                alertTitle = "Oops... Something went wrong"
+                alertMessage = aPIErrorResponse.reason
+                showAlert(true)
+            default:
+                alertTitle = "Oops... Something went wrong"
+                alertMessage = "Try again later..."
+                showAlert(true)
+            }
+            
         }
     }
     
     func showError(with title: String, message: String) {
-        Task {
-            await MainActor.run {
-                showLoading = false
-                alertTitle = title
-                alertMessage = message
-                showError = true
-            }
-        }
+        showLoading(false)
+        alertTitle = title
+        alertMessage = message
+        showError(true)
     }
     
     func doLogout() {
-        showLoading = true
+        showLoading(true)
         Storage.shared.cleanAll()
         Cache.shared.clean()
-        showLoading = false
+        showLoading(false)
     }
 }

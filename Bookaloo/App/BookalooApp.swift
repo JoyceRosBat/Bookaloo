@@ -16,6 +16,7 @@ struct BookalooApp: App {
             moduleDependencies
                 .loginView()
                 .environmentObject(moduleDependencies.loginViewModel())
+                .environmentObject(moduleDependencies.booksViewModel())
         }
     }
 }

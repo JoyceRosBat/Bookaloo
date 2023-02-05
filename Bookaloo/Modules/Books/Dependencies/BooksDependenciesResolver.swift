@@ -10,8 +10,9 @@ import Foundation
 protocol BooksDependenciesResolver {
     func resolve() -> BooksRepositoryProtocol
     func resolve() -> BooksUseCaseProtocol
-    func resolve() -> BooksViewModel
+    func booksViewModel() -> BooksViewModel
     func booksView() -> BooksView
+    func booksContentView() -> BooksContentView
     func loginView() -> LoginView
 }
 
@@ -20,11 +21,15 @@ extension BooksDependenciesResolver {
         BooksUseCase(dependencies: self)
     }
     
-    func resolve() -> BooksViewModel {
+    func booksViewModel() -> BooksViewModel {
         BooksViewModel(dependencies: self)
     }
     
+    func booksContentView() -> BooksContentView {
+        BooksContentView()
+    }
+    
     func booksView() -> BooksView {
-        BooksView(dependencies: self, viewModel: resolve())
+        BooksView(dependencies: self)
     }
 }

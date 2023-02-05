@@ -1,46 +1,37 @@
 //
-//  BooksView.swift
+//  BooksContentView.swift
 //  Bookaloo
 //
-//  Created by Joyce Rosario Batista on 31/1/23.
+//  Created by Joyce Rosario Batista on 5/2/23.
 //
 
 import SwiftUI
 
-struct BooksView: View {
-    var dependencies: BooksDependenciesResolver
-    @ObservedObject var viewModel: BooksViewModel
+struct BooksContentView: View {
+    @EnvironmentObject var viewModel: BooksViewModel
     
     var body: some View {
-        Group {
-            if viewModel.loggedIn {
-                booksView
-            } else {
-                dependencies.loginView()
-                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-            }
-        }
-    }
-}
-
-extension BooksView {
-    @ViewBuilder
-    var booksView: some View {
         BaseViewContent(viewModel: viewModel) {
-            VStack {
-                Text("Books")
-                Button(action: {
-                    withAnimation{
-                        viewModel.showAlert.toggle()
+            List {
+                ForEach(viewModel.books) { book in
+                    NavigationLink(value: book) {
+                        BookCellView(
+                            imageURL: book.cover,
+                            title: book.title,
+                            author: book.author,
+                            year: book.year
+                        )
                     }
-                }, label: {
-                    Text("Botón")
-                })
-                .buttonStyle(.bookalooStyle)
+                }
             }
         }
+        .navigationDestination(for: Book.self, destination: { book in
+            LoginContentView()
+        })
         .overlay {
-            logoutConfirmationPopup
+            if viewModel.showAlert {
+                logoutConfirmationPopup
+            }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -61,7 +52,7 @@ extension BooksView {
     }
 }
 
-extension BooksView {
+extension BooksContentView {
     @ViewBuilder
     var profileOptionMenuButton: some View {
         Button {
@@ -104,10 +95,9 @@ extension BooksView {
     }
 }
 
-struct BooksView_Previews: PreviewProvider {
+struct BooksContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            ModuleDependencies().booksView()
-        }
+        BooksContentView()
+            .environmentObject(ModuleDependencies().booksViewModel())
     }
 }

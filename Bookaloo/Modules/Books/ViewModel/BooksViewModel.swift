@@ -12,16 +12,20 @@ final class BooksViewModel: ObservableBaseViewModel {
     var booksUseCase: BooksUseCaseProtocol {
         dependencies.resolve()
     }
+    var books = [Book]()
     
     init(dependencies: BooksDependenciesResolver) {
         self.dependencies = dependencies
     }
     
     override func onAppear() {
+        showLoading(true)
         Task {
             do {
-                let books = try await booksUseCase.fetch()
-                print(books)
+                books = try await booksUseCase.fetch()
+                await MainActor.run {
+                    showLoading(false)
+                }
             } catch let error as NetworkError {
                 showNetworkError(error)
             }

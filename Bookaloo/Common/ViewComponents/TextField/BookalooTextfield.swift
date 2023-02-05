@@ -23,6 +23,7 @@ struct BookalooTextfield: View {
     @State var title: String
     @Binding var textfieldText: String
     @Binding var valid: Bool?
+    @State var validationText: String?
     @State var placeHolder: String
     @State var orientation: Orientation = .horizontal(.normal)
     @State private var isSecure: Bool = true
@@ -38,9 +39,7 @@ struct BookalooTextfield: View {
 private extension BookalooTextfield {
     @ViewBuilder
     var normalTextView: some View {
-            Text(title)
-            .font(StyleConstants.bookalooFont)
-            
+        VStack(alignment: .leading) {
             TextField(text: $textfieldText) {
                 Text(placeHolder)
                     .font(StyleConstants.bookalooFont)
@@ -49,13 +48,17 @@ private extension BookalooTextfield {
             .multilineTextAlignment(.center)
             .textFieldStyle(.roundedBorder)
             .background(Color.textFieldBackgroundColor)
+            
+            if let valid, !valid, let validationText {
+                Text("* \(validationText)")
+                    .font(.futura(10))
+                    .foregroundColor(.red)
+            }
+        }
     }
     
     @ViewBuilder
     var emailTextView: some View {
-            Text(title)
-            .font(StyleConstants.bookalooFont)
-        
         VStack(alignment: .leading) {
             TextField(text: $textfieldText) {
                 Text(placeHolder)
@@ -69,8 +72,8 @@ private extension BookalooTextfield {
             .keyboardType(.emailAddress)
             .background(Color.textFieldBackgroundColor)
             
-            if let valid, !valid {
-                Text("* The email has not correct format.\nExample: something@email.com")
+            if let valid, !valid, let validationText {
+                Text("* \(validationText)")
                     .font(.futura(10))
                     .foregroundColor(.red)
             }
@@ -79,9 +82,7 @@ private extension BookalooTextfield {
     
     @ViewBuilder
     var numericTextView: some View {
-            Text(title)
-            .font(StyleConstants.bookalooFont)
-        
+        VStack(alignment: .leading) {
             TextField(text: $textfieldText) {
                 Text(placeHolder)
                     .font(StyleConstants.bookalooFont)
@@ -90,16 +91,20 @@ private extension BookalooTextfield {
             .textFieldStyle(.roundedBorder)
             .keyboardType(.numberPad)
             .background(Color.textFieldBackgroundColor)
+            
+            if let valid, !valid, let validationText {
+                Text("* \(validationText)")
+                    .font(.futura(10))
+                    .foregroundColor(.red)
+            }
+        }
     }
     
     @ViewBuilder
     var secureTextView: some View {
-        Text(title)
-        .font(StyleConstants.bookalooFont)
-
-        ZStack(alignment: .trailing) {
-            Group {
-                VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
+            HStack {
+                VStack {
                     if isSecure {
                         SecureField(placeHolder, text: $textfieldText)
                             .font(StyleConstants.bookalooFont)
@@ -119,31 +124,37 @@ private extension BookalooTextfield {
                         .textInputAutocapitalization(.never)
                         .background(Color.textFieldBackgroundColor)
                     }
-                    
-                    if let valid, !valid {
-                        Text("* The password should have 8 characters or more")
-                            .font(.futura(10))
-                            .foregroundColor(.red)
-                    }
                 }
-            }.padding(.trailing, 32)
+                Button {
+                    isSecure.toggle()
+                } label: {
+                    Image(systemName: self.isSecure ? "eye.slash" : "eye")
+                        .accentColor(.gray)
+                }
+            }
             
-            Button {
-                isSecure.toggle()
-            } label: {
-                Image(systemName: self.isSecure ? "eye.slash" : "eye")
-                    .accentColor(.gray)
+            if let valid, !valid, let validationText {
+                Text("* \(validationText)")
+                    .font(.futura(10))
+                    .foregroundColor(.red)
             }
         }
     }
     
     func horizontalView(_ style: Style = .normal) -> some View {
-        HStack {
+        HStack(alignment: .top) {
+            Text(title)
+                .font(StyleConstants.bookalooFont)
+            
             switch style {
-            case .normal: normalTextView.padding()
-            case .secure: secureTextView.padding()
-            case .email: emailTextView.padding()
-            case .numeric: numericTextView.padding()
+            case .normal: normalTextView
+                    .padding(.leading, 8)
+            case .secure: secureTextView
+                    .padding(.leading, 8)
+            case .email: emailTextView
+                    .padding(.leading, 8)
+            case .numeric: numericTextView
+                    .padding(.leading, 8)
             }
         }
         .padding()
@@ -151,6 +162,9 @@ private extension BookalooTextfield {
     
     func verticalView(_ style: Style = .normal) -> some View {
         VStack {
+            Text(title)
+                .font(StyleConstants.bookalooFont)
+            
             switch style {
             case .normal: normalTextView.padding()
             case .secure: secureTextView.padding()
@@ -164,6 +178,12 @@ private extension BookalooTextfield {
 
 struct BookalooTextfield_Previews: PreviewProvider {
     static var previews: some View {
-        BookalooTextfield(title: "Introduce datos", textfieldText: .constant(""), valid: .constant(false), placeHolder: "Placeholder Datos")
+        BookalooTextfield(
+            title: "Introduce datos",
+            textfieldText: .constant(""),
+            valid: .constant(false),
+            validationText: "Validation text",
+            placeHolder: "Placeholder Datos"
+        )
     }
 }

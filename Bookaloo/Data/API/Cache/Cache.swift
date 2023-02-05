@@ -12,8 +12,10 @@ class Cache {
     private init() {}
     
     var books: [Book]? = nil
+    var authors: [Author]? = nil
     
     func clean() {
         books = nil
+        authors = nil
     }
 }

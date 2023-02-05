@@ -1,30 +1,17 @@
 //
-//  LoginView.swift
+//  LoginContentView.swift
 //  Bookaloo
 //
-//  Created by Joyce Rosario Batista on 3/2/23.
+//  Created by Joyce Rosario Batista on 5/2/23.
 //
 
 import SwiftUI
 
-struct LoginView: View {
-    var dependencies: LoginDependenciesResolver
+struct LoginContentView: View {
     @EnvironmentObject var viewModel: LoginViewModel
-    @FocusState var isFocused: Bool
+    @FocusState private var isFocused: Bool
     
     var body: some View {
-        if viewModel.loggedIn {
-            dependencies.homeView()
-        } else {
-            loginView
-                .toolbar(.hidden, for: .tabBar)
-        }
-    }
-}
-
-extension LoginView {
-    @ViewBuilder
-    var loginView: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack {
                 Text("Bookaloo")
@@ -36,6 +23,7 @@ extension LoginView {
                     title: "Email: ",
                     textfieldText: $viewModel.email,
                     valid: $viewModel.validEmail,
+                    validationText: viewModel.validEmailText,
                     placeHolder: "Email",
                     orientation: .horizontal(.email)
                 )
@@ -45,6 +33,7 @@ extension LoginView {
                     title: "Password: ",
                     textfieldText: $viewModel.password,
                     valid: $viewModel.validPassword,
+                    validationText: viewModel.validPasswordText,
                     placeHolder: "Password",
                     orientation: .horizontal(.secure))
                 .focused($isFocused)
@@ -61,11 +50,12 @@ extension LoginView {
         .onTapGesture {
             isFocused = false
         }
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct LoginContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ModuleDependencies().loginView()
+        LoginContentView()
     }
 }
