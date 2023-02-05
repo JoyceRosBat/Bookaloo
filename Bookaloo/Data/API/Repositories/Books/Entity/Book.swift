@@ -26,7 +26,7 @@ struct Book: Codable, Identifiable, Hashable {
         pages: 100,
         year: 1985,
         id: 1,
-        rating: 5,
+        rating: 5.0,
         cover: URL(string: "https://images.gr-assets.com/books/1488137288l/10150.jpg"),
         summary: """
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in lobortis enim. Ut lobortis at urna sed imperdiet. Fusce sagittis molestie orci vel pretium. Nunc volutpat justo laoreet aliquet fermentum. Donec non augue odio. Phasellus eget nunc ante. Curabitur fermentum vitae magna at porta. Vestibulum convallis pellentesque dolor, ut elementum sapien dignissim a. Praesent sed dignissim justo, sit amet dapibus elit. Ut sit amet commodo ex, at tempus risus. Maecenas blandit, mauris quis lobortis aliquet, nibh nisi hendrerit turpis, sit amet elementum tortor nibh sit amet ligula. Ut in dolor facilisis, sagittis magna a, ullamcorper ipsum. Mauris facilisis mi eu orci pharetra rhoncus. Nam vitae porttitor urna, eget pretium mauris.
@@ -37,7 +37,7 @@ Sed efficitur libero id mollis condimentum. In consequat, mauris non convallis i
         isbn: "1853262455",
         title: "The Lost World",
         plot: """
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in lobortis enim. Ut lobortis at urna sed imperdiet. Fusce sagittis molestie orci vel pretium. Nunc volutpat justo laoreet aliquet fermentum. Donec non augue odio. Phasellus eget nunc ante. Curabitur fermentum vitae magna at porta. Vestibulum convallis pellentesque dolor, ut elementum sapien dignissim a. Praesent sed dignissim justo, sit amet dapibus elit. Ut sit amet commodo ex, at tempus risus. Maecenas blandit, mauris quis lobortis aliquet, nibh nisi hendrerit turpis, sit amet elementum tortor nibh sit amet ligula. Ut in dolor facilisis, sagittis magna a, ullamcorper ipsum. Mauris facilisis mi eu orci pharetra rhoncus. Nam vitae porttitor urna, eget pretium mauris.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in lobortis enim. Ut lobortis at urna sed imperdiet. Fusce sagittis molestie orci vel pretium. Nunc volutpat justo laoreet aliquet fermentum. Donec non augue odio. Phasellus eget nunc ante. Curabitur fermentum vitae magna at porta. Vestibulum convallis pellentesque dolor, ut elementum sapien dignissim a. Praesent sed dignissim justo, sit amet dapibus elit. Ut sit amet commodo ex, at tempus risus. Maecenas blandit, mauris quis lobortis aliquet, nibh nisi hendrerit turpis, sit amet elementum tortor nibh sit amet ligula. Ut in dolor facilisis, sagittis magna a, ullamcorper ipsum. Mauris facilisis mi eu orci pharetra rhoncus. Nam vitae porttitor urna, eget pretium mauris.
         
 """
     )
