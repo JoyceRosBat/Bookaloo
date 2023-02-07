@@ -14,6 +14,10 @@ final class LoginViewModel: ObservableBaseViewModel {
     @Published var validPassword: Bool? = true
     @Published var validEmailText: String = "The email format is not valid.\nExmple: something@email.com"
     @Published var validPasswordText: String = "The password should have 8 characters or more"
+    
+    let adminEmail = "joyce.admin@bookaloo.com"
+    let normalEmail = "joyce.user@bookaloo.com"
+    
     let dependencies: LoginDependenciesResolver
     var loginUseCase: LoginUseCaseProtocol {
         dependencies.resolve()
@@ -34,6 +38,12 @@ final class LoginViewModel: ObservableBaseViewModel {
             Task { [weak self] in
                 guard let self = self else { return }
                 do {
+                    // Just a fake validation to access with an existing user
+                    guard self.email == self.adminEmail || self.email == self.normalEmail else {
+                        self.showNetworkError(.apiError(APIErrorResponse(error: true, reason: "User or password invalid")))
+                        return
+                    }
+                    
                     let user = User(email: self.email, password: self.password)
                     let validated = try await self.loginUseCase.validate(user)
                     

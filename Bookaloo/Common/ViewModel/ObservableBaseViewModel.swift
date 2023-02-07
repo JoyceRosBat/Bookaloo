@@ -28,6 +28,9 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     var loggedIn: Bool {
         user?.token != nil
     }
+    var isAdmin: Bool {
+        user?.role == .admin
+    }
     
     func onAppear() {}
     
@@ -58,25 +61,30 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     func showNetworkError(_ error: NetworkError) {
         showLoading(false)
         Task {
-            switch error {
-            case .apiError(let aPIErrorResponse):
-                alertTitle = "Oops... Something went wrong"
-                alertMessage = aPIErrorResponse.reason
-                showAlert(true)
-            default:
-                alertTitle = "Oops... Something went wrong"
-                alertMessage = "Try again later..."
-                showAlert(true)
+            await MainActor.run {
+                switch error {
+                case .apiError(let aPIErrorResponse):
+                    alertTitle = "Oops... Something went wrong"
+                    alertMessage = aPIErrorResponse.reason
+                    showAlert = true
+                default:
+                    alertTitle = "Oops... Something went wrong"
+                    alertMessage = "Try again later..."
+                    showAlert = true
+                }
             }
-            
         }
     }
     
     func showError(with title: String, message: String) {
-        showLoading(false)
-        alertTitle = title
-        alertMessage = message
-        showError(true)
+        Task {
+            await MainActor.run {
+                showLoading = false
+                alertTitle = title
+                alertMessage = message
+                showError = true
+            }
+        }
     }
     
     func doLogout() {

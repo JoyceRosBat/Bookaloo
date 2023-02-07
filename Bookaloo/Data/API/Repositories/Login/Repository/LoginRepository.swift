@@ -17,10 +17,17 @@ final class LoginRepository: LoginRepositoryProtocol {
     func validate(_ user: User) async throws -> User {
         let request = LoginRequest.validate(user)
 //        return try await networkRequester.doRequest(request: request)
+        // Fake user response:
+        let role: Role
+        if user.email == "joyce.admin@bookaloo.com" {
+            role = .admin
+        } else {
+            role = .user
+        }
         return User(
-            email: "joyce.rosbat@gmail.com",
+            email: user.email,
             name: "Joyce Rosario Batista",
-            role: .admin,
+            role: role,
             token: "test.auth.token.bookaloo"
         )
     }

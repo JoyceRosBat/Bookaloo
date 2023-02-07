@@ -27,7 +27,7 @@ struct HomeView: View {
             .tabItem {
                 Label("Books", systemImage: "book")
             }
-            if viewModel.user?.role == .admin {
+            if viewModel.isAdmin {
                 NavigationStack {
                     clientsView
                 }
