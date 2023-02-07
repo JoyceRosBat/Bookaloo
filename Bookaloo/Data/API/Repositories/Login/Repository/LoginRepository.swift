@@ -18,8 +18,10 @@ final class LoginRepository: LoginRepositoryProtocol {
         let request = LoginRequest.validate(user)
 //        return try await networkRequester.doRequest(request: request)
         // Fake user response:
+        let adminEmail: String = "joyce.admin@"
+        let domain: String = "bookaloo.com"
         let role: Role
-        if user.email == "joyce.admin@bookaloo.com" {
+        if user.email == adminEmail + domain {
             role = .admin
         } else {
             role = .user

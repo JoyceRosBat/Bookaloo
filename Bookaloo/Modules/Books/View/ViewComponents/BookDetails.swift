@@ -28,14 +28,14 @@ struct BookDetailsView: View {
                         Text("Author:")
                             .bold()
                         Text(book.author)
-                    }
+                    }//:Hstack
                     .font(StyleConstants.bookalooFont)
                     
                     HStack(alignment: .top) {
                         Text("Year:")
                             .bold()
                         Text("\(book.year)")
-                    }
+                    }//: HStack
                     .font(StyleConstants.bookalooFont)
                     
                     if let plot = book.plot {
@@ -52,17 +52,17 @@ struct BookDetailsView: View {
                             } label: {
                                 Text(seeMore ? "See less..." : "See more...")
                                     .foregroundStyle(StyleConstants.bookalooGradient)
-                            }
-                        }
+                            }//: Button
+                        }//: VStack
                         .font(StyleConstants.bookalooFont)
-                    }
-                }
+                    }//: If there is plot
+                }//: VStack
                 .padding(.top, 16)
                 
                 Spacer()
-            }
+            }//: VStack
             .padding()
-        }
+        } //: ScrollView
         .toolbar(.hidden, for: .tabBar)
     }
 }

@@ -20,21 +20,41 @@ final class BooksUseCase: BooksUseCaseProtocol {
         self.repository = dependencies.resolve()
     }
     
+    /// Fetch the full list of books.
+    /// ```
+    ///        booksUseCase.fetch()
+    /// ```
     func fetch() async throws -> [Book] {
         let books = try await repository.getBooks()
         return try await getBookList(from: books)
     }
     
+    /// Fetch last 20 books. Every call returns a different list of books
+    /// ```
+    ///        booksUseCase.fetchLatest()
+    /// ```
     func fetchLatest() async throws -> [Book] {
         let books = try await repository.getLatestBooks()
         return try await getBookList(from: books)
     }
     
+    /// Find books starting with some text
+    /// ```
+    ///        booksUseCase.find(startingWith: "some text")
+    /// ```
+    /// Params:
+    ///     - startingWith: Find books that starts with that string
     func find(startingWith text: String) async throws -> [Book] {
         let books = try await repository.findBook(with: text)
         return try await getBookList(from: books)
     }
     
+    /// Private function to get books with all data (authors, read, buy, etc)
+    /// ```
+    ///        getBookList(from: booksList)
+    /// ```
+    /// Params:
+    ///     - from: A list of books
     private func getBookList(from list: [Book]) async throws -> [Book] {
         var returnValues = [Book]()
         for try await book in AsyncBooks(books: list) {

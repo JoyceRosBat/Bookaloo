@@ -14,6 +14,10 @@ struct LoginContentView: View {
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack {
+                Image("fairytale_book")
+                    .imageModifier()
+                    .frame(width: 100)
+                
                 Text("Bookaloo")
                     .font(.futura(48))
                     .bold()
@@ -26,7 +30,7 @@ struct LoginContentView: View {
                     validationText: viewModel.validEmailText,
                     placeHolder: "Email",
                     orientation: .horizontal(.email)
-                )
+                )//: TexField
                 .focused($isFocused)
                 
                 BookalooTextfield(
@@ -35,7 +39,8 @@ struct LoginContentView: View {
                     valid: $viewModel.validPassword,
                     validationText: viewModel.validPasswordText,
                     placeHolder: "Password",
-                    orientation: .horizontal(.secure))
+                    orientation: .horizontal(.secure)
+                )//: TexField
                 .focused($isFocused)
                 
                 Button {
@@ -43,19 +48,25 @@ struct LoginContentView: View {
                 } label: {
                     Text("Login")
                         .font(.futura(24))
-                }
+                }//: Button
                 .buttonStyle(.bookalooStyle)
-            }
-        }
+                
+                Spacer()
+                
+            }//: VStack
+            .padding(.top, 100)
+        }//: BaseViewContent
         .onTapGesture {
             isFocused = false
-        }
+        }//: onTapGesture
         .toolbar(.hidden, for: .tabBar)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct LoginContentView_Previews: PreviewProvider {
     static var previews: some View {
         LoginContentView()
+            .environmentObject(ModuleDependencies().loginViewModel())
     }
 }

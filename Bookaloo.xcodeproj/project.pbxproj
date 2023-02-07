@@ -15,6 +15,9 @@
 		39A445042990497500A2658B /* ReadBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A445032990497500A2658B /* ReadBooks.swift */; };
 		39A4450629904AE600A2658B /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4450529904AE600A2658B /* Report.swift */; };
 		39A4450829904D5700A2658B /* DateFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4450729904D5700A2658B /* DateFormatter+Ext.swift */; };
+		39A4450A2992866100A2658B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A445092992866100A2658B /* Status.swift */; };
+		39A4450C2992867600A2658B /* OrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4450B2992867600A2658B /* OrderStatus.swift */; };
+		39A4450E2992868D00A2658B /* OrderModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4450D2992868D00A2658B /* OrderModify.swift */; };
 		39A963182988443F00F0C055 /* BookalooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963172988443F00F0C055 /* BookalooApp.swift */; };
 		39A9631C2988444200F0C055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A9631B2988444200F0C055 /* Assets.xcassets */; };
 		39A9631F2988444200F0C055 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A9631E2988444200F0C055 /* Preview Assets.xcassets */; };
@@ -89,6 +92,9 @@
 		39A445032990497500A2658B /* ReadBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBooks.swift; sourceTree = "<group>"; };
 		39A4450529904AE600A2658B /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		39A4450729904D5700A2658B /* DateFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Ext.swift"; sourceTree = "<group>"; };
+		39A445092992866100A2658B /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		39A4450B2992867600A2658B /* OrderStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatus.swift; sourceTree = "<group>"; };
+		39A4450D2992868D00A2658B /* OrderModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModify.swift; sourceTree = "<group>"; };
 		39A963142988443F00F0C055 /* Bookaloo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookaloo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A963172988443F00F0C055 /* BookalooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookalooApp.swift; sourceTree = "<group>"; };
 		39A9631B2988444200F0C055 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -397,7 +403,7 @@
 				39A963322988459100F0C055 /* Repositories */,
 				39A96EE3298C3AC700525E2B /* Cache */,
 				39A96EE4298C3BEE00525E2B /* Entity */,
-				39A96EEB298C3C6200525E2B /* Request */,
+				39A96EEB298C3C6200525E2B /* NetworkRequest */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -489,6 +495,9 @@
 			isa = PBXGroup;
 			children = (
 				39A96343298851A300F0C055 /* Order.swift */,
+				39A445092992866100A2658B /* Status.swift */,
+				39A4450B2992867600A2658B /* OrderStatus.swift */,
+				39A4450D2992868D00A2658B /* OrderModify.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -673,7 +682,7 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		39A96EEB298C3C6200525E2B /* Request */ = {
+		39A96EEB298C3C6200525E2B /* NetworkRequest */ = {
 			isa = PBXGroup;
 			children = (
 				39A963262988449600F0C055 /* NetworkError.swift */,
@@ -682,7 +691,7 @@
 				39A963272988449600F0C055 /* NetworkRequest.swift */,
 				39A963282988449600F0C055 /* NetworkRequester.swift */,
 			);
-			path = Request;
+			path = NetworkRequest;
 			sourceTree = "<group>";
 		};
 		39A96EEE298C3E4000525E2B /* Storage */ = {
@@ -840,6 +849,7 @@
 				39A96F1E298D9BEE00525E2B /* BookalooTextfield.swift in Sources */,
 				39A96F2C29901A7F00525E2B /* BookCellView.swift in Sources */,
 				39A96F0F298D950D00525E2B /* LoginRequest.swift in Sources */,
+				39A4450C2992867600A2658B /* OrderStatus.swift in Sources */,
 				39A96F11298D951E00525E2B /* LoginRepositoryProtocol.swift in Sources */,
 				39A9633E29884FB000F0C055 /* Author.swift in Sources */,
 				39A96EF2298C44B800525E2B /* KeychainConfiguration.swift in Sources */,
@@ -861,6 +871,7 @@
 				39A9636E2989B1E300F0C055 /* PopupView.swift in Sources */,
 				39A96F1A298D975300525E2B /* LoginUseCase.swift in Sources */,
 				39A9632E2988449600F0C055 /* NetworkConstants.swift in Sources */,
+				39A4450A2992866100A2658B /* Status.swift in Sources */,
 				39A96371298A4EB300F0C055 /* ClientsView.swift in Sources */,
 				39A4450629904AE600A2658B /* Report.swift in Sources */,
 				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,
@@ -872,6 +883,7 @@
 				39A96ED6298C10CC00525E2B /* EmptyResponse.swift in Sources */,
 				39A9637B298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift in Sources */,
 				39A963652989641900F0C055 /* BooksViewModel.swift in Sources */,
+				39A4450E2992868D00A2658B /* OrderModify.swift in Sources */,
 				39A96F15298D96FD00525E2B /* LoginView.swift in Sources */,
 				39A96EED298C3CB800525E2B /* Storage.swift in Sources */,
 				39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */,

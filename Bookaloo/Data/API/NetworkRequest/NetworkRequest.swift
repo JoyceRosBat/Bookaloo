@@ -29,8 +29,14 @@ struct NetworkRequest {
         
         request = URLRequest(url: fullURL)
         request.httpMethod = apiRequest.method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = apiRequest.timeoutInterval
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // If we have token we can send it here in the request:
+//        let user = Storage.shared.get(key: .user, type: User.self)
+//        if let token = user.token {
+//            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+//        }
         
         if let params = apiRequest.params,
            apiRequest.method == .post || apiRequest.method == .put || apiRequest.method == .patch {

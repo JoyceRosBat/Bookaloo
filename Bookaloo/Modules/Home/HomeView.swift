@@ -13,7 +13,8 @@ struct HomeView: View {
     var booksView: BooksView {
         dependencies.booksView()
     }
-    var clientsView : ClientsView { dependencies.clientsView()
+    var clientsView : ClientsView {
+        dependencies.clientsView()
     }
     var shopView: ShopView {
         dependencies.shopView()
@@ -23,26 +24,27 @@ struct HomeView: View {
         TabView {
             NavigationStack {
                 booksView
-            }
+            }//: booksView NavigationStack
             .tabItem {
                 Label("Books", systemImage: "book")
-            }
+            }//: booksView tabItem
+            
             if viewModel.isAdmin {
                 NavigationStack {
                     clientsView
-                }
+                }//: clientsView NavigationStack
                 .tabItem {
                     Label("Clients", systemImage: "person")
-                }
+                }//: clientsView tabItem
             }
             
             NavigationStack {
                 shopView
-            }
+            }//: shopView NavigationStack
             .tabItem {
                 Label("Shop", systemImage: "cart")
-            }
-        }
+            }//: shopView tabItem
+        }//: TabView
 //        .toolbarColorScheme(.light, for: .tabBar)
     }
 }

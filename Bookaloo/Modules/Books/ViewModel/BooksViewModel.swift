@@ -18,6 +18,7 @@ final class BooksViewModel: ObservableBaseViewModel {
         self.dependencies = dependencies
     }
     
+    // On appear, fetch list of books
     override func onAppear() {
         showLoading(true)
         Task {

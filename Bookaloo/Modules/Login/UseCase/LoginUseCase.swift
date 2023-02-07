@@ -18,6 +18,10 @@ final class LoginUseCase: LoginUseCaseProtocol {
         self.repository = dependencies.resolve()
     }
     
+    /// Validates if user and password are correct
+    /// ```
+    ///        loginUseCase.validate(user)
+    /// ```
     func validate(_ user: User) async throws -> User {
         try await repository.validate(user)
     }

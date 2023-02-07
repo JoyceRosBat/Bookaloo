@@ -22,25 +22,25 @@ struct BooksContentView: View {
                             author: book.author,
                             year: book.year
                         )
-                    }
-                }
-            }
-        }
+                    }//: NavigationLink
+                }//: ForEach
+            }//: List
+        }//: BaseViewContent
         .navigationDestination(for: Book.self) { book in
             dependencies.bookDetailsView(book)
-        }
+        }//: navigationDestination
         .overlay {
             if viewModel.showAlert {
                 logoutConfirmationPopup
             }
-        }
+        }//: Overlay - Show logout confirmation popup
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Text("Bookaloo")
                     .font(.futura(24))
                     .bold()
                     .foregroundStyle(StyleConstants.bookalooGradient)
-            }
+            }//: ToolbarItem - Title
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     if let name = viewModel.user?.name {
@@ -53,9 +53,9 @@ struct BooksContentView: View {
                     logoutOptionMenuButton
                 } label: {
                     Label("Profile", systemImage: "person.crop.circle")
-                }
-            }
-        }
+                }//: Menu
+            }//: ToolbarItem - User menu
+        }//: Toolbar
     }
 }
 
