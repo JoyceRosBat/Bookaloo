@@ -8,20 +8,45 @@
 import SwiftUI
 
 struct BookDetailsView: View {
-    let book: Book
+    @EnvironmentObject var viewModel: BooksViewModel
     @State var seeMore: Bool = false
+    @State var shop: Bool = false
+    var bookImage: some View {
+        ImageLoader(url: book.cover)
+    }
+    
+    let book: Book
+    let screenSize = UIScreen.main.bounds.size
+    let imageHeight: CGFloat = 300
     
     var body: some View {
         ScrollView {
             VStack {
-                ImageLoader(url: book.cover)
-                    .frame(width: 200)
-                    .cornerRadius(5)
-                    .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
+                ZStack {
+                    bookImage
+                        .frame(height: imageHeight)
+                        .cornerRadius(5)
+                    
+                    bookImage
+                        .frame(height: shop ? 0 : imageHeight)
+                        .cornerRadius(5)
+                        .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
+                        .offset(x: shop ? screenSize.width - 100 : 0, y: shop ? screenSize.height : 0)
+                }
                 
                 Text(book.title)
                     .font(.futura(24))
                     .bold()
+                
+                Button {
+                    withAnimation(.easeInOut(duration: 2)) {
+                        shop = true
+                        viewModel.addToCart(book)
+                    }
+                } label: {
+                    Text("Shop")
+                }
+                .buttonStyle(.bookalooStyle)
                 
                 VStack(alignment: .leading) {
                     HStack(alignment: .top) {
@@ -64,11 +89,13 @@ struct BookDetailsView: View {
             .padding()
         } //: ScrollView
         .toolbar(.hidden, for: .tabBar)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 struct BookDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ModuleDependencies().bookDetailsView(.test)
+            .environmentObject(ModuleDependencies().booksViewModel())
     }
 }

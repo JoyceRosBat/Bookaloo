@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     let dependencies: CommonModulesDependenciesResolver
-    @EnvironmentObject var viewModel: LoginViewModel
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var booksViewModel: BooksViewModel
     var booksView: BooksView {
         dependencies.booksView()
     }
@@ -29,7 +30,7 @@ struct HomeView: View {
                 Label("Books", systemImage: "book")
             }//: booksView tabItem
             
-            if viewModel.isAdmin {
+            if loginViewModel.isAdmin {
                 NavigationStack {
                     clientsView
                 }//: clientsView NavigationStack
@@ -44,6 +45,7 @@ struct HomeView: View {
             .tabItem {
                 Label("Shop", systemImage: "cart")
             }//: shopView tabItem
+            .badge(booksViewModel.order?.order?.count ?? 0)
         }//: TabView
 //        .toolbarColorScheme(.light, for: .tabBar)
     }
@@ -53,5 +55,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(dependencies: ModuleDependencies())
             .environmentObject(ModuleDependencies().loginViewModel())
+            .environmentObject(ModuleDependencies().booksViewModel())
     }
 }

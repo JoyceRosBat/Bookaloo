@@ -21,24 +21,27 @@ struct BookCellView: View {
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
                     Text("Title:")
+                        .font(StyleConstants.bookalooFont)
                     Text(title)
+                        .font(.futura(14))
                         .bold()
                 }//: HStack
-                .font(StyleConstants.bookalooFont)
                 
                 HStack(alignment: .top) {
                     Text("Author:")
+                        .font(StyleConstants.bookalooFont)
                     Text(author)
+                        .font(.futura(14))
                         .bold()
                 }//: HStack
-                .font(StyleConstants.bookalooFont)
                 
                 HStack(alignment: .top) {
                     Text("Year:")
-                    Text("\(year)")
+                        .font(StyleConstants.bookalooFont)
+                    Text(String(year))
+                        .font(.futura(14))
                         .bold()
                 }//: Hstack
-                .font(StyleConstants.bookalooFont)
             }//: VStack
         }//: HStack
     }

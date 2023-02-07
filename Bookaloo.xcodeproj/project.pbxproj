@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3924D2C12994D91500787A80 /* BookShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2C02994D91500787A80 /* BookShopCell.swift */; };
 		39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E229901E7F00A2658B /* Image+Ext.swift */; };
 		39A444E529901EBC00A2658B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E429901EBC00A2658B /* ImageLoader.swift */; };
 		39A444FE29902D8C00A2658B /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FD29902D8C00A2658B /* LoginContentView.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3924D2C02994D91500787A80 /* BookShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShopCell.swift; sourceTree = "<group>"; };
 		39A444E229901E7F00A2658B /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		39A444E429901EBC00A2658B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		39A444FD29902D8C00A2658B /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3924D2C22994DD3E00787A80 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				3924D2C02994D91500787A80 /* BookShopCell.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
 		39A444E6299021DF00A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +284,7 @@
 		39A444F2299022A800A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3924D2C22994DD3E00787A80 /* ViewComponents */,
 				39A96384298A554C00F0C055 /* ShopView.swift */,
 			);
 			path = View;
@@ -879,6 +890,7 @@
 				39A9635329887F6F00F0C055 /* ClientsRepository.swift in Sources */,
 				39A96382298A553000F0C055 /* ShopViewModel.swift in Sources */,
 				39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */,
+				3924D2C12994D91500787A80 /* BookShopCell.swift in Sources */,
 				39A96385298A554C00F0C055 /* ShopView.swift in Sources */,
 				39A96ED6298C10CC00525E2B /* EmptyResponse.swift in Sources */,
 				39A9637B298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift in Sources */,

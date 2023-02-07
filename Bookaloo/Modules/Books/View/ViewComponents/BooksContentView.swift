@@ -14,7 +14,7 @@ struct BooksContentView: View {
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
             List {
-                ForEach(viewModel.books) { book in
+                ForEach(viewModel.filteredBooks) { book in
                     NavigationLink(value: book) {
                         BookCellView(
                             imageURL: book.cover,
@@ -29,6 +29,8 @@ struct BooksContentView: View {
         .navigationDestination(for: Book.self) { book in
             dependencies.bookDetailsView(book)
         }//: navigationDestination
+        .searchable(text: $viewModel.searchText)
+        .toolbar(viewModel.showAlert ? .hidden : .visible, for: .tabBar)
         .overlay {
             if viewModel.showAlert {
                 logoutConfirmationPopup
@@ -104,7 +106,9 @@ extension BooksContentView {
 
 struct BooksContentView_Previews: PreviewProvider {
     static var previews: some View {
-        BooksContentView(dependencies: ModuleDependencies())
-            .environmentObject(ModuleDependencies().booksViewModel())
+        NavigationStack {
+            BooksContentView(dependencies: ModuleDependencies())
+                .environmentObject(ModuleDependencies().booksViewModel())
+        }
     }
 }

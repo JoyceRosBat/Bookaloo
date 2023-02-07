@@ -9,7 +9,7 @@ import Foundation
 
 struct Order: Codable {
     let email: String
-    var status: Status
+    var status: Status? = nil
     var date: Date? = nil
     var order: [Int]? = nil
     var books: [Int]? = nil

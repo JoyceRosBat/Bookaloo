@@ -66,11 +66,11 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
                 case .apiError(let aPIErrorResponse):
                     alertTitle = "Oops... Something went wrong"
                     alertMessage = aPIErrorResponse.reason
-                    showAlert = true
+                    showError = true
                 default:
                     alertTitle = "Oops... Something went wrong"
                     alertMessage = "Try again later..."
-                    showAlert = true
+                    showError = true
                 }
             }
         }

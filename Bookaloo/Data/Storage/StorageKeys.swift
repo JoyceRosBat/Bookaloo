@@ -9,4 +9,5 @@ import Foundation
 
 enum StorageKeys: String, CaseIterable {
     case user
+    case order
 }
