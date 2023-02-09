@@ -19,19 +19,19 @@ final class ClientsRepository: ClientsRepositoryProtocol {
         return try await networkRequester.doRequest(request: request)
     }
     
-    func new(_ client: User) async throws {
+    func new(_ client: User) async throws -> EmptyResponse {
         let request = ClientRequest.new(client)
-        _ = try await networkRequester.doRequest(request: request)
+        return try await networkRequester.doRequest(request: request)
     }
     
-    func modify(_ client: User) async throws {
+    func modify(_ client: User) async throws -> EmptyResponse {
         let request = ClientRequest.modify(client)
-        _ = try await networkRequester.doRequest(request: request)
+        return try await networkRequester.doRequest(request: request)
     }
     
-    func markRead(_ readBooks: ReadBooks) async throws {
+    func markRead(_ readBooks: ReadBooks) async throws -> EmptyResponse {
         let request = ClientRequest.markRead(readBooks)
-        _ = try await networkRequester.doRequest(request: request)
+        return try await networkRequester.doRequest(request: request)
     }
     
     func report(_ email: String) async throws -> Report {

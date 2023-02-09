@@ -10,29 +10,43 @@ import SwiftUI
 struct BooksContentView: View {
     var dependencies: BooksDependenciesResolver
     @EnvironmentObject var viewModel: BooksViewModel
+    @State var showAlert: Bool = false
     
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
-            List {
-                ForEach(viewModel.filteredBooks) { book in
-                    NavigationLink(value: book) {
-                        BookCellView(
-                            imageURL: book.cover,
-                            title: book.title,
-                            author: book.author,
-                            year: book.year
-                        )
-                    }//: NavigationLink
-                }//: ForEach
-            }//: List
+            if viewModel.books.isEmpty {
+                Text("**The list of books is empty.**\n\nTry to update again later")
+                    .emptyMessageModifier()
+            } else {
+                List {
+                    ForEach(viewModel.filteredBooks) { book in
+                        NavigationLink(value: book) {
+                            BookCellView(
+                                imageURL: book.cover,
+                                title: book.title,
+                                author: book.author,
+                                year: book.year
+                            )
+//                            .swipeActions(edge: .trailing,
+//                                          allowsFullSwipe: true) {
+//                                Button {
+//                                    
+//                                } label: {
+//                                    Image(systemName: "eye")
+//                                }
+//                            }
+                        }//: NavigationLink
+                    }//: ForEach
+                }//: List
+            }// If list of books is not empty
         }//: BaseViewContent
         .navigationDestination(for: Book.self) { book in
             dependencies.bookDetailsView(book)
         }//: navigationDestination
         .searchable(text: $viewModel.searchText)
-        .toolbar(viewModel.showAlert ? .hidden : .visible, for: .tabBar)
+        .toolbar(showAlert ? .hidden : .visible, for: .tabBar)
         .overlay {
-            if viewModel.showAlert {
+            if showAlert {
                 logoutConfirmationPopup
             }
         }//: Overlay - Show logout confirmation popup
@@ -77,7 +91,7 @@ extension BooksContentView {
         Button {
             viewModel.alertTitle = "Warning"
             viewModel.alertMessage = "Are you sure you want to logout?"
-            viewModel.showAlert = true
+            showAlert = true
         } label: {
             Label("Logout",
                   systemImage: "arrowshape.turn.up.backward")
@@ -86,21 +100,23 @@ extension BooksContentView {
     
     @ViewBuilder
     var logoutConfirmationPopup: some View {
-        PopupView(showAlert: $viewModel.showAlert,
-                  title: viewModel.alertTitle,
-                  message: viewModel.alertMessage) {
-            Button {
-                viewModel.showAlert.toggle()
-            } label: {
-                Text("Cancel")
+        PopupView(
+            showAlert: $showAlert,
+            title: viewModel.alertTitle) {
+                Text(viewModel.alertMessage)
+            } buttons: {
+                Button {
+                    showAlert.toggle()
+                } label: {
+                    Text("Cancel")
+                }
+                Button {
+                    viewModel.doLogout()
+                    showAlert.toggle()
+                } label: {
+                    Text("Accept")
+                }
             }
-            Button {
-                viewModel.doLogout()
-                viewModel.showAlert.toggle()
-            } label: {
-                Text("Accept")
-            }
-        }
     }
 }
 

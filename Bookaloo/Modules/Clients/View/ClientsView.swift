@@ -15,7 +15,15 @@ struct ClientsView: View {
             VStack {
                 Text("Clients")
             }
-        }
+        }//: BaseViewContent
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Text("Bookaloo")
+                    .font(.futura(24))
+                    .bold()
+                    .foregroundStyle(StyleConstants.bookalooGradient)
+            }//: ToolbarItem - Title
+        }//: Toolbar
     }
 }
 

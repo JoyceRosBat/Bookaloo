@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Order: Codable {
+struct Order: Codable, Identifiable {
     let email: String
     var status: Status? = nil
     var date: Date? = nil
@@ -21,4 +21,6 @@ struct Order: Codable {
         case order = "pedido"
         case id = "npedido"
     }
+    
+    static let test: Order = .init(email: "email@email.com", status: .processing, date: .now, order: [1,4], books: [1,4,8], id: "Example-id-001")
 }

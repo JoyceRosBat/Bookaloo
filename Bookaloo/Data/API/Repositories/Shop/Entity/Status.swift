@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Status: String, Codable {
+enum Status: String, Codable, CaseIterable {
     case received = "recibido"
     case processing = "procesando"
     case sent = "enviado"

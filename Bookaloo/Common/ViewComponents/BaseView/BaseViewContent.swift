@@ -35,14 +35,14 @@ extension BaseViewContent {
     var errorPopup: some View {
         PopupView(
             showAlert: $viewModel.showError,
-            title: viewModel.alertTitle,
-            message: viewModel.alertMessage) {
+            title: viewModel.alertTitle) {
+                Text(viewModel.alertMessage)
+            } buttons: {
                 Button {
                     viewModel.showError.toggle()
                 } label: {
                     Text("Accept")
                 }
-                
             }
     }
 }

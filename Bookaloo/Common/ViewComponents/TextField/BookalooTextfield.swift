@@ -66,7 +66,7 @@ private extension BookalooTextfield {
             }
             .multilineTextAlignment(.center)
             .textFieldStyle(.roundedBorder)
-            .textContentType(.username)
+            .textContentType(.emailAddress)
             .autocorrectionDisabled()
             .textInputAutocapitalization(.never)
             .keyboardType(.emailAddress)

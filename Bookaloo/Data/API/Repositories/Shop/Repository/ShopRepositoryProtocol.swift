@@ -12,5 +12,5 @@ protocol ShopRepositoryProtocol {
     func checkOrder(by number: String) async throws -> Order
     func getOrders(of email: String) async throws -> [Order]
     func getStatus(of orderId: String) async throws -> OrderStatus
-    func modify(_ data: OrderModify) async throws
+    func modify(_ data: OrderModify) async throws -> EmptyResponse
 }

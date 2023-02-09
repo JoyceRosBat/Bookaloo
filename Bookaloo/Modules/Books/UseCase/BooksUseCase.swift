@@ -42,8 +42,8 @@ final class BooksUseCase: BooksUseCaseProtocol {
     /// ```
     ///        booksUseCase.find(startingWith: "some text")
     /// ```
-    /// Params:
-    ///     - startingWith: Find books that starts with that string
+    /// - Parameters:
+    ///   - startingWith: Find books that starts with that string
     func find(startingWith text: String) async throws -> [Book] {
         let books = try await repository.findBook(with: text)
         return try await getBookList(from: books)
@@ -53,8 +53,8 @@ final class BooksUseCase: BooksUseCaseProtocol {
     /// ```
     ///        getBookList(from: booksList)
     /// ```
-    /// Params:
-    ///     - from: A list of books
+    /// - Parameters:
+    ///   - from: The string to repeat.
     private func getBookList(from list: [Book]) async throws -> [Book] {
         var returnValues = [Book]()
         for try await book in AsyncBooks(books: list) {

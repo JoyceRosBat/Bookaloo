@@ -9,15 +9,10 @@ import Foundation
 
 protocol NetworkRequesterProtocol {
     func doRequest<T: Decodable>(request: APIRequest) async throws -> T
-    func doRequest(request: APIRequest) async throws -> EmptyResponse
 }
 
 final class NetworkRequester: NetworkRequesterProtocol {
     func doRequest<T: Decodable>(request: APIRequest) async throws -> T {
-        return try await handleRerequest(request: request)
-    }
-    
-    func doRequest(request: APIRequest) async throws -> EmptyResponse {
         try await handleRerequest(request: request)
     }
 }

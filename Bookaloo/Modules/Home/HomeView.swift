@@ -11,6 +11,8 @@ struct HomeView: View {
     let dependencies: CommonModulesDependenciesResolver
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var booksViewModel: BooksViewModel
+    @EnvironmentObject var shopsViewModel: ShopViewModel
+    
     var booksView: BooksView {
         dependencies.booksView()
     }
@@ -45,9 +47,12 @@ struct HomeView: View {
             .tabItem {
                 Label("Shop", systemImage: "cart")
             }//: shopView tabItem
-            .badge(booksViewModel.order?.order?.count ?? 0)
+            .badge(shopsViewModel.booksOrdered)
         }//: TabView
 //        .toolbarColorScheme(.light, for: .tabBar)
+        .onAppear {
+            shopsViewModel.updateCart()
+        }
     }
 }
 

@@ -8,28 +8,53 @@
 import SwiftUI
 
 struct BookShopCell: View {
-    @EnvironmentObject var booksViewModel: BooksViewModel
+    @EnvironmentObject var viewModel: ShopViewModel
     @State var book: Book
     @State var bookId: Int
     @State var quantity: Int
+    @Binding var showAlert: Bool
     
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
-                BookCellView(
-                    imageURL: book.cover,
-                    title: book.title,
-                    author: book.author,
-                    year: book.year
-                )
+                HStack {
+                    BookCellView(
+                        imageURL: book.cover,
+                        title: book.title,
+                        author: book.author,
+                        year: book.year
+                    )
+                    
+                    Spacer()
+                    
+                    Button {
+                        showAlert = true
+                        viewModel.bookSelected = book
+                    } label: {
+                        Image(systemName: "trash")
+                    }
+                    .buttonStyle(.bookalooStyle)
+                }
                 
                 HStack {
-                    Text(String(quantity))
-                }//: HStack
-                
-                Stepper(String(quantity), value: $quantity, in: 1...10) { changed in
-                    // Todo: Add or not books to order....
-                }
+                    Stepper {
+                        Text(String(quantity))
+                    } onIncrement: {
+                        if quantity < 10 {
+                            quantity += 1
+                            viewModel.addToCart(book)
+                        }
+                    } onDecrement: {
+                        if quantity > 1 {
+                            quantity -= 1
+                            viewModel.removeFromCart(book)
+                        } else {
+                            viewModel.bookSelected = book
+                            showAlert = true
+                        }
+                    }//: Stepper
+                }//: Hstack
+
             }//: VStack
         }//: ZStack
     }
@@ -37,7 +62,7 @@ struct BookShopCell: View {
 
 struct BookShopCell_Previews: PreviewProvider {
     static var previews: some View {
-        BookShopCell(book: .test, bookId: 1, quantity: 2)
-            .environmentObject(ModuleDependencies().booksViewModel())
+        BookShopCell(book: .test, bookId: 1, quantity: 2, showAlert: .constant(false))
+            .environmentObject(ModuleDependencies().shopsViewModel())
     }
 }

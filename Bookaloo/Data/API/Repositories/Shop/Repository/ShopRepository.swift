@@ -34,8 +34,8 @@ final class ShopRepository: ShopRepositoryProtocol {
         return try await networkRequester.doRequest(request: request)
     }
     
-    func modify(_ data: OrderModify) async throws {
+    func modify(_ data: OrderModify) async throws -> EmptyResponse {
         let request = ShopRequest.modify(data)
-        _ = try await networkRequester.doRequest(request: request)
+        return try await networkRequester.doRequest(request: request)
     }
 }

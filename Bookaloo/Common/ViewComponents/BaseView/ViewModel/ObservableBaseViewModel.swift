@@ -12,13 +12,11 @@ protocol ViewModelProtocol {
     func showNetworkError(_ error: NetworkError)
     func showError(with title: String, message: String)
     func showLoading(_ show: Bool)
-    func showAlert(_ show: Bool)
     func showError(_ show: Bool)
 }
 
 class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     @Published var showLoading: Bool = false
-    @Published var showAlert: Bool = false
     @Published var alertTitle: String = ""
     @Published var alertMessage: String = ""
     @Published var showError: Bool = false
@@ -38,14 +36,6 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
         Task {
             await MainActor.run {
                 showLoading = show
-            }
-        }
-    }
-    
-    func showAlert(_ show: Bool) {
-        Task {
-            await MainActor.run {
-                showAlert = show
             }
         }
     }

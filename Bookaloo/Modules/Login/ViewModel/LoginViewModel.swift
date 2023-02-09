@@ -28,6 +28,10 @@ final class LoginViewModel: ObservableBaseViewModel {
         self.dependencies = dependencies
     }
     
+    /// Validates if user and password are correct and try to login
+    /// ```
+    ///        viewModel.doLogin()
+    /// ```
     func doLogin() {
         validEmail = email.isValidEmail
         validPassword = password.count >= 8

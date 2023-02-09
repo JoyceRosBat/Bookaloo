@@ -9,8 +9,9 @@ import SwiftUI
 
 struct BookDetailsView: View {
     @EnvironmentObject var viewModel: BooksViewModel
+    @EnvironmentObject var shopsViewModel: ShopViewModel
     @State var seeMore: Bool = false
-    @State var shop: Bool = false
+    @State var showErrorMessage: Bool = false
     var bookImage: some View {
         ImageLoader(url: book.cover)
     }
@@ -28,10 +29,13 @@ struct BookDetailsView: View {
                         .cornerRadius(5)
                     
                     bookImage
-                        .frame(height: shop ? 0 : imageHeight)
+                        .frame(height: shopsViewModel.shopBook ? 0 : imageHeight)
                         .cornerRadius(5)
                         .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
-                        .offset(x: shop ? screenSize.width - 100 : 0, y: shop ? screenSize.height : 0)
+                        .offset(
+                            x: shopsViewModel.shopBook ? screenSize.width - 100 : 0,
+                            y: shopsViewModel.shopBook ? screenSize.height : 0
+                        )
                 }
                 
                 Text(book.title)
@@ -39,9 +43,13 @@ struct BookDetailsView: View {
                     .bold()
                 
                 Button {
-                    withAnimation(.easeInOut(duration: 2)) {
-                        shop = true
-                        viewModel.addToCart(book)
+                    if shopsViewModel.booksToShop[book.id, default: -1] < 10 {
+                        withAnimation(.easeInOut(duration: 2)) {
+                            shopsViewModel.shopBook = true
+                            shopsViewModel.addToCart(book)
+                        }
+                    } else {
+                        showErrorMessage = true
                     }
                 } label: {
                     Text("Shop")
@@ -89,7 +97,37 @@ struct BookDetailsView: View {
             .padding()
         } //: ScrollView
         .toolbar(.hidden, for: .tabBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Text("Bookaloo")
+                    .font(.futura(24))
+                    .bold()
+                    .foregroundStyle(StyleConstants.bookalooGradient)
+            }//: ToolbarItem - Title
+        }//: Toolbar
         .edgesIgnoringSafeArea(.bottom)
+        .overlay {
+            if showErrorMessage {
+                fullBooksPopup
+            }
+        }
+    }
+}
+
+extension BookDetailsView {
+    @ViewBuilder
+    var fullBooksPopup: some View {
+        PopupView(
+            showAlert: $showErrorMessage,
+            title: "Warning") {
+                Text("You have reached the maximun number of books to shop with this title on the same order")
+            } buttons: {
+                Button {
+                    showErrorMessage.toggle()
+                } label: {
+                    Text("Accept")
+                }
+            }
     }
 }
 
@@ -97,5 +135,6 @@ struct BookDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ModuleDependencies().bookDetailsView(.test)
             .environmentObject(ModuleDependencies().booksViewModel())
+            .environmentObject(ModuleDependencies().shopsViewModel())
     }
 }
