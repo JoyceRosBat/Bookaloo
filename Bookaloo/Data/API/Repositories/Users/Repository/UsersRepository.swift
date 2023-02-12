@@ -1,5 +1,5 @@
 //
-//  ClientsRepository.swift
+//  UsersRepository.swift
 //  Bookaloo
 //
 //  Created by Joyce Rosario Batista on 30/1/23.
@@ -7,40 +7,40 @@
 
 import Foundation
 
-final class ClientsRepository: ClientsRepositoryProtocol {
+final class UsersRepository: UsersRepositoryProtocol {
     let networkRequester: NetworkRequesterProtocol
     
     init(dependencies: NetworkRepositoryDependenciesResolver) {
         self.networkRequester = dependencies.resolve()
     }
     
-    func findClient(by email: String) async throws -> User {
-        let request = ClientRequest.find(email)
+    func find(by email: String) async throws -> User {
+        let request = UsersRequest.find(email)
         return try await networkRequester.doRequest(request: request)
     }
     
-    func new(_ client: User) async throws -> EmptyResponse {
-        let request = ClientRequest.new(client)
+    func new(_ user: User) async throws -> EmptyResponse {
+        let request = UsersRequest.new(user)
         return try await networkRequester.doRequest(request: request)
     }
     
-    func modify(_ client: User) async throws -> EmptyResponse {
-        let request = ClientRequest.modify(client)
+    func modify(_ user: User) async throws -> EmptyResponse {
+        let request = UsersRequest.modify(user)
         return try await networkRequester.doRequest(request: request)
     }
     
     func markRead(_ readBooks: ReadBooks) async throws -> EmptyResponse {
-        let request = ClientRequest.markRead(readBooks)
+        let request = UsersRequest.markRead(readBooks)
         return try await networkRequester.doRequest(request: request)
     }
     
     func report(_ email: String) async throws -> Report {
-        let request = ClientRequest.report(email)
+        let request = UsersRequest.report(email)
         return try await networkRequester.doRequest(request: request)
     }
     
     func read(_ email: String) async throws -> Report {
-        let request = ClientRequest.read(email)
+        let request = UsersRequest.read(email)
         return try await networkRequester.doRequest(request: request)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ClientRequest.swift
+//  UsersRequest.swift
 //  Bookaloo
 //
 //  Created by Joyce Rosario Batista on 30/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ClientRequest {
+enum UsersRequest {
     case find(String)
     case new(User)
     case modify(User)
@@ -16,7 +16,7 @@ enum ClientRequest {
     case read(String)
 }
 
-extension ClientRequest: APIRequest {
+extension UsersRequest: APIRequest {
     var subPath: String {
         "/client"
     }
@@ -43,8 +43,8 @@ extension ClientRequest: APIRequest {
         case .read(let email): return ["email": email] as [String: String]
         case .report(let email): return ["email": email] as [String: String]
         case .find(let email): return ["email": email] as [String: String]
-        case .new(let client): return try? client.toDictionary()
-        case .modify(let client): return try? client.toDictionary()
+        case .new(let user): return try? user.toDictionary()
+        case .modify(let user): return try? user.toDictionary()
         case .markRead(let readBooks): return try? readBooks.toDictionary()
         }
     }

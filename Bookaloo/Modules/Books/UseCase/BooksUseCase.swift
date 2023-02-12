@@ -15,9 +15,11 @@ protocol BooksUseCaseProtocol {
 
 final class BooksUseCase: BooksUseCaseProtocol {
     let repository: BooksRepositoryProtocol
+    let usersRepository: UsersRepositoryProtocol
     
     init(dependencies: BooksDependenciesResolver) {
         self.repository = dependencies.resolve()
+        self.usersRepository = dependencies.resolve()
     }
     
     /// Fetch the full list of books.

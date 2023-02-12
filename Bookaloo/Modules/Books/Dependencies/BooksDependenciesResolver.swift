@@ -9,6 +9,7 @@ import Foundation
 
 protocol BooksDependenciesResolver {
     func resolve() -> BooksRepositoryProtocol
+    func resolve() -> UsersRepositoryProtocol
     func resolve() -> BooksUseCaseProtocol
     func booksViewModel() -> BooksViewModel
     func booksView() -> BooksView

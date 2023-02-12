@@ -1,5 +1,5 @@
 //
-//  ClientsView.swift
+//  UsersView.swift
 //  Bookaloo
 //
 //  Created by Joyce Rosario Batista on 1/2/23.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ClientsView: View {
-    @ObservedObject var viewModel: ClientsViewModel
+struct UsersView: View {
+    @ObservedObject var viewModel: UsersViewModel
     
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
@@ -27,8 +27,8 @@ struct ClientsView: View {
     }
 }
 
-struct ClientsView_Previews: PreviewProvider {
+struct UsersView_Previews: PreviewProvider {
     static var previews: some View {
-        ModuleDependencies().clientsView()
+        ModuleDependencies().usersView()
     }
 }

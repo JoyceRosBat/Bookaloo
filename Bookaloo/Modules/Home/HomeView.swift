@@ -13,20 +13,10 @@ struct HomeView: View {
     @EnvironmentObject var booksViewModel: BooksViewModel
     @EnvironmentObject var shopsViewModel: ShopViewModel
     
-    var booksView: BooksView {
-        dependencies.booksView()
-    }
-    var clientsView : ClientsView {
-        dependencies.clientsView()
-    }
-    var shopView: ShopView {
-        dependencies.shopView()
-    }
-    
     var body: some View {
         TabView {
             NavigationStack {
-                booksView
+                dependencies.booksView()
             }//: booksView NavigationStack
             .tabItem {
                 Label("Books", systemImage: "book")
@@ -34,15 +24,15 @@ struct HomeView: View {
             
             if loginViewModel.isAdmin {
                 NavigationStack {
-                    clientsView
-                }//: clientsView NavigationStack
+                    dependencies.usersView()
+                }//: UsersView NavigationStack
                 .tabItem {
                     Label("Clients", systemImage: "person")
-                }//: clientsView tabItem
+                }//: usersView tabItem
             }
             
             NavigationStack {
-                shopView
+                dependencies.shopView()
             }//: shopView NavigationStack
             .tabItem {
                 Label("Shop", systemImage: "cart")
