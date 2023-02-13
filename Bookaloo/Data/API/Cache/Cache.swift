@@ -13,9 +13,11 @@ class Cache {
     
     var books: [Book]? = nil
     var authors: [Author]? = nil
+    var report: Report? = nil
     
     func clean() {
         books = nil
         authors = nil
+        report = nil
     }
 }

@@ -14,31 +14,37 @@ struct BooksContentView: View {
     
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
-            if viewModel.books.isEmpty {
-                Text("**The list of books is empty.**\n\nTry to update again later")
-                    .emptyMessageModifier()
-            } else {
-                List {
+            List {
+                if viewModel.books.isEmpty {
+                    Text("**The list of books is empty.**\n\nTry to update again later")
+                        .emptyMessageModifier()
+                } else {
                     ForEach(viewModel.filteredBooks) { book in
                         NavigationLink(value: book) {
                             BookCellView(
                                 imageURL: book.cover,
                                 title: book.title,
                                 author: book.author,
-                                year: book.year
+                                year: book.year,
+                                rating: book.rating,
+                                purchased: book.purchased ?? false
                             )
-//                            .swipeActions(edge: .trailing,
-//                                          allowsFullSwipe: true) {
-//                                Button {
-//                                    
-//                                } label: {
-//                                    Image(systemName: "eye")
-//                                }
-//                            }
+                            .swipeActions(edge: .trailing,
+                                          allowsFullSwipe: true) {
+                                Button {
+                                    viewModel.markAsRead(book)
+                                } label: {
+                                    book.read == true ? Image(systemName: "eye") : Image(systemName: "eye.slash")
+                                }
+//                                .tint(book.read == true ? .accentColor : .gray)
+                            }
                         }//: NavigationLink
                     }//: ForEach
-                }//: List
-            }// If list of books is not empty
+                }//: If list of books is not empty
+            }//: List
+            .refreshable {
+                viewModel.getBooks()
+            }
         }//: BaseViewContent
         .navigationDestination(for: Book.self) { book in
             dependencies.bookDetailsView(book)

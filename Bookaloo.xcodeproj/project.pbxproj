@@ -13,6 +13,12 @@
 		3924D2D0299949ED00787A80 /* PurchasedBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2CF299949ED00787A80 /* PurchasedBooksList.swift */; };
 		3924D2D229994C4300787A80 /* OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D129994C4300787A80 /* OrdersList.swift */; };
 		3924D2D4299961E800787A80 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D3299961E800787A80 /* Text+Extension.swift */; };
+		3924D2D7299AC26600787A80 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D6299AC26600787A80 /* RatingView.swift */; };
+		3924D2DA299AD8B500787A80 /* HandleOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D9299AD8B500787A80 /* HandleOrdersView.swift */; };
+		3924D2DE299BFB3F00787A80 /* HandleOrderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2DD299BFB3F00787A80 /* HandleOrderCellView.swift */; };
+		3924D2E1299C112900787A80 /* ShopBookCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2E0299C112900787A80 /* ShopBookCase.swift */; };
+		3924D2E3299C114000787A80 /* PurchaseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2E2299C114000787A80 /* PurchaseStatus.swift */; };
+		3924D2E5299C115300787A80 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2E4299C115300787A80 /* SearchType.swift */; };
 		39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E229901E7F00A2658B /* Image+Ext.swift */; };
 		39A444E529901EBC00A2658B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E429901EBC00A2658B /* ImageLoader.swift */; };
 		39A444FE29902D8C00A2658B /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FD29902D8C00A2658B /* LoginContentView.swift */; };
@@ -96,6 +102,12 @@
 		3924D2CF299949ED00787A80 /* PurchasedBooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedBooksList.swift; sourceTree = "<group>"; };
 		3924D2D129994C4300787A80 /* OrdersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersList.swift; sourceTree = "<group>"; };
 		3924D2D3299961E800787A80 /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
+		3924D2D6299AC26600787A80 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		3924D2D9299AD8B500787A80 /* HandleOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleOrdersView.swift; sourceTree = "<group>"; };
+		3924D2DD299BFB3F00787A80 /* HandleOrderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleOrderCellView.swift; sourceTree = "<group>"; };
+		3924D2E0299C112900787A80 /* ShopBookCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBookCase.swift; sourceTree = "<group>"; };
+		3924D2E2299C114000787A80 /* PurchaseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseStatus.swift; sourceTree = "<group>"; };
+		3924D2E4299C115300787A80 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 		39A444E229901E7F00A2658B /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		39A444E429901EBC00A2658B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		39A444FD29902D8C00A2658B /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
@@ -224,6 +236,41 @@
 				3924D2D129994C4300787A80 /* OrdersList.swift */,
 			);
 			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		3924D2D5299AC25100787A80 /* RatingView */ = {
+			isa = PBXGroup;
+			children = (
+				3924D2D6299AC26600787A80 /* RatingView.swift */,
+			);
+			path = RatingView;
+			sourceTree = "<group>";
+		};
+		3924D2D8299AD89B00787A80 /* HandleOrders */ = {
+			isa = PBXGroup;
+			children = (
+				3924D2DB299BFB2000787A80 /* ViewComponents */,
+				3924D2D9299AD8B500787A80 /* HandleOrdersView.swift */,
+			);
+			path = HandleOrders;
+			sourceTree = "<group>";
+		};
+		3924D2DB299BFB2000787A80 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				3924D2DD299BFB3F00787A80 /* HandleOrderCellView.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		3924D2DF299C111400787A80 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				3924D2E0299C112900787A80 /* ShopBookCase.swift */,
+				3924D2E2299C114000787A80 /* PurchaseStatus.swift */,
+				3924D2E4299C115300787A80 /* SearchType.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		39A444E6299021DF00A2658B /* View */ = {
@@ -617,11 +664,13 @@
 		39A9637C298A54EF00F0C055 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				3924D2DF299C111400787A80 /* Enums */,
 				39A444EF2990228E00A2658B /* Dependencies */,
 				39A444F02990229700A2658B /* UseCase */,
 				39A444F1299022A000A2658B /* ViewModel */,
 				39A444F2299022A800A2658B /* View */,
 				3924D2C82998F5E100787A80 /* ShopOrders */,
+				3924D2D8299AD89B00787A80 /* HandleOrders */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -654,6 +703,7 @@
 		39A96EDD298C188C00525E2B /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				3924D2D5299AC25100787A80 /* RatingView */,
 				3924D2CB2999141900787A80 /* ExpandableView */,
 				39A444F7299023B000A2658B /* PopupView */,
 				39A444F8299023BE00A2658B /* BaseView */,
@@ -886,6 +936,7 @@
 				39A9637E298A550300F0C055 /* ShopDependenciesResolver.swift in Sources */,
 				39A963382988464E00F0C055 /* BooksRequest.swift in Sources */,
 				39A9633A29884EA200F0C055 /* Book.swift in Sources */,
+				3924D2E3299C114000787A80 /* PurchaseStatus.swift in Sources */,
 				39A9636B2989686500F0C055 /* ModuleDependencies.swift in Sources */,
 				39A96344298851A300F0C055 /* Order.swift in Sources */,
 				39A96375298A4EFF00F0C055 /* UsersUseCase.swift in Sources */,
@@ -900,12 +951,14 @@
 				39A96F18298D974400525E2B /* LoginDependenciesResolver.swift in Sources */,
 				39A96F2A298FF1A400525E2B /* String+Ext.swift in Sources */,
 				39A96F28298F1DD200525E2B /* Role.swift in Sources */,
+				3924D2E1299C112900787A80 /* ShopBookCase.swift in Sources */,
 				39A96F1C298D976100525E2B /* LoginViewModel.swift in Sources */,
 				3924D2D229994C4300787A80 /* OrdersList.swift in Sources */,
 				39A963672989644A00F0C055 /* BooksUseCase.swift in Sources */,
 				3924D2C62998F04600787A80 /* ShopOrdersView.swift in Sources */,
 				39A96F13298D952D00525E2B /* LoginRepository.swift in Sources */,
 				39A96ED3298C09F900525E2B /* BookalooButtonStyle.swift in Sources */,
+				3924D2D7299AC26600787A80 /* RatingView.swift in Sources */,
 				39A96F1E298D9BEE00525E2B /* BookalooTextfield.swift in Sources */,
 				39A96F2C29901A7F00525E2B /* BookCellView.swift in Sources */,
 				39A96F0F298D950D00525E2B /* LoginRequest.swift in Sources */,
@@ -931,7 +984,9 @@
 				39A96EDA298C186400525E2B /* BaseViewContent.swift in Sources */,
 				39A4450829904D5700A2658B /* DateFormatter+Ext.swift in Sources */,
 				39A9636E2989B1E300F0C055 /* PopupView.swift in Sources */,
+				3924D2DA299AD8B500787A80 /* HandleOrdersView.swift in Sources */,
 				39A96F1A298D975300525E2B /* LoginUseCase.swift in Sources */,
+				3924D2E5299C115300787A80 /* SearchType.swift in Sources */,
 				39A9632E2988449600F0C055 /* NetworkConstants.swift in Sources */,
 				39A4450A2992866100A2658B /* Status.swift in Sources */,
 				39A96371298A4EB300F0C055 /* UsersView.swift in Sources */,
@@ -939,6 +994,7 @@
 				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,
 				39A96369298964BF00F0C055 /* BooksDependenciesResolver.swift in Sources */,
 				39A9635329887F6F00F0C055 /* UsersRepository.swift in Sources */,
+				3924D2DE299BFB3F00787A80 /* HandleOrderCellView.swift in Sources */,
 				39A96382298A553000F0C055 /* ShopViewModel.swift in Sources */,
 				39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */,
 				3924D2D4299961E800787A80 /* Text+Extension.swift in Sources */,

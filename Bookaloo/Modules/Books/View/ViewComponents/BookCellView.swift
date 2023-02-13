@@ -12,38 +12,52 @@ struct BookCellView: View {
     let title: String
     let author: String
     let year: Int
+    @State var rating: Double?
+    let purchased: Bool
+    
     var body: some View {
-        HStack(alignment: .top, spacing: 16) {
-            ImageLoader(url: imageURL)
-                .frame(width: 50)
-                .cornerRadius(5)
-                .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
-            VStack(alignment: .leading) {
-                HStack(alignment: .top) {
-                    Text("Title:")
-                        .font(StyleConstants.bookalooFont)
-                    Text(title)
-                        .font(.futura(14))
-                        .bold()
-                }//: HStack
+        let bindingRating = Binding(
+            get: { Int(rating ?? 0) },
+            set: { rating = Double($0) }
+        )
+        
+        return HStack(alignment: .center, spacing: 16) {
+                ImageLoader(url: imageURL)
+                    .frame(width: 60)
+                    .cornerRadius(5)
+                    .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
+                VStack(alignment: .leading) {
+                            Text(title)
+                                .font(.futura(14))
+                                .bold()
+                    
+                        Text(author)
+                            .font(.futura(14))
+                            .bold()
+                            .foregroundColor(.accentColor)
+                            .opacity(0.6)
+                    
+                        Text(String(year))
+                            .font(.futura(14))
+                            .bold()
+                            .foregroundColor(.gray)
+                    
+                       RatingView(rating: bindingRating, allowTouch: false)
+                }//: VStack
                 
-                HStack(alignment: .top) {
-                    Text("Author:")
-                        .font(StyleConstants.bookalooFont)
-                    Text(author)
-                        .font(.futura(14))
-                        .bold()
-                }//: HStack
+                Spacer()
                 
-                HStack(alignment: .top) {
-                    Text("Year:")
-                        .font(StyleConstants.bookalooFont)
-                    Text(String(year))
-                        .font(.futura(14))
-                        .bold()
-                }//: Hstack
-            }//: VStack
-        }//: HStack
+                VStack(alignment: .center) {
+                    if purchased {
+                        Image(systemName: "cart.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30)
+                            .foregroundStyle(StyleConstants.bookalooGradient)
+                    }//: If purchased...
+                }//: VStack
+                
+            }//: HStack
     }
 }
 
@@ -53,7 +67,9 @@ struct BookCellView_Previews: PreviewProvider {
             imageURL: URL(string: "https://images.gr-assets.com/books/1327942880l/2493.jpg"),
             title: "The Time Machine",
             author: "H. G. Wells",
-            year: 1985
+            year: 1985,
+            rating: 3.5,
+            purchased: true
         ).previewLayout(.sizeThatFits)
     }
 }

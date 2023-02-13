@@ -16,7 +16,7 @@ protocol ShopUseCaseProtocol {
 }
 
 final class ShopUseCase: ShopUseCaseProtocol {
-    let repository: ShopRepositoryProtocol
+    private let repository: ShopRepositoryProtocol
     
     init(dependencies: ShopDependenciesResolver) {
         self.repository = dependencies.resolve()

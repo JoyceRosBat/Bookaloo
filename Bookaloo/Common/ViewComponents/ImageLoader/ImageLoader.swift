@@ -26,7 +26,7 @@ struct ImageLoader: View {
                 image.imageModifier()
                     .transition(.scale)
             case .failure:
-                Image(systemName: "ant.circle.fill").iconModifier()
+                Image(systemName: "rectangle.on.rectangle.slash.circle.fill").iconModifier()
             case .empty:
                 Image(systemName: "photo.circle.fill").iconModifier()
             @unknown default:

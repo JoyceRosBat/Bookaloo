@@ -11,11 +11,16 @@ protocol BooksUseCaseProtocol {
     func fetch() async throws -> [Book]
     func fetchLatest() async throws -> [Book]
     func find(startingWith text: String) async throws -> [Book]
+    func read(_ readBooks: ReadBooks) async throws
+    func getReport(_ email: String) async throws -> Report
 }
 
 final class BooksUseCase: BooksUseCaseProtocol {
-    let repository: BooksRepositoryProtocol
-    let usersRepository: UsersRepositoryProtocol
+    private var user: User? {
+        Storage.shared.get(key: .user, type: User.self)
+    }
+    private let repository: BooksRepositoryProtocol
+    private let usersRepository: UsersRepositoryProtocol
     
     init(dependencies: BooksDependenciesResolver) {
         self.repository = dependencies.resolve()
@@ -51,6 +56,26 @@ final class BooksUseCase: BooksUseCaseProtocol {
         return try await getBookList(from: books)
     }
     
+    /// Mark books as read
+    /// ```
+    ///        booksUseCase.markRead(readBooks)
+    /// ```
+    /// - Parameters:
+    ///   - readBooks: Books to mark as read
+    func read(_ readBooks: ReadBooks) async throws {
+        _ = try await usersRepository.markRead(readBooks)
+    }
+    
+    /// Get books read and purchased of a user by email
+    /// ```
+    ///        usersUseCase.report(email)
+    /// ```
+    /// - Parameters:
+    ///   - email: Email of the user to get the list of books
+    func getReport(_ email: String) async throws -> Report {
+        try await usersRepository.report(email)
+    }
+    
     /// Private function to get books with all data (authors, read, buy, etc)
     /// ```
     ///        getBookList(from: booksList)
@@ -58,11 +83,15 @@ final class BooksUseCase: BooksUseCaseProtocol {
     /// - Parameters:
     ///   - from: The string to repeat.
     private func getBookList(from list: [Book]) async throws -> [Book] {
+        let report = try? await getReport(user?.email ?? "")
         var returnValues = [Book]()
-        for try await book in AsyncBooks(books: list) {
-            var book = book
+        for try await item in AsyncBooks(books: list) {
+            var book = item
+            print(book.id)
             let author = try await repository.getAuthors().first(where: { $0.id == book.author })
             book.author = author?.name ?? ""
+            book.purchased = report?.ordered?.contains(book.id) ?? false
+            book.read = report?.readed?.contains(book.id) ?? false
             returnValues.append(book)
         }
         return returnValues

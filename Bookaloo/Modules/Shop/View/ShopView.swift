@@ -32,7 +32,7 @@ struct ShopView: View {
                         Button {
                             viewModel.finishShopAlert = true
                         } label: {
-                            Text("Shop")
+                            Label("Shop", systemImage: "cart")
                         }
                         .buttonStyle(.bookalooStyle)
                         .frame(width: UIScreen.main.bounds.width * 0.8)
@@ -48,13 +48,23 @@ struct ShopView: View {
                     .bold()
                     .foregroundStyle(StyleConstants.bookalooGradient)
             }//: ToolbarItem - Title
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink {
-                    dependencies.shopOrdersView()
-                } label: {
-                    Image(systemName: "folder")
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                HStack {
+                    NavigationLink {
+                        dependencies.shopOrdersView()
+                    } label: {
+                        Image(systemName: "shippingbox.fill")
+                    }
+                    
+                    if viewModel.isAdmin {
+                        NavigationLink {
+                            dependencies.handleOdersView()
+                        } label: {
+                            Image(systemName: "tray.and.arrow.down.fill")
+                        }
+                    }
                 }
-            }//: ToolbarItem - List of orders
+            }//: ToolbarItemGroup
         }//: Toolbar
         .overlay {
             if viewModel.showRemoveBookAlert {
@@ -71,6 +81,7 @@ struct ShopView: View {
                   viewModel.showError ||
                   viewModel.finishShopAlert ||
                   viewModel.shopCompleteAlert) ? .hidden : .visible, for: .tabBar)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -128,7 +139,7 @@ extension ShopView {
             showAlert: $viewModel.shopCompleteAlert,
             title: "Your order is complete") {
                 Text("Your oder number:\n**\(viewModel.pendingOrder?.id ?? "")**\n\nYou can check all your orders on the button ") +
-                Text(Image(systemName: "folder")) +
+                Text(Image(systemName: "shippingbox.fill")) +
                 Text(" at the top")
             } buttons: {
                 Button {

@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum Status: String, Codable, CaseIterable {
+enum Status: String, Codable, CaseIterable, Identifiable {
+    var id: Self { return self }
     case received = "recibido"
     case processing = "procesando"
     case sent = "enviado"

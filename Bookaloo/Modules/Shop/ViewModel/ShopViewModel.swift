@@ -7,17 +7,6 @@
 
 import Foundation
 
-enum ShopBookCase {
-    case increment
-    case decrement
-}
-
-enum PurchaseStatus: String, CaseIterable {
-    case inProgress = "In progress"
-    case delivered = "Delivered"
-    case cancelled = "Cancelled"
-}
-
 final class ShopViewModel: ObservableBaseViewModel {
     let dependencies: ShopDependenciesResolver
     var shopUseCase: ShopUseCaseProtocol {
@@ -33,10 +22,13 @@ final class ShopViewModel: ObservableBaseViewModel {
     @Published var showRemoveBookAlert: Bool = false
     @Published var finishShopAlert: Bool = false
     @Published var shopCompleteAlert: Bool = false
+    @Published var ordersEmpty: Bool = false
     
     @Published var pendingOrder: Order?
     
     @Published var userOrders: [Order] = []
+    @Published var searchOrders: [Order] = []
+    
     @Published var ordersStatus: [PurchaseStatus] = [.inProgress, .delivered, .cancelled]
     @Published var inProgressList: [Order] = []
     @Published var deliveredList: [Order] = []
@@ -52,6 +44,43 @@ final class ShopViewModel: ObservableBaseViewModel {
         if !viewDidLoad {
             updateShop()
             viewDidLoad = true
+        }
+    }
+    
+    /// Adds a book to the cart prepared to shop
+    /// ```
+    ///        viewModel.addToCat(book)
+    /// ```
+    /// - Parameters:
+    ///   - book: The book to add to cart
+    func addToCart(_ book: Book) {
+        updateBooksToShop(with: book.id)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            guard let self = self else { return }
+            self.shopBook = false
+        }
+    }
+    
+    /// Removes a book from the cart
+    /// ```
+    ///        viewModel.removeFromCart(book)
+    /// ```
+    /// - Parameters:
+    ///   - book: The book to remove from the cart
+    func removeFromCart(_ book: Book) {
+        updateBooksToShop(with: book.id, shopCase: .decrement)
+    }
+    
+    /// Removes the book selected
+    /// ```
+    ///        viewModel.removeBookSelected()
+    /// ```
+    func removeBookSelected() {
+        if let bookSelected {
+            booksToShop.removeValue(forKey: bookSelected.id)
+            updateShop()
+            Storage.shared.save(booksToShop, key: .cart)
+            self.bookSelected = nil
         }
     }
     
@@ -91,45 +120,6 @@ final class ShopViewModel: ObservableBaseViewModel {
         }
     }
     
-    /// Adds a book to the cart prepared to shop
-    /// ```
-    ///        viewModel.addToCat(book)
-    /// ```
-    /// - Parameters:
-    ///   - book: The book to add to cart
-    func addToCart(_ book: Book) {
-        updateBooksToShop(with: book.id)
-        //        Task {
-        //            await MainActor.run {
-        //                shopBook = false
-        //            }
-        //        }
-        //        shopBook = false
-    }
-    
-    /// Removes a book from the cart
-    /// ```
-    ///        viewModel.removeFromCart(book)
-    /// ```
-    /// - Parameters:
-    ///   - book: The book to remove from the cart
-    func removeFromCart(_ book: Book) {
-        updateBooksToShop(with: book.id, shopCase: .decrement)
-    }
-    
-    /// Removes the book selected
-    /// ```
-    ///        viewModel.removeBookSelected()
-    /// ```
-    func removeBookSelected() {
-        if let bookSelected {
-            booksToShop.removeValue(forKey: bookSelected.id)
-            updateShop()
-            Storage.shared.save(booksToShop, key: .cart)
-            self.bookSelected = nil
-        }
-    }
-    
     /// Get the orders of a user
     /// ```
     ///        viewModel.getOrders()
@@ -163,6 +153,92 @@ final class ShopViewModel: ObservableBaseViewModel {
                         showNetworkError(error)
                     }
                 }
+            }
+        }
+    }
+    
+    /// Get the orders of a user given the email
+    /// ```
+    ///        viewModel.getOrders(by: "email")
+    /// ```
+    /// - Parameters:
+    ///  - email: The email of the user
+    func getOrders(by email: String) {
+        cleanSearchOrders()
+        showLoading(true)
+        Task {
+            do {
+                let list = try await shopUseCase.orders(of: email)
+                Task {
+                    await MainActor.run {
+                        searchOrders = list
+                        ordersEmpty = searchOrders.isEmpty
+                    }
+                }
+                showLoading(false)
+            } catch let error as NetworkError {
+                showNetworkError(error)
+            }
+        }
+    }
+    
+    /// Get an order given its number
+    /// ```
+    ///        viewModel.getOrder(id: "order-id")
+    /// ```
+    /// - Parameters:
+    ///  - id: the id number
+    func getOrder(by id: String) {
+        cleanSearchOrders()
+        showLoading(true)
+        Task {
+            do {
+                let order = try await shopUseCase.check(by: id)
+                Task {
+                    await MainActor.run {
+                        searchOrders = [order]
+                        ordersEmpty = searchOrders.isEmpty
+                    }
+                }
+                showLoading(false)
+            } catch let error as NetworkError {
+                showNetworkError(error)
+            }
+        }
+    }
+    
+    /// Modify an order by its id
+    /// ```
+    ///        viewModel.modify("order-id")
+    /// ```
+    /// - Parameters:
+    ///  - orderId: the id number
+    func modify(_ orderId: String?, status: Status) {
+        guard let orderId else { return }
+        showLoading(true)
+        Task {
+            do {
+                let orderToModify = OrderModify(
+                    id: orderId,
+                    status: status,
+                    admin: user?.email ?? ""
+                )
+                try await shopUseCase.modify(orderToModify)
+                showLoading(false)
+            } catch let error as NetworkError {
+                showNetworkError(error)
+            }
+        }
+    }
+    
+    /// Cleans the list f orders search
+    /// ```
+    ///        viewModel.cleanSearchOrders()
+    /// ```
+    func cleanSearchOrders() {
+        Task {
+            await MainActor.run {
+                searchOrders.removeAll()
             }
         }
     }

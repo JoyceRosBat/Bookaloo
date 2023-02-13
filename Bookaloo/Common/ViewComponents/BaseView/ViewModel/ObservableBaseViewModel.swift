@@ -24,7 +24,7 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
         Storage.shared.get(key: .user, type: User.self)
     }
     var loggedIn: Bool {
-        user?.token != nil
+        user?.email != nil
     }
     var isAdmin: Bool {
         user?.role == .admin

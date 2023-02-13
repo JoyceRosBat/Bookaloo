@@ -26,10 +26,9 @@ private extension NetworkRequester {
             guard let response = response as? HTTPURLResponse else { throw NetworkError.httpError }
             switch response.statusCode {
             case 400...530:
-                do {
-                    let apiError = try mapResponse(data: data, dataType: APIErrorResponse.self)
+                if let apiError = try? mapResponse(data: data, dataType: APIErrorResponse.self) {
                     throw NetworkError.apiError(apiError)
-                } catch {
+                } else {
                     throw NetworkError.status(response.statusCode)
                 }
             default: ()
@@ -50,7 +49,7 @@ private extension NetworkRequester {
         }
     }
     
-    private func mapResponse<T: Decodable>(data: Data, dataType: T.Type) throws -> T {
+    func mapResponse<T: Decodable>(data: Data, dataType: T.Type) throws -> T {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(.jsonFormatter)
         return try decoder.decode(T.self, from: data)

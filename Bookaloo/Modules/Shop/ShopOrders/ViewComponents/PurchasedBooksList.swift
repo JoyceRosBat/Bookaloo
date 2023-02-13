@@ -14,13 +14,20 @@ struct PurchasedBooksList: View {
     var body: some View {
         ForEach(Array(Set(books ?? [])), id: \.self) { bookId in
             if let book = booksViewModel.books.first(where: { $0.id == bookId }) {
-                HStack(alignment: .top) {
+                HStack(alignment: .center) {
                     Text(Image(systemName: "book"))
                         .foregroundStyle(StyleConstants.bookalooGradient)
                         .bold()
+                        .font(.futura(12))
+                    
                     Text("\(book.title):")
+                        .font(.futura(12))
+                        .opacity(0.7)
+                    
                     Text("\(books?.filter { $0 == bookId }.count ?? 0)")
                         .bold()
+                        .font(.futura(10))
+                        .opacity(0.7)
                 }
             }
         }

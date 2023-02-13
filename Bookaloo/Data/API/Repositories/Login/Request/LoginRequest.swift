@@ -13,12 +13,12 @@ enum LoginRequest {
 
 extension LoginRequest: APIRequest {
     var subPath: String {
-        "/login"
+        "/client"
     }
     
     var path: String {
         switch self {
-        case .validate: return "/login"
+        case .validate: return "/query"
         }
     }
     
@@ -30,7 +30,7 @@ extension LoginRequest: APIRequest {
     
     var params: Any? {
         switch self {
-        case .validate(let user): return try? user.toDictionary()
+        case .validate(let user): return ["email": user.email] as [String: String]
         }
     }
 }

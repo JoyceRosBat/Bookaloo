@@ -24,22 +24,22 @@ struct LoginContentView: View {
                     .foregroundStyle(StyleConstants.bookalooGradient)
                     
                 BookalooTextfield(
-                    title: "Email: ",
                     textfieldText: $viewModel.email,
+//                    title: "Email: ",
                     valid: $viewModel.validEmail,
                     validationText: viewModel.validEmailText,
                     placeHolder: "Email",
-                    orientation: .horizontal(.email)
+                    orientation: .vertical(.email)
                 )//: TexField
                 .focused($isFocused)
                 
                 BookalooTextfield(
-                    title: "Password: ",
                     textfieldText: $viewModel.password,
+//                    title: "Password: ",
                     valid: $viewModel.validPassword,
                     validationText: viewModel.validPasswordText,
                     placeHolder: "Password",
-                    orientation: .horizontal(.secure)
+                    orientation: .vertical(.secure)
                 )//: TexField
                 .focused($isFocused)
                 

@@ -23,10 +23,14 @@ struct OrdersList: View {
                             HStack(alignment: .top) {
                                 Text("Order number:")
                                     .bold()
+                                    .font(.futura(12))
                                 Spacer()
                                 Text(id)
+                                    .font(.futura(12))
+                                    .bold()
+                                    .opacity(0.7)
+                                    .foregroundColor(.accentColor)
                             }//:Hstack
-                            .font(StyleConstants.bookalooFont)
                         }
                         
                         if let date = order.date.wrappedValue,
@@ -34,15 +38,21 @@ struct OrdersList: View {
                             HStack(alignment: .top) {
                                 Text("Date:")
                                     .bold()
+                                    .font(.futura(12))
+                                Spacer()
                                 Text(dateString)
+                                    .font(.futura(12))
+                                    .bold()
+                                    .opacity(0.7)
+                                    .foregroundColor(.accentColor)
                             }//:Hstack
-                            .font(StyleConstants.bookalooFont)
                         }
                         
                         ExpandableView {
                             Text(order.status.wrappedValue?.rawValue.capitalized ?? "")
                                 .font(StyleConstants.bookalooFont)
                                 .bold()
+                                .font(.futura(12))
                                 .foregroundStyle(StyleConstants.bookalooGradient)
                         } content: {
                             PurchasedBooksList(books: order.books.wrappedValue)

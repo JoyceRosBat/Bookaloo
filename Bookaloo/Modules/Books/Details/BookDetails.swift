@@ -21,9 +21,15 @@ struct BookDetailsView: View {
     let imageHeight: CGFloat = 300
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ZStack {
+        var rating = book.rating
+        let bindingRating = Binding(
+            get: { Int(rating ?? 0) },
+            set: { rating = Double($0) }
+        )
+        
+        return ScrollView {
+            VStack(spacing: 16) {
+                ZStack() {
                     bookImage
                         .frame(height: imageHeight)
                         .cornerRadius(5)
@@ -42,6 +48,8 @@ struct BookDetailsView: View {
                     .font(.futura(24))
                     .bold()
                 
+                RatingView(rating: bindingRating, allowTouch: false)
+                
                 Button {
                     if shopsViewModel.booksToShop[book.id, default: -1] < 10 {
                         withAnimation(.easeInOut(duration: 2)) {
@@ -52,7 +60,7 @@ struct BookDetailsView: View {
                         showErrorMessage = true
                     }
                 } label: {
-                    Text("Shop")
+                    Label("Shop", systemImage: "cart")
                 }
                 .buttonStyle(.bookalooStyle)
                 

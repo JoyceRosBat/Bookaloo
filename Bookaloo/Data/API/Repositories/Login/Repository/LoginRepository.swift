@@ -16,21 +16,6 @@ final class LoginRepository: LoginRepositoryProtocol {
     
     func validate(_ user: User) async throws -> User {
         let request = LoginRequest.validate(user)
-//        return try await networkRequester.doRequest(request: request)
-        // Fake user response:
-        let adminEmail: String = "joyce.admin@"
-        let domain: String = "bookaloo.com"
-        let role: Role
-        if user.email == adminEmail + domain {
-            role = .admin
-        } else {
-            role = .user
-        }
-        return User(
-            email: user.email,
-            name: "Joyce Rosario Batista",
-            role: role,
-            token: "test.auth.token.bookaloo"
-        )
+        return try await networkRequester.doRequest(request: request)
     }
 }

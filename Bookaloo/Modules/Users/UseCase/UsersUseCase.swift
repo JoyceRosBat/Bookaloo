@@ -17,8 +17,7 @@ protocol UsersUseCaseProtocol {
 }
 
 final class UsersUseCase: UsersUseCaseProtocol {
-    
-    let repository: UsersRepositoryProtocol
+    private let repository: UsersRepositoryProtocol
     
     init(dependencies: UsersDependenciesResolver) {
         self.repository = dependencies.resolve()
@@ -71,7 +70,12 @@ final class UsersUseCase: UsersUseCaseProtocol {
     /// - Parameters:
     ///   - email: Email of the user to get the list of books
     func report(_ email: String) async throws -> Report {
-        try await repository.report(email)
+        if let report = Cache.shared.report {
+            return report
+        }
+        let report = try await repository.report(email)
+        Cache.shared.report = report
+        return report
     }
     
     /// Get books read of a user by email

@@ -18,13 +18,13 @@ struct BookalooButton: ButtonStyle {
             .padding(.trailing, 20)
             .background {
                 RoundedRectangle(cornerRadius: 24)
-                    .fill(StyleConstants.blackGradient)
+                    .fill(StyleConstants.blackGradient.opacity(0.8))
             }
             .overlay {
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .stroke(StyleConstants.bookalooGradient, lineWidth: 5)
+                    .stroke(StyleConstants.bookalooGradient, lineWidth: 3)
             }
-            .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
+            .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 2)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
     }
 }

@@ -22,7 +22,9 @@ struct BookShopCell: View {
                         imageURL: book.cover,
                         title: book.title,
                         author: book.author,
-                        year: book.year
+                        year: book.year,
+                        rating: book.rating,
+                        purchased: false
                     )
                     
                     Spacer()
