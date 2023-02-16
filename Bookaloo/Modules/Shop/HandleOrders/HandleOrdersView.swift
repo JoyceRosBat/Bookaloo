@@ -47,7 +47,7 @@ struct HandleOrdersView: View {
                             viewModel.getOrder(by: searchText)
                         }
                     } label: {
-                        Label("Search", systemImage: "magnifyingglass")
+                        Text("Search")
                     }//: Button search
                     .buttonStyle(.bookalooStyle)
                     

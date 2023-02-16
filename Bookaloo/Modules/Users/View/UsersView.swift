@@ -9,11 +9,32 @@ import SwiftUI
 
 struct UsersView: View {
     @ObservedObject var viewModel: UsersViewModel
+    @State var searchText: String = ""
     
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack {
-                Text("Clients")
+                HStack {
+                    BookalooTextfield(textfieldText: $searchText, orientation: .vertical(.searchable))
+                    //Is this necessary??
+//                        .onChange(of: searchText) { _ in
+//                            //TODO: Clear the user's data
+//                        }
+                    
+                    Button {
+                        viewModel.findUser(by: searchText)
+                        searchText = ""
+                    } label: {
+                        Text("Search")
+                    }//: Button search
+                    .buttonStyle(.bookalooStyle)
+                }
+                .padding(.trailing, 16)
+                .padding(.horizontal, 8)
+            
+                UserDataView(user: $viewModel.userFound)
+                
+                Spacer()
             }
         }//: BaseViewContent
         .toolbar {

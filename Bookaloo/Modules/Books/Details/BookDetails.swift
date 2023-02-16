@@ -50,6 +50,14 @@ struct BookDetailsView: View {
                 
                 RatingView(rating: bindingRating, allowTouch: false)
                 
+                if let price = book.price {
+                    Text(String(format: "%.2f%@", price, Locale.current.currencySymbol ?? "€"))
+                        .font(.futura(24))
+                        .bold()
+                        .foregroundColor(.green)
+                        .opacity(0.7)
+                }
+                
                 Button {
                     if shopsViewModel.booksToShop[book.id, default: -1] < 10 {
                         withAnimation(.easeInOut(duration: 2)) {

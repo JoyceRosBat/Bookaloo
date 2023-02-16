@@ -27,7 +27,8 @@ struct BooksContentView: View {
                                 author: book.author,
                                 year: book.year,
                                 rating: book.rating,
-                                purchased: book.purchased ?? false
+                                purchased: book.purchased ?? false,
+                                price: book.price
                             )
                             .swipeActions(edge: .trailing,
                                           allowsFullSwipe: true) {

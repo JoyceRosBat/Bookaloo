@@ -23,6 +23,7 @@ struct Book: Codable, Identifiable, Hashable {
     let plot: String?
     var purchased: Bool? = nil
     var read: Bool? = nil
+    var price: Double? = nil
     
     static let test: Book = .init(
         pages: 100,
@@ -42,7 +43,8 @@ Sed efficitur libero id mollis condimentum. In consequat, mauris non convallis i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in lobortis enim. Ut lobortis at urna sed imperdiet. Fusce sagittis molestie orci vel pretium. Nunc volutpat justo laoreet aliquet fermentum. Donec non augue odio. Phasellus eget nunc ante. Curabitur fermentum vitae magna at porta. Vestibulum convallis pellentesque dolor, ut elementum sapien dignissim a. Praesent sed dignissim justo, sit amet dapibus elit. Ut sit amet commodo ex, at tempus risus. Maecenas blandit, mauris quis lobortis aliquet, nibh nisi hendrerit turpis, sit amet elementum tortor nibh sit amet ligula. Ut in dolor facilisis, sagittis magna a, ullamcorper ipsum. Mauris facilisis mi eu orci pharetra rhoncus. Nam vitae porttitor urna, eget pretium mauris.
 """,
         purchased: true,
-        read: true
+        read: true,
+        price: 10.95
     )
 }
 

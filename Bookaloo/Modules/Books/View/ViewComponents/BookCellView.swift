@@ -14,6 +14,7 @@ struct BookCellView: View {
     let year: Int
     @State var rating: Double?
     let purchased: Bool
+    let price: Double?
     
     var body: some View {
         let bindingRating = Binding(
@@ -42,6 +43,14 @@ struct BookCellView: View {
                             .bold()
                             .foregroundColor(.gray)
                     
+                    if let price {
+                        Text(String(format: "%.2f%@", price, Locale.current.currencySymbol ?? "€"))
+                            .font(.futura(14))
+                            .bold()
+                            .foregroundColor(.green)
+                            .opacity(0.7)
+                    }
+                    
                        RatingView(rating: bindingRating, allowTouch: false)
                 }//: VStack
                 
@@ -69,7 +78,8 @@ struct BookCellView_Previews: PreviewProvider {
             author: "H. G. Wells",
             year: 1985,
             rating: 3.5,
-            purchased: true
+            purchased: true,
+            price: 10.95
         ).previewLayout(.sizeThatFits)
     }
 }

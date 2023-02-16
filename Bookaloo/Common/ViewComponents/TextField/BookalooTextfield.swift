@@ -62,7 +62,8 @@ private extension BookalooTextfield {
     var normalTextView: some View {
         VStack(alignment: .leading) {
             TextField(placeHolder ?? "", text: $textfieldText)
-                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .font(StyleConstants.bookalooFont)
+                .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 18))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(lineWidth: 0.5)
@@ -85,7 +86,8 @@ private extension BookalooTextfield {
     var emailTextView: some View {
         VStack(alignment: .leading) {
             TextField(placeHolder ?? "", text: $textfieldText)
-                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .font(StyleConstants.bookalooFont)
+                .padding(EdgeInsets(top: 8, leading: 36, bottom: 8, trailing: 20))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(lineWidth: 0.5)
@@ -97,7 +99,16 @@ private extension BookalooTextfield {
                 .textInputAutocapitalization(.never)
                 .keyboardType(.emailAddress)
                 .background(Color.textFieldBackgroundColor)
+                .overlay(
+                    HStack {
+                        Image(systemName: "envelope")
+                            .foregroundColor(.gray)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 8)
+                    }
+                )
                 .cornerRadius(8)
+            
             
             if let valid, !valid, let validationText {
                 Text("* \(validationText)")
@@ -112,7 +123,8 @@ private extension BookalooTextfield {
     var numericTextView: some View {
         VStack(alignment: .leading) {
             TextField(placeHolder ?? "", text: $textfieldText)
-                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .font(StyleConstants.bookalooFont)
+                .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 18))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(lineWidth: 0.5)
@@ -139,19 +151,29 @@ private extension BookalooTextfield {
                 VStack {
                     if isSecure {
                         SecureField(placeHolder ?? "", text: $textfieldText)
+                            .padding(EdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 18))
                             .font(StyleConstants.bookalooFont)
-                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                            .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 18))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(lineWidth: 0.5)
                                     .opacity(0.5)
+                            )
+                            .overlay(
+                                HStack {
+                                    Image(systemName: "lock")
+                                        .foregroundColor(.gray)
+                                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                        .padding(.leading, 8)
+                                }
                             )
                             .textContentType(.password)
                             .background(Color.textFieldBackgroundColor)
                             .cornerRadius(8)
                     } else {
                         TextField(placeHolder ?? "", text: $textfieldText)
-                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                            .padding(EdgeInsets(top: 8, leading: 32, bottom: 8, trailing: 32))
+                            .font(StyleConstants.bookalooFont)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(lineWidth: 0.5)
@@ -162,6 +184,14 @@ private extension BookalooTextfield {
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)
                             .background(Color.textFieldBackgroundColor)
+                            .overlay(
+                                HStack {
+                                    Image(systemName: "lock")
+                                        .foregroundColor(.gray)
+                                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                        .padding(.leading, 8)
+                                }
+                            )
                             .cornerRadius(8)
                     }
                 }
@@ -185,6 +215,7 @@ private extension BookalooTextfield {
     @ViewBuilder
     var searchableText: some View {
         TextField(placeHolder ?? "", text: $textfieldText)
+            .font(StyleConstants.bookalooFont)
             .padding(EdgeInsets(top: 8, leading: 32, bottom: 8, trailing: 32))
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
@@ -267,6 +298,6 @@ private extension BookalooTextfield {
 
 struct BookalooTextfield_Previews: PreviewProvider {
     static var previews: some View {
-        BookalooTextfield(textfieldText: .constant(""), title: "Title", placeHolder: "Placeholder", orientation: .vertical(.searchable))
+        BookalooTextfield(textfieldText: .constant(""), title: "Title", placeHolder: "Placeholder", orientation: .vertical(.secure))
     }
 }

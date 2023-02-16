@@ -93,6 +93,8 @@
 		39A96F28298F1DD200525E2B /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F27298F1DD200525E2B /* Role.swift */; };
 		39A96F2A298FF1A400525E2B /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F29298FF1A400525E2B /* String+Ext.swift */; };
 		39A96F2C29901A7F00525E2B /* BookCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F2B29901A7E00525E2B /* BookCellView.swift */; };
+		39BC544C299EC9DC00E42FA7 /* UserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC544B299EC9DC00E42FA7 /* UserDataView.swift */; };
+		39BC5451299EE0C100E42FA7 /* UserModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC5450299EE0C100E42FA7 /* UserModify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +185,8 @@
 		39A96F27298F1DD200525E2B /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		39A96F29298FF1A400525E2B /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		39A96F2B29901A7E00525E2B /* BookCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellView.swift; sourceTree = "<group>"; };
+		39BC544B299EC9DC00E42FA7 /* UserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataView.swift; sourceTree = "<group>"; };
+		39BC5450299EE0C100E42FA7 /* UserModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +346,7 @@
 		39A444EE2990228300A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39BC5448299EC97A00E42FA7 /* ViewComponents */,
 				39A96370298A4EB300F0C055 /* UsersView.swift */,
 			);
 			path = View;
@@ -653,6 +658,7 @@
 		39A9636F298A4EA200F0C055 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				39BC544D299EE09E00E42FA7 /* Entity */,
 				39A444EB2990226300A2658B /* Dependencies */,
 				39A444EC2990226E00A2658B /* UseCase */,
 				39A444ED2990227900A2658B /* ViewModel */,
@@ -857,6 +863,22 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		39BC5448299EC97A00E42FA7 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				39BC544B299EC9DC00E42FA7 /* UserDataView.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		39BC544D299EE09E00E42FA7 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				39BC5450299EE0C100E42FA7 /* UserModify.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -963,6 +985,7 @@
 				39A96F2C29901A7F00525E2B /* BookCellView.swift in Sources */,
 				39A96F0F298D950D00525E2B /* LoginRequest.swift in Sources */,
 				39A4450C2992867600A2658B /* OrderStatus.swift in Sources */,
+				39BC544C299EC9DC00E42FA7 /* UserDataView.swift in Sources */,
 				3924D2D0299949ED00787A80 /* PurchasedBooksList.swift in Sources */,
 				39A96F11298D951E00525E2B /* LoginRepositoryProtocol.swift in Sources */,
 				39A9633E29884FB000F0C055 /* Author.swift in Sources */,
@@ -990,6 +1013,7 @@
 				39A9632E2988449600F0C055 /* NetworkConstants.swift in Sources */,
 				39A4450A2992866100A2658B /* Status.swift in Sources */,
 				39A96371298A4EB300F0C055 /* UsersView.swift in Sources */,
+				39BC5451299EE0C100E42FA7 /* UserModify.swift in Sources */,
 				39A4450629904AE600A2658B /* Report.swift in Sources */,
 				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,
 				39A96369298964BF00F0C055 /* BooksDependenciesResolver.swift in Sources */,

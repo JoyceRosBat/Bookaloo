@@ -92,6 +92,7 @@ final class BooksUseCase: BooksUseCaseProtocol {
             book.author = author?.name ?? ""
             book.purchased = report?.ordered?.contains(book.id) ?? false
             book.read = report?.readed?.contains(book.id) ?? false
+            book.price = Double.random(in: 5...50)
             returnValues.append(book)
         }
         return returnValues

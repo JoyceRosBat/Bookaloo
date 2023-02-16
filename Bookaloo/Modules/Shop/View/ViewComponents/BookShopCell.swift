@@ -24,7 +24,8 @@ struct BookShopCell: View {
                         author: book.author,
                         year: book.year,
                         rating: book.rating,
-                        purchased: false
+                        purchased: false,
+                        price: book.price
                     )
                     
                     Spacer()
