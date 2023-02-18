@@ -22,7 +22,7 @@
 		39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E229901E7F00A2658B /* Image+Ext.swift */; };
 		39A444E529901EBC00A2658B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E429901EBC00A2658B /* ImageLoader.swift */; };
 		39A444FE29902D8C00A2658B /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FD29902D8C00A2658B /* LoginContentView.swift */; };
-		39A4450029902E7900A2658B /* BooksContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FF29902E7900A2658B /* BooksContentView.swift */; };
+		39A4450029902E7900A2658B /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FF29902E7900A2658B /* BooksView.swift */; };
 		39A445022990325900A2658B /* BookDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A445012990325900A2658B /* BookDetails.swift */; };
 		39A445042990497500A2658B /* ReadBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A445032990497500A2658B /* ReadBooks.swift */; };
 		39A4450629904AE600A2658B /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4450529904AE600A2658B /* Report.swift */; };
@@ -53,7 +53,7 @@
 		39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96354298881E500F0C055 /* ShopRepositoryProtocol.swift */; };
 		39A963572988825800F0C055 /* ShopRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963562988825800F0C055 /* ShopRepository.swift */; };
 		39A9635A298909F100F0C055 /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96359298909F100F0C055 /* APIErrorResponse.swift */; };
-		39A963632989640500F0C055 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963622989640500F0C055 /* BooksView.swift */; };
+		39A963632989640500F0C055 /* BooksHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963622989640500F0C055 /* BooksHomeView.swift */; };
 		39A963652989641900F0C055 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963642989641900F0C055 /* BooksViewModel.swift */; };
 		39A963672989644A00F0C055 /* BooksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A963662989644A00F0C055 /* BooksUseCase.swift */; };
 		39A96369298964BF00F0C055 /* BooksDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96368298964BF00F0C055 /* BooksDependenciesResolver.swift */; };
@@ -96,6 +96,7 @@
 		39BC544C299EC9DC00E42FA7 /* UserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC544B299EC9DC00E42FA7 /* UserDataView.swift */; };
 		39BC5451299EE0C100E42FA7 /* UserModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC5450299EE0C100E42FA7 /* UserModify.swift */; };
 		39BC547429A0CD7D00E42FA7 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */; };
+		39BC547B29A0D9CF00E42FA7 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,7 +115,7 @@
 		39A444E229901E7F00A2658B /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		39A444E429901EBC00A2658B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		39A444FD29902D8C00A2658B /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
-		39A444FF29902E7900A2658B /* BooksContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksContentView.swift; sourceTree = "<group>"; };
+		39A444FF29902E7900A2658B /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
 		39A445012990325900A2658B /* BookDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetails.swift; sourceTree = "<group>"; };
 		39A445032990497500A2658B /* ReadBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBooks.swift; sourceTree = "<group>"; };
 		39A4450529904AE600A2658B /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
@@ -146,7 +147,7 @@
 		39A96354298881E500F0C055 /* ShopRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepositoryProtocol.swift; sourceTree = "<group>"; };
 		39A963562988825800F0C055 /* ShopRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepository.swift; sourceTree = "<group>"; };
 		39A96359298909F100F0C055 /* APIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResponse.swift; sourceTree = "<group>"; };
-		39A963622989640500F0C055 /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
+		39A963622989640500F0C055 /* BooksHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksHomeView.swift; sourceTree = "<group>"; };
 		39A963642989641900F0C055 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		39A963662989644A00F0C055 /* BooksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksUseCase.swift; sourceTree = "<group>"; };
 		39A96368298964BF00F0C055 /* BooksDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksDependenciesResolver.swift; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 		39BC544B299EC9DC00E42FA7 /* UserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataView.swift; sourceTree = "<group>"; };
 		39BC5450299EE0C100E42FA7 /* UserModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModify.swift; sourceTree = "<group>"; };
 		39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
+		39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 		39A444E6299021DF00A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39BC547829A0D8E700E42FA7 /* Home */,
 				39BC547529A0D67200E42FA7 /* MainView */,
 				3924D2C72998F59600787A80 /* Details */,
 			);
@@ -291,7 +294,6 @@
 		39A444E7299021F200A2658B /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				39A444FF29902E7900A2658B /* BooksContentView.swift */,
 				39A96F2B29901A7E00525E2B /* BookCellView.swift */,
 			);
 			path = ViewComponents;
@@ -348,6 +350,7 @@
 		39A444EE2990228300A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39BC547929A0D9BB00E42FA7 /* CreateUser */,
 				39BC547229A0CD6100E42FA7 /* ModifyUser */,
 				39BC547629A0D68D00E42FA7 /* MainView */,
 			);
@@ -892,7 +895,7 @@
 			isa = PBXGroup;
 			children = (
 				39A444E7299021F200A2658B /* ViewComponents */,
-				39A963622989640500F0C055 /* BooksView.swift */,
+				39A444FF29902E7900A2658B /* BooksView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -912,6 +915,22 @@
 				39A96384298A554C00F0C055 /* ShopView.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		39BC547829A0D8E700E42FA7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				39A963622989640500F0C055 /* BooksHomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		39BC547929A0D9BB00E42FA7 /* CreateUser */ = {
+			isa = PBXGroup;
+			children = (
+				39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */,
+			);
+			path = CreateUser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -984,7 +1003,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39A4450029902E7900A2658B /* BooksContentView.swift in Sources */,
+				39A4450029902E7900A2658B /* BooksView.swift in Sources */,
 				39A96EE1298C356400525E2B /* Cache.swift in Sources */,
 				39A963462988524B00F0C055 /* UsersRequest.swift in Sources */,
 				39A9632B2988449600F0C055 /* NetworkError.swift in Sources */,
@@ -1029,6 +1048,7 @@
 				39A96ECF298C097100525E2B /* Font+Ext.swift in Sources */,
 				39A444FE29902D8C00A2658B /* LoginContentView.swift in Sources */,
 				3924D2CD2999142B00787A80 /* ExpandableView.swift in Sources */,
+				39BC547B29A0D9CF00E42FA7 /* CreateUserView.swift in Sources */,
 				39A96379298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift in Sources */,
 				39A96380298A552300F0C055 /* ShopUseCase.swift in Sources */,
 				39A9632D2988449600F0C055 /* NetworkRequester.swift in Sources */,
@@ -1038,7 +1058,7 @@
 				39A9635A298909F100F0C055 /* APIErrorResponse.swift in Sources */,
 				39A96377298A4F2200F0C055 /* UsersDependenciesResolver.swift in Sources */,
 				39A9634029884FF200F0C055 /* BooksRepository.swift in Sources */,
-				39A963632989640500F0C055 /* BooksView.swift in Sources */,
+				39A963632989640500F0C055 /* BooksHomeView.swift in Sources */,
 				39A96EDF298C1EFA00525E2B /* Color+Ext.swift in Sources */,
 				39A96EDA298C186400525E2B /* BaseViewContent.swift in Sources */,
 				39A4450829904D5700A2658B /* DateFormatter+Ext.swift in Sources */,

@@ -16,7 +16,7 @@ struct HomeView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                dependencies.booksView()
+                dependencies.booksHomeView()
             }//: booksView NavigationStack
             .tabItem {
                 Label("Books", systemImage: "book")

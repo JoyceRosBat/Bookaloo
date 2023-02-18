@@ -19,7 +19,7 @@ struct ModifyUserView: View {
                     
                     Button {
                         viewModel.findUser(by: searchText)
-                        searchText = ""
+//                        searchText = ""
                     } label: {
                         Text("Search")
                     }//: Button search
@@ -50,5 +50,6 @@ struct ModifyUserView: View {
 struct ModifyUserView_Previews: PreviewProvider {
     static var previews: some View {
         ModifyUserView()
+            .environmentObject(ModuleDependencies().usersViewModel())
     }
 }

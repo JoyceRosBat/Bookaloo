@@ -29,50 +29,52 @@ struct UserDataView: View {
                     }
                 }//: HStack
                 
-                HStack {
-                    Text("Email:")
-                        .font(.futura(14))
-                        .bold()
-                        .foregroundColor(.accentColor)
-                        .opacity(0.6)
-                }//: HStack - Email
-                .padding(.horizontal, 16)
-                
-                HStack {
-                    Text("Name:")
-                        .font(.futura(14))
-                        .bold()
-                        .foregroundColor(.accentColor)
-                        .opacity(0.6)
-                    
-                    if isEditing {
-                        BookalooTextfield(textfieldText: $user.name)
-                    } else {
-                        Text(user.name)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Email:")
                             .font(.futura(14))
                             .bold()
+                            .foregroundColor(.accentColor)
                             .opacity(0.6)
-                    }
-                }//: HStack - Name
-                .padding(.horizontal, 16)
-                
-                HStack {
-                    Text("Location:")
-                        .font(.futura(14))
-                        .bold()
-                        .foregroundColor(.accentColor)
-                        .opacity(0.6)
+                    }//: HStack - Email
+                    .padding(.horizontal, 16)
                     
-                    if isEditing {
-                        BookalooTextfield(textfieldText: $user.location)
-                    } else {
-                        Text(user.location)
+                    HStack {
+                        Text("Name:")
                             .font(.futura(14))
                             .bold()
+                            .foregroundColor(.accentColor)
                             .opacity(0.6)
-                    }
-                }//: HStack - Location
-                .padding(.horizontal, 16)
+                        
+                        if isEditing {
+                            BookalooTextfield(textfieldText: $user.name)
+                        } else {
+                            Text(user.name)
+                                .font(.futura(14))
+                                .bold()
+                                .opacity(0.6)
+                        }
+                    }//: HStack - Name
+                    .padding(.horizontal, 16)
+                    
+                    HStack {
+                        Text("Location:")
+                            .font(.futura(14))
+                            .bold()
+                            .foregroundColor(.accentColor)
+                            .opacity(0.6)
+                        
+                        if isEditing {
+                            BookalooTextfield(textfieldText: $user.location)
+                        } else {
+                            Text(user.location)
+                                .font(.futura(14))
+                                .bold()
+                                .opacity(0.6)
+                        }
+                    }//: HStack - Location
+                    .padding(.horizontal, 16)
+                }//: VStack
                 
                 HStack {
                     Text("Role:")

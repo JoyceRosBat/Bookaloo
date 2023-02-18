@@ -11,31 +11,32 @@ struct UsersView: View {
     var dependencies: UsersDependenciesResolver
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack {
             Text("User Management")
                 .font(.futura(24))
                 .foregroundStyle(StyleConstants.bookalooGradient)
-
-            Color(uiColor: .systemGroupedBackground)
+                .frame(height: 100)
             
             List {
                 NavigationLink {
                     dependencies.modifyUserView()
                 } label: {
                     Label("Find/Modify user", systemImage: "pencil.line")
+                        .font(.futura(18))
+                        .opacity(0.6)
                 }//: Navigation to modify user
-                .frame(height: 50)
+                .frame(height: 100)
 
                 NavigationLink {
-                    //TODO: Create new user
+                    dependencies.createUserView()
                 } label: {
                     Label("Create new user", systemImage: "person.badge.plus")
+                        .font(.futura(18))
+                        .opacity(0.6)
                 }//: Navigation to create user
-                .frame(height: 50)
+                .frame(height: 100)
                 
             }//: List
-            
-            Color(uiColor: .systemGroupedBackground)
         }//: VStack
     }
 }
