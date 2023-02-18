@@ -94,7 +94,7 @@
 		39A96F2A298FF1A400525E2B /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F29298FF1A400525E2B /* String+Ext.swift */; };
 		39A96F2C29901A7F00525E2B /* BookCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F2B29901A7E00525E2B /* BookCellView.swift */; };
 		39BC544C299EC9DC00E42FA7 /* UserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC544B299EC9DC00E42FA7 /* UserDataView.swift */; };
-		39BC5451299EE0C100E42FA7 /* UserModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC5450299EE0C100E42FA7 /* UserModify.swift */; };
+		39BC5451299EE0C100E42FA7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC5450299EE0C100E42FA7 /* UserData.swift */; };
 		39BC547429A0CD7D00E42FA7 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */; };
 		39BC547B29A0D9CF00E42FA7 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */; };
 /* End PBXBuildFile section */
@@ -188,7 +188,7 @@
 		39A96F29298FF1A400525E2B /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		39A96F2B29901A7E00525E2B /* BookCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellView.swift; sourceTree = "<group>"; };
 		39BC544B299EC9DC00E42FA7 /* UserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataView.swift; sourceTree = "<group>"; };
-		39BC5450299EE0C100E42FA7 /* UserModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModify.swift; sourceTree = "<group>"; };
+		39BC5450299EE0C100E42FA7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
 		39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -869,7 +869,7 @@
 		39BC544D299EE09E00E42FA7 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				39BC5450299EE0C100E42FA7 /* UserModify.swift */,
+				39BC5450299EE0C100E42FA7 /* UserData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1077,7 +1077,7 @@
 				39A9632E2988449600F0C055 /* NetworkConstants.swift in Sources */,
 				39A4450A2992866100A2658B /* Status.swift in Sources */,
 				39A96371298A4EB300F0C055 /* UsersView.swift in Sources */,
-				39BC5451299EE0C100E42FA7 /* UserModify.swift in Sources */,
+				39BC5451299EE0C100E42FA7 /* UserData.swift in Sources */,
 				39A4450629904AE600A2658B /* Report.swift in Sources */,
 				39A9634B2988544400F0C055 /* ShopRequest.swift in Sources */,
 				39A96369298964BF00F0C055 /* BooksDependenciesResolver.swift in Sources */,

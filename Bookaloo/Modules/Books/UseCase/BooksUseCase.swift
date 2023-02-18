@@ -32,8 +32,13 @@ final class BooksUseCase: BooksUseCaseProtocol {
     ///        booksUseCase.fetch()
     /// ```
     func fetch() async throws -> [Book] {
+        if let books = Cache.shared.books {
+            return books
+        }
         let books = try await repository.getBooks()
-        return try await getBookList(from: books)
+        let booksFormattedList = try await getBookList(from: books)
+        Cache.shared.books = booksFormattedList
+        return booksFormattedList
     }
     
     /// Fetch last 20 books. Every call returns a different list of books
@@ -92,7 +97,9 @@ final class BooksUseCase: BooksUseCaseProtocol {
             book.author = author?.name ?? ""
             book.purchased = report?.ordered?.contains(book.id) ?? false
             book.read = report?.readed?.contains(book.id) ?? false
-            book.price = Double.random(in: 5...50)
+            if book.price == nil {
+                book.price = Double.random(in: 5...50)
+            }
             returnValues.append(book)
         }
         return returnValues

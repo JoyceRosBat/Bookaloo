@@ -19,7 +19,7 @@ final class BooksRepository: BooksRepositoryProtocol {
             return books
         }
         let request = BooksRequest.list
-        let books = try await networkRequester.doRequest(request: request) as [Book]
+        let books: [Book] = try await networkRequester.doRequest(request: request)
         Cache.shared.books = books
         return books
     }
@@ -36,7 +36,7 @@ final class BooksRepository: BooksRepositoryProtocol {
     
     func getAuthor(_ id: String) async throws -> Author {
         let request = BooksRequest.author(id)
-        return try await networkRequester.doRequest(request: request) as Author
+        return try await networkRequester.doRequest(request: request)
     }
     
     func getAuthors() async throws -> [Author] {
@@ -44,7 +44,7 @@ final class BooksRepository: BooksRepositoryProtocol {
             return authors
         }
         let request = BooksRequest.authors
-        let authors = try await networkRequester.doRequest(request: request) as [Author]
+        let authors: [Author] = try await networkRequester.doRequest(request: request)
         
         Cache.shared.authors = authors
         return authors

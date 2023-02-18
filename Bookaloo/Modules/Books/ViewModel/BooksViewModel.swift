@@ -55,12 +55,15 @@ final class BooksViewModel: ObservableBaseViewModel {
     /// ```
     ///        viewModel.getBooks()
     /// ```
-    func getBooks() {
+    func getBooks(removingCache: Bool = false) {
         showLoading(true)
         Task {
             await MainActor.run {
                 Task {
                     do {
+                        if removingCache {
+                            Cache.shared.books = nil
+                        }
                         books = try await booksUseCase.fetch()
                         showLoading(false)
                     } catch let error as NetworkError {
@@ -73,7 +76,7 @@ final class BooksViewModel: ObservableBaseViewModel {
     
     /// Mark books as read
     /// ```
-    ///        booksUseCase.markRead(readBooks)
+    ///        viewModel.markRead(readBooks)
     /// ```
     /// - Parameters:
     ///   - readBooks: Books to mark as read

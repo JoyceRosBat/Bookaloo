@@ -44,8 +44,9 @@ struct BooksView: View {
                     
                 }//: List
                 .refreshable {
-                    viewModel.getBooks()
+                    viewModel.getBooks(removingCache: true)
                 }
+                .scrollIndicators(.hidden)
             }//: If list of books is not empty
         }//: BaseViewContent
         .navigationDestination(for: Book.self) { book in
@@ -73,7 +74,12 @@ struct BooksView: View {
                     if let email = viewModel.user?.email {
                         Text(email)
                     }
-                    profileOptionMenuButton
+                    NavigationLink {
+                        UserDataView(user: $viewModel.myUserToModify, isEditing: true, editingOwnUser: true)
+                    } label: {
+                        Label("Edit profile",
+                              systemImage: "lock")
+                    }
                     logoutOptionMenuButton
                 } label: {
                     Label("Profile", systemImage: "person.crop.circle")
@@ -84,16 +90,6 @@ struct BooksView: View {
 }
 
 extension BooksView {
-    @ViewBuilder
-    var profileOptionMenuButton: some View {
-        Button {
-            
-        } label: {
-            Label("Edit profile",
-                  systemImage: "lock")
-        }
-    }
-    
     @ViewBuilder
     var logoutOptionMenuButton: some View {
         Button {

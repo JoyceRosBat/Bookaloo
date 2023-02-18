@@ -15,7 +15,9 @@ struct LoginHomeView: View {
         if viewModel.loggedIn {
             dependencies.homeView()
         } else {
-            dependencies.loginView()
+            NavigationStack {
+                dependencies.loginView()
+            }
         }
     }
 }

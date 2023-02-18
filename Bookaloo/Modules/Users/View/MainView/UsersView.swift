@@ -37,6 +37,7 @@ struct UsersView: View {
                 .frame(height: 100)
                 
             }//: List
+            .scrollIndicators(.hidden)
         }//: VStack
     }
 }

@@ -32,7 +32,7 @@ final class LoginViewModel: ObservableBaseViewModel {
         validEmail = email.isValidEmail
         validPassword = password.count >= 8
         
-        guard validEmail == true, validPassword == true else { return }
+        guard validEmail, validPassword else { return }
         showLoading(true)
         Task { [weak self] in
             guard let self = self else { return }
@@ -46,6 +46,7 @@ final class LoginViewModel: ObservableBaseViewModel {
                 await MainActor.run {
                     self.email = ""
                     self.password = ""
+                    myUserToModify = UserData(email: self.user?.email ?? "", name: self.user?.name ?? "", location: self.user?.location ?? "", role: self.user?.role ?? .user)
                 }
             } catch let error as NetworkError {
                 self.showNetworkError(error)

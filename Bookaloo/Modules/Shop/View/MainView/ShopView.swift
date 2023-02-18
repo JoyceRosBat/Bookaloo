@@ -27,6 +27,7 @@ struct ShopView: View {
                         }//: ForEach
                     }//: List
                     .scrollContentBackground(.hidden)
+                    .scrollIndicators(.hidden)
                     
                     HStack {
                         Button {
@@ -37,7 +38,7 @@ struct ShopView: View {
                         .buttonStyle(.bookalooStyle)
                         .frame(width: UIScreen.main.bounds.width * 0.8)
                         .padding()
-                    }
+                    }//: HStack
                 }//: VStack
             }//: If books to shop is not empty
         }//: BaseViewContent
@@ -101,6 +102,9 @@ extension ShopView {
                 }
                 Button {
                     withAnimation(.easeInOut) {
+                        viewModel.booksToShop.forEach { (book, _) in
+                            booksViewModel.report.ordered?.append(book)
+                        }
                         viewModel.removeBookSelected()
                     }
                     viewModel.showRemoveBookAlert.toggle()

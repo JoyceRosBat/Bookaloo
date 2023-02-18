@@ -50,13 +50,13 @@ struct HandleOrdersView: View {
                         Text("Search")
                     }//: Button search
                     .buttonStyle(.bookalooStyle)
-                    
                 }//: VStack
-                List {
-                    if viewModel.ordersEmpty {
-                        Text("There are no orders for\n*\(searchText)*")
-                            .emptyMessageModifier()
-                    } else {
+                
+                if viewModel.ordersEmpty, !searchText.isEmpty {
+                    Text("There are no orders for\n*\(searchText)*")
+                        .emptyMessageModifier()
+                } else if !viewModel.searchOrders.isEmpty {
+                    List {
                         ForEach(viewModel.searchOrders) { order in
                             HandleOrderCellView(
                                 email: order.email,
@@ -65,9 +65,11 @@ struct HandleOrdersView: View {
                                 books: order.books
                             )
                         }//: ForEach order
-                    }
-                }//: List
-                .scrollContentBackground(.hidden)
+                    }//: List
+                    .scrollContentBackground(.hidden)
+                    .scrollIndicators(.hidden)
+                }//: If there are results
+                Spacer()
             }//: VStack
         }//: BaseViewContent
         .toolbar(.hidden, for: .tabBar)
@@ -80,6 +82,7 @@ struct HandleOrdersView: View {
             }//: ToolbarItem - Title
         }//: Toolbar
         .navigationBarTitleDisplayMode(.inline)
+        .padding(.bottom)
     }
 }
 

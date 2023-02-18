@@ -10,6 +10,7 @@ import SwiftUI
 struct ModifyUserView: View {
     @EnvironmentObject var viewModel: UsersViewModel
     @State var searchText: String = ""
+    @FocusState var isFocused: Bool
     
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
@@ -28,13 +29,15 @@ struct ModifyUserView: View {
                 .padding(.trailing, 16)
                 .padding(.horizontal, 8)
             
-                UserDataView(user: $viewModel.userFound) {
-                    viewModel.modify()
-                }//: UserData
+                UserDataView(user: $viewModel.userFound)
+                .focused($isFocused)
                 
                 Spacer()
             }//: VStack
         }//: BaseViewContent
+        .onTapGesture {
+            isFocused = false
+        }//: onTapGesture
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Text("Bookaloo")

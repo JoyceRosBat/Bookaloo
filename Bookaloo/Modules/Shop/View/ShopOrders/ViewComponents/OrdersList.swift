@@ -60,6 +60,7 @@ struct OrdersList: View {
                     }//: VStack
                 }//: ForEach
             }//: List
+            .scrollIndicators(.hidden)
         }//: Orders list is not empty
     }
 }

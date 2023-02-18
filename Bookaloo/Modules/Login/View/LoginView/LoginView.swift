@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    var dependencies: LoginDependenciesResolver
     @EnvironmentObject var viewModel: LoginViewModel
     @FocusState private var isFocused: Bool
     
@@ -22,7 +23,7 @@ struct LoginView: View {
                     .font(.futura(48))
                     .bold()
                     .foregroundStyle(StyleConstants.bookalooGradient)
-                    
+                
                 BookalooTextfield(
                     textfieldText: $viewModel.email,
                     valid: $viewModel.validEmail,
@@ -51,6 +52,16 @@ struct LoginView: View {
                 
                 Spacer()
                 
+                NavigationLink {
+                    dependencies.createNewUserView()
+                } label: {
+                    Label("Not a user yet? Signup!", systemImage: "person.badge.plus")
+                        .font(StyleConstants.bookalooFont)
+                        .foregroundColor(.accentColor)
+                }
+                
+                Spacer(minLength: 20)
+                
             }//: VStack
             .padding(.top, 100)
         }//: BaseViewContent
@@ -64,7 +75,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(dependencies: ModuleDependencies())
             .environmentObject(ModuleDependencies().loginViewModel())
     }
 }

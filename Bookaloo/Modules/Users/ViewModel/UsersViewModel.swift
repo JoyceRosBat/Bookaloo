@@ -16,10 +16,12 @@ final class UsersViewModel: ObservableBaseViewModel {
     @Published var userFound: UserData = UserData(email: "", name: "", location: "", role: .user)
     @Published var newUser: UserData = UserData(email: "", name: "", location: "", role: .user)
     @Published var validEmail: Bool = true
-    @Published var emptyName: Bool = false
-    @Published var emptyLocation: Bool = false
+    @Published var validName: Bool = true
+    @Published var validLocation: Bool = true
     @Published var validEmailText: String = "The email format is not valid. Exmple: something@email.com"
     @Published var validNotEmptyText: String = "This field should not be empty."
+    @Published var showCreatedUserAlert: Bool = false
+    @Published var showModifiedUserAlert: Bool = false
     
     init(dependencies: UsersDependenciesResolver) {
         self.dependencies = dependencies
@@ -48,13 +50,46 @@ final class UsersViewModel: ObservableBaseViewModel {
     /// ```
     ///        usersUseCase.modify()
     /// ```
-    func modify() {
+    func modify(_ userData: UserData) {
         Task {
             showLoading(true)
-            let user = User(email: userFound.email, name: userFound.name, location: userFound.location, role: userFound.role)
+            let user = User(email: userData.email, name: userData.name, location: userData.location, role: userData.role)
             do {
                 try await usersUseCase.modify(user)
                 showLoading(false)
+                await MainActor.run {
+                    showModifiedUserAlert = true
+                    if user.email == self.user?.email {
+                        Storage.shared.save(user, key: .user)
+                    }
+                }
+            } catch let error as NetworkError {
+                showNetworkError(error)
+            }
+        }
+    }
+    
+    /// Saves new user
+    /// ```
+    ///        usersUseCase.save()
+    /// ```
+    func save() {
+        validEmail = newUser.email.isValidEmail
+        validName = !newUser.name.isEmpty
+        validLocation = !newUser.location.isEmpty
+        
+        guard validEmail, validName, validLocation else { return }
+        
+        Task {
+            showLoading(true)
+            let user = User(email: newUser.email, name: newUser.name, location: newUser.location, role: newUser.role)
+            do {
+                try await usersUseCase.new(user)
+                showLoading(false)
+                await MainActor.run {
+                    newUser = UserData(email: "", name: "", location: "", role: .user)
+                    showCreatedUserAlert = true
+                }
             } catch let error as NetworkError {
                 showNetworkError(error)
             }

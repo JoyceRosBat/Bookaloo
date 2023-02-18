@@ -16,22 +16,74 @@ protocol ViewModelProtocol {
 }
 
 class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
+    /// show Loading animation
+    /// ```
+    ///        viewModel.showLoading = true
+    /// ```
     @Published var showLoading: Bool = false
+    
+    /// Alert title text
+    /// ```
+    ///        viewModel.alertTitle = "Alert title"
+    /// ```
     @Published var alertTitle: String = ""
+    
+    /// Alert message text
+    /// ```
+    ///        viewModel.alertMessage = "Alert Message"
+    /// ```
     @Published var alertMessage: String = ""
+    
+    /// Show error popup
+    /// ```
+    ///        viewModel.showError = true
+    /// ```
     @Published var showError: Bool = false
+    
+    /// UserData
+    /// ```
+    ///        viewModel.user
+    /// ```
     var user: User? {
         Storage.shared.get(key: .user, type: User.self)
     }
+    
+    /// Own user data to modify
+    /// ```
+    ///        viewModel.myUserToModify
+    /// ```
+    var myUserToModify: UserData = UserData(email: "", name: "", location: "", role: .user)
+    
+    /// Checks if user is logged in
+    /// ```
+    ///        viewModel.loggedIn
     var loggedIn: Bool {
         user?.email != nil
     }
+    
+    /// Checks if user is admin
+    /// ```
+    ///        viewModel.isAdmin
     var isAdmin: Bool {
         user?.role == .admin
     }
     
+    init() {
+        myUserToModify = UserData(email: user?.email ?? "", name: user?.email ?? "", location: user?.location ?? "", role: user?.role ?? .user)
+    }
+    
+    /// Function to execute when view appears
+    /// ```
+    ///        viewModel.onAppear()
+    /// ```
     func onAppear() {}
     
+    /// Show loading animation
+    /// ```
+    ///        viewModel.showLoading(true)
+    /// ```
+    /// - Parameters:
+    ///   - show: Bool to indicate if shows loading animation or not
     func showLoading(_ show: Bool) {
         Task {
             await MainActor.run {
@@ -40,6 +92,12 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
         }
     }
     
+    /// Show error popup
+    /// ```
+    ///        viewModel.showError(true)
+    /// ```
+    /// - Parameters:
+    ///   - show: Bool to indicate if shows error popup or not
     func showError(_ show: Bool) {
         Task {
             await MainActor.run {
@@ -48,6 +106,12 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
         }
     }
     
+    /// Show error popup with netwrk error
+    /// ```
+    ///        viewModel.showNetworkError(error)
+    /// ```
+    /// - Parameters:
+    ///   - error: NetworkError to show
     func showNetworkError(_ error: NetworkError) {
         showLoading(false)
         Task {
@@ -66,6 +130,13 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
         }
     }
     
+    /// Show error popup with given title and message
+    /// ```
+    ///        viewModel.showError(with: "", message: "")
+    /// ```
+    /// - Parameters:
+    ///   - title: Title of the error popup
+    ///   - message: Message of the error popup
     func showError(with title: String, message: String) {
         Task {
             await MainActor.run {
@@ -77,10 +148,18 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
         }
     }
     
+    /// Logout from the session
+    /// ```
+    ///        viewModel.logout()
+    /// ```
     func doLogout() {
         showLoading(true)
-        Storage.shared.cleanAll()
-        Cache.shared.clean()
+        Task {
+            await MainActor.run{
+                Storage.shared.cleanAll()
+                Cache.shared.clean()
+            }
+        }
         showLoading(false)
     }
 }
