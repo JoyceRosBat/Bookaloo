@@ -12,7 +12,7 @@ final class LoginViewModel: ObservableBaseViewModel {
     @Published var password: String = ""
     @Published var validEmail: Bool = true
     @Published var validPassword: Bool = true
-    @Published var validEmailText: String = "The email format is not valid.\nExmple: something@email.com"
+    @Published var validEmailText: String = "The email format is not valid. Exmple: something@email.com"
     @Published var validPasswordText: String = "The password should have 8 characters or more"
     
     let dependencies: LoginDependenciesResolver

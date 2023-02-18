@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct LoginHomeView: View {
     var dependencies: LoginDependenciesResolver
     @EnvironmentObject var viewModel: LoginViewModel
     
@@ -15,13 +15,13 @@ struct LoginView: View {
         if viewModel.loggedIn {
             dependencies.homeView()
         } else {
-            dependencies.loginContentView()
+            dependencies.loginView()
         }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct LoginHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ModuleDependencies().loginView()
+        ModuleDependencies().loginHomeView()
     }
 }

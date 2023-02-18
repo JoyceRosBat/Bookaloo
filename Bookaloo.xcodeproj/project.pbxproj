@@ -21,7 +21,7 @@
 		3924D2E5299C115300787A80 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2E4299C115300787A80 /* SearchType.swift */; };
 		39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E229901E7F00A2658B /* Image+Ext.swift */; };
 		39A444E529901EBC00A2658B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E429901EBC00A2658B /* ImageLoader.swift */; };
-		39A444FE29902D8C00A2658B /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FD29902D8C00A2658B /* LoginContentView.swift */; };
+		39A444FE29902D8C00A2658B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FD29902D8C00A2658B /* LoginView.swift */; };
 		39A4450029902E7900A2658B /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FF29902E7900A2658B /* BooksView.swift */; };
 		39A445022990325900A2658B /* BookDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A445012990325900A2658B /* BookDetails.swift */; };
 		39A445042990497500A2658B /* ReadBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A445032990497500A2658B /* ReadBooks.swift */; };
@@ -84,7 +84,7 @@
 		39A96F0F298D950D00525E2B /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F0E298D950D00525E2B /* LoginRequest.swift */; };
 		39A96F11298D951E00525E2B /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F10298D951E00525E2B /* LoginRepositoryProtocol.swift */; };
 		39A96F13298D952D00525E2B /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F12298D952D00525E2B /* LoginRepository.swift */; };
-		39A96F15298D96FD00525E2B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F14298D96FD00525E2B /* LoginView.swift */; };
+		39A96F15298D96FD00525E2B /* LoginHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F14298D96FD00525E2B /* LoginHomeView.swift */; };
 		39A96F18298D974400525E2B /* LoginDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F17298D974400525E2B /* LoginDependenciesResolver.swift */; };
 		39A96F1A298D975300525E2B /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F19298D975300525E2B /* LoginUseCase.swift */; };
 		39A96F1C298D976100525E2B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F1B298D976100525E2B /* LoginViewModel.swift */; };
@@ -114,7 +114,7 @@
 		3924D2E4299C115300787A80 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 		39A444E229901E7F00A2658B /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		39A444E429901EBC00A2658B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		39A444FD29902D8C00A2658B /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
+		39A444FD29902D8C00A2658B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		39A444FF29902E7900A2658B /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
 		39A445012990325900A2658B /* BookDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetails.swift; sourceTree = "<group>"; };
 		39A445032990497500A2658B /* ReadBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBooks.swift; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		39A96F0E298D950D00525E2B /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		39A96F10298D951E00525E2B /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
 		39A96F12298D952D00525E2B /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
-		39A96F14298D96FD00525E2B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		39A96F14298D96FD00525E2B /* LoginHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHomeView.swift; sourceTree = "<group>"; };
 		39A96F17298D974400525E2B /* LoginDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependenciesResolver.swift; sourceTree = "<group>"; };
 		39A96F19298D975300525E2B /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		39A96F1B298D976100525E2B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -418,8 +418,8 @@
 		39A444F6299022E800A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39A444FC29902D5800A2658B /* ViewComponents */,
-				39A96F14298D96FD00525E2B /* LoginView.swift */,
+				39BC547C29A0E27D00E42FA7 /* LoginView */,
+				39BC547D29A0E28B00E42FA7 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,14 +463,6 @@
 				39A444E429901EBC00A2658B /* ImageLoader.swift */,
 			);
 			path = ImageLoader;
-			sourceTree = "<group>";
-		};
-		39A444FC29902D5800A2658B /* ViewComponents */ = {
-			isa = PBXGroup;
-			children = (
-				39A444FD29902D8C00A2658B /* LoginContentView.swift */,
-			);
-			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 		39A9630B2988443F00F0C055 = {
@@ -933,6 +925,22 @@
 			path = CreateUser;
 			sourceTree = "<group>";
 		};
+		39BC547C29A0E27D00E42FA7 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				39A444FD29902D8C00A2658B /* LoginView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		39BC547D29A0E28B00E42FA7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				39A96F14298D96FD00525E2B /* LoginHomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1046,7 +1054,7 @@
 				39A9633E29884FB000F0C055 /* Author.swift in Sources */,
 				39A96EF2298C44B800525E2B /* KeychainConfiguration.swift in Sources */,
 				39A96ECF298C097100525E2B /* Font+Ext.swift in Sources */,
-				39A444FE29902D8C00A2658B /* LoginContentView.swift in Sources */,
+				39A444FE29902D8C00A2658B /* LoginView.swift in Sources */,
 				3924D2CD2999142B00787A80 /* ExpandableView.swift in Sources */,
 				39BC547B29A0D9CF00E42FA7 /* CreateUserView.swift in Sources */,
 				39A96379298A4F3D00F0C055 /* CommonModulesDependenciesResolver.swift in Sources */,
@@ -1084,7 +1092,7 @@
 				39A9637B298A50F500F0C055 /* NetworkRepositoryDependenciesResolver.swift in Sources */,
 				39A963652989641900F0C055 /* BooksViewModel.swift in Sources */,
 				39A4450E2992868D00A2658B /* OrderModify.swift in Sources */,
-				39A96F15298D96FD00525E2B /* LoginView.swift in Sources */,
+				39A96F15298D96FD00525E2B /* LoginHomeView.swift in Sources */,
 				39A96EED298C3CB800525E2B /* Storage.swift in Sources */,
 				39A96355298881E500F0C055 /* ShopRepositoryProtocol.swift in Sources */,
 				39A96EF0298C449100525E2B /* StorageKeys.swift in Sources */,

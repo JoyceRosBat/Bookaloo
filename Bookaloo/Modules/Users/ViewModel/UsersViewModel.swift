@@ -13,7 +13,13 @@ final class UsersViewModel: ObservableBaseViewModel {
         dependencies.resolve()
     }
     
-    @Published var userFound: UserModify = UserModify(email: "", name: "", location: "", role: .user)
+    @Published var userFound: UserData = UserData(email: "", name: "", location: "", role: .user)
+    @Published var newUser: UserData = UserData(email: "", name: "", location: "", role: .user)
+    @Published var validEmail: Bool = true
+    @Published var emptyName: Bool = false
+    @Published var emptyLocation: Bool = false
+    @Published var validEmailText: String = "The email format is not valid. Exmple: something@email.com"
+    @Published var validNotEmptyText: String = "This field should not be empty."
     
     init(dependencies: UsersDependenciesResolver) {
         self.dependencies = dependencies
@@ -64,7 +70,7 @@ private extension UsersViewModel {
                 let userFound = try await usersUseCase.find(by: email)
                 
                 await MainActor.run {
-                    self.userFound = UserModify(
+                    self.userFound = UserData(
                         email: userFound.email,
                         name: userFound.name ?? "",
                         location: userFound.location ?? "",
@@ -75,7 +81,6 @@ private extension UsersViewModel {
             } catch let error as NetworkError {
                 showNetworkError(error)
             }
-        
         }
     }
 }

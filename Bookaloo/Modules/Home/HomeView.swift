@@ -51,5 +51,6 @@ struct HomeView_Previews: PreviewProvider {
         HomeView(dependencies: ModuleDependencies())
             .environmentObject(ModuleDependencies().loginViewModel())
             .environmentObject(ModuleDependencies().booksViewModel())
+            .environmentObject(ModuleDependencies().shopsViewModel())
     }
 }

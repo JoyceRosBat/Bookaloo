@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserDataView: View {
-    @Binding var user: UserModify
+    @Binding var user: UserData
     @State var isEditing: Bool = false
     var action: (() -> Void)?
     

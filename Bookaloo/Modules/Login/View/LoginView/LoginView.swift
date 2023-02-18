@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginContentView: View {
+struct LoginView: View {
     @EnvironmentObject var viewModel: LoginViewModel
     @FocusState private var isFocused: Bool
     
@@ -25,7 +25,6 @@ struct LoginContentView: View {
                     
                 BookalooTextfield(
                     textfieldText: $viewModel.email,
-//                    title: "Email: ",
                     valid: $viewModel.validEmail,
                     validationText: viewModel.validEmailText,
                     placeHolder: "Email",
@@ -35,7 +34,6 @@ struct LoginContentView: View {
                 
                 BookalooTextfield(
                     textfieldText: $viewModel.password,
-//                    title: "Password: ",
                     valid: $viewModel.validPassword,
                     validationText: viewModel.validPasswordText,
                     placeHolder: "Password",
@@ -64,9 +62,9 @@ struct LoginContentView: View {
     }
 }
 
-struct LoginContentView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginContentView()
+        LoginView()
             .environmentObject(ModuleDependencies().loginViewModel())
     }
 }

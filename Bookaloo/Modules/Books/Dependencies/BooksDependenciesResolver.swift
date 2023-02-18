@@ -15,7 +15,7 @@ protocol BooksDependenciesResolver {
     func booksHomeView() -> BooksHomeView
     func booksView() -> BooksView
     func bookDetailsView(_ book: Book) -> BookDetailsView
-    func loginView() -> LoginView
+    func loginHomeView() -> LoginHomeView
 }
 
 extension BooksDependenciesResolver {

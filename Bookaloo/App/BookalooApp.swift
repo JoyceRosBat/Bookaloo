@@ -14,7 +14,7 @@ struct BookalooApp: App {
     var body: some Scene {
         WindowGroup {
             moduleDependencies
-                .loginView()
+                .loginHomeView()
                 .environmentObject(moduleDependencies.loginViewModel())
                 .environmentObject(moduleDependencies.booksViewModel())
                 .environmentObject(moduleDependencies.shopsViewModel())

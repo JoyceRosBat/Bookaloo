@@ -15,7 +15,7 @@ struct BooksHomeView: View {
         if viewModel.loggedIn {
             dependencies.booksView()
         } else {
-            dependencies.loginView()
+            dependencies.loginHomeView()
         }
     }
 }
