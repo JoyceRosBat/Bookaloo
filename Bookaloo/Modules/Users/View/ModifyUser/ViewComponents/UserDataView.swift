@@ -14,7 +14,7 @@ struct UserDataView: View {
     
     var body: some View {
         if !user.email.isEmpty {
-            VStack(spacing: 16) {
+            VStack(spacing: 20) {
                 HStack(alignment: .center) {
                     Text("User data")
                         .font(.futura(24))
@@ -25,16 +25,20 @@ struct UserDataView: View {
                         isEditing.toggle()
                     } label: {
                         Image(systemName: "pencil.circle")
-                        
                     }
                 }//: HStack
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 20) {
                     HStack {
                         Text("Email:")
                             .font(.futura(14))
                             .bold()
                             .foregroundColor(.accentColor)
+                            .opacity(0.6)
+                        
+                        Text(user.email)
+                            .font(.futura(14))
+                            .bold()
                             .opacity(0.6)
                     }//: HStack - Email
                     .padding(.horizontal, 16)

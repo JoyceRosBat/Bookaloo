@@ -19,7 +19,7 @@ struct ModifyUserView: View {
                     
                     Button {
                         viewModel.findUser(by: searchText)
-//                        searchText = ""
+                        searchText = ""
                     } label: {
                         Text("Search")
                     }//: Button search

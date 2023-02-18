@@ -19,7 +19,6 @@ struct BooksView: View {
                     .emptyMessageModifier()
             } else {
                 List {
-                    
                     ForEach(viewModel.filteredBooks) { book in
                         NavigationLink(value: book) {
                             BookCellView(
