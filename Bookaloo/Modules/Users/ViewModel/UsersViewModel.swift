@@ -37,6 +37,23 @@ final class UsersViewModel: ObservableBaseViewModel {
     func findUser(by email: String) {
         getUserData(with: email)
     }
+    
+    /// Modify user's data
+    /// ```
+    ///        usersUseCase.modify()
+    /// ```
+    func modify() {
+        Task {
+            showLoading(true)
+            let user = User(email: userFound.email, name: userFound.name, location: userFound.location, role: userFound.role)
+            do {
+                try await usersUseCase.modify(user)
+                showLoading(false)
+            } catch let error as NetworkError {
+                showNetworkError(error)
+            }
+        }
+    }
 }
 
 private extension UsersViewModel {

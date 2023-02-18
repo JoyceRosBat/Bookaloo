@@ -1,14 +1,14 @@
 //
-//  UsersView.swift
+//  ModifyUserView.swift
 //  Bookaloo
 //
-//  Created by Joyce Rosario Batista on 1/2/23.
+//  Created by Joyce Rosario Batista on 18/2/23.
 //
 
 import SwiftUI
 
-struct UsersView: View {
-    @ObservedObject var viewModel: UsersViewModel
+struct ModifyUserView: View {
+    @EnvironmentObject var viewModel: UsersViewModel
     @State var searchText: String = ""
     
     var body: some View {
@@ -16,10 +16,6 @@ struct UsersView: View {
             VStack {
                 HStack {
                     BookalooTextfield(textfieldText: $searchText, orientation: .vertical(.searchable))
-                    //Is this necessary??
-//                        .onChange(of: searchText) { _ in
-//                            //TODO: Clear the user's data
-//                        }
                     
                     Button {
                         viewModel.findUser(by: searchText)
@@ -28,28 +24,31 @@ struct UsersView: View {
                         Text("Search")
                     }//: Button search
                     .buttonStyle(.bookalooStyle)
-                }
+                }//: HStack
                 .padding(.trailing, 16)
                 .padding(.horizontal, 8)
             
-                UserDataView(user: $viewModel.userFound)
+                UserDataView(user: $viewModel.userFound) {
+                    viewModel.modify()
+                }//: UserData
                 
                 Spacer()
-            }
+            }//: VStack
         }//: BaseViewContent
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
+            ToolbarItem(placement: .navigationBarTrailing) {
                 Text("Bookaloo")
                     .font(.futura(24))
                     .bold()
                     .foregroundStyle(StyleConstants.bookalooGradient)
             }//: ToolbarItem - Title
         }//: Toolbar
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
-struct UsersView_Previews: PreviewProvider {
+struct ModifyUserView_Previews: PreviewProvider {
     static var previews: some View {
-        ModuleDependencies().usersView()
+        ModifyUserView()
     }
 }

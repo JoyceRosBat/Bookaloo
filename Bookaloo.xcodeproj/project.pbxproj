@@ -95,6 +95,7 @@
 		39A96F2C29901A7F00525E2B /* BookCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A96F2B29901A7E00525E2B /* BookCellView.swift */; };
 		39BC544C299EC9DC00E42FA7 /* UserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC544B299EC9DC00E42FA7 /* UserDataView.swift */; };
 		39BC5451299EE0C100E42FA7 /* UserModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC5450299EE0C100E42FA7 /* UserModify.swift */; };
+		39BC547429A0CD7D00E42FA7 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,6 +188,7 @@
 		39A96F2B29901A7E00525E2B /* BookCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellView.swift; sourceTree = "<group>"; };
 		39BC544B299EC9DC00E42FA7 /* UserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataView.swift; sourceTree = "<group>"; };
 		39BC5450299EE0C100E42FA7 /* UserModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModify.swift; sourceTree = "<group>"; };
+		39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,8 +282,8 @@
 		39A444E6299021DF00A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39A444E7299021F200A2658B /* ViewComponents */,
-				39A963622989640500F0C055 /* BooksView.swift */,
+				39BC547529A0D67200E42FA7 /* MainView */,
+				3924D2C72998F59600787A80 /* Details */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,8 +348,8 @@
 		39A444EE2990228300A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39BC5448299EC97A00E42FA7 /* ViewComponents */,
-				39A96370298A4EB300F0C055 /* UsersView.swift */,
+				39BC547229A0CD6100E42FA7 /* ModifyUser */,
+				39BC547629A0D68D00E42FA7 /* MainView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -379,8 +381,9 @@
 		39A444F2299022A800A2658B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3924D2C22994DD3E00787A80 /* ViewComponents */,
-				39A96384298A554C00F0C055 /* ShopView.swift */,
+				3924D2C82998F5E100787A80 /* ShopOrders */,
+				3924D2D8299AD89B00787A80 /* HandleOrders */,
+				39BC547729A0D6A700E42FA7 /* MainView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -650,7 +653,6 @@
 				39A444E92990221100A2658B /* UseCase */,
 				39A444EA2990222000A2658B /* ViewModel */,
 				39A444E6299021DF00A2658B /* View */,
-				3924D2C72998F59600787A80 /* Details */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -675,8 +677,6 @@
 				39A444F02990229700A2658B /* UseCase */,
 				39A444F1299022A000A2658B /* ViewModel */,
 				39A444F2299022A800A2658B /* View */,
-				3924D2C82998F5E100787A80 /* ShopOrders */,
-				3924D2D8299AD89B00787A80 /* HandleOrders */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -879,6 +879,41 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		39BC547229A0CD6100E42FA7 /* ModifyUser */ = {
+			isa = PBXGroup;
+			children = (
+				39BC5448299EC97A00E42FA7 /* ViewComponents */,
+				39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */,
+			);
+			path = ModifyUser;
+			sourceTree = "<group>";
+		};
+		39BC547529A0D67200E42FA7 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				39A444E7299021F200A2658B /* ViewComponents */,
+				39A963622989640500F0C055 /* BooksView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		39BC547629A0D68D00E42FA7 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				39A96370298A4EB300F0C055 /* UsersView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		39BC547729A0D6A700E42FA7 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				3924D2C22994DD3E00787A80 /* ViewComponents */,
+				39A96384298A554C00F0C055 /* ShopView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -974,6 +1009,7 @@
 				39A96F2A298FF1A400525E2B /* String+Ext.swift in Sources */,
 				39A96F28298F1DD200525E2B /* Role.swift in Sources */,
 				3924D2E1299C112900787A80 /* ShopBookCase.swift in Sources */,
+				39BC547429A0CD7D00E42FA7 /* ModifyUserView.swift in Sources */,
 				39A96F1C298D976100525E2B /* LoginViewModel.swift in Sources */,
 				3924D2D229994C4300787A80 /* OrdersList.swift in Sources */,
 				39A963672989644A00F0C055 /* BooksUseCase.swift in Sources */,

@@ -18,6 +18,7 @@ struct BookalooApp: App {
                 .environmentObject(moduleDependencies.loginViewModel())
                 .environmentObject(moduleDependencies.booksViewModel())
                 .environmentObject(moduleDependencies.shopsViewModel())
+                .environmentObject(moduleDependencies.usersViewModel())
         }
     }
 }

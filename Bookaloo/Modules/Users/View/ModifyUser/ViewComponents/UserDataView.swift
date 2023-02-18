@@ -100,11 +100,10 @@ struct UserDataView: View {
                     }
                 }//: HStack - Role
                 .padding(.horizontal, 16)
-                
-                
-                
+
                 if isEditing {
                     Button {
+                        isEditing.toggle()
                         action?()
                     } label: {
                         Label("Save", systemImage: "square.and.arrow.down")
