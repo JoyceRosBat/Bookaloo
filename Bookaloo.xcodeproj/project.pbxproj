@@ -101,6 +101,8 @@
 		39BC548229A23D9800E42FA7 /* BookalooToolbarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548129A23D9800E42FA7 /* BookalooToolbarTitle.swift */; };
 		39BC548529A299F100E42FA7 /* ShopOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548429A299F100E42FA7 /* ShopOrdersViewModel.swift */; };
 		39BC548A29A2A3C500E42FA7 /* HandleOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548929A2A3C500E42FA7 /* HandleOrderViewModel.swift */; };
+		39BC549029A2B5CF00E42FA7 /* ObservableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548F29A2B5CF00E42FA7 /* ObservableScrollView.swift */; };
+		39BC549229A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC549129A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -199,6 +201,8 @@
 		39BC548129A23D9800E42FA7 /* BookalooToolbarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookalooToolbarTitle.swift; sourceTree = "<group>"; };
 		39BC548429A299F100E42FA7 /* ShopOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopOrdersViewModel.swift; sourceTree = "<group>"; };
 		39BC548929A2A3C500E42FA7 /* HandleOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleOrderViewModel.swift; sourceTree = "<group>"; };
+		39BC548F29A2B5CF00E42FA7 /* ObservableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableScrollView.swift; sourceTree = "<group>"; };
+		39BC549129A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetPreferenceKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				39BC547829A0D8E700E42FA7 /* Home */,
-				39BC547529A0D67200E42FA7 /* MainView */,
+				39BC547529A0D67200E42FA7 /* BooksView */,
 				3924D2C72998F59600787A80 /* Details */,
 			);
 			path = Scenes;
@@ -713,6 +717,7 @@
 		39A96EDD298C188C00525E2B /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				39BC548E29A2B5B100E42FA7 /* ObservableScrollView */,
 				39BC548029A23D6B00E42FA7 /* BookalooToolbarTitle */,
 				3924D2D5299AC25100787A80 /* RatingView */,
 				3924D2CB2999141900787A80 /* ExpandableView */,
@@ -893,13 +898,13 @@
 			path = ModifyUser;
 			sourceTree = "<group>";
 		};
-		39BC547529A0D67200E42FA7 /* MainView */ = {
+		39BC547529A0D67200E42FA7 /* BooksView */ = {
 			isa = PBXGroup;
 			children = (
 				39A444E7299021F200A2658B /* ViewComponents */,
 				39A444FF29902E7900A2658B /* BooksView.swift */,
 			);
-			path = MainView;
+			path = BooksView;
 			sourceTree = "<group>";
 		};
 		39BC547629A0D68D00E42FA7 /* UsersView */ = {
@@ -977,6 +982,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		39BC548E29A2B5B100E42FA7 /* ObservableScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				39BC549129A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift */,
+				39BC548F29A2B5CF00E42FA7 /* ObservableScrollView.swift */,
+			);
+			path = ObservableScrollView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1052,6 +1066,7 @@
 				39A963462988524B00F0C055 /* UsersRequest.swift in Sources */,
 				39A9632B2988449600F0C055 /* NetworkError.swift in Sources */,
 				39A9632F2988449700F0C055 /* APIRequest.swift in Sources */,
+				39BC549029A2B5CF00E42FA7 /* ObservableScrollView.swift in Sources */,
 				39A9632C2988449600F0C055 /* NetworkRequest.swift in Sources */,
 				39A9637E298A550300F0C055 /* ShopDependenciesResolver.swift in Sources */,
 				39A963382988464E00F0C055 /* BooksRequest.swift in Sources */,
@@ -1123,6 +1138,7 @@
 				39A96369298964BF00F0C055 /* BooksDependenciesResolver.swift in Sources */,
 				39A9635329887F6F00F0C055 /* UsersRepository.swift in Sources */,
 				3924D2DE299BFB3F00787A80 /* HandleOrderCellView.swift in Sources */,
+				39BC549229A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift in Sources */,
 				39A96382298A553000F0C055 /* ShopViewModel.swift in Sources */,
 				39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */,
 				3924D2D4299961E800787A80 /* Text+Extension.swift in Sources */,

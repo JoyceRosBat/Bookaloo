@@ -127,6 +127,7 @@ struct UserDataView: View {
                         }//: Button save
                         .buttonStyle(.bookalooStyle)
                     }
+                    Spacer()
                 }//: VStack
                 .onTapGesture {
                     isFocused = false

@@ -27,6 +27,11 @@ final class UsersViewModel: ObservableBaseViewModel {
         self.dependencies = dependencies
     }
     
+    override func onAppear() {
+        super.onAppear()
+        cleanUserFound()
+    }
+    
     /// Get user's data
     /// ```
     ///        usersUseCase.getUserData()
@@ -117,5 +122,9 @@ private extension UsersViewModel {
                 showNetworkError(error)
             }
         }
+    }
+    
+    func cleanUserFound() {
+        userFound = UserData(email: "", name: "", location: "", role: .user)
     }
 }

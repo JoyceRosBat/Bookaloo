@@ -11,6 +11,8 @@ struct HandleOrdersView: View {
     @StateObject var viewModel: HandleOrderViewModel
     @State var searchType: SearchType = .email
     @State var searchText: String = ""
+    @State var scrollOffset: CGFloat = 0
+    @State var hideHeader: Bool = false
     
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
@@ -57,12 +59,14 @@ struct HandleOrdersView: View {
                     }//: Button search
                     .buttonStyle(.bookalooStyle)
                 }//: VStack
+                .frame(height: hideHeader ? .zero : nil)
+                .opacity(hideHeader ? 0 : 1)
                 
                 if viewModel.ordersEmpty, !searchText.isEmpty {
                     Text("There are no orders for\n*\(searchText)*")
                         .emptyMessageModifier()
                 } else if !viewModel.searchOrders.isEmpty {
-                    List {
+                    ObservableScrollView(scrollOffset: $scrollOffset) {
                         ForEach(viewModel.searchOrders) { order in
                             HandleOrderCellView(
                                 email: order.email,
@@ -75,9 +79,19 @@ struct HandleOrdersView: View {
                                     )
                                 }
                         }//: ForEach order
-                    }//: List
-                    .scrollContentBackground(.hidden)
+                    }//: ScrollView
                     .scrollIndicators(.hidden)
+                    .onChange(of: scrollOffset) { scrollOfset in
+                        if scrollOfset > 0 {
+                            withAnimation(.easeIn(duration: 0.5), {
+                                hideHeader = true
+                            })
+                        } else if scrollOfset < 0 {
+                            withAnimation(.easeIn(duration: 0.5), {
+                                hideHeader = false
+                            })
+                        }
+                    }//: OnChange scroll
                 }//: If there are results
                 Spacer()
             }//: VStack
