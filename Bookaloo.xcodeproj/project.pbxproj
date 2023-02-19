@@ -97,6 +97,7 @@
 		39BC5451299EE0C100E42FA7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC5450299EE0C100E42FA7 /* UserData.swift */; };
 		39BC547429A0CD7D00E42FA7 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */; };
 		39BC547B29A0D9CF00E42FA7 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */; };
+		39BC547F29A2245C00E42FA7 /* Label+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547E29A2245B00E42FA7 /* Label+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +192,7 @@
 		39BC5450299EE0C100E42FA7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
 		39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
+		39BC547E29A2245B00E42FA7 /* Label+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,6 +630,7 @@
 				39A444E229901E7F00A2658B /* Image+Ext.swift */,
 				39A4450729904D5700A2658B /* DateFormatter+Ext.swift */,
 				3924D2D3299961E800787A80 /* Text+Extension.swift */,
+				39BC547E29A2245B00E42FA7 /* Label+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1046,6 +1049,7 @@
 				3924D2D7299AC26600787A80 /* RatingView.swift in Sources */,
 				39A96F1E298D9BEE00525E2B /* BookalooTextfield.swift in Sources */,
 				39A96F2C29901A7F00525E2B /* BookCellView.swift in Sources */,
+				39BC547F29A2245C00E42FA7 /* Label+Ext.swift in Sources */,
 				39A96F0F298D950D00525E2B /* LoginRequest.swift in Sources */,
 				39A4450C2992867600A2658B /* OrderStatus.swift in Sources */,
 				39BC544C299EC9DC00E42FA7 /* UserDataView.swift in Sources */,

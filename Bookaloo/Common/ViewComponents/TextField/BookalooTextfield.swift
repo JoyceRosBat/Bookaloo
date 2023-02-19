@@ -105,7 +105,7 @@ private extension BookalooTextfield {
                 .overlay(
                     HStack {
                         if showTextfieldIcon {
-                            Image(systemName: "envelope")
+                            Image(systemName: .envelope)
                                 .foregroundColor(.gray)
                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 8)
@@ -167,7 +167,7 @@ private extension BookalooTextfield {
                             .overlay(
                                 HStack {
                                     if showTextfieldIcon {
-                                        Image(systemName: "lock")
+                                        Image(systemName: .lock)
                                             .foregroundColor(.gray)
                                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                             .padding(.leading, 8)
@@ -195,7 +195,7 @@ private extension BookalooTextfield {
                             .overlay(
                                 HStack {
                                     if showTextfieldIcon {
-                                        Image(systemName: "lock")
+                                        Image(systemName: .lock)
                                             .foregroundColor(.gray)
                                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                             .padding(.leading, 8)
@@ -208,7 +208,7 @@ private extension BookalooTextfield {
                 Button {
                     isSecure.toggle()
                 } label: {
-                    Image(systemName: self.isSecure ? "eye.slash" : "eye")
+                    Image(systemName: self.isSecure ? .eyeSlash : .eye)
                         .accentColor(.gray)
                 }//: Button
             }//: HStack
@@ -241,7 +241,7 @@ private extension BookalooTextfield {
             .overlay(
                 HStack {
                     if showTextfieldIcon {
-                        Image(systemName: "magnifyingglass")
+                        Image(systemName: .magnifyingglass)
                             .foregroundColor(.gray)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
@@ -251,7 +251,7 @@ private extension BookalooTextfield {
                                 textfieldText = ""
                                 cleanSearchAction?()
                             }) {
-                                Image(systemName: "multiply.circle.fill")
+                                Image(systemName:.multiplyCircleFill)
                                     .foregroundColor(.gray)
                                     .padding(.trailing, 8)
                             }//: Button

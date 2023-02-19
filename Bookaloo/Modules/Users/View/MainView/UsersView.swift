@@ -21,7 +21,7 @@ struct UsersView: View {
                 NavigationLink {
                     dependencies.modifyUserView()
                 } label: {
-                    Label("Find/Modify user", systemImage: "pencil.line")
+                    Label("Find/Modify user", systemImage: .pencilLine)
                         .font(.futura(18))
                         .opacity(0.6)
                 }//: Navigation to modify user
@@ -30,7 +30,7 @@ struct UsersView: View {
                 NavigationLink {
                     dependencies.createUserView()
                 } label: {
-                    Label("Create new user", systemImage: "person.badge.plus")
+                    Label("Create new user", systemImage: .addPerson)
                         .font(.futura(18))
                         .opacity(0.6)
                 }//: Navigation to create user

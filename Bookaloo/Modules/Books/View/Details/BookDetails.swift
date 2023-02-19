@@ -70,7 +70,7 @@ struct BookDetailsView: View {
                             showErrorMessage = true
                         }
                     } label: {
-                        Label("Shop", systemImage: "cart")
+                        Label("Shop", systemImage: .cart)
                     }
                     .buttonStyle(.bookalooStyle)
                     

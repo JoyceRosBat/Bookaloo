@@ -30,7 +30,7 @@ struct UserDataView: View {
                             Button {
                                 isEditing.toggle()
                             } label: {
-                                Image(systemName: "pencil.circle")
+                                Image(systemName: .pencilCircle)
                             }
                         }
                     }//: HStack
@@ -123,7 +123,7 @@ struct UserDataView: View {
                             }
                             viewModel.modify(user)
                         } label: {
-                            Label("Save", systemImage: "square.and.arrow.down")
+                            Label("Save", systemImage: .squareArrowDown)
                         }//: Button save
                         .buttonStyle(.bookalooStyle)
                     }

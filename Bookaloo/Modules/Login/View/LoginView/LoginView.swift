@@ -55,7 +55,7 @@ struct LoginView: View {
                 NavigationLink {
                     dependencies.createNewUserView()
                 } label: {
-                    Label("Not a user yet? Signup!", systemImage: "person.badge.plus")
+                    Label("Not a user yet? Signup!", systemImage: .addPerson)
                         .font(StyleConstants.bookalooFont)
                         .foregroundColor(.accentColor)
                 }

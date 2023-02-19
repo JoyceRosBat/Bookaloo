@@ -26,9 +26,9 @@ struct ImageLoader: View {
                 image.imageModifier()
                     .transition(.scale)
             case .failure:
-                Image(systemName: "rectangle.on.rectangle.slash.circle.fill").iconModifier()
+                Image(systemName: .rectangleSlashCircleFill).iconModifier()
             case .empty:
-                Image(systemName: "photo.circle.fill").iconModifier()
+                Image(systemName: .photoCircleFill).iconModifier()
             @unknown default:
                 ProgressView()
             }

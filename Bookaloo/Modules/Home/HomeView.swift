@@ -19,7 +19,7 @@ struct HomeView: View {
                 dependencies.booksHomeView()
             }//: booksView NavigationStack
             .tabItem {
-                Label("Books", systemImage: "book")
+                Label("Books", systemImage: .book)
             }//: booksView tabItem
             
             if loginViewModel.isAdmin {
@@ -27,7 +27,7 @@ struct HomeView: View {
                     dependencies.usersView()
                 }//: UsersView NavigationStack
                 .tabItem {
-                    Label("Clients", systemImage: "person")
+                    Label("Clients", systemImage: .person)
                 }//: usersView tabItem
             }
             
@@ -35,7 +35,7 @@ struct HomeView: View {
                 dependencies.shopView()
             }//: shopView NavigationStack
             .tabItem {
-                Label("Shop", systemImage: "cart")
+                Label("Shop", systemImage: .cart)
             }//: shopView tabItem
             .badge(shopsViewModel.booksOrdered)
         }//: TabView

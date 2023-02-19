@@ -58,7 +58,7 @@ struct BookCellView: View {
                 
                 VStack(alignment: .center) {
                     if purchased {
-                        Image(systemName: "cart.circle.fill")
+                        Image(systemName: .cartCircleFill)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 30)

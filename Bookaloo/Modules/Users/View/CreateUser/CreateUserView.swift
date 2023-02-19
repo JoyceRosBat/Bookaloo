@@ -109,7 +109,7 @@ struct CreateUserView: View {
                     viewModel.save()
                     isFocused.toggle()
                 } label: {
-                    Label("Save", systemImage: "square.and.arrow.down")
+                    Label("Save", systemImage: .squareArrowDown)
                 }//: Button save
                 .buttonStyle(.bookalooStyle)
                 

@@ -54,7 +54,7 @@ struct HandleOrderCellView: View {
                         viewModel.modify(orderNumber, status: statusSelected)
                     }
                 } label: {
-                    Label(statusSelected.rawValue.capitalized, systemImage: "arrow.down.to.line.compact")
+                    Label(statusSelected.rawValue.capitalized, systemImage: .arrowDownLine)
                         .font(.futura(14))
                         .bold()
                         .opacity(0.7)

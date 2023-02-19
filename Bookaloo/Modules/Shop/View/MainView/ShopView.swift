@@ -33,7 +33,7 @@ struct ShopView: View {
                         Button {
                             viewModel.finishShopAlert = true
                         } label: {
-                            Label("Shop", systemImage: "cart")
+                            Label("Shop", systemImage: .cart)
                         }
                         .buttonStyle(.bookalooStyle)
                         .frame(width: UIScreen.main.bounds.width * 0.8)
@@ -54,14 +54,14 @@ struct ShopView: View {
                     NavigationLink {
                         dependencies.shopOrdersView()
                     } label: {
-                        Image(systemName: "shippingbox.fill")
+                        Image(systemName: .shippingBoxFill)
                     }
                     
                     if viewModel.isAdmin {
                         NavigationLink {
                             dependencies.handleOdersView()
                         } label: {
-                            Image(systemName: "tray.and.arrow.down.fill")
+                            Image(systemName: .trayAndArrowDownFill)
                         }
                     }
                 }
@@ -143,7 +143,7 @@ extension ShopView {
             showAlert: $viewModel.shopCompleteAlert,
             title: "Your order is complete") {
                 Text("Your oder number:\n**\(viewModel.pendingOrder?.id ?? "")**\n\nYou can check all your orders on the button ") +
-                Text(Image(systemName: "shippingbox.fill")) +
+                Text(Image(systemName: .shippingBoxFill)) +
                 Text(" at the top")
             } buttons: {
                 Button {

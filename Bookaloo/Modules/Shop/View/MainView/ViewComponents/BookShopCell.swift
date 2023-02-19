@@ -34,7 +34,7 @@ struct BookShopCell: View {
                         showAlert = true
                         viewModel.bookSelected = book
                     } label: {
-                        Image(systemName: "trash")
+                        Image(systemName: .trash)
                     }
                     .buttonStyle(.bookalooStyle)
                 }

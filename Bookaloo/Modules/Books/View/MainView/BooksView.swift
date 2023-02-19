@@ -35,9 +35,9 @@ struct BooksView: View {
                                 Button {
                                     viewModel.markAsRead(book)
                                 } label: {
-                                    book.read == true ? Image(systemName: "eye") : Image(systemName: "eye.slash")
+                                    Image(systemName: book.read == true ? .eye : .eyeSlash)
                                 }
-                                //                                .tint(book.read == true ? .accentColor : .gray)
+//                                .tint(book.read == true ? .accentColor : .gray)
                             }
                         }//: NavigationLink
                     }//: ForEach
@@ -78,11 +78,11 @@ struct BooksView: View {
                         UserDataView(user: $viewModel.myUserToModify, isEditing: true, editingOwnUser: true)
                     } label: {
                         Label("Edit profile",
-                              systemImage: "lock")
+                              systemImage: .lock)
                     }
                     logoutOptionMenuButton
                 } label: {
-                    Label("Profile", systemImage: "person.crop.circle")
+                    Label("Profile", systemImage: .personCircle)
                 }//: Menu
             }//: ToolbarItem - User menu
         }//: Toolbar
@@ -98,7 +98,7 @@ extension BooksView {
             showAlert = true
         } label: {
             Label("Logout",
-                  systemImage: "arrowshape.turn.up.backward")
+                  systemImage: .arrowTurnUpBackward)
         }
     }
     
