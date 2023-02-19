@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PopupView<TextContent: View, ButtonsContent: View>: View {
     @Binding var showAlert: Bool
-    let title: String
+    let title: LocalizedStringKey
     @ViewBuilder var message: () -> TextContent
     @ViewBuilder var buttons: () -> ButtonsContent
     

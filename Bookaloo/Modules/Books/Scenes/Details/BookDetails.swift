@@ -73,7 +73,7 @@ struct BookDetailsView: View {
                                 showErrorMessage = true
                             }
                         } label: {
-                            Label("Shop", systemImage: .cart)
+                            Label("shop", systemImage: .cart)
                         }
                         .buttonStyle(.bookalooStyle)
                     }//: VStack
@@ -89,14 +89,14 @@ struct BookDetailsView: View {
                             
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack(alignment: .top) {
-                                    Text("Author:")
+                                    Text("author_title")
                                         .bold()
                                     Text(book.author)
                                 }//:Hstack
                                 .font(StyleConstants.bookalooFont)
                                 
                                 HStack(alignment: .top) {
-                                    Text("Year:")
+                                    Text("year_title")
                                         .bold()
                                     Text("\(book.year)")
                                 }//: HStack
@@ -120,7 +120,7 @@ struct BookDetailsView: View {
                                             seeMore.toggle()
                                         }
                                     } label: {
-                                        Text(seeMore ? "See less..." : "See more...")
+                                        Text(seeMore ? "see_less" : "see_more")
                                             .foregroundStyle(StyleConstants.bookalooGradient)
                                     }//: Button
                                 }//: VStack
@@ -168,12 +168,12 @@ extension BookDetailsView {
         PopupView(
             showAlert: $showErrorMessage,
             title: "Warning") {
-                Text("You have reached the maximun number of books to shop with this title on the same order")
+                Text("max_books_reached")
             } buttons: {
                 Button {
                     showErrorMessage.toggle()
                 } label: {
-                    Text("Accept")
+                    Text("accept")
                 }
             }
     }

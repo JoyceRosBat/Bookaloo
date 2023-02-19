@@ -30,7 +30,7 @@ struct HomeView: View {
                 booksHomeView
             }//: booksView NavigationStack
             .tabItem {
-                Label("Books", systemImage: .book)
+                Label("books", systemImage: .book)
             }//: booksView tabItem
             
             if loginViewModel.isAdmin {
@@ -38,7 +38,7 @@ struct HomeView: View {
                     usersView
                 }//: UsersView NavigationStack
                 .tabItem {
-                    Label("Clients", systemImage: .person)
+                    Label("clients", systemImage: .person)
                 }//: usersView tabItem
             }
             
@@ -46,7 +46,7 @@ struct HomeView: View {
                 shopView
             }//: shopView NavigationStack
             .tabItem {
-                Label("Shop", systemImage: .cart)
+                Label("shop", systemImage: .cart)
             }//: shopView tabItem
             .badge(shopsViewModel.booksOrdered)
             
@@ -55,7 +55,7 @@ struct HomeView: View {
                     handleOrdersView
                 }
                 .tabItem {
-                    Label("Orders", systemImage: .trayAndArrowDownFill)
+                    Label("orders", systemImage: .trayAndArrowDownFill)
                 }//: Handle orders
             }
             

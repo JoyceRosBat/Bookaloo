@@ -17,8 +17,8 @@ struct HandleOrdersView: View {
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack(alignment: .center, spacing: 0) {
-                Text("Orders Management")
-                    .font(.futura(32))
+                Text("orders_management_header_title")
+                    .font(.futura(24))
                     .bold()
                     .foregroundStyle(StyleConstants.bookalooGradient)
                     .frame(height: 100)
@@ -55,7 +55,7 @@ struct HandleOrdersView: View {
                             viewModel.getOrder(by: searchText)
                         }
                     } label: {
-                        Text("Search")
+                        Text("search")
                     }//: Button search
                     .buttonStyle(.bookalooStyle)
                 }//: VStack
@@ -63,7 +63,7 @@ struct HandleOrdersView: View {
                 .opacity(hideHeader ? 0 : 1)
                 
                 if viewModel.ordersEmpty, !searchText.isEmpty {
-                    Text("There are no orders for\n*\(searchText)*")
+                    Text(String(format: NSLocalizedString("no_orders_for", comment: ""), searchText))
                         .emptyMessageModifier()
                 } else if !viewModel.searchOrders.isEmpty {
                     ObservableScrollView(scrollOffset: $scrollOffset) {

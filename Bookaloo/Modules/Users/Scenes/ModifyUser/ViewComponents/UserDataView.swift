@@ -21,7 +21,7 @@ struct UserDataView: View {
             if !user.email.isEmpty {
                 VStack(spacing: 20) {
                     HStack(alignment: .center) {
-                        Text("User data")
+                        Text("user_data_header_title")
                             .font(.futura(24))
                             .bold()
                             .opacity(0.6)
@@ -37,7 +37,7 @@ struct UserDataView: View {
                     
                     VStack(alignment: .leading, spacing: 20) {
                         HStack {
-                            Text("Email:")
+                            Text("email_title")
                                 .font(.futura(14))
                                 .bold()
                                 .foregroundColor(.accentColor)
@@ -51,7 +51,7 @@ struct UserDataView: View {
                         .padding(.horizontal, 16)
                         
                         HStack {
-                            Text("Name:")
+                            Text("name_title")
                                 .font(.futura(14))
                                 .bold()
                                 .foregroundColor(.accentColor)
@@ -70,7 +70,7 @@ struct UserDataView: View {
                         .padding(.horizontal, 16)
                         
                         HStack {
-                            Text("Location:")
+                            Text("location_title")
                                 .font(.futura(14))
                                 .bold()
                                 .foregroundColor(.accentColor)
@@ -90,7 +90,7 @@ struct UserDataView: View {
                     }//: VStack
                     
                     HStack {
-                        Text("Role:")
+                        Text("role_title")
                             .font(.futura(14))
                             .bold()
                             .foregroundColor(.accentColor)
@@ -105,7 +105,7 @@ struct UserDataView: View {
                                         .opacity(0.7)
                                 }
                             } label: {
-                                Text("")
+                                EmptyView()
                             }//: Picker
                         } else {
                             Text(user.role.rawValue.capitalized)
@@ -123,7 +123,7 @@ struct UserDataView: View {
                             }
                             viewModel.modify(user)
                         } label: {
-                            Label("Save", systemImage: .squareArrowDown)
+                            Label("save", systemImage: .squareArrowDown)
                         }//: Button save
                         .buttonStyle(.bookalooStyle)
                     }
@@ -149,13 +149,13 @@ extension UserDataView {
     var userModifiedPopup: some View {
         PopupView(
             showAlert: $viewModel.showModifiedUserAlert,
-            title: "User modified") {
-                Text("User modified successfully")
+            title: "user_modified_popup_title") {
+                Text("user_modified_popup_message")
             } buttons: {
                 Button {
                     viewModel.showModifiedUserAlert.toggle()
                 } label: {
-                    Text("Accept")
+                    Text("accept")
                 }
             }
     }

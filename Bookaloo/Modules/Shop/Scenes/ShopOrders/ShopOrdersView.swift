@@ -18,9 +18,9 @@ struct ShopOrdersView: View {
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack {
-                Picker("Order Status", selection: $statusSelected) {
+                Picker("order_status", selection: $statusSelected) {
                     ForEach(viewModel.ordersStatus, id: \.self) { status in
-                        Text(status.rawValue)
+                        Text(status.rawValue.capitalized)
                     }
                 }
                 .pickerStyle(.segmented)

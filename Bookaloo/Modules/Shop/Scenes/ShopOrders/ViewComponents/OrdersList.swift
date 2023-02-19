@@ -13,7 +13,7 @@ struct OrdersList: View {
     
     var body: some View {
         if orders.isEmpty {
-            Text("There are no orders **\(status.rawValue.capitalized)**")
+            Text(String(format: NSLocalizedString("no_orders", comment: ""), status.rawValue.capitalized))
                 .emptyMessageModifier()
         } else {
             List {
@@ -21,7 +21,7 @@ struct OrdersList: View {
                     VStack(alignment: .leading) {
                         if let id = order.id {
                             HStack(alignment: .top) {
-                                Text("Order number:")
+                                Text("order_number_title")
                                     .bold()
                                     .font(.futura(12))
                                 Spacer()
@@ -36,7 +36,7 @@ struct OrdersList: View {
                         if let date = order.date.wrappedValue,
                            let dateString = date.formatted(date: .abbreviated, time: .omitted) {
                             HStack(alignment: .top) {
-                                Text("Date:")
+                                Text("date_title")
                                     .bold()
                                     .font(.futura(12))
                                 Spacer()

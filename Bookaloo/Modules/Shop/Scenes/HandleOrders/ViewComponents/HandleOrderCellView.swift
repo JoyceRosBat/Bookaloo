@@ -53,7 +53,7 @@ struct HandleOrderCellView: View {
                         modifyAction?(statusSelected)
                     }
                 } label: {
-                    Label(statusSelected.rawValue.capitalized, systemImage: .arrowDownLine)
+                    Label(statusSelected.rawValue.capitalized, systemIcon: .arrowDownLine)
                         .font(.futura(14))
                         .bold()
                         .opacity(0.7)

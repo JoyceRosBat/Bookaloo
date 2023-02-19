@@ -15,7 +15,7 @@ struct BooksView: View {
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
             if viewModel.books.isEmpty {
-                Text("**The list of books is empty.**\n\nTry to update again later")
+                Text("books_empty_list")
                     .emptyMessageModifier()
             } else {
                 List {
@@ -66,7 +66,7 @@ struct BooksView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     if let name = viewModel.user?.name {
-                        Text("Welcome " + name)
+                        Text(String(format: NSLocalizedString("welcome", comment: ""), name))
                     }
                     if let email = viewModel.user?.email {
                         Text(email)
@@ -74,12 +74,12 @@ struct BooksView: View {
                     NavigationLink {
                         UserDataView(user: $viewModel.myUserToModify, isEditing: true, editingOwnUser: true)
                     } label: {
-                        Label("Edit profile",
+                        Label("edit_profile",
                               systemImage: .lock)
                     }
                     logoutOptionMenuButton
                 } label: {
-                    Label("Profile", systemImage: .personCircle)
+                    Label("profile", systemImage: .personCircle)
                 }//: Menu
             }//: ToolbarItem - User menu
         }//: Toolbar
@@ -90,11 +90,11 @@ extension BooksView {
     @ViewBuilder
     var logoutOptionMenuButton: some View {
         Button {
-            viewModel.alertTitle = "Warning"
-            viewModel.alertMessage = "Are you sure you want to logout?"
+            viewModel.alertTitle = "logout_warning_popup_title"
+            viewModel.alertMessage = "logout_warning_popup_message"
             showAlert = true
         } label: {
-            Label("Logout",
+            Label("logout",
                   systemImage: .arrowTurnUpBackward)
         }
     }
@@ -103,19 +103,19 @@ extension BooksView {
     var logoutConfirmationPopup: some View {
         PopupView(
             showAlert: $showAlert,
-            title: viewModel.alertTitle) {
-                Text(viewModel.alertMessage)
+            title: LocalizedStringKey(viewModel.alertTitle)) {
+                Text(LocalizedStringKey(viewModel.alertMessage))
             } buttons: {
                 Button {
                     showAlert.toggle()
                 } label: {
-                    Text("Cancel")
+                    Text("cancel")
                 }
                 Button {
                     viewModel.doLogout()
                     showAlert.toggle()
                 } label: {
-                    Text("Accept")
+                    Text("accept")
                 }
             }
     }

@@ -31,7 +31,7 @@ struct LoginView: View {
                     textfieldText: $viewModel.email,
                     valid: $viewModel.validEmail,
                     validationText: viewModel.validEmailText,
-                    placeHolder: "Email",
+                    placeHolder: "email",
                     orientation: .vertical(.email)
                 )//: TexField
                 .focused($isFocused)
@@ -40,7 +40,7 @@ struct LoginView: View {
                     textfieldText: $viewModel.password,
                     valid: $viewModel.validPassword,
                     validationText: viewModel.validPasswordText,
-                    placeHolder: "Password",
+                    placeHolder: "password",
                     orientation: .vertical(.secure)
                 )//: TexField
                 .focused($isFocused)
@@ -48,7 +48,7 @@ struct LoginView: View {
                 Button {
                     viewModel.doLogin()
                 } label: {
-                    Text("Login")
+                    Text("login")
                         .font(.futura(24))
                 }//: Button
                 .buttonStyle(.bookalooStyle)
@@ -58,7 +58,7 @@ struct LoginView: View {
                 NavigationLink {
                     createUserView
                 } label: {
-                    Label("Not a user yet? Signup!", systemImage: .addPerson)
+                    Label("not_user_button", systemImage: .addPerson)
                         .font(StyleConstants.bookalooFont)
                         .foregroundColor(.accentColor)
                 }

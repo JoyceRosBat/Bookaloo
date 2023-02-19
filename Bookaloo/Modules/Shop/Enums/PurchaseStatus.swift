@@ -8,7 +8,7 @@
 import Foundation
 
 enum PurchaseStatus: String, CaseIterable {
-    case inProgress = "In progress"
-    case delivered = "Delivered"
-    case cancelled = "Cancelled"
+    case inProgress = "procesando"
+    case delivered = "entregado"
+    case cancelled = "anulado"
 }

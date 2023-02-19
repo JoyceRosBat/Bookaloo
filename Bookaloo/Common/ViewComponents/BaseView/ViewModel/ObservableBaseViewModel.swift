@@ -116,12 +116,12 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
             await MainActor.run {
                 switch error {
                 case .apiError(let aPIErrorResponse):
-                    alertTitle = "Oops... Something went wrong"
+                    alertTitle = "error_title"
                     alertMessage = aPIErrorResponse.reason
                     showError = true
                 default:
-                    alertTitle = "Oops... Something went wrong"
-                    alertMessage = "Try again later..."
+                    alertTitle = "error_popup_title"
+                    alertMessage = "error_popup_message"
                     showError = true
                 }
             }

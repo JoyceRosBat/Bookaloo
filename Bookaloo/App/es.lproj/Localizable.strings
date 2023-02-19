@@ -1,0 +1,86 @@
+/*
+  Localizable.strings
+  Bookaloo
+
+  Created by Joyce Rosario Batista on 19/2/23.
+  
+*/
+
+"login" = "Login";
+"not_user_button" = "¿Aún no eres usuario? ¡Date de alta!";
+"email" = "Email";
+"password" = "Contraseña";
+
+"edit_profile" = "Editar perfil";
+"profile" = "Perfil";
+"welcome" = "Bienvenid@ %@";
+
+"error_popup_title" = "Oops... Algo ha ido mal";
+"error_popup_message" = "Inténtelo de nuevo más tarde...";
+
+"logout_warning_popup_title" = "¡Atención!";
+"logout_warning_popup_message" = "¿Seguro que quiere cerrar la sesión?";
+"logout" = "Cerrar sesión";
+
+"accept" = "Aceptar";
+"cancel" = "Cancelar";
+"save" = "Guardar";
+"search" = "Buscar";
+"anulado" = "Anulado";
+"recibido" = "Recibido";
+"procesando" = "Procesando";
+"enviado" = "Enviado";
+"entregado" = "Entregado";
+"devuelto" = "Devuelto";
+
+"shop" = "Comprar";
+"books" = "Libros";
+"clients" = "Clientes";
+"orders" = "Pedidos";
+
+"find_user" = "Buscar/Modificar usuario";
+"create_user" = "Crear nuevo usuario";
+
+"email_title" = "Email:";
+"author_title" = "Autor:";
+"date_title" = "Fecha:";
+"location_title" = "Ubicación:";
+"name_title" = "Nombre:";
+"order_number_title" = "Número de pedido:";
+"role_title" = "Rol:";
+"year_title" = "Año:";
+
+"finish_shopping_popup_title" = "Finalizar compra";
+"finish_shopping_popup_message" = "¿Desea finalizar la compra?";
+"remove_book_popup_title" = "El libro se borrará de la lista";
+"remove_book_popup_message" = "¿Quiere eliminarlo?";
+"user_created_popup_title" = "¡Usuario creado!";
+"user_created_popup_message" = "El usuario ha sido creado correctamente";
+"user_modified_popup_title" = "Usuario modificado";
+"user_modified_popup_message" = "El usuario se ha modificado correctamente";
+"orders_finish_popup_message1" = "Su número de pedido:\n**%@**\n\nPuede revisar todos sus pedidos en el botón ";
+"orders_finish_popup_message2" = " arriba";
+
+"new_user_header_title" = "Nuevo usuario";
+"orders_management_header_title" = "Gestión de Pedidos";
+"user_data_header_title" = "Datos de usuario";
+"user_management_header_title" = "Gestión de Usuarios";
+
+"order_status" = "Estado del pedido";
+
+"see_less" = "Ver menos...";
+"see_more" = "Ver más...";
+
+"no_orders" = "No hay pedidos **%@**";
+
+"no_orders_for" = "No hay pedidos para *%@*";
+
+"max_books_reached" = "Ha llegado al número máximo de pedidos para el mismo libro en el mismo pedido";
+
+"books_empty_list" = "**La lista de libros está vacía.**\nIntente actualizar de nuevo más tarde";
+
+"orders_emtpy_list" = "**Aún no hay pedidos.**\nSeleccione un libro y presione el botón de *Comprar* para pedir uno.";
+
+"valid_email_text" = "El formato del email no es válido. Ejemplo: email@email.com";
+"valid_password_text" = "La contraseña debe tener al menos 8 caracteres";
+"valid_empty_text" = "Este campo no debería estar vacío";

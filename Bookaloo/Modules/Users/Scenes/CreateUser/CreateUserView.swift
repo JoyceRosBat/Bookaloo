@@ -17,7 +17,7 @@ struct CreateUserView: View {
                 Spacer()
                 
                 HStack(alignment: .center) {
-                    Text("New user")
+                    Text("new_user_header_title")
                         .font(.futura(24))
                         .bold()
                         .opacity(0.6)
@@ -25,7 +25,7 @@ struct CreateUserView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
-                        Text("Email:")
+                        Text("email_title")
                             .font(.futura(14))
                             .bold()
                             .foregroundColor(.accentColor)
@@ -43,7 +43,7 @@ struct CreateUserView: View {
                     .padding(.horizontal, 16)
                     
                     HStack {
-                        Text("Name:")
+                        Text("name_title")
                             .font(.futura(14))
                             .bold()
                             .foregroundColor(.accentColor)
@@ -60,7 +60,7 @@ struct CreateUserView: View {
                     .padding(.horizontal, 16)
                     
                     HStack {
-                        Text("Location:")
+                        Text("location_title")
                             .font(.futura(14))
                             .bold()
                             .foregroundColor(.accentColor)
@@ -82,7 +82,7 @@ struct CreateUserView: View {
                 
                 if viewModel.isAdmin {
                     HStack {
-                        Text("Role:")
+                        Text("role_title")
                             .font(.futura(14))
                             .bold()
                             .foregroundColor(.accentColor)
@@ -109,7 +109,7 @@ struct CreateUserView: View {
                     viewModel.save()
                     isFocused.toggle()
                 } label: {
-                    Label("Save", systemImage: .squareArrowDown)
+                    Label("save", systemImage: .squareArrowDown)
                 }//: Button save
                 .buttonStyle(.bookalooStyle)
                 
@@ -141,17 +141,16 @@ extension CreateUserView {
     var createdUserPopup: some View {
         PopupView(
             showAlert: $viewModel.showCreatedUserAlert,
-            title: "User created!") {
-                Text("The user has been successfully created")
+            title: "user_created_popup_title") {
+                Text("user_created_popup_message")
             } buttons: {
                 Button {
                     viewModel.showCreatedUserAlert.toggle()
                 } label: {
-                    Text("Accept")
+                    Text("accept")
                 }
 
             }
-
     }
 }
 

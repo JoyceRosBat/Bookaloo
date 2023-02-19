@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Bookaloo/en.lproj/Bookaloo-InfoPlist.strings" datatype="plaintext" source-language="en" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.0.1" build-num="14A400"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>Bookaloo</source>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>Bookaloo</source>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Bookaloo/en.lproj/Localizable.strings" source-language="en" target-language="es" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.0.1" build-num="14A400"/>
+    </header>
+    <body>
+      <trans-unit id=" at the top" xml:space="preserve">
+        <source> at the top</source>
+        <target>arriba</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%@:" xml:space="preserve">
+        <source>%@:</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%lld" xml:space="preserve">
+        <source>%lld</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="* %@" xml:space="preserve">
+        <source>* %@</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="**The list of books is empty.**&#10;&#10;Try to update again later" xml:space="preserve">
+        <source>**The list of books is empty.**
+
+Try to update again later</source>
+        <target>**La lista de libros está vacía.**
+Intente actualizar de nuevo más tarde</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="**There are no books ordered yet.**&#10;&#10;Select a book and press *Shop* button to order one." xml:space="preserve">
+        <source>**There are no books ordered yet.**
+
+Select a book and press *Shop* button to order one.</source>
+        <target>**Aún no hay pedidos.**
+Seleccione un libro y presione el botón de *Comprar* para pedir uno.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Accept" xml:space="preserve">
+        <source>Accept</source>
+        <target>Aceptar</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Aceptar" xml:space="preserve">
+        <source>Aceptar</source>
+        <target/>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Aquí ha pasado algo....&#10;Pulsa sobre el botón" xml:space="preserve">
+        <source>Aquí ha pasado algo....
+Pulsa sobre el botón</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Author:" xml:space="preserve">
+        <source>Author:</source>
+        <target>Autor:</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Bookaloo" xml:space="preserve">
+        <source>Bookaloo</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Content test %lld" xml:space="preserve">
+        <source>Content test %lld</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Date:" xml:space="preserve">
+        <source>Date:</source>
+        <target>Fecha:</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Do you want to finish shopping?" xml:space="preserve">
+        <source>Do you want to finish shopping?</source>
+        <target>¿Desea finalizar la compra?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Do you want to remove it?" xml:space="preserve">
+        <source>Do you want to remove it?</source>
+        <target>¿Quiere borrarlo?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Email:" xml:space="preserve">
+        <source>Email:</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Hello %lld" xml:space="preserve">
+        <source>Hello %lld</source>
+        <target>Hola %lld</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Label test" xml:space="preserve">
+        <source>Label test</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Location:" xml:space="preserve">
+        <source>Location:</source>
+        <target>Ubicación</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Login" xml:space="preserve">
+        <source>Login</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Name:" xml:space="preserve">
+        <source>Name:</source>
+        <target>Nombre:</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="New user" xml:space="preserve">
+        <source>New user</source>
+        <target>Nuevo usuario</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Order Status" xml:space="preserve">
+        <source>Order Status</source>
+        <target>Estado del pedido</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Order number:" xml:space="preserve">
+        <source>Order number:</source>
+        <target>Número de pedido:</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Orders Management" xml:space="preserve">
+        <source>Orders Management</source>
+        <target>Gestión de Pedidos</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Role:" xml:space="preserve">
+        <source>Role:</source>
+        <target>Rol:</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Search" xml:space="preserve">
+        <source>Search</source>
+        <target>Buscar</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="See less..." xml:space="preserve">
+        <source>See less...</source>
+        <target>Ver menos...</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="See more..." xml:space="preserve">
+        <source>See more...</source>
+        <target>Ver más...</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="The user has been successfully created" xml:space="preserve">
+        <source>The user has been successfully created</source>
+        <target>El usuario ha sido creado correctamente</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="There are no orders **%@**" xml:space="preserve">
+        <source>There are no orders **%@**</source>
+        <target>No hay pedidos **%@**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="There are no orders for&#10;*%@*" xml:space="preserve">
+        <source>There are no orders for
+*%@*</source>
+        <target>No hay pedidos para *%@*</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="User Management" xml:space="preserve">
+        <source>User Management</source>
+        <target>Gestión de Usuarios</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="User data" xml:space="preserve">
+        <source>User data</source>
+        <target>Datos de usuario</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="User modified successfully" xml:space="preserve">
+        <source>User modified successfully</source>
+        <target>Usuario Modificado correctamente</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Year:" xml:space="preserve">
+        <source>Year:</source>
+        <target>Año:</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You have reached the maximun number of books to shop with this title on the same order" xml:space="preserve">
+        <source>You have reached the maximun number of books to shop with this title on the same order</source>
+        <target>Ha llegado al número máximo de pedidos para el mismo libro en el mismo pedido</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Your oder number:&#10;**%@**&#10;&#10;You can check all your orders on the button " xml:space="preserve">
+        <source>Your oder number:
+**%@**
+
+You can check all your orders on the button </source>
+        <target>Su número de pedido:
+**%@**
+
+Puede revisar todos sus pedidos en el botón </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

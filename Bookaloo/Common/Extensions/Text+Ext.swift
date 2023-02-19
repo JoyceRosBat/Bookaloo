@@ -1,5 +1,5 @@
 //
-//  Text+Extension.swift
+//  Text+Ext.swift
 //  Bookaloo
 //
 //  Created by Joyce Rosario Batista on 12/2/23.

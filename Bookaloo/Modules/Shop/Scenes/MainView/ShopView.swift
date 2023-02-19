@@ -18,7 +18,7 @@ struct ShopView: View {
     var body: some View {
         BaseViewContent(viewModel: viewModel) {
             if viewModel.booksToShop.isEmpty {
-                Text("**There are no books ordered yet.**\n\nSelect a book and press *Shop* button to order one.")
+                Text("orders_emtpy_list")
                     .emptyMessageModifier()
             } else {
                 VStack {
@@ -36,7 +36,7 @@ struct ShopView: View {
                         Button {
                             viewModel.finishShopAlert = true
                         } label: {
-                            Label("Shop", systemImage: .cart)
+                            Label("shop", systemImage: .cart)
                         }
                         .buttonStyle(.bookalooStyle)
                         .frame(width: UIScreen.main.bounds.width * 0.8)
@@ -83,14 +83,14 @@ extension ShopView {
     var removeConfirmationPopup: some View {
         PopupView(
             showAlert: $viewModel.showRemoveBookAlert,
-            title: "The book will be removed from the list") {
-                Text("Do you want to remove it?")
+            title: "remove_book_popup_title") {
+                Text("remove_book_popup_message")
             } buttons: {
                 Button {
                     viewModel.bookSelected = nil
                     viewModel.showRemoveBookAlert.toggle()
                 } label: {
-                    Text("Cancel")
+                    Text("cancel")
                 }
                 Button {
                     withAnimation(.easeInOut) {
@@ -101,7 +101,7 @@ extension ShopView {
                     }
                     viewModel.showRemoveBookAlert.toggle()
                 } label: {
-                    Text("Accept")
+                    Text("accept")
                 }
             }
     }
@@ -110,13 +110,13 @@ extension ShopView {
     var finishShopPopup: some View {
         PopupView(
             showAlert: $viewModel.finishShopAlert,
-            title: "Finish shop") {
-                Text("Do you want to finish shopping?")
+            title: "finish_shopping_popup_title") {
+                Text("finish_shopping_popup_message")
             } buttons: {
                 Button {
                     viewModel.finishShopAlert.toggle()
                 } label: {
-                    Text("Cancel")
+                    Text("cancel")
                 }
                 Button {
                     withAnimation(.easeInOut) {
@@ -124,7 +124,7 @@ extension ShopView {
                     }
                     viewModel.finishShopAlert.toggle()
                 } label: {
-                    Text("Accept")
+                    Text("accept")
                 }
             }
     }
@@ -134,14 +134,15 @@ extension ShopView {
         PopupView(
             showAlert: $viewModel.shopCompleteAlert,
             title: "Your order is complete") {
-                Text("Your oder number:\n**\(viewModel.pendingOrder?.id ?? "")**\n\nYou can check all your orders on the button ") +
+                Text(String(format:
+                                NSLocalizedString("orders_finish_popup_message1", comment: ""), viewModel.pendingOrder?.id ?? "")) +
                 Text(Image(systemName: .shippingBoxFill)) +
-                Text(" at the top")
+                Text("orders_finish_popup_message2")
             } buttons: {
                 Button {
                     viewModel.shopCompleteAlert.toggle()
                 } label: {
-                    Text("Accept")
+                    Text("accept")
                 }
             }
     }

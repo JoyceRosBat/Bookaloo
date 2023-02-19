@@ -24,8 +24,8 @@ struct BookalooTextfield: View {
     @State var title: String?
     @Binding var textfieldText: String
     @Binding var valid: Bool
-    @State var validationText: String?
-    @State var placeHolder: String?
+    @State var validationText: LocalizedStringKey?
+    @State var placeHolder: LocalizedStringKey?
     @State var orientation: Orientation
     var cleanSearchAction: (() -> Void)?
     var showTextfieldIcon: Bool = true
@@ -44,8 +44,8 @@ struct BookalooTextfield: View {
         self._textfieldText = textfieldText
         self.title = title
         self._valid = valid
-        self.validationText = validationText
-        self.placeHolder = placeHolder
+        self.validationText = LocalizedStringKey(validationText ?? "")
+        self.placeHolder = LocalizedStringKey(placeHolder ?? "")
         self.orientation = orientation
         self.cleanSearchAction = cleanSearchAction
         self.showTextfieldIcon = showTextfieldIcon
@@ -77,7 +77,7 @@ private extension BookalooTextfield {
                 .cornerRadius(8)
             
             if let valid, !valid, let validationText {
-                Text("* \(validationText)")
+                Text(validationText)
                     .font(.futura(10))
                     .foregroundColor(.red)
             }
@@ -116,7 +116,7 @@ private extension BookalooTextfield {
             
             
             if let valid, !valid, let validationText {
-                Text("* \(validationText)")
+                Text(validationText)
                     .font(.futura(10))
                     .foregroundColor(.red)
             }
@@ -141,7 +141,7 @@ private extension BookalooTextfield {
                 .cornerRadius(8)
             
             if let valid, !valid, let validationText {
-                Text("* \(validationText)")
+                Text(validationText)
                     .font(.futura(10))
                     .foregroundColor(.red)
             }
@@ -214,7 +214,7 @@ private extension BookalooTextfield {
             }//: HStack
             
             if let valid, !valid, let validationText {
-                Text("* \(validationText)")
+                Text(validationText)
                     .font(.futura(10))
                     .foregroundColor(.red)
             }

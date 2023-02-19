@@ -18,8 +18,8 @@ final class UsersViewModel: ObservableBaseViewModel {
     @Published var validEmail: Bool = true
     @Published var validName: Bool = true
     @Published var validLocation: Bool = true
-    @Published var validEmailText: String = "The email format is not valid. Exmple: something@email.com"
-    @Published var validNotEmptyText: String = "This field should not be empty."
+    @Published var validEmailText: String = "valid_email_text"
+    @Published var validNotEmptyText: String = "valid_empty_text"
     @Published var showCreatedUserAlert: Bool = false
     @Published var showModifiedUserAlert: Bool = false
     

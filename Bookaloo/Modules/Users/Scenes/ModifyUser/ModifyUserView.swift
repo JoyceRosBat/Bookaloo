@@ -22,7 +22,7 @@ struct ModifyUserView: View {
                         viewModel.findUser(by: searchText)
                         searchText = ""
                     } label: {
-                        Text("Search")
+                        Text("search")
                     }//: Button search
                     .buttonStyle(.bookalooStyle)
                 }//: HStack

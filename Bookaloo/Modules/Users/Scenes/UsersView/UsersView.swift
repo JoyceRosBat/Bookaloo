@@ -17,42 +17,41 @@ struct UsersView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color(uiColor: .systemGroupedBackground)
-            VStack {
-                List {
-                    NavigationLink {
-                        modifyUserView
-                    } label: {
-                        Label("Find/Modify user", systemImage: .pencilLine)
-                            .font(.futura(18))
-                            .opacity(0.6)
-                    }//: Navigation to modify user
-                    .frame(height: 100)
+        VStack {
+            Text("user_management_header_title")
+                .font(.futura(24))
+                .bold()
+                .foregroundStyle(StyleConstants.bookalooGradient)
+                .padding()
+            
+            ZStack {
+                Color(uiColor: .systemGroupedBackground)
+                VStack {
+                    List {
+                        NavigationLink {
+                            modifyUserView
+                        } label: {
+                            Label("find_user", systemImage: .pencilLine)
+                                .font(.futura(18))
+                                .opacity(0.6)
+                        }//: Navigation to modify user
+                        .frame(height: 100)
 
-                    NavigationLink {
-                        createUserView
-                    } label: {
-                        Label("Create new user", systemImage: .addPerson)
-                            .font(.futura(18))
-                            .opacity(0.6)
-                    }//: Navigation to create user
-                    .frame(height: 100)
-                    
-                }//: List
-                .scrollIndicators(.hidden)
-                .padding(.top, 40)
-            }//: VStack
-        }//: ZStack
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Text("User Management")
-                    .font(.futura(32))
-                    .bold()
-                    .foregroundStyle(StyleConstants.bookalooGradient)
-                    .padding()
-            }//: ToolbarItem - Title
-        }//: Toolbar
+                        NavigationLink {
+                            createUserView
+                        } label: {
+                            Label("create_user", systemImage: .addPerson)
+                                .font(.futura(18))
+                                .opacity(0.6)
+                        }//: Navigation to create user
+                        .frame(height: 100)
+                        
+                    }//: List
+                    .scrollIndicators(.hidden)
+                    .padding(.top, 40)
+                }//: VStack
+            }//: ZStack
+        }//: VStack
     }
 }
 

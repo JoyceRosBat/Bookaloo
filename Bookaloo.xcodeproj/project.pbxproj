@@ -12,7 +12,7 @@
 		3924D2CD2999142B00787A80 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2CC2999142B00787A80 /* ExpandableView.swift */; };
 		3924D2D0299949ED00787A80 /* PurchasedBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2CF299949ED00787A80 /* PurchasedBooksList.swift */; };
 		3924D2D229994C4300787A80 /* OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D129994C4300787A80 /* OrdersList.swift */; };
-		3924D2D4299961E800787A80 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D3299961E800787A80 /* Text+Extension.swift */; };
+		3924D2D4299961E800787A80 /* Text+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D3299961E800787A80 /* Text+Ext.swift */; };
 		3924D2D7299AC26600787A80 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D6299AC26600787A80 /* RatingView.swift */; };
 		3924D2DA299AD8B500787A80 /* HandleOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2D9299AD8B500787A80 /* HandleOrdersView.swift */; };
 		3924D2DE299BFB3F00787A80 /* HandleOrderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2DD299BFB3F00787A80 /* HandleOrderCellView.swift */; };
@@ -103,6 +103,7 @@
 		39BC548A29A2A3C500E42FA7 /* HandleOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548929A2A3C500E42FA7 /* HandleOrderViewModel.swift */; };
 		39BC549029A2B5CF00E42FA7 /* ObservableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548F29A2B5CF00E42FA7 /* ObservableScrollView.swift */; };
 		39BC549229A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC549129A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift */; };
+		39BC549529A2CA5400E42FA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39BC549729A2CA5400E42FA7 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,7 +112,7 @@
 		3924D2CC2999142B00787A80 /* ExpandableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
 		3924D2CF299949ED00787A80 /* PurchasedBooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedBooksList.swift; sourceTree = "<group>"; };
 		3924D2D129994C4300787A80 /* OrdersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersList.swift; sourceTree = "<group>"; };
-		3924D2D3299961E800787A80 /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
+		3924D2D3299961E800787A80 /* Text+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Ext.swift"; sourceTree = "<group>"; };
 		3924D2D6299AC26600787A80 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		3924D2D9299AD8B500787A80 /* HandleOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleOrdersView.swift; sourceTree = "<group>"; };
 		3924D2DD299BFB3F00787A80 /* HandleOrderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleOrderCellView.swift; sourceTree = "<group>"; };
@@ -203,6 +204,8 @@
 		39BC548929A2A3C500E42FA7 /* HandleOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleOrderViewModel.swift; sourceTree = "<group>"; };
 		39BC548F29A2B5CF00E42FA7 /* ObservableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableScrollView.swift; sourceTree = "<group>"; };
 		39BC549129A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetPreferenceKey.swift; sourceTree = "<group>"; };
+		39BC549629A2CA5400E42FA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		39BC549829A2CA6D00E42FA7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -544,6 +547,7 @@
 			children = (
 				39A963172988443F00F0C055 /* BookalooApp.swift */,
 				39A9636A2989686500F0C055 /* ModuleDependencies.swift */,
+				39BC549729A2CA5400E42FA7 /* Localizable.strings */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -641,7 +645,7 @@
 				39A96F29298FF1A400525E2B /* String+Ext.swift */,
 				39A444E229901E7F00A2658B /* Image+Ext.swift */,
 				39A4450729904D5700A2658B /* DateFormatter+Ext.swift */,
-				3924D2D3299961E800787A80 /* Text+Extension.swift */,
+				3924D2D3299961E800787A80 /* Text+Ext.swift */,
 				39BC547E29A2245B00E42FA7 /* Label+Ext.swift */,
 			);
 			path = Extensions;
@@ -1033,6 +1037,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 39A9630B2988443F00F0C055;
 			productRefGroup = 39A963152988443F00F0C055 /* Products */;
@@ -1050,6 +1055,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A9631F2988444200F0C055 /* Preview Assets.xcassets in Resources */,
+				39BC549529A2CA5400E42FA7 /* Localizable.strings in Resources */,
 				39A9631C2988444200F0C055 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1141,7 +1147,7 @@
 				39BC549229A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift in Sources */,
 				39A96382298A553000F0C055 /* ShopViewModel.swift in Sources */,
 				39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */,
-				3924D2D4299961E800787A80 /* Text+Extension.swift in Sources */,
+				3924D2D4299961E800787A80 /* Text+Ext.swift in Sources */,
 				3924D2C12994D91500787A80 /* BookShopCell.swift in Sources */,
 				39A96385298A554C00F0C055 /* ShopView.swift in Sources */,
 				39A96ED6298C10CC00525E2B /* EmptyResponse.swift in Sources */,
@@ -1160,11 +1166,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		39BC549729A2CA5400E42FA7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39BC549629A2CA5400E42FA7 /* en */,
+				39BC549829A2CA6D00E42FA7 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		39A963202988444200F0C055 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1225,6 +1244,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
