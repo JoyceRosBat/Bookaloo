@@ -27,6 +27,7 @@ final class BooksViewModel: ObservableBaseViewModel {
     
     // On appear, fetch list of books
     override func onAppear() {
+        super.onAppear()
         getBooks()
         getReport()
     }

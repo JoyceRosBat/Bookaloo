@@ -10,15 +10,17 @@ import SwiftUI
 @main
 struct BookalooApp: App {
     let moduleDependencies = ModuleDependencies()
+    var loginHomeView: LoginHomeView {
+        moduleDependencies.resolve()
+    }
     
     var body: some Scene {
         WindowGroup {
-            moduleDependencies
-                .loginHomeView()
-                .environmentObject(moduleDependencies.loginViewModel())
-                .environmentObject(moduleDependencies.booksViewModel())
-                .environmentObject(moduleDependencies.shopsViewModel())
-                .environmentObject(moduleDependencies.usersViewModel())
+           loginHomeView
+                .environmentObject(moduleDependencies.resolve() as LoginViewModel)
+                .environmentObject(moduleDependencies.resolve() as BooksViewModel)
+                .environmentObject(moduleDependencies.resolve() as ShopViewModel)
+                .environmentObject(moduleDependencies.resolve() as UsersViewModel)
         }
     }
 }

@@ -40,6 +40,12 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// ```
     @Published var showError: Bool = false
     
+    /// Own user data to modify
+    /// ```
+    ///        viewModel.myUserToModify
+    /// ```
+    @Published var myUserToModify: UserData = UserData(email: "", name: "", location: "", role: .user)
+    
     /// UserData
     /// ```
     ///        viewModel.user
@@ -47,12 +53,6 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     var user: User? {
         Storage.shared.get(key: .user, type: User.self)
     }
-    
-    /// Own user data to modify
-    /// ```
-    ///        viewModel.myUserToModify
-    /// ```
-    var myUserToModify: UserData = UserData(email: "", name: "", location: "", role: .user)
     
     /// Checks if user is logged in
     /// ```
@@ -68,15 +68,13 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
         user?.role == .admin
     }
     
-    init() {
-        myUserToModify = UserData(email: user?.email ?? "", name: user?.email ?? "", location: user?.location ?? "", role: user?.role ?? .user)
-    }
-    
     /// Function to execute when view appears
     /// ```
     ///        viewModel.onAppear()
     /// ```
-    func onAppear() {}
+    func onAppear() {
+        myUserToModify = UserData(email: user?.email ?? "", name: user?.email ?? "", location: user?.location ?? "", role: user?.role ?? .user)
+    }
     
     /// Show loading animation
     /// ```

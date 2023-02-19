@@ -10,13 +10,24 @@ import SwiftUI
 struct HomeView: View {
     let dependencies: CommonModulesDependenciesResolver
     @EnvironmentObject var loginViewModel: LoginViewModel
-    @EnvironmentObject var booksViewModel: BooksViewModel
     @EnvironmentObject var shopsViewModel: ShopViewModel
+    var shopView: ShopView {
+        dependencies.resolve()
+    }
+    var usersView: UsersView {
+        dependencies.resolve()
+    }
+    var booksHomeView: BooksHomeView {
+        dependencies.resolve()
+    }
+    var handleOrdersView: HandleOrdersView {
+        dependencies.resolve()
+    }
     
     var body: some View {
         TabView {
             NavigationStack {
-                dependencies.booksHomeView()
+                booksHomeView
             }//: booksView NavigationStack
             .tabItem {
                 Label("Books", systemImage: .book)
@@ -24,7 +35,7 @@ struct HomeView: View {
             
             if loginViewModel.isAdmin {
                 NavigationStack {
-                    dependencies.usersView()
+                    usersView
                 }//: UsersView NavigationStack
                 .tabItem {
                     Label("Clients", systemImage: .person)
@@ -32,12 +43,22 @@ struct HomeView: View {
             }
             
             NavigationStack {
-                dependencies.shopView()
+                shopView
             }//: shopView NavigationStack
             .tabItem {
                 Label("Shop", systemImage: .cart)
             }//: shopView tabItem
             .badge(shopsViewModel.booksOrdered)
+            
+            if loginViewModel.isAdmin {
+                NavigationStack {
+                    handleOrdersView
+                }
+                .tabItem {
+                    Label("Orders", systemImage: .trayAndArrowDownFill)
+                }//: Handle orders
+            }
+            
         }//: TabView
 //        .toolbarColorScheme(.light, for: .tabBar)
         .onAppear {
@@ -49,8 +70,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(dependencies: ModuleDependencies())
-            .environmentObject(ModuleDependencies().loginViewModel())
-            .environmentObject(ModuleDependencies().booksViewModel())
-            .environmentObject(ModuleDependencies().shopsViewModel())
+            .environmentObject(ModuleDependencies().resolve() as LoginViewModel)
+            .environmentObject(ModuleDependencies().resolve() as ShopViewModel)
     }
 }

@@ -98,6 +98,9 @@
 		39BC547429A0CD7D00E42FA7 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */; };
 		39BC547B29A0D9CF00E42FA7 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */; };
 		39BC547F29A2245C00E42FA7 /* Label+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC547E29A2245B00E42FA7 /* Label+Ext.swift */; };
+		39BC548229A23D9800E42FA7 /* BookalooToolbarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548129A23D9800E42FA7 /* BookalooToolbarTitle.swift */; };
+		39BC548529A299F100E42FA7 /* ShopOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548429A299F100E42FA7 /* ShopOrdersViewModel.swift */; };
+		39BC548A29A2A3C500E42FA7 /* HandleOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548929A2A3C500E42FA7 /* HandleOrderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +196,9 @@
 		39BC547329A0CD7D00E42FA7 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
 		39BC547A29A0D9CF00E42FA7 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		39BC547E29A2245B00E42FA7 /* Label+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Ext.swift"; sourceTree = "<group>"; };
+		39BC548129A23D9800E42FA7 /* BookalooToolbarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookalooToolbarTitle.swift; sourceTree = "<group>"; };
+		39BC548429A299F100E42FA7 /* ShopOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopOrdersViewModel.swift; sourceTree = "<group>"; };
+		39BC548929A2A3C500E42FA7 /* HandleOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleOrderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +231,7 @@
 		3924D2C82998F5E100787A80 /* ShopOrders */ = {
 			isa = PBXGroup;
 			children = (
+				39BC548329A299DA00E42FA7 /* ViewModel */,
 				3924D2CE299949AE00787A80 /* ViewComponents */,
 				3924D2C52998F04600787A80 /* ShopOrdersView.swift */,
 			);
@@ -259,6 +266,7 @@
 		3924D2D8299AD89B00787A80 /* HandleOrders */ = {
 			isa = PBXGroup;
 			children = (
+				39BC548829A2A3B500E42FA7 /* ViewModel */,
 				3924D2DB299BFB2000787A80 /* ViewComponents */,
 				3924D2D9299AD8B500787A80 /* HandleOrdersView.swift */,
 			);
@@ -283,14 +291,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		39A444E6299021DF00A2658B /* View */ = {
+		39A444E6299021DF00A2658B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				39BC547829A0D8E700E42FA7 /* Home */,
 				39BC547529A0D67200E42FA7 /* MainView */,
 				3924D2C72998F59600787A80 /* Details */,
 			);
-			path = View;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		39A444E7299021F200A2658B /* ViewComponents */ = {
@@ -349,14 +357,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		39A444EE2990228300A2658B /* View */ = {
+		39A444EE2990228300A2658B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				39BC547929A0D9BB00E42FA7 /* CreateUser */,
 				39BC547229A0CD6100E42FA7 /* ModifyUser */,
-				39BC547629A0D68D00E42FA7 /* MainView */,
+				39BC547629A0D68D00E42FA7 /* UsersView */,
 			);
-			path = View;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		39A444EF2990228E00A2658B /* Dependencies */ = {
@@ -383,14 +391,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		39A444F2299022A800A2658B /* View */ = {
+		39A444F2299022A800A2658B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				3924D2C82998F5E100787A80 /* ShopOrders */,
 				3924D2D8299AD89B00787A80 /* HandleOrders */,
 				39BC547729A0D6A700E42FA7 /* MainView */,
 			);
-			path = View;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		39A444F3299022B300A2658B /* Dependencies */ = {
@@ -417,13 +425,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		39A444F6299022E800A2658B /* View */ = {
+		39A444F6299022E800A2658B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				39BC547C29A0E27D00E42FA7 /* LoginView */,
 				39BC547D29A0E28B00E42FA7 /* Home */,
 			);
-			path = View;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		39A444F7299023B000A2658B /* PopupView */ = {
@@ -650,7 +658,7 @@
 				39A444E82990220000A2658B /* Dependencies */,
 				39A444E92990221100A2658B /* UseCase */,
 				39A444EA2990222000A2658B /* ViewModel */,
-				39A444E6299021DF00A2658B /* View */,
+				39A444E6299021DF00A2658B /* Scenes */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -661,8 +669,7 @@
 				39BC544D299EE09E00E42FA7 /* Entity */,
 				39A444EB2990226300A2658B /* Dependencies */,
 				39A444EC2990226E00A2658B /* UseCase */,
-				39A444ED2990227900A2658B /* ViewModel */,
-				39A444EE2990228300A2658B /* View */,
+				39A444EE2990228300A2658B /* Scenes */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -673,8 +680,7 @@
 				3924D2DF299C111400787A80 /* Enums */,
 				39A444EF2990228E00A2658B /* Dependencies */,
 				39A444F02990229700A2658B /* UseCase */,
-				39A444F1299022A000A2658B /* ViewModel */,
-				39A444F2299022A800A2658B /* View */,
+				39A444F2299022A800A2658B /* Scenes */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -707,6 +713,7 @@
 		39A96EDD298C188C00525E2B /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				39BC548029A23D6B00E42FA7 /* BookalooToolbarTitle */,
 				3924D2D5299AC25100787A80 /* RatingView */,
 				3924D2CB2999141900787A80 /* ExpandableView */,
 				39A444F7299023B000A2658B /* PopupView */,
@@ -822,7 +829,7 @@
 				39A444F3299022B300A2658B /* Dependencies */,
 				39A444F4299022CC00A2658B /* UseCase */,
 				39A444F5299022D900A2658B /* ViewModel */,
-				39A444F6299022E800A2658B /* View */,
+				39A444F6299022E800A2658B /* Scenes */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -895,17 +902,19 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
-		39BC547629A0D68D00E42FA7 /* MainView */ = {
+		39BC547629A0D68D00E42FA7 /* UsersView */ = {
 			isa = PBXGroup;
 			children = (
+				39A444ED2990227900A2658B /* ViewModel */,
 				39A96370298A4EB300F0C055 /* UsersView.swift */,
 			);
-			path = MainView;
+			path = UsersView;
 			sourceTree = "<group>";
 		};
 		39BC547729A0D6A700E42FA7 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				39A444F1299022A000A2658B /* ViewModel */,
 				3924D2C22994DD3E00787A80 /* ViewComponents */,
 				39A96384298A554C00F0C055 /* ShopView.swift */,
 			);
@@ -942,6 +951,30 @@
 				39A96F14298D96FD00525E2B /* LoginHomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		39BC548029A23D6B00E42FA7 /* BookalooToolbarTitle */ = {
+			isa = PBXGroup;
+			children = (
+				39BC548129A23D9800E42FA7 /* BookalooToolbarTitle.swift */,
+			);
+			path = BookalooToolbarTitle;
+			sourceTree = "<group>";
+		};
+		39BC548329A299DA00E42FA7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				39BC548429A299F100E42FA7 /* ShopOrdersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		39BC548829A2A3B500E42FA7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				39BC548929A2A3C500E42FA7 /* HandleOrderViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1023,10 +1056,12 @@
 				39A9637E298A550300F0C055 /* ShopDependenciesResolver.swift in Sources */,
 				39A963382988464E00F0C055 /* BooksRequest.swift in Sources */,
 				39A9633A29884EA200F0C055 /* Book.swift in Sources */,
+				39BC548A29A2A3C500E42FA7 /* HandleOrderViewModel.swift in Sources */,
 				3924D2E3299C114000787A80 /* PurchaseStatus.swift in Sources */,
 				39A9636B2989686500F0C055 /* ModuleDependencies.swift in Sources */,
 				39A96344298851A300F0C055 /* Order.swift in Sources */,
 				39A96375298A4EFF00F0C055 /* UsersUseCase.swift in Sources */,
+				39BC548529A299F100E42FA7 /* ShopOrdersViewModel.swift in Sources */,
 				39A96342298850A400F0C055 /* User.swift in Sources */,
 				39A963572988825800F0C055 /* ShopRepository.swift in Sources */,
 				39A445042990497500A2658B /* ReadBooks.swift in Sources */,
@@ -1056,6 +1091,7 @@
 				3924D2D0299949ED00787A80 /* PurchasedBooksList.swift in Sources */,
 				39A96F11298D951E00525E2B /* LoginRepositoryProtocol.swift in Sources */,
 				39A9633E29884FB000F0C055 /* Author.swift in Sources */,
+				39BC548229A23D9800E42FA7 /* BookalooToolbarTitle.swift in Sources */,
 				39A96EF2298C44B800525E2B /* KeychainConfiguration.swift in Sources */,
 				39A96ECF298C097100525E2B /* Font+Ext.swift in Sources */,
 				39A444FE29902D8C00A2658B /* LoginView.swift in Sources */,

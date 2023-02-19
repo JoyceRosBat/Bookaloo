@@ -44,9 +44,9 @@ final class LoginViewModel: ObservableBaseViewModel {
                 
                 self.showLoading(false)
                 await MainActor.run {
+                    self.myUserToModify = UserData(email: self.user?.email ?? "", name: self.user?.name ?? "", location: self.user?.location ?? "", role: self.user?.role ?? .user)
                     self.email = ""
                     self.password = ""
-                    myUserToModify = UserData(email: self.user?.email ?? "", name: self.user?.name ?? "", location: self.user?.location ?? "", role: self.user?.role ?? .user)
                 }
             } catch let error as NetworkError {
                 self.showNetworkError(error)

@@ -50,7 +50,7 @@ extension BaseViewContent {
 struct BaseViewContent_Previews: PreviewProvider {
     static var previews: some View {
         BaseViewContent(viewModel: ObservableBaseViewModel(), content: {
-            ModuleDependencies().booksHomeView()
+            ModuleDependencies().resolve() as HomeView
         })
     }
 }

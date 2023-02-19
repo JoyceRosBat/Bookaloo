@@ -8,7 +8,7 @@
 import Foundation
 
 final class ModuleDependencies {
-    func homeView() -> HomeView {
+    func resolve() -> HomeView {
         HomeView(dependencies: self)
     }
     

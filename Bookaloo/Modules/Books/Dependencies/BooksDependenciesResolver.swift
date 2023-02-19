@@ -11,11 +11,11 @@ protocol BooksDependenciesResolver {
     func resolve() -> BooksRepositoryProtocol
     func resolve() -> UsersRepositoryProtocol
     func resolve() -> BooksUseCaseProtocol
-    func booksViewModel() -> BooksViewModel
-    func booksHomeView() -> BooksHomeView
-    func booksView() -> BooksView
-    func bookDetailsView(_ book: Book) -> BookDetailsView
-    func loginHomeView() -> LoginHomeView
+    func resolve() -> BooksViewModel
+    func resolve() -> BooksHomeView
+    func resolve() -> BooksView
+    func resolve(_ book: Book) -> BookDetailsView
+    func resolve() -> LoginHomeView
 }
 
 extension BooksDependenciesResolver {
@@ -23,19 +23,19 @@ extension BooksDependenciesResolver {
         BooksUseCase(dependencies: self)
     }
     
-    func booksViewModel() -> BooksViewModel {
+    func resolve() -> BooksViewModel {
         BooksViewModel(dependencies: self)
     }
     
-    func booksView() -> BooksView {
+    func resolve() -> BooksView {
         BooksView(dependencies: self)
     }
     
-    func booksHomeView() -> BooksHomeView {
+    func resolve() -> BooksHomeView {
         BooksHomeView(dependencies: self)
     }
     
-    func bookDetailsView(_ book: Book) -> BookDetailsView {
+    func resolve(_ book: Book) -> BookDetailsView {
         BookDetailsView(book: book)
     }
 }
