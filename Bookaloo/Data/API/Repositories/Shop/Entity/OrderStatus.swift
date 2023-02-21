@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OrderStatus: Codable {
+public struct OrderStatus: Codable {
     let status: Status
     
     enum CodingKeys: String, CodingKey {

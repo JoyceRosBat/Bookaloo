@@ -10,10 +10,10 @@ import Foundation
 import Foundation
 
 // MARK: - Book
-struct Book: Codable, Identifiable, Hashable {
+public struct Book: Codable, Identifiable, Hashable {
+    public let id: Int
     let pages: Int?
     let year: Int
-    let id: Int
     let rating: Double?
     let cover: URL?
     let summary: String?
@@ -26,9 +26,9 @@ struct Book: Codable, Identifiable, Hashable {
     var price: Double? = nil
     
     static let test: Book = .init(
+        id: 1,
         pages: 100,
         year: 1985,
-        id: 1,
         rating: 5.0,
         cover: URL(string: "https://images.gr-assets.com/books/1488137288l/10150.jpg"),
         summary: """

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
@@ -15,7 +15,8 @@ enum HTTPMethod: String {
     case patch = "PATCH"
 }
 
-protocol APIRequest {
+public protocol APIRequest {
+    var serviceName: String? { get }
     var url: String? { get }
     var subPath: String { get }
     var path: String { get }
@@ -26,6 +27,7 @@ protocol APIRequest {
 }
 
 extension APIRequest {
+    var serviceName: String? { nil }
     var url: String? { nil }
     var queryItems: [URLQueryItem]? { nil }
     var params: Any? { nil }

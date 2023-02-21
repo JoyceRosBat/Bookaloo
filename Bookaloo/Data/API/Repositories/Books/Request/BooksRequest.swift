@@ -35,4 +35,14 @@ extension BooksRequest: APIRequest {
         default: return .get
         }
     }
+    
+    var serviceName: String? {
+        switch self {
+        case .list: return "books_list"
+        case .latest: return ""
+        case .find: return ""
+        case .authors: return ""
+        case .author: return ""
+        }
+    }
 }

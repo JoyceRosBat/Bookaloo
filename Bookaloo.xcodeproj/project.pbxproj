@@ -104,7 +104,21 @@
 		39BC549029A2B5CF00E42FA7 /* ObservableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC548F29A2B5CF00E42FA7 /* ObservableScrollView.swift */; };
 		39BC549229A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC549129A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift */; };
 		39BC549529A2CA5400E42FA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39BC549729A2CA5400E42FA7 /* Localizable.strings */; };
+		39BC54A229A5401700E42FA7 /* BookalooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC54A129A5401700E42FA7 /* BookalooTests.swift */; };
+		39BC54A929A5404800E42FA7 /* MockNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC54A829A5404800E42FA7 /* MockNetworkClient.swift */; };
+		39BC54AB29A547B800E42FA7 /* MockNetworkRequestDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC54AA29A547B800E42FA7 /* MockNetworkRequestDependenciesResolver.swift */; };
+		39BC54BD29A5695B00E42FA7 /* books_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54AC29A54B4800E42FA7 /* books_list.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39BC54A329A5401700E42FA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39A9630C2988443F00F0C055 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39A963132988443F00F0C055;
+			remoteInfo = Bookaloo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3924D2C02994D91500787A80 /* BookShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShopCell.swift; sourceTree = "<group>"; };
@@ -206,10 +220,22 @@
 		39BC549129A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetPreferenceKey.swift; sourceTree = "<group>"; };
 		39BC549629A2CA5400E42FA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39BC549829A2CA6D00E42FA7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		39BC549F29A5401700E42FA7 /* BookalooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookalooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39BC54A129A5401700E42FA7 /* BookalooTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookalooTests.swift; sourceTree = "<group>"; };
+		39BC54A829A5404800E42FA7 /* MockNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkClient.swift; sourceTree = "<group>"; };
+		39BC54AA29A547B800E42FA7 /* MockNetworkRequestDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkRequestDependenciesResolver.swift; sourceTree = "<group>"; };
+		39BC54AC29A54B4800E42FA7 /* books_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books_list.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		39A963112988443F00F0C055 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39BC549C29A5401700E42FA7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -486,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				39A963162988443F00F0C055 /* Bookaloo */,
+				39BC54A029A5401700E42FA7 /* BookalooTests */,
 				39A963152988443F00F0C055 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -494,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				39A963142988443F00F0C055 /* Bookaloo.app */,
+				39BC549F29A5401700E42FA7 /* BookalooTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -567,7 +595,9 @@
 		39A96333298845A300F0C055 /* Books */ = {
 			isa = PBXGroup;
 			children = (
+				39BC54BC29A568BE00E42FA7 /* json */,
 				39A963472988525900F0C055 /* Entity */,
+				39BC54BB29A54FB500E42FA7 /* Model */,
 				39A96EE9298C3C3100525E2B /* Request */,
 				39A96EEA298C3C3900525E2B /* Repository */,
 			);
@@ -995,6 +1025,31 @@
 			path = ObservableScrollView;
 			sourceTree = "<group>";
 		};
+		39BC54A029A5401700E42FA7 /* BookalooTests */ = {
+			isa = PBXGroup;
+			children = (
+				39BC54A829A5404800E42FA7 /* MockNetworkClient.swift */,
+				39BC54AA29A547B800E42FA7 /* MockNetworkRequestDependenciesResolver.swift */,
+				39BC54A129A5401700E42FA7 /* BookalooTests.swift */,
+			);
+			path = BookalooTests;
+			sourceTree = "<group>";
+		};
+		39BC54BB29A54FB500E42FA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39BC54BC29A568BE00E42FA7 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				39BC54AC29A54B4800E42FA7 /* books_list.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1015,6 +1070,24 @@
 			productReference = 39A963142988443F00F0C055 /* Bookaloo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		39BC549E29A5401700E42FA7 /* BookalooTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39BC54A729A5401700E42FA7 /* Build configuration list for PBXNativeTarget "BookalooTests" */;
+			buildPhases = (
+				39BC549B29A5401700E42FA7 /* Sources */,
+				39BC549C29A5401700E42FA7 /* Frameworks */,
+				39BC549D29A5401700E42FA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39BC54A429A5401700E42FA7 /* PBXTargetDependency */,
+			);
+			name = BookalooTests;
+			productName = BookalooTests;
+			productReference = 39BC549F29A5401700E42FA7 /* BookalooTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1027,6 +1100,10 @@
 				TargetAttributes = {
 					39A963132988443F00F0C055 = {
 						CreatedOnToolsVersion = 14.0.1;
+					};
+					39BC549E29A5401700E42FA7 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 39A963132988443F00F0C055;
 					};
 				};
 			};
@@ -1045,6 +1122,7 @@
 			projectRoot = "";
 			targets = (
 				39A963132988443F00F0C055 /* Bookaloo */,
+				39BC549E29A5401700E42FA7 /* BookalooTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1054,9 +1132,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39BC54BD29A5695B00E42FA7 /* books_list.json in Resources */,
 				39A9631F2988444200F0C055 /* Preview Assets.xcassets in Resources */,
 				39BC549529A2CA5400E42FA7 /* Localizable.strings in Resources */,
 				39A9631C2988444200F0C055 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39BC549D29A5401700E42FA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,7 +1250,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		39BC549B29A5401700E42FA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39BC54A229A5401700E42FA7 /* BookalooTests.swift in Sources */,
+				39BC54A929A5404800E42FA7 /* MockNetworkClient.swift in Sources */,
+				39BC54AB29A547B800E42FA7 /* MockNetworkRequestDependenciesResolver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39BC54A429A5401700E42FA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39A963132988443F00F0C055 /* Bookaloo */;
+			targetProxy = 39BC54A329A5401700E42FA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		39BC549729A2CA5400E42FA7 /* Localizable.strings */ = {
@@ -1355,6 +1459,42 @@
 			};
 			name = Release;
 		};
+		39BC54A529A5401700E42FA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3A83R6647Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joyce.test.BookalooTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bookaloo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bookaloo";
+			};
+			name = Debug;
+		};
+		39BC54A629A5401700E42FA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3A83R6647Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joyce.test.BookalooTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bookaloo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bookaloo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1372,6 +1512,15 @@
 			buildConfigurations = (
 				39A963232988444200F0C055 /* Debug */,
 				39A963242988444200F0C055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39BC54A729A5401700E42FA7 /* Build configuration list for PBXNativeTarget "BookalooTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39BC54A529A5401700E42FA7 /* Debug */,
+				39BC54A629A5401700E42FA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

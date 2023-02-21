@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class BooksRepository: BooksRepositoryProtocol {
+public final class BooksRepository: BooksRepositoryProtocol {
     let networkRequester: NetworkRequesterProtocol
     
-    init(dependencies: NetworkRepositoryDependenciesResolver) {
+    public init(dependencies: NetworkRepositoryDependenciesResolver) {
         self.networkRequester = dependencies.resolve()
     }
     
-    func getBooks() async throws -> [Book] {
+    public func getBooks() async throws -> [Book] {
         if let books = Cache.shared.books {
             return books
         }
@@ -24,22 +24,22 @@ final class BooksRepository: BooksRepositoryProtocol {
         return books
     }
     
-    func getLatestBooks() async throws -> [Book] {
+    public func getLatestBooks() async throws -> [Book] {
         let request = BooksRequest.latest
         return try await networkRequester.doRequest(request: request)
     }
     
-    func findBook(with text: String) async throws -> [Book] {
+    public func findBook(with text: String) async throws -> [Book] {
         let request = BooksRequest.find(text)
         return try await networkRequester.doRequest(request: request)
     }
     
-    func getAuthor(_ id: String) async throws -> Author {
+    public func getAuthor(_ id: String) async throws -> Author {
         let request = BooksRequest.author(id)
         return try await networkRequester.doRequest(request: request)
     }
     
-    func getAuthors() async throws -> [Author] {
+    public func getAuthors() async throws -> [Author] {
         if let authors = Cache.shared.authors {
             return authors
         }

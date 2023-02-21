@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OrderModify: Codable {
+public struct OrderModify: Codable {
     let id: String
     let status: Status
     let admin: String

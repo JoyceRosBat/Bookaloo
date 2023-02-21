@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol UsersRepositoryProtocol {
+public protocol UsersRepositoryProtocol {
     func find(by email: String) async throws -> User
     func new(_ user: User) async throws -> EmptyResponse
     func modify(_ user: User) async throws -> EmptyResponse

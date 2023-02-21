@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APIErrorResponse: Codable {
+public struct APIErrorResponse: Codable {
     let error: Bool
     let reason: String
 }

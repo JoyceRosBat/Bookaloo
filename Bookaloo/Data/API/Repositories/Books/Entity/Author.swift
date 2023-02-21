@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Author: Codable {
+public struct Author: Codable {
     let name: String
     let id: String
 }

@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class LoginRepository: LoginRepositoryProtocol {
+public final class LoginRepository: LoginRepositoryProtocol {
     let networkRequester: NetworkRequesterProtocol
     
-    init(dependencies: NetworkRepositoryDependenciesResolver) {
+    public init(dependencies: NetworkRepositoryDependenciesResolver) {
         self.networkRequester = dependencies.resolve()
     }
     
-    func validate(_ user: User) async throws -> User {
+    public func validate(_ user: User) async throws -> User {
         let request = LoginRequest.validate(user)
         return try await networkRequester.doRequest(request: request)
     }

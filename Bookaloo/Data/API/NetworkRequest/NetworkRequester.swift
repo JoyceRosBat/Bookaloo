@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol NetworkRequesterProtocol {
+public protocol NetworkRequesterProtocol {
     func doRequest<T: Decodable>(request: APIRequest) async throws -> T
 }
 
-final class NetworkRequester: NetworkRequesterProtocol {
-    func doRequest<T: Decodable>(request: APIRequest) async throws -> T {
+public final class NetworkRequester: NetworkRequesterProtocol {
+    public func doRequest<T: Decodable>(request: APIRequest) async throws -> T {
         try await handleRerequest(request: request)
     }
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol LoginRepositoryProtocol {
+public protocol LoginRepositoryProtocol {
     func validate(_ user: User) async throws -> User
 }

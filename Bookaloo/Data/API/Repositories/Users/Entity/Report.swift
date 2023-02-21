@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Report: Codable {
+public struct Report: Codable {
     let email: String
     var ordered: [Int]? = nil
     var readed: [Int]? = nil

@@ -8,7 +8,7 @@
 import Foundation
 
 extension DateFormatter {
-    static let jsonFormatter: DateFormatter = {
+    public static let jsonFormatter: DateFormatter = {
         let jsonFormatter = DateFormatter()
         jsonFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return jsonFormatter

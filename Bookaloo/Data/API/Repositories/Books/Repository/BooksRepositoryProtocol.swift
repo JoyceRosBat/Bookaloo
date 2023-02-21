@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BooksRepositoryProtocol {
+public protocol BooksRepositoryProtocol {
     func getBooks() async throws -> [Book]
     func getLatestBooks() async throws -> [Book]
     func findBook(with text: String) async throws -> [Book]
