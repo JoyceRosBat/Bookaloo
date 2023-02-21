@@ -1133,9 +1133,9 @@
 		39BC54DB29A5809600E42FA7 /* json */ = {
 			isa = PBXGroup;
 			children = (
+				39BC54DC29A580AB00E42FA7 /* order_new.json */,
 				39BC54E029A580AC00E42FA7 /* order_check.json */,
 				39BC54DD29A580AB00E42FA7 /* order_modify.json */,
-				39BC54DC29A580AB00E42FA7 /* order_new.json */,
 				39BC54DE29A580AB00E42FA7 /* order_status.json */,
 				39BC54DF29A580AC00E42FA7 /* orders_user.json */,
 			);
