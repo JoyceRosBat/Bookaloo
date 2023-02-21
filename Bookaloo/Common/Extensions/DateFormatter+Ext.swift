@@ -10,7 +10,7 @@ import Foundation
 extension DateFormatter {
     public static let jsonFormatter: DateFormatter = {
         let jsonFormatter = DateFormatter()
-        jsonFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        jsonFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return jsonFormatter
     }()
 }

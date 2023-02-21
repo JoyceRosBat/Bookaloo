@@ -6,30 +6,98 @@
 //
 
 import XCTest
+@testable import Bookaloo
 
 final class OrdersAPITest: XCTestCase {
-
+    var mockDependenciesResolver = MockNetworkRequestDependenciesResolver()
+    var ordersRepository: ShopRepositoryProtocol?
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        ordersRepository = mockDependenciesResolver.resolve()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        ordersRepository = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func test_new_order_with_sucess() async throws {
+        let newOrder = Order(email: "joyce.admin@bookaloo.com", order: [8,9,2])
+        let order = try await ordersRepository?.new(newOrder)
+        XCTAssert(order?.id == "8A48EFE1-A25A-4E34-BF4A-36A18D704763")
+        XCTAssert(order?.books?.isEmpty == false)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func test_new_order_should_fail() async throws {
+        mockDependenciesResolver = MockNetworkRequestDependenciesResolver(shouldFail: true, failError: 404)
+        do {
+            let order = Order(email: "joyce.admin@bookaloo.com", order: [8,9,2])
+            _ = try await ordersRepository?.new(order)
+        } catch let error as MockError {
+            XCTAssert(error.code == 404)
+            XCTAssert(error.errorCode == "404")
         }
     }
-
+    
+    func test_check_order_with_sucess() async throws {
+        let order = try await ordersRepository?.checkOrder(by: "8A48EFE1-A25A-4E34-BF4A-36A18D704763")
+        XCTAssert(order?.status == .received)
+        XCTAssert(order?.books?.isEmpty == false)
+    }
+    
+    func test_check_order_should_fail() async throws {
+        mockDependenciesResolver = MockNetworkRequestDependenciesResolver(shouldFail: true, failError: 404)
+        do {
+            _ = try await ordersRepository?.checkOrder(by: "8A48EFE1-A25A-4E34-BF4A-36A18D704763")
+        } catch let error as MockError {
+            XCTAssert(error.code == 404)
+            XCTAssert(error.errorCode == "404")
+        }
+    }
+    
+    func test_modify_order_with_sucess() async throws {
+        let orderModify = OrderModify(id: "8A48EFE1-A25A-4E34-BF4A-36A18D704763", status: .sent, admin: "joyce.admin@bookaloo.com")
+        let order = try await ordersRepository?.modify(orderModify)
+        XCTAssert(order != nil)
+    }
+    
+    func test_modify_order_should_fail() async throws {
+        mockDependenciesResolver = MockNetworkRequestDependenciesResolver(shouldFail: true, failError: 404)
+        do {
+            let orderModify = OrderModify(id: "8A48EFE1-A25A-4E34-BF4A-36A18D704763", status: .sent, admin: "joyce.admin@bookaloo.com")
+            _ = try await ordersRepository?.modify(orderModify)
+        } catch let error as MockError {
+            XCTAssert(error.code == 404)
+            XCTAssert(error.errorCode == "404")
+        }
+    }
+    
+    func test_order_status_with_sucess() async throws {
+        let order = try await ordersRepository?.getStatus(of: "8A48EFE1-A25A-4E34-BF4A-36A18D704763")
+        XCTAssert(order?.status == .sent)
+    }
+    
+    func test_order_status_should_fail() async throws {
+        mockDependenciesResolver = MockNetworkRequestDependenciesResolver(shouldFail: true, failError: 404)
+        do {
+            _ = try await ordersRepository?.getStatus(of: "8A48EFE1-A25A-4E34-BF4A-36A18D704763")
+        } catch let error as MockError {
+            XCTAssert(error.code == 404)
+            XCTAssert(error.errorCode == "404")
+        }
+    }
+    
+    func test_user_orders_with_sucess() async throws {
+        let order = try await ordersRepository?.getOrders(of: "joyce.admin@bookaloo.com")
+        XCTAssert(order?.first?.status == .received)
+    }
+    
+    func test_user_orders_should_fail() async throws {
+        mockDependenciesResolver = MockNetworkRequestDependenciesResolver(shouldFail: true, failError: 404)
+        do {
+            _ = try await ordersRepository?.getOrders(of: "joyce.admin@bookaloo.com")
+        } catch let error as MockError {
+            XCTAssert(error.code == 404)
+            XCTAssert(error.errorCode == "404")
+        }
+    }
 }
