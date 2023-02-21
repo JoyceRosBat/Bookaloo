@@ -46,4 +46,14 @@ extension ShopRequest: APIRequest {
         default: return nil
         }
     }
+    
+    var serviceName: String? {
+        switch self {
+        case .new: return "order_new"
+        case .check: return "order_check"
+        case .orders: return "orders_user"
+        case .status: return "order_status"
+        case .modify: return "order_modify"
+        }
+    }
 }

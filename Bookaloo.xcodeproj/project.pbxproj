@@ -112,6 +112,22 @@
 		39BC54C529A5740E00E42FA7 /* books_find.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54C429A5740E00E42FA7 /* books_find.json */; };
 		39BC54C729A5784500E42FA7 /* books_authors.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54C629A5784400E42FA7 /* books_authors.json */; };
 		39BC54C929A579C400E42FA7 /* books_author_id.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54C829A579C400E42FA7 /* books_author_id.json */; };
+		39BC54CB29A57BF500E42FA7 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC54CA29A57BF500E42FA7 /* MockError.swift */; };
+		39BC54CD29A57D4A00E42FA7 /* UsersAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC54CC29A57D4A00E42FA7 /* UsersAPITest.swift */; };
+		39BC54D029A57DC300E42FA7 /* user_find.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54CF29A57DC300E42FA7 /* user_find.json */; };
+		39BC54D229A57DFB00E42FA7 /* user_new.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54D129A57DFB00E42FA7 /* user_new.json */; };
+		39BC54D429A57E1E00E42FA7 /* user_modify.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54D329A57E1E00E42FA7 /* user_modify.json */; };
+		39BC54D629A57E5000E42FA7 /* user_mark_read.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54D529A57E4F00E42FA7 /* user_mark_read.json */; };
+		39BC54D929A57EE500E42FA7 /* user_read.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54D729A57EE500E42FA7 /* user_read.json */; };
+		39BC54DA29A57EE500E42FA7 /* user_report.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54D829A57EE500E42FA7 /* user_report.json */; };
+		39BC54E129A580AC00E42FA7 /* order_new.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54DC29A580AB00E42FA7 /* order_new.json */; };
+		39BC54E229A580AC00E42FA7 /* order_modify.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54DD29A580AB00E42FA7 /* order_modify.json */; };
+		39BC54E329A580AC00E42FA7 /* order_status.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54DE29A580AB00E42FA7 /* order_status.json */; };
+		39BC54E429A580AC00E42FA7 /* orders_user.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54DF29A580AC00E42FA7 /* orders_user.json */; };
+		39BC54E529A580AC00E42FA7 /* order_check.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54E029A580AC00E42FA7 /* order_check.json */; };
+		39BC54E829A5814E00E42FA7 /* user_login.json in Resources */ = {isa = PBXBuildFile; fileRef = 39BC54E729A5814E00E42FA7 /* user_login.json */; };
+		39BC54EA29A581B600E42FA7 /* OrdersAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC54E929A581B600E42FA7 /* OrdersAPITest.swift */; };
+		39BC54EC29A581C700E42FA7 /* LoginAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC54EB29A581C700E42FA7 /* LoginAPITest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +249,22 @@
 		39BC54C429A5740E00E42FA7 /* books_find.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books_find.json; sourceTree = "<group>"; };
 		39BC54C629A5784400E42FA7 /* books_authors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books_authors.json; sourceTree = "<group>"; };
 		39BC54C829A579C400E42FA7 /* books_author_id.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books_author_id.json; sourceTree = "<group>"; };
+		39BC54CA29A57BF500E42FA7 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
+		39BC54CC29A57D4A00E42FA7 /* UsersAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPITest.swift; sourceTree = "<group>"; };
+		39BC54CF29A57DC300E42FA7 /* user_find.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_find.json; sourceTree = "<group>"; };
+		39BC54D129A57DFB00E42FA7 /* user_new.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_new.json; sourceTree = "<group>"; };
+		39BC54D329A57E1E00E42FA7 /* user_modify.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_modify.json; sourceTree = "<group>"; };
+		39BC54D529A57E4F00E42FA7 /* user_mark_read.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_mark_read.json; sourceTree = "<group>"; };
+		39BC54D729A57EE500E42FA7 /* user_read.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_read.json; sourceTree = "<group>"; };
+		39BC54D829A57EE500E42FA7 /* user_report.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_report.json; sourceTree = "<group>"; };
+		39BC54DC29A580AB00E42FA7 /* order_new.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = order_new.json; sourceTree = "<group>"; };
+		39BC54DD29A580AB00E42FA7 /* order_modify.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = order_modify.json; sourceTree = "<group>"; };
+		39BC54DE29A580AB00E42FA7 /* order_status.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = order_status.json; sourceTree = "<group>"; };
+		39BC54DF29A580AC00E42FA7 /* orders_user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orders_user.json; sourceTree = "<group>"; };
+		39BC54E029A580AC00E42FA7 /* order_check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = order_check.json; sourceTree = "<group>"; };
+		39BC54E729A5814E00E42FA7 /* user_login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_login.json; sourceTree = "<group>"; };
+		39BC54E929A581B600E42FA7 /* OrdersAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersAPITest.swift; sourceTree = "<group>"; };
+		39BC54EB29A581C700E42FA7 /* LoginAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPITest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -614,6 +646,7 @@
 		39A96334298845AE00F0C055 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				39BC54CE29A57DBA00E42FA7 /* json */,
 				39A963482988527100F0C055 /* Entity */,
 				39A96EE7298C3C1900525E2B /* Request */,
 				39A96EE8298C3C2400525E2B /* Repository */,
@@ -624,6 +657,7 @@
 		39A963352988461A00F0C055 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				39BC54DB29A5809600E42FA7 /* json */,
 				39A963492988527E00F0C055 /* Entity */,
 				39A96EE6298C3C0C00525E2B /* Request */,
 				39A96EE5298C3C0000525E2B /* Repository */,
@@ -884,6 +918,7 @@
 		39A96F08298D948E00525E2B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				39BC54E629A5814400E42FA7 /* json */,
 				39A96F0C298D94E700525E2B /* Request */,
 				39A96F0D298D94F000525E2B /* Repository */,
 			);
@@ -1064,6 +1099,7 @@
 		39BC54C029A5723300E42FA7 /* MockAPI */ = {
 			isa = PBXGroup;
 			children = (
+				39BC54CA29A57BF500E42FA7 /* MockError.swift */,
 				39BC54A829A5404800E42FA7 /* MockNetworkClient.swift */,
 				39BC54AA29A547B800E42FA7 /* MockNetworkRequestDependenciesResolver.swift */,
 			);
@@ -1074,8 +1110,44 @@
 			isa = PBXGroup;
 			children = (
 				39BC54A129A5401700E42FA7 /* BooksAPITest.swift */,
+				39BC54CC29A57D4A00E42FA7 /* UsersAPITest.swift */,
+				39BC54E929A581B600E42FA7 /* OrdersAPITest.swift */,
+				39BC54EB29A581C700E42FA7 /* LoginAPITest.swift */,
 			);
 			path = APITests;
+			sourceTree = "<group>";
+		};
+		39BC54CE29A57DBA00E42FA7 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				39BC54CF29A57DC300E42FA7 /* user_find.json */,
+				39BC54D129A57DFB00E42FA7 /* user_new.json */,
+				39BC54D329A57E1E00E42FA7 /* user_modify.json */,
+				39BC54D529A57E4F00E42FA7 /* user_mark_read.json */,
+				39BC54D729A57EE500E42FA7 /* user_read.json */,
+				39BC54D829A57EE500E42FA7 /* user_report.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		39BC54DB29A5809600E42FA7 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				39BC54E029A580AC00E42FA7 /* order_check.json */,
+				39BC54DD29A580AB00E42FA7 /* order_modify.json */,
+				39BC54DC29A580AB00E42FA7 /* order_new.json */,
+				39BC54DE29A580AB00E42FA7 /* order_status.json */,
+				39BC54DF29A580AC00E42FA7 /* orders_user.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		39BC54E629A5814400E42FA7 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				39BC54E729A5814E00E42FA7 /* user_login.json */,
+			);
+			path = json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1160,13 +1232,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39BC54D929A57EE500E42FA7 /* user_read.json in Resources */,
 				39BC54C929A579C400E42FA7 /* books_author_id.json in Resources */,
+				39BC54DA29A57EE500E42FA7 /* user_report.json in Resources */,
+				39BC54D029A57DC300E42FA7 /* user_find.json in Resources */,
+				39BC54D429A57E1E00E42FA7 /* user_modify.json in Resources */,
+				39BC54D229A57DFB00E42FA7 /* user_new.json in Resources */,
 				39BC54BD29A5695B00E42FA7 /* books_list.json in Resources */,
 				39BC54C529A5740E00E42FA7 /* books_find.json in Resources */,
 				39A9631F2988444200F0C055 /* Preview Assets.xcassets in Resources */,
+				39BC54D629A57E5000E42FA7 /* user_mark_read.json in Resources */,
+				39BC54E829A5814E00E42FA7 /* user_login.json in Resources */,
 				39BC549529A2CA5400E42FA7 /* Localizable.strings in Resources */,
 				39BC54C329A5732200E42FA7 /* books_latest.json in Resources */,
+				39BC54E229A580AC00E42FA7 /* order_modify.json in Resources */,
 				39A9631C2988444200F0C055 /* Assets.xcassets in Resources */,
+				39BC54E329A580AC00E42FA7 /* order_status.json in Resources */,
+				39BC54E429A580AC00E42FA7 /* orders_user.json in Resources */,
+				39BC54E529A580AC00E42FA7 /* order_check.json in Resources */,
+				39BC54E129A580AC00E42FA7 /* order_new.json in Resources */,
 				39BC54C729A5784500E42FA7 /* books_authors.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1288,6 +1372,10 @@
 			files = (
 				39BC54A229A5401700E42FA7 /* BooksAPITest.swift in Sources */,
 				39BC54A929A5404800E42FA7 /* MockNetworkClient.swift in Sources */,
+				39BC54CD29A57D4A00E42FA7 /* UsersAPITest.swift in Sources */,
+				39BC54EA29A581B600E42FA7 /* OrdersAPITest.swift in Sources */,
+				39BC54EC29A581C700E42FA7 /* LoginAPITest.swift in Sources */,
+				39BC54CB29A57BF500E42FA7 /* MockError.swift in Sources */,
 				39BC54AB29A547B800E42FA7 /* MockNetworkRequestDependenciesResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

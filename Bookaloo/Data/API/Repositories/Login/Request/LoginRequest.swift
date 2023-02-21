@@ -33,4 +33,10 @@ extension LoginRequest: APIRequest {
         case .validate(let user): return ["email": user.email] as [String: String]
         }
     }
+    
+    var serviceName: String? {
+        switch self {
+        case .validate: return "user_login"
+        }
+    }
 }

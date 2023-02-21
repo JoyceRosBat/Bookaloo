@@ -14,6 +14,7 @@ struct BookCellView: View {
     let year: Int
     @State var rating: Double?
     let purchased: Bool
+    let read: Bool
     let price: Double?
     
     var body: some View {
@@ -57,13 +58,23 @@ struct BookCellView: View {
                 Spacer()
                 
                 VStack(alignment: .center) {
-                    if purchased {
-                        Image(systemName: .cartCircleFill)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30)
-                            .foregroundStyle(StyleConstants.bookalooGradient)
-                    }//: If purchased...
+                    HStack {
+                        if read {
+                            Image(systemName: .eye)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20)
+                                .foregroundStyle(StyleConstants.bookalooGradient)
+                        }
+                        
+                        if purchased {
+                            Image(systemName: .cartCircleFill)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20)
+                                .foregroundStyle(StyleConstants.bookalooGradient)
+                        }//: If purchased...
+                    }
                 }//: VStack
                 
             }//: HStack
@@ -79,6 +90,7 @@ struct BookCellView_Previews: PreviewProvider {
             year: 1985,
             rating: 3.5,
             purchased: true,
+            read: true,
             price: 10.95
         ).previewLayout(.sizeThatFits)
     }

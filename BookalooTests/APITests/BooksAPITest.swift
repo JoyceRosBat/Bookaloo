@@ -9,7 +9,6 @@ import XCTest
 @testable import Bookaloo
 
 final class BooksAPITest: XCTestCase {
-    
     var mockDependenciesResolver = MockNetworkRequestDependenciesResolver()
     var booksRepository: BooksRepositoryProtocol?
     

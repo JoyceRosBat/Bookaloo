@@ -28,6 +28,7 @@ struct BooksView: View {
                                 year: book.year,
                                 rating: book.rating,
                                 purchased: book.purchased ?? false,
+                                read: book.read ?? false,
                                 price: book.price
                             )
                             .swipeActions(edge: .trailing,

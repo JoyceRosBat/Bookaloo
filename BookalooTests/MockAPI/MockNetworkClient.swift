@@ -8,16 +8,6 @@
 import Foundation
 import Bookaloo
 
-protocol NetworkErrorWithCode: Error {
-    var code: Int { get }
-    var errorCode: String { get }
-}
-
-struct MockError: NetworkErrorWithCode {
-    var code: Int
-    var errorCode: String
-}
-
 struct MockNetworkClient: NetworkRequesterProtocol {
     var shouldFail: Bool = false
     var failError: Int = 500
@@ -31,6 +21,9 @@ struct MockNetworkClient: NetworkRequesterProtocol {
         }
         do {
             let data = try Data(contentsOf: filePath)
+            if data.isEmpty {
+                return EmptyResponse() as! T
+            }
             return try mapResponse(data: data, dataType: T.self)
         } catch let error {
             throw NetworkError.general(error)

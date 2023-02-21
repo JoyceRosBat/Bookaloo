@@ -48,4 +48,15 @@ extension UsersRequest: APIRequest {
         case .markRead(let readBooks): return try? readBooks.toDictionary()
         }
     }
+    
+    var serviceName: String? {
+        switch self {
+        case .find: return "user_find"
+        case .new: return "user_new"
+        case .modify: return "user_modify"
+        case .markRead: return "user_mark_read"
+        case .report: return "user_report"
+        case .read: return "user_read"
+        }
+    }
 }
