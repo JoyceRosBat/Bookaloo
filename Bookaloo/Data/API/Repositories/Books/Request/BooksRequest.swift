@@ -39,10 +39,10 @@ extension BooksRequest: APIRequest {
     var serviceName: String? {
         switch self {
         case .list: return "books_list"
-        case .latest: return ""
-        case .find: return ""
-        case .authors: return ""
-        case .author: return ""
+        case .latest: return "books_latest"
+        case .find: return "books_find"
+        case .authors: return "books_authors"
+        case .author: return "books_author_id"
         }
     }
 }

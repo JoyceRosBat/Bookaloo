@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum Role: String, Codable, CaseIterable, Identifiable {
-    var id: Self { return self }
+public enum Role: String, Codable, CaseIterable, Identifiable {
+    public var id: Self { return self }
     case admin
     case user = "usuario"
 }
