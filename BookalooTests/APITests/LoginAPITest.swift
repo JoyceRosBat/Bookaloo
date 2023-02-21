@@ -6,30 +6,34 @@
 //
 
 import XCTest
+@testable import Bookaloo
 
 final class LoginAPITest: XCTestCase {
-
+    var mockDependenciesResolver = MockNetworkRequestDependenciesResolver()
+    var loginRepository: LoginRepositoryProtocol?
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        loginRepository = mockDependenciesResolver.resolve()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        loginRepository = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func test_login_with_sucess() async throws {
+        let validationUser = User(email: "joyce.usertest@bookaloo.com")
+        let user = try await loginRepository?.validate(validationUser)
+        XCTAssert(user?.role == .admin)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func test_login_should_fail() async throws {
+        mockDependenciesResolver = MockNetworkRequestDependenciesResolver(shouldFail: true, failError: 404)
+        do {
+            let validationUser = User(email: "joyce.usertest@bookaloo.com")
+            _ = try await loginRepository?.validate(validationUser)
+        } catch let error as MockError {
+            XCTAssert(error.code == 404)
+            XCTAssert(error.errorCode == "404")
         }
     }
-
 }
