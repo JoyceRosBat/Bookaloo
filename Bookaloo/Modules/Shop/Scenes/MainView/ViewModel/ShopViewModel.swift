@@ -79,34 +79,32 @@ final class ShopViewModel: ObservableBaseViewModel {
     /// ```
     ///        viewModel.finishShop()
     /// ```
+    @MainActor
     func finishShop() {
         showLoading(true)
         Task {
-            await MainActor.run { [weak self] in
-                guard let self = self else { return }
-                if let email = self.user?.email {
-                    var order = Order(email: email)
-                    order.order = []
-                    self.booksToShop.forEach { (book, quantity) in
-                        for _ in 0..<quantity {
-                            order.order?.append(book)
-                        }
+            if let email = self.user?.email {
+                var order = Order(email: email)
+                order.order = []
+                booksToShop.forEach { (book, quantity) in
+                    for _ in 0..<quantity {
+                        order.order?.append(book)
                     }
-                    Task {
-                        do {
-                            self.pendingOrder = try await self.shopUseCase.new(order)
-                            self.booksToShop.removeAll()
-                            self.booksOrdered = 0
-                            Storage.shared.save(self.booksToShop, key: .cart)
-                            showLoading(false)
-                            shopCompleteAlert = true
-                        } catch let error as NetworkError {
-                            showNetworkError(error)
-                        }
-                    }
-                } else {
-                    showLoading(false)
                 }
+                Task {
+                    do {
+                        pendingOrder = try await self.shopUseCase.new(order)
+                        booksToShop.removeAll()
+                        booksOrdered = 0
+                        Storage.shared.save(self.booksToShop, key: .cart)
+                        showLoading(false)
+                        shopCompleteAlert = true
+                    } catch let error as NetworkError {
+                        showNetworkError(error)
+                    }
+                }
+            } else {
+                showLoading(false)
             }
         }
     }

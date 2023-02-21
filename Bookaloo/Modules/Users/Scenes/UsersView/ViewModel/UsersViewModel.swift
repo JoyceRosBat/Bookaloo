@@ -36,6 +36,7 @@ final class UsersViewModel: ObservableBaseViewModel {
     /// ```
     ///        usersUseCase.getUserData()
     /// ```
+    @MainActor
     func getUserData() {
         guard let email = user?.email else { return }
         getUserData(with: email)
@@ -47,6 +48,7 @@ final class UsersViewModel: ObservableBaseViewModel {
     /// ```
     /// - Parameters:
     ///   - email: Email of the user to find
+    @MainActor
     func findUser(by email: String) {
         getUserData(with: email)
     }
@@ -55,6 +57,7 @@ final class UsersViewModel: ObservableBaseViewModel {
     /// ```
     ///        usersUseCase.modify()
     /// ```
+    @MainActor
     func modify(_ userData: UserData) {
         Task {
             showLoading(true)
@@ -62,11 +65,9 @@ final class UsersViewModel: ObservableBaseViewModel {
             do {
                 try await usersUseCase.modify(user)
                 showLoading(false)
-                await MainActor.run {
-                    showModifiedUserAlert = true
-                    if user.email == self.user?.email {
-                        Storage.shared.save(user, key: .user)
-                    }
+                showModifiedUserAlert = true
+                if user.email == self.user?.email {
+                    Storage.shared.save(user, key: .user)
                 }
             } catch let error as NetworkError {
                 showNetworkError(error)
@@ -78,6 +79,7 @@ final class UsersViewModel: ObservableBaseViewModel {
     /// ```
     ///        usersUseCase.save()
     /// ```
+    @MainActor
     func save() {
         validEmail = newUser.email.isValidEmail
         validName = !newUser.name.isEmpty
@@ -91,10 +93,8 @@ final class UsersViewModel: ObservableBaseViewModel {
             do {
                 try await usersUseCase.new(user)
                 showLoading(false)
-                await MainActor.run {
-                    newUser = UserData(email: "", name: "", location: "", role: .user)
-                    showCreatedUserAlert = true
-                }
+                newUser = UserData(email: "", name: "", location: "", role: .user)
+                showCreatedUserAlert = true
             } catch let error as NetworkError {
                 showNetworkError(error)
             }
@@ -103,20 +103,19 @@ final class UsersViewModel: ObservableBaseViewModel {
 }
 
 private extension UsersViewModel {
+    @MainActor
     func getUserData(with email: String) {
         Task {
             do {
                 showLoading(true)
                 let userFound = try await usersUseCase.find(by: email)
                 
-                await MainActor.run {
-                    self.userFound = UserData(
-                        email: userFound.email,
-                        name: userFound.name ?? "",
-                        location: userFound.location ?? "",
-                        role: userFound.role ?? .user
-                    )
-                }
+                self.userFound = UserData(
+                    email: userFound.email,
+                    name: userFound.name ?? "",
+                    location: userFound.location ?? "",
+                    role: userFound.role ?? .user
+                )
                 showLoading(false)
             } catch let error as NetworkError {
                 showNetworkError(error)

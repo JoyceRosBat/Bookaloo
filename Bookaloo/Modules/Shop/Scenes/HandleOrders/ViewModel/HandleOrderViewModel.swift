@@ -26,18 +26,15 @@ final class HandleOrderViewModel: ObservableBaseViewModel {
     /// ```
     /// - Parameters:
     ///  - email: The email of the user
+    @MainActor
     func getOrders(by email: String) {
         cleanSearchOrders()
         showLoading(true)
         Task {
             do {
                 let list = try await shopUseCase.orders(of: email)
-                Task {
-                    await MainActor.run {
-                        searchOrders = list
-                        ordersEmpty = searchOrders.isEmpty
-                    }
-                }
+                searchOrders = list
+                ordersEmpty = searchOrders.isEmpty
                 showLoading(false)
             } catch let error as NetworkError {
                 showNetworkError(error)
@@ -51,18 +48,15 @@ final class HandleOrderViewModel: ObservableBaseViewModel {
     /// ```
     /// - Parameters:
     ///  - id: the id number
+    @MainActor
     func getOrder(by id: String) {
         cleanSearchOrders()
         showLoading(true)
         Task {
             do {
                 let order = try await shopUseCase.check(by: id)
-                Task {
-                    await MainActor.run {
-                        searchOrders = [order]
-                        ordersEmpty = searchOrders.isEmpty
-                    }
-                }
+                searchOrders = [order]
+                ordersEmpty = searchOrders.isEmpty
                 showLoading(false)
             } catch let error as NetworkError {
                 showNetworkError(error)
@@ -76,6 +70,7 @@ final class HandleOrderViewModel: ObservableBaseViewModel {
     /// ```
     /// - Parameters:
     ///  - orderId: the id number
+    @MainActor
     func modify(_ orderId: String?, status: Status) {
         guard let orderId else { return }
         showLoading(true)
@@ -98,11 +93,8 @@ final class HandleOrderViewModel: ObservableBaseViewModel {
     /// ```
     ///        viewModel.cleanSearchOrders()
     /// ```
+    @MainActor
     func cleanSearchOrders() {
-        Task {
-            await MainActor.run {
-                searchOrders.removeAll()
-            }
-        }
+        searchOrders.removeAll()
     }
 }

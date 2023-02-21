@@ -28,6 +28,7 @@ final class LoginViewModel: ObservableBaseViewModel {
     /// ```
     ///        viewModel.doLogin()
     /// ```
+    @MainActor
     func doLogin() {
         validEmail = email.isValidEmail
         validPassword = password.count >= 8
@@ -43,11 +44,9 @@ final class LoginViewModel: ObservableBaseViewModel {
                 Storage.shared.save(validated, key: .user)
                 
                 self.showLoading(false)
-                await MainActor.run {
-                    self.myUserToModify = UserData(email: self.user?.email ?? "", name: self.user?.name ?? "", location: self.user?.location ?? "", role: self.user?.role ?? .user)
-                    self.email = ""
-                    self.password = ""
-                }
+                self.myUserToModify = UserData(email: self.user?.email ?? "", name: self.user?.name ?? "", location: self.user?.location ?? "", role: self.user?.role ?? .user)
+                self.email = ""
+                self.password = ""
             } catch let error as NetworkError {
                 self.showNetworkError(error)
             }

@@ -28,26 +28,27 @@ final class BooksViewModel: ObservableBaseViewModel {
     // On appear, fetch list of books
     override func onAppear() {
         super.onAppear()
-        getBooks()
-        getReport()
+        Task {
+            await MainActor.run {
+                getBooks()
+                getReport()
+            }
+        }
     }
     
     /// Get the books read and ordered by the user
     /// ```
     ///        viewModel.getReport()
     /// ```
+    @MainActor
     func getReport() {
         showLoading(true)
         Task {
-            await MainActor.run {
-                Task {
-                    do {
-                        report = try await booksUseCase.getReport(user?.email ?? "")
-                        showLoading(false)
-                    } catch let error as NetworkError {
-                        showNetworkError(error)
-                    }
-                }
+            do {
+                report = try await booksUseCase.getReport(user?.email ?? "")
+                showLoading(false)
+            } catch let error as NetworkError {
+                showNetworkError(error)
             }
         }
     }
@@ -56,21 +57,18 @@ final class BooksViewModel: ObservableBaseViewModel {
     /// ```
     ///        viewModel.getBooks()
     /// ```
+    @MainActor
     func getBooks(removingCache: Bool = false) {
         showLoading(true)
         Task {
-            await MainActor.run {
-                Task {
-                    do {
-                        if removingCache {
-                            Cache.shared.books = nil
-                        }
-                        books = try await booksUseCase.fetch()
-                        showLoading(false)
-                    } catch let error as NetworkError {
-                        showNetworkError(error)
-                    }
+            do {
+                if removingCache {
+                    Cache.shared.books = nil
                 }
+                books = try await booksUseCase.fetch()
+                showLoading(false)
+            } catch let error as NetworkError {
+                showNetworkError(error)
             }
         }
     }
@@ -81,6 +79,7 @@ final class BooksViewModel: ObservableBaseViewModel {
     /// ```
     /// - Parameters:
     ///   - readBooks: Books to mark as read
+    @MainActor
     func markAsRead(_ book: Book) {
         Task {
             if report.readed?.contains(book.id) == true {
@@ -92,14 +91,12 @@ final class BooksViewModel: ObservableBaseViewModel {
             let readBooks = ReadBooks(email: user?.email ?? "", books: report.readed ?? [book.id])
             try await booksUseCase.read(readBooks)
             
-            await MainActor.run {
-                books = books.compactMap { item in
-                    var item = item
-                    if item.id == book.id {
-                        item.read = report.readed?.contains(book.id) == true
-                    }
-                    return item
+            books = books.compactMap { item in
+                var item = item
+                if item.id == book.id {
+                    item.read = report.readed?.contains(book.id) == true
                 }
+                return item
             }
         }
     }

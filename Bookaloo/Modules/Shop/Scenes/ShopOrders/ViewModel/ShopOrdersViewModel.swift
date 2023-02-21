@@ -27,6 +27,7 @@ final class ShopOrdersViewModel: ObservableBaseViewModel {
     /// ```
     ///        viewModel.getOrders()
     /// ```
+    @MainActor
     func getOrders() {
         showLoading(true)
         guard let email = user?.email else {
@@ -34,28 +35,23 @@ final class ShopOrdersViewModel: ObservableBaseViewModel {
             return
         }
         Task {
-            await MainActor.run { [weak self] in
-                guard let self = self else { return }
-                Task {
-                    do {
-                        self.userOrders = try await shopUseCase.orders(of: email)
-                        
-                        self.inProgressList = self.userOrders
-                            .filter{ $0.status == .processing || $0.status == .sent || $0.status == .received }
-                            .sorted(by: { $0.status?.rawValue ?? "" < $1.status?.rawValue ?? "" })
-                            .sorted(by: { $0.date ?? .now < $1.date ?? .now })
-                        self.deliveredList = self.userOrders.filter{ $0.status == .delivered }
-                            .sorted(by: { $0.date ?? .now < $1.date ?? .now })
-                        self.cancelledList = self.userOrders
-                            .filter{ $0.status == .canceled || $0.status == .returned }
-                            .sorted(by: { $0.status?.rawValue ?? "" < $1.status?.rawValue ?? "" })
-                            .sorted(by: { $0.date ?? .now < $1.date ?? .now })
-                        
-                        showLoading(false)
-                    } catch let error as NetworkError {
-                        showNetworkError(error)
-                    }
-                }
+            do {
+                self.userOrders = try await shopUseCase.orders(of: email)
+                
+                inProgressList = userOrders
+                    .filter{ $0.status == .processing || $0.status == .sent || $0.status == .received }
+                    .sorted(by: { $0.status?.rawValue ?? "" < $1.status?.rawValue ?? "" })
+                    .sorted(by: { $0.date ?? .now < $1.date ?? .now })
+                deliveredList = userOrders.filter{ $0.status == .delivered }
+                    .sorted(by: { $0.date ?? .now < $1.date ?? .now })
+                cancelledList = userOrders
+                    .filter{ $0.status == .canceled || $0.status == .returned }
+                    .sorted(by: { $0.status?.rawValue ?? "" < $1.status?.rawValue ?? "" })
+                    .sorted(by: { $0.date ?? .now < $1.date ?? .now })
+                
+                showLoading(false)
+            } catch let error as NetworkError {
+                showNetworkError(error)
             }
         }
     }

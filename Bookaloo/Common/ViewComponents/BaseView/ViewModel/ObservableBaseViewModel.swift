@@ -82,12 +82,9 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// ```
     /// - Parameters:
     ///   - show: Bool to indicate if shows loading animation or not
+    @MainActor
     func showLoading(_ show: Bool) {
-        Task {
-            await MainActor.run {
-                showLoading = show
-            }
-        }
+        showLoading = show
     }
     
     /// Show error popup
@@ -96,12 +93,9 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// ```
     /// - Parameters:
     ///   - show: Bool to indicate if shows error popup or not
+    @MainActor
     func showError(_ show: Bool) {
-        Task {
-            await MainActor.run {
-                showError = show
-            }
-        }
+        showError = show
     }
     
     /// Show error popup with netwrk error
@@ -110,21 +104,18 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// ```
     /// - Parameters:
     ///   - error: NetworkError to show
+    @MainActor
     func showNetworkError(_ error: NetworkError) {
         showLoading(false)
-        Task {
-            await MainActor.run {
-                switch error {
-                case .apiError(let aPIErrorResponse):
-                    alertTitle = "error_title"
-                    alertMessage = aPIErrorResponse.reason
-                    showError = true
-                default:
-                    alertTitle = "error_popup_title"
-                    alertMessage = "error_popup_message"
-                    showError = true
-                }
-            }
+        switch error {
+        case .apiError(let aPIErrorResponse):
+            alertTitle = "error_title"
+            alertMessage = aPIErrorResponse.reason
+            showError = true
+        default:
+            alertTitle = "error_popup_title"
+            alertMessage = "error_popup_message"
+            showError = true
         }
     }
     
@@ -135,29 +126,23 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// - Parameters:
     ///   - title: Title of the error popup
     ///   - message: Message of the error popup
+    @MainActor
     func showError(with title: String, message: String) {
-        Task {
-            await MainActor.run {
-                showLoading = false
-                alertTitle = title
-                alertMessage = message
-                showError = true
-            }
-        }
+        showLoading = false
+        alertTitle = title
+        alertMessage = message
+        showError = true
     }
     
     /// Logout from the session
     /// ```
     ///        viewModel.logout()
     /// ```
+    @MainActor
     func doLogout() {
         showLoading(true)
-        Task {
-            await MainActor.run{
-                Storage.shared.cleanAll()
-                Cache.shared.clean()
-            }
-        }
+        Storage.shared.cleanAll()
+        Cache.shared.clean()
         showLoading(false)
     }
 }
