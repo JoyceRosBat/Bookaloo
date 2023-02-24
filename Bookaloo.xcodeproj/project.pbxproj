@@ -636,7 +636,6 @@
 			children = (
 				39BC54BC29A568BE00E42FA7 /* json */,
 				39A963472988525900F0C055 /* Entity */,
-				39BC54BB29A54FB500E42FA7 /* Model */,
 				39A96EE9298C3C3100525E2B /* Request */,
 				39A96EEA298C3C3900525E2B /* Repository */,
 			);
@@ -1075,13 +1074,6 @@
 				39BC54C129A572B000E42FA7 /* APITests */,
 			);
 			path = BookalooTests;
-			sourceTree = "<group>";
-		};
-		39BC54BB29A54FB500E42FA7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		39BC54BC29A568BE00E42FA7 /* json */ = {
