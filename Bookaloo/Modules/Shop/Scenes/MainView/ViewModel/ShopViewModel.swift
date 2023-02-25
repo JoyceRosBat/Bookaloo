@@ -45,7 +45,7 @@ final class ShopViewModel: ObservableBaseViewModel {
     /// - Parameters:
     ///   - book: The book to add to cart
     func addToCart(_ book: Book) {
-        updateBooksToShop(with: book.id)
+        updateBooksToShop(with: book.apiID)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             guard let self = self else { return }
             self.shopBook = false
@@ -59,7 +59,7 @@ final class ShopViewModel: ObservableBaseViewModel {
     /// - Parameters:
     ///   - book: The book to remove from the cart
     func removeFromCart(_ book: Book) {
-        updateBooksToShop(with: book.id, shopCase: .decrement)
+        updateBooksToShop(with: book.apiID, shopCase: .decrement)
     }
     
     /// Removes the book selected
@@ -68,7 +68,7 @@ final class ShopViewModel: ObservableBaseViewModel {
     /// ```
     func removeBookSelected() {
         if let bookSelected {
-            booksToShop.removeValue(forKey: bookSelected.id)
+            booksToShop.removeValue(forKey: bookSelected.apiID)
             updateShop()
             Storage.shared.save(booksToShop, key: .cart)
             self.bookSelected = nil

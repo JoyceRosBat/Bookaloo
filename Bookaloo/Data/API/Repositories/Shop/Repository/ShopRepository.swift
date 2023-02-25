@@ -38,4 +38,9 @@ public final class ShopRepository: ShopRepositoryProtocol {
         let request = ShopRequest.modify(data)
         return try await networkRequester.doRequest(request: request)
     }
+    
+    public func getAll(_ email: String) async throws -> [Order] {
+        let request = ShopRequest.all(email)
+        return try await networkRequester.doRequest(request: request)
+    }
 }

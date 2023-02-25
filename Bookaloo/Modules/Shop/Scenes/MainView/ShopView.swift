@@ -24,7 +24,7 @@ struct ShopView: View {
                 VStack {
                     List {
                         ForEach(viewModel.booksToShop.sorted(by: >), id: \.key) { bookId, quantity in
-                            if let book = booksViewModel.books.first(where: { $0.id == bookId }) {
+                            if let book = booksViewModel.books.first(where: { $0.apiID == bookId }) {
                                 BookShopCell(book: book, bookId: bookId, quantity: quantity, showAlert: $viewModel.showRemoveBookAlert)
                             }//: If book found...
                         }//: ForEach

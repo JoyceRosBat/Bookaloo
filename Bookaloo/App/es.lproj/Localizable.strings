@@ -26,6 +26,7 @@
 "cancel" = "Cancelar";
 "save" = "Guardar";
 "search" = "Buscar";
+"search_all" = "Buscar todos";
 "anulado" = "Anulado";
 "recibido" = "Recibido";
 "procesando" = "Procesando";
@@ -41,6 +42,7 @@
 "find_user" = "Buscar/Modificar usuario";
 "create_user" = "Crear nuevo usuario";
 
+"error_title" = "Error";
 "email_title" = "Email:";
 "author_title" = "Autor:";
 "date_title" = "Fecha:";

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390F30A929AAD207000AA8E5 /* all_orders.json in Resources */ = {isa = PBXBuildFile; fileRef = 390F30A829AAD207000AA8E5 /* all_orders.json */; };
 		3924D2C12994D91500787A80 /* BookShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2C02994D91500787A80 /* BookShopCell.swift */; };
 		3924D2C62998F04600787A80 /* ShopOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2C52998F04600787A80 /* ShopOrdersView.swift */; };
 		3924D2CD2999142B00787A80 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2CC2999142B00787A80 /* ExpandableView.swift */; };
@@ -141,6 +142,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		390F30A829AAD207000AA8E5 /* all_orders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_orders.json; sourceTree = "<group>"; };
 		3924D2C02994D91500787A80 /* BookShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShopCell.swift; sourceTree = "<group>"; };
 		3924D2C52998F04600787A80 /* ShopOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopOrdersView.swift; sourceTree = "<group>"; };
 		3924D2CC2999142B00787A80 /* ExpandableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
@@ -1125,6 +1127,7 @@
 		39BC54DB29A5809600E42FA7 /* json */ = {
 			isa = PBXGroup;
 			children = (
+				390F30A829AAD207000AA8E5 /* all_orders.json */,
 				39BC54DC29A580AB00E42FA7 /* order_new.json */,
 				39BC54E029A580AC00E42FA7 /* order_check.json */,
 				39BC54DD29A580AB00E42FA7 /* order_modify.json */,
@@ -1237,6 +1240,7 @@
 				39BC54E829A5814E00E42FA7 /* user_login.json in Resources */,
 				39BC549529A2CA5400E42FA7 /* Localizable.strings in Resources */,
 				39BC54C329A5732200E42FA7 /* books_latest.json in Resources */,
+				390F30A929AAD207000AA8E5 /* all_orders.json in Resources */,
 				39BC54E229A580AC00E42FA7 /* order_modify.json in Resources */,
 				39A9631C2988444200F0C055 /* Assets.xcassets in Resources */,
 				39BC54E329A580AC00E42FA7 /* order_status.json in Resources */,

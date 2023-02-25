@@ -26,6 +26,7 @@
 "cancel" = "Cancel";
 "save" = "Save";
 "search" = "Search";
+"search_all" = "Search all";
 "anulado" = "Cancelled";
 "recibido" = "Received";
 "procesando" = "Processing";
@@ -33,6 +34,7 @@
 "entregado" = "Delivered";
 "devuelto" = "Retured";
 
+"error_title" = "Error";
 "email_title" = "Email:";
 "author_title" = "Author:";
 "date_title" = "Date:";

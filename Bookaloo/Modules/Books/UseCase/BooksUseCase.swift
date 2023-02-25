@@ -92,14 +92,10 @@ final class BooksUseCase: BooksUseCaseProtocol {
         var returnValues = [Book]()
         for try await item in AsyncBooks(books: list) {
             var book = item
-            print(book.id)
             let author = try await repository.getAuthors().first(where: { $0.id == book.author })
             book.author = author?.name ?? ""
-            book.purchased = report?.ordered?.contains(book.id) ?? false
-            book.read = report?.readed?.contains(book.id) ?? false
-            if book.price == nil {
-                book.price = Double.random(in: 5...50)
-            }
+            book.purchased = report?.ordered?.contains(book.apiID) ?? false
+            book.read = report?.readed?.contains(book.apiID) ?? false
             returnValues.append(book)
         }
         return returnValues

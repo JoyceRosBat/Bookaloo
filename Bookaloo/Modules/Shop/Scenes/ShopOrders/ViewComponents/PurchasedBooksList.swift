@@ -13,7 +13,7 @@ struct PurchasedBooksList: View {
     
     var body: some View {
         ForEach(Array(Set(books ?? [])), id: \.self) { bookId in
-            if let book = booksViewModel.books.first(where: { $0.id == bookId }) {
+            if let book = booksViewModel.books.first(where: { $0.apiID == bookId }) {
                 HStack(alignment: .center) {
                     Text(Image(systemName: .book))
                         .foregroundStyle(StyleConstants.bookalooGradient)

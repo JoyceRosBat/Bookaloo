@@ -23,44 +23,63 @@ struct HandleOrdersView: View {
                     .foregroundStyle(StyleConstants.bookalooGradient)
                     .frame(height: 100)
                 
-                VStack (spacing: 16) {
-                    HStack(spacing: 16) {
-                        Picker(selection: $searchType) {
-                            ForEach(SearchType.allCases) { searchType in
-                                Text(searchType.rawValue)
-                                    .font(.futura(14))
-                                    .bold()
-                                    .opacity(0.7)
-                            }
+                ExpandableView {
+                    HStack {
+                        Spacer()
+                        Button {
+                            viewModel.getAll()
                         } label: {
-                            Text("")
-                        }//: Picker
-                        .foregroundColor(.accentColor)
-                        
-                        BookalooTextfield(textfieldText: $searchText, orientation: .vertical(.searchable)) {
-                            viewModel.cleanSearchOrders()
-                            viewModel.ordersEmpty.toggle()
-                        }
-                        .onChange(of: searchText) { _ in
-                            viewModel.ordersEmpty = false
-                        }
-                    }//: HStack
-                    .padding(.horizontal, 16)
-                    
-                    Button {
-                        switch searchType {
-                        case .email:
-                            viewModel.getOrders(by: searchText)
-                        case .id:
-                            viewModel.getOrder(by: searchText)
-                        }
-                    } label: {
-                        Text("search")
-                    }//: Button search
-                    .buttonStyle(.bookalooStyle)
-                }//: VStack
+                            Text("search_all")
+                                .font(.futura(12))
+                        }//: Button search all
+                        .buttonStyle(.bookalooStyle)
+                        Spacer()
+                    }
+                } content: {
+                    VStack(spacing: 4) {
+                        VStack(spacing: 4) {
+                            Picker(selection: $searchType) {
+                                ForEach(SearchType.allCases) { searchType in
+                                    Text(searchType.rawValue)
+                                        .font(.futura(12))
+                                        .bold()
+                                        .opacity(0.7)
+                                }
+                            } label: {
+                                Text("")
+                            }//: Picker
+                            .foregroundColor(.accentColor)
+                            
+                            HStack {
+                                BookalooTextfield(textfieldText: $searchText, orientation: .vertical(.searchable)) {
+                                    viewModel.cleanSearchOrders()
+                                    viewModel.ordersEmpty.toggle()
+                                }
+                                .onChange(of: searchText) { _ in
+                                    viewModel.ordersEmpty = false
+                                }
+                                
+                                Button {
+                                    switch searchType {
+                                    case .email:
+                                        viewModel.getOrders(by: searchText)
+                                    case .id:
+                                        viewModel.getOrder(by: searchText)
+                                    }
+                                } label: {
+                                    Text("search")
+                                        .font(.futura(12))
+                                }//: Button search
+                                .buttonStyle(.bookalooStyle)
+                            }//: HStack
+                        }//: HStack
+//                        .padding(.horizontal, 16)
+                    }//: VStack
+                }
+                .padding()
                 .frame(height: hideHeader ? .zero : nil)
                 .opacity(hideHeader ? 0 : 1)
+
                 
                 if viewModel.ordersEmpty, !searchText.isEmpty {
                     Text(String(format: NSLocalizedString("no_orders_for", comment: ""), searchText))

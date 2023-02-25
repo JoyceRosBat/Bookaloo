@@ -13,6 +13,7 @@ protocol ShopUseCaseProtocol {
     func orders(of email: String) async throws -> [Order]
     func status(of orderId: String) async throws -> OrderStatus
     func modify(_ data: OrderModify) async throws
+    func getAll(_ email: String) async throws -> [Order]
 }
 
 final class ShopUseCase: ShopUseCaseProtocol {
@@ -70,5 +71,15 @@ final class ShopUseCase: ShopUseCaseProtocol {
     ///   - data: Data to modify
     func modify(_ data: OrderModify) async throws {
         _ = try await repository.modify(data)
+    }
+    
+    /// Get all orders
+    /// ```
+    ///        shopUseCase.getAll("email")
+    /// ```
+    /// - Parameters:
+    ///   - email: admin email to valitate and get all orders
+    func getAll(_ email: String) async throws -> [Order] {
+        try await repository.getAll(email)
     }
 }

@@ -82,19 +82,19 @@ final class BooksViewModel: ObservableBaseViewModel {
     @MainActor
     func markAsRead(_ book: Book) {
         Task {
-            if report.readed?.contains(book.id) == true {
-                report.readed?.removeAll(where: { $0 == book.id })
+            if report.readed?.contains(book.apiID) == true {
+                report.readed?.removeAll(where: { $0 == book.apiID })
             } else {
-                report.readed?.append(book.id)
+                report.readed?.append(book.apiID)
             }
             
-            let readBooks = ReadBooks(email: user?.email ?? "", books: report.readed ?? [book.id])
+            let readBooks = ReadBooks(email: user?.email ?? "", books: report.readed ?? [book.apiID])
             try await booksUseCase.read(readBooks)
             
             books = books.compactMap { item in
                 var item = item
-                if item.id == book.id {
-                    item.read = report.readed?.contains(book.id) == true
+                if item.apiID == book.apiID {
+                    item.read = report.readed?.contains(book.apiID) == true
                 }
                 return item
             }

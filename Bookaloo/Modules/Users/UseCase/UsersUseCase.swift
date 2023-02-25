@@ -70,12 +70,7 @@ final class UsersUseCase: UsersUseCaseProtocol {
     /// - Parameters:
     ///   - email: Email of the user to get the list of books
     func report(_ email: String) async throws -> Report {
-        if let report = Cache.shared.report {
-            return report
-        }
-        let report = try await repository.report(email)
-        Cache.shared.report = report
-        return report
+        return try await repository.report(email)
     }
     
     /// Get books read of a user by email

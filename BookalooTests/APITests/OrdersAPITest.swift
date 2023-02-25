@@ -100,4 +100,22 @@ final class OrdersAPITest: XCTestCase {
             XCTAssert(error.errorCode == "404")
         }
     }
+    
+    func test_get_all_orders_with_success() async throws {
+        let orders = try await ordersRepository?.getAll("joyce.admin@bookaloo.com")
+        XCTAssert(orders?.first?.email == "joyce.rosbat@gmail.com")
+        XCTAssert(orders?.first?.id == "DD85005F-A179-4FAB-B098-CE8A4A29FAB5")
+        XCTAssert(orders?.first?.status == .received)
+        XCTAssert(orders?.first?.books?.count == 2)
+    }
+    
+    func test_get_all_orders_should_fail() async throws {
+        mockDependenciesResolver = MockNetworkRequestDependenciesResolver(shouldFail: true, failError: 404)
+        do {
+            _ = try await ordersRepository?.getAll("joyce.admin@bookaloo.com")
+        } catch let error as MockError {
+            XCTAssert(error.code == 404)
+            XCTAssert(error.errorCode == "404")
+        }
+    }
 }

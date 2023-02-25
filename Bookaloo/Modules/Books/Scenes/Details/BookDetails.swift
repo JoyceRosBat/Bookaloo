@@ -64,7 +64,7 @@ struct BookDetailsView: View {
                         }
                         
                         Button {
-                            if viewModel.booksToShop[book.id, default: -1] < 10 {
+                            if viewModel.booksToShop[book.apiID, default: -1] < 10 {
                                 withAnimation(.easeInOut(duration: 2)) {
                                     viewModel.shopBook = true
                                     viewModel.addToCart(book)

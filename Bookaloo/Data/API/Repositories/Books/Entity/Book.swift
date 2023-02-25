@@ -11,7 +11,8 @@ import Foundation
 
 // MARK: - Book
 public struct Book: Codable, Identifiable, Hashable {
-    public let id: Int
+    public let id: UUID = UUID()
+    let apiID: Int
     let pages: Int?
     let year: Int
     let rating: Double?
@@ -25,8 +26,24 @@ public struct Book: Codable, Identifiable, Hashable {
     var read: Bool? = nil
     var price: Double? = nil
     
+    enum CodingKeys: String, CodingKey {
+        case apiID = "id"
+        case pages
+        case year
+        case rating
+        case cover
+        case summary
+        case author
+        case isbn
+        case title
+        case plot
+        case purchased
+        case read
+        case price
+    }
+    
     static let test: Book = .init(
-        id: 1,
+        apiID: 1,
         pages: 100,
         year: 1985,
         rating: 5.0,

@@ -20,6 +20,27 @@ final class HandleOrderViewModel: ObservableBaseViewModel {
         self.dependencies = dependencies
     }
     
+    /// Get all orders
+    /// ```
+    ///        viewModel.getAll()
+    /// ```
+    @MainActor
+    func getAll() {
+        guard let email = user?.email else { return }
+        cleanSearchOrders()
+        showLoading(true)
+        Task {
+            do {
+                let list = try await shopUseCase.getAll(email)
+                searchOrders = list
+                ordersEmpty = searchOrders.isEmpty
+                showLoading(false)
+            } catch let error as NetworkError {
+                showNetworkError(error)
+            }
+        }
+    }
+    
     /// Get the orders of a user given the email
     /// ```
     ///        viewModel.getOrders(by: "email")

@@ -12,12 +12,6 @@ struct ObservableScrollView<Content>: View where Content : View {
     @Binding var scrollOffset: CGFloat
     let content: () -> Content
     
-    init(scrollOffset: Binding<CGFloat>,
-         @ViewBuilder content: @escaping () -> Content) {
-        _scrollOffset = scrollOffset
-        self.content = content
-    }
-    
     var body: some View {
         ScrollView {
             content()
