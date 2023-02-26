@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UsersView: View {
+public struct UsersView: View {
     var dependencies: UsersDependenciesResolver
     var modifyUserView: ModifyUserView {
         dependencies.resolve()
@@ -16,7 +16,7 @@ struct UsersView: View {
         dependencies.resolve()
     }
     
-    var body: some View {
+    public var body: some View {
         VStack {
             Text("user_management_header_title")
                 .font(.futura(24))

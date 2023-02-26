@@ -10,11 +10,11 @@ import XCTest
 
 @MainActor
 final class BooksViewModelTest: XCTestCase {
-    var mockBooksDependenciesResolver = MockBooksDependenciesResolver()
+    var mockDependenciesResolver = MockBooksDependenciesResolver()
     var viewModel: BooksViewModel?
     
     override func setUp() {
-        viewModel = mockBooksDependenciesResolver.resolve()
+        viewModel = mockDependenciesResolver.resolve()
     }
 
     override func tearDown() {

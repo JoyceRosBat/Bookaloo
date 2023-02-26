@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class UsersViewModel: ObservableBaseViewModel {
+public final class UsersViewModel: ObservableBaseViewModel {
     let dependencies: UsersDependenciesResolver
     var usersUseCase: UsersUseCaseProtocol {
         dependencies.resolve()
@@ -23,11 +23,11 @@ final class UsersViewModel: ObservableBaseViewModel {
     @Published var showCreatedUserAlert: Bool = false
     @Published var showModifiedUserAlert: Bool = false
     
-    init(dependencies: UsersDependenciesResolver) {
+    public init(dependencies: UsersDependenciesResolver) {
         self.dependencies = dependencies
     }
     
-    override func onAppear() {
+    public override func onAppear() {
         super.onAppear()
         cleanUserFound()
     }

@@ -10,11 +10,11 @@ import XCTest
 
 @MainActor
 final class LoginViewModelTest: XCTestCase {
-    var mockLoginDependenciesResolver = MockLoginDependenciesResolver()
+    var mockDependenciesResolver = MockLoginDependenciesResolver()
     var viewModel: LoginViewModel?
     
     override func setUp() {
-        viewModel = mockLoginDependenciesResolver.resolve()
+        viewModel = mockDependenciesResolver.resolve()
     }
 
     override func tearDown() {
@@ -59,7 +59,7 @@ final class LoginViewModelTest: XCTestCase {
     }
     
     func test_validate_should_fail() {
-        mockLoginDependenciesResolver.networkDependenciesResolver.shouldFail = true
+        mockDependenciesResolver.networkDependenciesResolver.shouldFail = true
         viewModel?.email = "email@example.com"
         viewModel?.password = "12345678"
         viewModel?.doLogin()

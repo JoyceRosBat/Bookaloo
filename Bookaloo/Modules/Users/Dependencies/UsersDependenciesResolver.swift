@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol UsersDependenciesResolver {
+public protocol UsersDependenciesResolver {
     func resolve() -> UsersRepositoryProtocol
     func resolve() -> UsersUseCaseProtocol
     func resolve() -> UsersViewModel

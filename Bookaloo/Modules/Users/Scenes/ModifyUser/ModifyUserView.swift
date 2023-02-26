@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ModifyUserView: View {
+public struct ModifyUserView: View {
     @EnvironmentObject var viewModel: UsersViewModel
     @State var searchText: String = ""
     @FocusState var isFocused: Bool
     
-    var body: some View {
+    public var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack {
                 HStack {

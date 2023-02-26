@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol UsersUseCaseProtocol {
+public protocol UsersUseCaseProtocol {
     func find(by email: String) async throws -> User
     func new(_ user: User) async throws
     func modify(_ user: User) async throws
@@ -16,10 +16,10 @@ protocol UsersUseCaseProtocol {
     func read(_ email: String) async throws -> Report
 }
 
-final class UsersUseCase: UsersUseCaseProtocol {
+public final class UsersUseCase: UsersUseCaseProtocol {
     private let repository: UsersRepositoryProtocol
     
-    init(dependencies: UsersDependenciesResolver) {
+    public init(dependencies: UsersDependenciesResolver) {
         self.repository = dependencies.resolve()
     }
     
@@ -29,7 +29,7 @@ final class UsersUseCase: UsersUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - email: Email of the user to find
-    func find(by email: String) async throws -> User {
+    public func find(by email: String) async throws -> User {
         try await repository.find(by: email)
     }
     
@@ -39,7 +39,7 @@ final class UsersUseCase: UsersUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - user: User to create
-    func new(_ user: User) async throws {
+    public func new(_ user: User) async throws {
         _ = try await repository.new(user)
     }
     
@@ -49,7 +49,7 @@ final class UsersUseCase: UsersUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - user: User to modify
-    func modify(_ user: User) async throws {
+    public func modify(_ user: User) async throws {
         _ = try await repository.modify(user)
     }
     
@@ -59,7 +59,7 @@ final class UsersUseCase: UsersUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - readBooks: Books to mark as read
-    func markRead(_ readBooks: ReadBooks) async throws {
+    public func markRead(_ readBooks: ReadBooks) async throws {
         _ = try await repository.markRead(readBooks)
     }
     
@@ -69,7 +69,7 @@ final class UsersUseCase: UsersUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - email: Email of the user to get the list of books
-    func report(_ email: String) async throws -> Report {
+    public func report(_ email: String) async throws -> Report {
         return try await repository.report(email)
     }
     
@@ -79,7 +79,7 @@ final class UsersUseCase: UsersUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - email: Email of the user to get the list of books
-    func read(_ email: String) async throws -> Report {
+    public func read(_ email: String) async throws -> Report {
         try await repository.read(email)
     }
 }
