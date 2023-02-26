@@ -51,11 +51,13 @@ struct BookShopCell: View {
                         if quantity < 10 {
                             quantity += 1
                             viewModel.addToCart(book)
+                            viewModel.total += (book.price ?? 0)
                         }
                     } onDecrement: {
                         if quantity > 1 {
                             quantity -= 1
                             viewModel.removeFromCart(book)
+                            viewModel.total -= (book.price ?? 0)
                         } else {
                             viewModel.bookSelected = book
                             showAlert = true

@@ -44,6 +44,8 @@
 "role_title" = "Role:";
 "year_title" = "Year:";
 
+"total_price_books" = "Total:  %.2f%@";
+
 "shop" = "Shop";
 "books" = "Books";
 "clients" = "Clients";

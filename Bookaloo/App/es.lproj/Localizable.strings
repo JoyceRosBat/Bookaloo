@@ -52,6 +52,8 @@
 "role_title" = "Rol:";
 "year_title" = "Año:";
 
+"total_price_books" = "Total:  %.2f%@";
+
 "finish_shopping_popup_title" = "Finalizar compra";
 "finish_shopping_popup_message" = "¿Desea finalizar la compra?";
 "remove_book_popup_title" = "El libro se borrará de la lista";

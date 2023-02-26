@@ -37,10 +37,20 @@ public struct ShopView: View {
                             viewModel.finishShopAlert = true
                         } label: {
                             Label("shop", systemImage: .cart)
+                                .font(.futura(12))
                         }
                         .buttonStyle(.bookalooStyle)
-                        .frame(width: UIScreen.main.bounds.width * 0.8)
+//                        .frame(width: UIScreen.main.bounds.width * 0.8)
                         .padding()
+                        
+                        
+                        
+                        Text(String(format: NSLocalizedString("total_price_books", comment: ""), viewModel.total, Locale.current.currencySymbol ?? "€"))
+                            .font(.futura(12))
+                            .bold()
+                            .foregroundColor(.green)
+                            .opacity(0.7)
+                        
                     }//: HStack
                 }//: VStack
             }//: If books to shop is not empty
@@ -75,10 +85,22 @@ public struct ShopView: View {
                   viewModel.finishShopAlert ||
                   viewModel.shopCompleteAlert) ? .hidden : .visible, for: .tabBar)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            calculateTotal()
+        }
     }
 }
 
 extension ShopView {
+    func calculateTotal() {
+        viewModel.total = (booksViewModel.books.map { book in
+            if viewModel.booksToShop.contains(where: { $0.key == book.apiID }) {
+                return (book.price ?? 0) * Double(viewModel.booksToShop[book.apiID] ?? 0)
+            }
+            return 0
+        } as [Double]).reduce(0, +)
+    }
+    
     @ViewBuilder
     var removeConfirmationPopup: some View {
         PopupView(
@@ -100,6 +122,7 @@ extension ShopView {
                         viewModel.removeBookSelected()
                     }
                     viewModel.showRemoveBookAlert.toggle()
+                    calculateTotal()
                 } label: {
                     Text("accept")
                 }
@@ -150,6 +173,8 @@ extension ShopView {
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        (ModuleDependencies().resolve() as ShopView).environmentObject(ModuleDependencies().resolve() as BooksViewModel)
+        (ModuleDependencies().resolve() as ShopView)
+            .environmentObject(ModuleDependencies().resolve() as BooksViewModel)
+            .environmentObject(ModuleDependencies().resolve() as ShopViewModel)
     }
 }

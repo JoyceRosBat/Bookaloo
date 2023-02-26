@@ -25,6 +25,8 @@ public final class ShopViewModel: ObservableBaseViewModel {
     
     @Published var pendingOrder: Order?
     
+    @Published var total: Double = 0
+    
     var viewDidLoad: Bool = false
     
     public init(dependencies: ShopDependenciesResolver) {
