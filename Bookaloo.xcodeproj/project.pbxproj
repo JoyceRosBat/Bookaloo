@@ -15,6 +15,10 @@
 		390F30B629AAE253000AA8E5 /* BooksViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F30B529AAE253000AA8E5 /* BooksViewModelTest.swift */; };
 		390F30B929AB7E4A000AA8E5 /* UsersViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F30B829AB7E4A000AA8E5 /* UsersViewModelTest.swift */; };
 		390F30BB29AB7E5F000AA8E5 /* MockUsersDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F30BA29AB7E5F000AA8E5 /* MockUsersDependenciesResolver.swift */; };
+		390F30BE29AB860E000AA8E5 /* MockShopDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F30BD29AB860E000AA8E5 /* MockShopDependenciesResolver.swift */; };
+		390F30C029AB8638000AA8E5 /* ShopViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F30BF29AB8638000AA8E5 /* ShopViewModelTest.swift */; };
+		390F30C229AB865E000AA8E5 /* HandleOrdersViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F30C129AB865E000AA8E5 /* HandleOrdersViewModelTest.swift */; };
+		390F30C429AB8678000AA8E5 /* ShopOrdersViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F30C329AB8678000AA8E5 /* ShopOrdersViewModelTest.swift */; };
 		3924D2C12994D91500787A80 /* BookShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2C02994D91500787A80 /* BookShopCell.swift */; };
 		3924D2C62998F04600787A80 /* ShopOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2C52998F04600787A80 /* ShopOrdersView.swift */; };
 		3924D2CD2999142B00787A80 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2CC2999142B00787A80 /* ExpandableView.swift */; };
@@ -157,6 +161,10 @@
 		390F30B529AAE253000AA8E5 /* BooksViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModelTest.swift; sourceTree = "<group>"; };
 		390F30B829AB7E4A000AA8E5 /* UsersViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelTest.swift; sourceTree = "<group>"; };
 		390F30BA29AB7E5F000AA8E5 /* MockUsersDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUsersDependenciesResolver.swift; sourceTree = "<group>"; };
+		390F30BD29AB860E000AA8E5 /* MockShopDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockShopDependenciesResolver.swift; sourceTree = "<group>"; };
+		390F30BF29AB8638000AA8E5 /* ShopViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModelTest.swift; sourceTree = "<group>"; };
+		390F30C129AB865E000AA8E5 /* HandleOrdersViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleOrdersViewModelTest.swift; sourceTree = "<group>"; };
+		390F30C329AB8678000AA8E5 /* ShopOrdersViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopOrdersViewModelTest.swift; sourceTree = "<group>"; };
 		3924D2C02994D91500787A80 /* BookShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShopCell.swift; sourceTree = "<group>"; };
 		3924D2C52998F04600787A80 /* ShopOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopOrdersView.swift; sourceTree = "<group>"; };
 		3924D2CC2999142B00787A80 /* ExpandableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
@@ -313,6 +321,7 @@
 		390F30B129AADF8B000AA8E5 /* ViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				390F30BC29AB851E000AA8E5 /* Shops */,
 				390F30B729AB7E32000AA8E5 /* Users */,
 				390F30B229AAE000000AA8E5 /* Books */,
 				390F30B029AADF75000AA8E5 /* Login */,
@@ -336,6 +345,17 @@
 				390F30B829AB7E4A000AA8E5 /* UsersViewModelTest.swift */,
 			);
 			path = Users;
+			sourceTree = "<group>";
+		};
+		390F30BC29AB851E000AA8E5 /* Shops */ = {
+			isa = PBXGroup;
+			children = (
+				390F30BD29AB860E000AA8E5 /* MockShopDependenciesResolver.swift */,
+				390F30BF29AB8638000AA8E5 /* ShopViewModelTest.swift */,
+				390F30C129AB865E000AA8E5 /* HandleOrdersViewModelTest.swift */,
+				390F30C329AB8678000AA8E5 /* ShopOrdersViewModelTest.swift */,
+			);
+			path = Shops;
 			sourceTree = "<group>";
 		};
 		3924D2C22994DD3E00787A80 /* ViewComponents */ = {
@@ -1427,10 +1447,14 @@
 				390F30B429AAE0FD000AA8E5 /* MockBooksDependenciesResolver.swift in Sources */,
 				39BC54EA29A581B600E42FA7 /* OrdersAPITest.swift in Sources */,
 				39BC54EC29A581C700E42FA7 /* LoginAPITest.swift in Sources */,
+				390F30C029AB8638000AA8E5 /* ShopViewModelTest.swift in Sources */,
 				39BC54CB29A57BF500E42FA7 /* MockError.swift in Sources */,
 				390F30B629AAE253000AA8E5 /* BooksViewModelTest.swift in Sources */,
+				390F30BE29AB860E000AA8E5 /* MockShopDependenciesResolver.swift in Sources */,
 				390F30AD29AAD603000AA8E5 /* LoginViewModelTest.swift in Sources */,
+				390F30C229AB865E000AA8E5 /* HandleOrdersViewModelTest.swift in Sources */,
 				390F30BB29AB7E5F000AA8E5 /* MockUsersDependenciesResolver.swift in Sources */,
+				390F30C429AB8678000AA8E5 /* ShopOrdersViewModelTest.swift in Sources */,
 				39BC54AB29A547B800E42FA7 /* MockNetworkRequestDependenciesResolver.swift in Sources */,
 				390F30B929AB7E4A000AA8E5 /* UsersViewModelTest.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShopOrdersView: View {
+public struct ShopOrdersView: View {
     @StateObject var viewModel: ShopOrdersViewModel
     @State var statusSelected: PurchaseStatus = .inProgress
     
@@ -15,7 +15,7 @@ struct ShopOrdersView: View {
 //        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
 //    }
     
-    var body: some View {
+    public var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack {
                 Picker("order_status", selection: $statusSelected) {

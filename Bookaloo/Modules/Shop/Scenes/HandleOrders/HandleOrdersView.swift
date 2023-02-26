@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct HandleOrdersView: View {
+public struct HandleOrdersView: View {
     @StateObject var viewModel: HandleOrderViewModel
     @State var searchType: SearchType = .email
     @State var searchText: String = ""
     @State var scrollOffset: CGFloat = 0
     @State var hideHeader: Bool = false
     
-    var body: some View {
+    public var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack(alignment: .center, spacing: 0) {
                 Text("orders_management_header_title")

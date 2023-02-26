@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ShopUseCaseProtocol {
+public protocol ShopUseCaseProtocol {
     func new(_ order: Order) async throws -> Order
     func check(by number: String) async throws -> Order
     func orders(of email: String) async throws -> [Order]
@@ -16,10 +16,10 @@ protocol ShopUseCaseProtocol {
     func getAll(_ email: String) async throws -> [Order]
 }
 
-final class ShopUseCase: ShopUseCaseProtocol {
+public final class ShopUseCase: ShopUseCaseProtocol {
     private let repository: ShopRepositoryProtocol
     
-    init(dependencies: ShopDependenciesResolver) {
+    public init(dependencies: ShopDependenciesResolver) {
         self.repository = dependencies.resolve()
     }
     
@@ -29,7 +29,7 @@ final class ShopUseCase: ShopUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - order: Order with the list of books to shop
-    func new(_ order: Order) async throws -> Order {
+    public func new(_ order: Order) async throws -> Order {
         try await repository.new(order)
     }
     
@@ -39,7 +39,7 @@ final class ShopUseCase: ShopUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - number: Number of the order to check
-    func check(by number: String) async throws -> Order {
+    public func check(by number: String) async throws -> Order {
         try await repository.checkOrder(by: number)
     }
     
@@ -49,7 +49,7 @@ final class ShopUseCase: ShopUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - email: Email of the user to get the orders
-    func orders(of email: String) async throws -> [Order] {
+    public func orders(of email: String) async throws -> [Order] {
         try await repository.getOrders(of: email)
     }
     
@@ -59,7 +59,7 @@ final class ShopUseCase: ShopUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - orderId: Id number of the order to check th status
-    func status(of orderId: String) async throws -> OrderStatus {
+    public func status(of orderId: String) async throws -> OrderStatus {
         try await repository.getStatus(of: orderId)
     }
     
@@ -69,7 +69,7 @@ final class ShopUseCase: ShopUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - data: Data to modify
-    func modify(_ data: OrderModify) async throws {
+    public func modify(_ data: OrderModify) async throws {
         _ = try await repository.modify(data)
     }
     
@@ -79,7 +79,7 @@ final class ShopUseCase: ShopUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - email: admin email to valitate and get all orders
-    func getAll(_ email: String) async throws -> [Order] {
+    public func getAll(_ email: String) async throws -> [Order] {
         try await repository.getAll(email)
     }
 }

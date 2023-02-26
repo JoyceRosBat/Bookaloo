@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ShopOrdersViewModel: ObservableBaseViewModel {
+public final class ShopOrdersViewModel: ObservableBaseViewModel {
     let dependencies: ShopDependenciesResolver
     var shopUseCase: ShopUseCaseProtocol {
         dependencies.resolve()
@@ -19,7 +19,7 @@ final class ShopOrdersViewModel: ObservableBaseViewModel {
     @Published var inProgressList: [Order] = []
     @Published var cancelledList: [Order] = []
     
-    init(dependencies: ShopDependenciesResolver) {
+    public init(dependencies: ShopDependenciesResolver) {
         self.dependencies = dependencies
     }
     

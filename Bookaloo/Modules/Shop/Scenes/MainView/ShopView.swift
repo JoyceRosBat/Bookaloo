@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShopView: View {
+public struct ShopView: View {
     var dependencies: ShopDependenciesResolver
     @EnvironmentObject var booksViewModel: BooksViewModel
     @EnvironmentObject var viewModel: ShopViewModel
@@ -15,7 +15,7 @@ struct ShopView: View {
         dependencies.resolve()
     }
     
-    var body: some View {
+    public var body: some View {
         BaseViewContent(viewModel: viewModel) {
             if viewModel.booksToShop.isEmpty {
                 Text("orders_emtpy_list")

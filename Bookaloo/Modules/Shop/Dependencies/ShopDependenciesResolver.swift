@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol ShopDependenciesResolver {
+public protocol ShopDependenciesResolver {
     func resolve() -> ShopRepositoryProtocol
     func resolve() -> ShopUseCaseProtocol
     func resolve() -> ShopViewModel
