@@ -44,22 +44,24 @@ final class BooksViewModelTest: XCTestCase {
     }
     
     func test_mark_book_read_with_success() {
-        let book = Book(
-            apiID: 1,
-            pages: 100,
-            year: 1985,
-            rating: 5,
-            cover: nil,
-            summary: "",
-            author: "",
-            isbn: "",
-            title: "",
-            plot: "",
-            read: false
-        )
-        viewModel?.books.append(book)
-        viewModel?.markAsRead(book)
-        let bookRead = viewModel?.books.first(where: { $0.apiID == book.apiID })
-        wait(bookRead?.read == false)
+        viewModel?.onAppear()
+        wait(self.viewModel?.books.first != nil)
+        if var book = viewModel?.books.first {
+            book.read = false
+            viewModel?.report.read?.removeAll(where: { $0 == book.apiID })
+            viewModel?.markAsRead(book)
+            wait(self.viewModel?.books.first?.read == true)
+        }
+    }
+    
+    func test_mark_book_not_read_with_success() {
+        viewModel?.onAppear()
+        wait(self.viewModel?.books.first != nil)
+        if var book = viewModel?.books.first {
+            book.read = true
+            viewModel?.report.read?.append(book.apiID)
+            viewModel?.markAsRead(book)
+            wait(self.viewModel?.books.first?.read == false)
+        }
     }
 }
