@@ -8,6 +8,7 @@
 import XCTest
 @testable import Bookaloo
 
+@MainActor
 final class ShopOrdersViewModelTest: XCTestCase {
     var mockDependenciesResolver = MockShopDependenciesResolver()
     var viewModel: ShopOrdersViewModel?
@@ -18,5 +19,15 @@ final class ShopOrdersViewModelTest: XCTestCase {
 
     override func tearDown() {
         viewModel = nil
+    }
+    
+    func test_get_user_orders_with_success() {
+        // When
+        viewModel?.getOrders()
+        // Then
+        wait(self.viewModel?.userOrders.isEmpty == false)
+        wait(self.viewModel?.deliveredList.isEmpty == false)
+        wait(self.viewModel?.cancelledList.isEmpty == false)
+        wait(self.viewModel?.inProgressList.isEmpty == false)
     }
 }

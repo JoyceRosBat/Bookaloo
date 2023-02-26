@@ -91,13 +91,10 @@ public final class BooksViewModel: ObservableBaseViewModel {
             let readBooks = ReadBooks(email: user?.email ?? "", books: report.read ?? [book.apiID])
             try await booksUseCase.read(readBooks)
             
-            books = books.compactMap { item in
-                var item = item
-                if item.apiID == book.apiID {
-                    item.read = report.read?.contains(book.apiID) == true
-                }
-                return item
+            if let index = books.firstIndex(of: book) {
+                books[index].read = report.read?.contains(book.apiID) == true
             }
+            Cache.shared.books = books
         }
     }
 }

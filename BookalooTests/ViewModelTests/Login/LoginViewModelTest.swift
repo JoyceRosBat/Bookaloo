@@ -67,6 +67,7 @@ final class LoginViewModelTest: XCTestCase {
         XCTAssert(viewModel?.validEmail == true)
         XCTAssert(viewModel?.validPassword == true)
         wait(self.viewModel?.myUserToModify.email == "joyce.admin@bookaloo.com")
+        wait(self.viewModel?.loggedIn == true)
     }
     
     func test_validate_should_fail() {
