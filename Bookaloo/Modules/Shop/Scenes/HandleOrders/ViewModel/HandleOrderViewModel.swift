@@ -103,6 +103,9 @@ public final class HandleOrderViewModel: ObservableBaseViewModel {
                     admin: user?.email ?? ""
                 )
                 try await shopUseCase.modify(orderToModify)
+                if let index = searchOrders.firstIndex(where: { $0.id == orderId }) {
+                    searchOrders[index].status = status
+                }
                 showLoading(false)
             } catch let error as NetworkError {
                 showNetworkError(error)
