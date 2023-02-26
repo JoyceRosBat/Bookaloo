@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+public struct HomeView: View {
     let dependencies: CommonModulesDependenciesResolver
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var shopsViewModel: ShopViewModel
@@ -24,7 +24,7 @@ struct HomeView: View {
         dependencies.resolve()
     }
     
-    var body: some View {
+    public var body: some View {
         TabView {
             NavigationStack {
                 booksHomeView

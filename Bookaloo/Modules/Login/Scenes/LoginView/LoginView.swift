@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+public struct LoginView: View {
     var dependencies: LoginDependenciesResolver
     @EnvironmentObject var viewModel: LoginViewModel
     @FocusState private var isFocused: Bool
@@ -15,7 +15,7 @@ struct LoginView: View {
         dependencies.resolve()
     }
     
-    var body: some View {
+    public var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack {
                 Image("fairytale_book")

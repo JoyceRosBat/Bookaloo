@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct CreateUserView: View {
+public struct CreateUserView: View {
     @EnvironmentObject var viewModel: UsersViewModel
     @FocusState private var isFocused: Bool
     
-    var body: some View {
+    public var body: some View {
         BaseViewContent(viewModel: viewModel) {
             VStack(spacing: 16) {
                 Spacer()

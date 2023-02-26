@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LoginDependenciesResolver {
+public protocol LoginDependenciesResolver {
     func resolve() -> LoginRepositoryProtocol
     func resolve() -> LoginUseCaseProtocol
     func resolve() -> LoginViewModel

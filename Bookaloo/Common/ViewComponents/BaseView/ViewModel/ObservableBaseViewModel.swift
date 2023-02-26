@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ViewModelProtocol {
+public protocol ViewModelProtocol {
     func onAppear()
     func showNetworkError(_ error: NetworkError)
     func showError(with title: String, message: String)
@@ -15,7 +15,7 @@ protocol ViewModelProtocol {
     func showError(_ show: Bool)
 }
 
-class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
+public class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// show Loading animation
     /// ```
     ///        viewModel.showLoading = true
@@ -72,7 +72,7 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// ```
     ///        viewModel.onAppear()
     /// ```
-    func onAppear() {
+    public func onAppear() {
         myUserToModify = UserData(email: user?.email ?? "", name: user?.email ?? "", location: user?.location ?? "", role: user?.role ?? .user)
     }
     
@@ -83,7 +83,7 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// - Parameters:
     ///   - show: Bool to indicate if shows loading animation or not
     @MainActor
-    func showLoading(_ show: Bool) {
+    public func showLoading(_ show: Bool) {
         showLoading = show
     }
     
@@ -94,7 +94,7 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// - Parameters:
     ///   - show: Bool to indicate if shows error popup or not
     @MainActor
-    func showError(_ show: Bool) {
+    public func showError(_ show: Bool) {
         showError = show
     }
     
@@ -105,7 +105,7 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     /// - Parameters:
     ///   - error: NetworkError to show
     @MainActor
-    func showNetworkError(_ error: NetworkError) {
+    public func showNetworkError(_ error: NetworkError) {
         showLoading(false)
         switch error {
         case .apiError(let aPIErrorResponse):
@@ -127,7 +127,7 @@ class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     ///   - title: Title of the error popup
     ///   - message: Message of the error popup
     @MainActor
-    func showError(with title: String, message: String) {
+    public func showError(with title: String, message: String) {
         showLoading = false
         alertTitle = title
         alertMessage = message

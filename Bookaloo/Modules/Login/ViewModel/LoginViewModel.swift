@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class LoginViewModel: ObservableBaseViewModel {
+public final class LoginViewModel: ObservableBaseViewModel {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var validEmail: Bool = true
@@ -20,7 +20,7 @@ final class LoginViewModel: ObservableBaseViewModel {
         dependencies.resolve()
     }
     
-    init(dependencies: LoginDependenciesResolver) {
+    public init(dependencies: LoginDependenciesResolver) {
         self.dependencies = dependencies
     }
     

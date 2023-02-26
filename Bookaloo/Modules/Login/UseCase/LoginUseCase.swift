@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol LoginUseCaseProtocol {
+public protocol LoginUseCaseProtocol {
     func validate(_ user: User) async throws -> User
 }
 
-final class LoginUseCase: LoginUseCaseProtocol {
+public final class LoginUseCase: LoginUseCaseProtocol {
     let repository: LoginRepositoryProtocol
     
-    init(dependencies: LoginDependenciesResolver) {
+    public init(dependencies: LoginDependenciesResolver) {
         self.repository = dependencies.resolve()
     }
     
@@ -22,7 +22,7 @@ final class LoginUseCase: LoginUseCaseProtocol {
     /// ```
     ///        loginUseCase.validate(user)
     /// ```
-    func validate(_ user: User) async throws -> User {
+    public func validate(_ user: User) async throws -> User {
         try await repository.validate(user)
     }
 }
