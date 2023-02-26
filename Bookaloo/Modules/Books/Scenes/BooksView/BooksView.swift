@@ -29,7 +29,8 @@ public struct BooksView: View {
                                 rating: book.rating,
                                 purchased: book.purchased ?? false,
                                 read: book.read ?? false,
-                                price: book.price
+                                price: book.price,
+                                showRating: true
                             )
                             .swipeActions(edge: .trailing,
                                           allowsFullSwipe: true) {
