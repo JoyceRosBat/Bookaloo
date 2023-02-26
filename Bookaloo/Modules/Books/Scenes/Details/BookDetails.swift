@@ -82,10 +82,22 @@ public struct BookDetailsView: View {
                     
                     VStack(alignment: .leading, spacing: 16) {
                         HStack {
-                            bookImage
-                                .cornerRadius(5)
-                                .frame(width: hideHeader ? 30 : .zero)
-                                .opacity(hideHeader ? 1 : 0)
+                            ZStack {
+                                bookImage
+                                    .cornerRadius(5)
+                                    .frame(width: hideHeader ? 30 : .zero)
+                                    .opacity(hideHeader ? 1 : 0)
+                                
+                                bookImage
+                                    .frame(width: viewModel.shopBook ? 0 : 30)
+                                    .frame(width: hideHeader ? 30 : .zero)
+                                    .opacity(hideHeader ? 1 : 0)
+                                    .cornerRadius(5)
+                                    .offset(
+                                        x: viewModel.shopBook ? screenSize.width - 30 : 0,
+                                        y: viewModel.shopBook ? screenSize.height : 0
+                                    )
+                            }//: ZStack
                             
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack(alignment: .top) {
@@ -103,7 +115,28 @@ public struct BookDetailsView: View {
                                 .font(StyleConstants.bookalooFont)
                             }//: VStack
                             .ignoresSafeArea()
+                            
+                            Spacer()
+                            
+                            Button {
+                                if viewModel.booksToShop[book.apiID, default: -1] < 10 {
+                                    withAnimation(.easeInOut(duration: 2)) {
+                                        viewModel.shopBook = true
+                                        viewModel.addToCart(book)
+                                    }
+                                } else {
+                                    showErrorMessage = true
+                                }
+                            } label: {
+                                Image(systemName: .cart)
+                                    .font(.futura(12))
+                            }
+                            .buttonStyle(.bookalooStyle)
+                            .frame(width: hideHeader ? 30 : .zero)
+                            .opacity(hideHeader ? 1 : 0)
+                            
                         }//: HStack
+                        .padding(.trailing, 16)
                         
                         if let plot = book.plot {
                             
