@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BooksUseCaseProtocol {
+public protocol BooksUseCaseProtocol {
     func fetch() async throws -> [Book]
     func fetchLatest() async throws -> [Book]
     func find(startingWith text: String) async throws -> [Book]
@@ -15,14 +15,14 @@ protocol BooksUseCaseProtocol {
     func getReport(_ email: String) async throws -> Report
 }
 
-final class BooksUseCase: BooksUseCaseProtocol {
+public final class BooksUseCase: BooksUseCaseProtocol {
     private var user: User? {
         Storage.shared.get(key: .user, type: User.self)
     }
     private let repository: BooksRepositoryProtocol
     private let usersRepository: UsersRepositoryProtocol
     
-    init(dependencies: BooksDependenciesResolver) {
+    public init(dependencies: BooksDependenciesResolver) {
         self.repository = dependencies.resolve()
         self.usersRepository = dependencies.resolve()
     }
@@ -31,7 +31,7 @@ final class BooksUseCase: BooksUseCaseProtocol {
     /// ```
     ///        booksUseCase.fetch()
     /// ```
-    func fetch() async throws -> [Book] {
+    public func fetch() async throws -> [Book] {
         if let books = Cache.shared.books {
             return books
         }
@@ -45,7 +45,7 @@ final class BooksUseCase: BooksUseCaseProtocol {
     /// ```
     ///        booksUseCase.fetchLatest()
     /// ```
-    func fetchLatest() async throws -> [Book] {
+    public func fetchLatest() async throws -> [Book] {
         let books = try await repository.getLatestBooks()
         return try await getBookList(from: books)
     }
@@ -56,7 +56,7 @@ final class BooksUseCase: BooksUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - startingWith: Find books that starts with that string
-    func find(startingWith text: String) async throws -> [Book] {
+    public func find(startingWith text: String) async throws -> [Book] {
         let books = try await repository.findBook(with: text)
         return try await getBookList(from: books)
     }
@@ -67,7 +67,7 @@ final class BooksUseCase: BooksUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - readBooks: Books to mark as read
-    func read(_ readBooks: ReadBooks) async throws {
+    public func read(_ readBooks: ReadBooks) async throws {
         _ = try await usersRepository.markRead(readBooks)
     }
     
@@ -77,7 +77,7 @@ final class BooksUseCase: BooksUseCaseProtocol {
     /// ```
     /// - Parameters:
     ///   - email: Email of the user to get the list of books
-    func getReport(_ email: String) async throws -> Report {
+    public func getReport(_ email: String) async throws -> Report {
         try await usersRepository.report(email)
     }
     
@@ -95,7 +95,7 @@ final class BooksUseCase: BooksUseCaseProtocol {
             let author = try await repository.getAuthors().first(where: { $0.id == book.author })
             book.author = author?.name ?? ""
             book.purchased = report?.ordered?.contains(book.apiID) ?? false
-            book.read = report?.readed?.contains(book.apiID) ?? false
+            book.read = report?.read?.contains(book.apiID) ?? false
             returnValues.append(book)
         }
         return returnValues

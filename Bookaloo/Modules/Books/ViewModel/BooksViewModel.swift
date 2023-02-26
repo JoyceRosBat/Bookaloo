@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class BooksViewModel: ObservableBaseViewModel {
+public final class BooksViewModel: ObservableBaseViewModel {
     @Published var searchText: String = ""
     @Published var books = [Book]()
     
@@ -19,14 +19,14 @@ final class BooksViewModel: ObservableBaseViewModel {
     var filteredBooks: [Book] {
         searchText.isEmpty ? books : books.filter { $0.title.lowercased().contains(searchText.lowercased()) }
     }
-    var report: Report = Report(email: "", ordered: [], readed: [], books: [])
+    var report: Report = Report(email: "", ordered: [], read: [], books: [])
     
-    init(dependencies: BooksDependenciesResolver) {
+    public init(dependencies: BooksDependenciesResolver) {
         self.dependencies = dependencies
     }
     
     // On appear, fetch list of books
-    override func onAppear() {
+    public override func onAppear() {
         super.onAppear()
         Task {
             await MainActor.run {
@@ -41,7 +41,7 @@ final class BooksViewModel: ObservableBaseViewModel {
     ///        viewModel.getReport()
     /// ```
     @MainActor
-    func getReport() {
+    public func getReport() {
         showLoading(true)
         Task {
             do {
@@ -58,7 +58,7 @@ final class BooksViewModel: ObservableBaseViewModel {
     ///        viewModel.getBooks()
     /// ```
     @MainActor
-    func getBooks(removingCache: Bool = false) {
+    public func getBooks(removingCache: Bool = false) {
         showLoading(true)
         Task {
             do {
@@ -80,21 +80,21 @@ final class BooksViewModel: ObservableBaseViewModel {
     /// - Parameters:
     ///   - readBooks: Books to mark as read
     @MainActor
-    func markAsRead(_ book: Book) {
+    public func markAsRead(_ book: Book) {
         Task {
-            if report.readed?.contains(book.apiID) == true {
-                report.readed?.removeAll(where: { $0 == book.apiID })
+            if report.read?.contains(book.apiID) == true {
+                report.read?.removeAll(where: { $0 == book.apiID })
             } else {
-                report.readed?.append(book.apiID)
+                report.read?.append(book.apiID)
             }
             
-            let readBooks = ReadBooks(email: user?.email ?? "", books: report.readed ?? [book.apiID])
+            let readBooks = ReadBooks(email: user?.email ?? "", books: report.read ?? [book.apiID])
             try await booksUseCase.read(readBooks)
             
             books = books.compactMap { item in
                 var item = item
                 if item.apiID == book.apiID {
-                    item.read = report.readed?.contains(book.apiID) == true
+                    item.read = report.read?.contains(book.apiID) == true
                 }
                 return item
             }

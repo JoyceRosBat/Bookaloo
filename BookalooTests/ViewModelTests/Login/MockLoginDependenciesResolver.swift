@@ -38,6 +38,4 @@ final class MockLoginDependenciesResolver: LoginDependenciesResolver {
     func resolve() -> CreateUserView {
         fatalError()
     }
-    
-    
 }

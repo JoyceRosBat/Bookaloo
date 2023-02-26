@@ -10,6 +10,11 @@ import Foundation
 public struct Report: Codable {
     let email: String
     var ordered: [Int]? = nil
-    var readed: [Int]? = nil
+    var read: [Int]? = nil
     var books: [Int]? = nil
+    
+    enum CodingKeys: String, CodingKey {
+        case email, ordered, books
+        case read = "readed"
+    }
 }

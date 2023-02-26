@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BookDetailsView: View {
+public struct BookDetailsView: View {
     @EnvironmentObject var viewModel: ShopViewModel
     @State var seeMore: Bool = false
     @State var showErrorMessage: Bool = false
@@ -22,7 +22,7 @@ struct BookDetailsView: View {
     @State var scrollOffset: CGFloat = 0
     @State var hideHeader: Bool = false
     
-    var body: some View {
+    public var body: some View {
         var rating = book.rating
         let bindingRating = Binding(
             get: { Int(rating ?? 0) },

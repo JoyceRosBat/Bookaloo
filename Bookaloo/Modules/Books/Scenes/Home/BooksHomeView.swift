@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BooksHomeView: View {
+public struct BooksHomeView: View {
     var dependencies: BooksDependenciesResolver
     @EnvironmentObject var viewModel: BooksViewModel
     var loginHomeView: LoginHomeView {
@@ -17,7 +17,7 @@ struct BooksHomeView: View {
         dependencies.resolve()
     }
     
-    var body: some View {
+    public var body: some View {
         if viewModel.loggedIn {
             booksView
         } else {

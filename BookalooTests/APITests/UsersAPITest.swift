@@ -104,7 +104,7 @@ final class UsersAPITest: XCTestCase {
     func test_user_report_with_sucess() async throws {
         let report = try await usersRepository?.report("joyce.admin@bookaloo.com")
         XCTAssert(report?.ordered?.isEmpty == false)
-        XCTAssert(report?.readed?.isEmpty == false)
+        XCTAssert(report?.read?.isEmpty == false)
     }
     
     func test_user_report_should_fail() async throws {

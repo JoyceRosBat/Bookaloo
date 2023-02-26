@@ -22,7 +22,9 @@ final class BooksAPITest: XCTestCase {
 
     func test_fetch_books_with_success() async throws {
         let books = try await booksRepository?.getBooks()
-        XCTAssert(books?.first!.isbn == "0451528557")
+        XCTAssert(books?.first?.isbn == "0451528557")
+        XCTAssert(books?.first?.author == "531EDFA6-A361-4E15-873F-45E4EA0AF120")
+        XCTAssert(books?.first?.title == "The Time Machine")
     }
     
     func test_fetch_books_should_fail() async throws {
@@ -37,7 +39,7 @@ final class BooksAPITest: XCTestCase {
     
     func test_fetch_latest_with_success() async throws {
         let latest = try await booksRepository?.getLatestBooks()
-        XCTAssert(latest?.first!.title == "The Dark Door")
+        XCTAssert(latest?.first?.title == "The Dark Door")
     }
     
     func test_fetch_latest_should_fail() async throws {
@@ -52,7 +54,7 @@ final class BooksAPITest: XCTestCase {
     
     func test_find_books_with_success() async throws {
         let find = try await booksRepository?.findBook(with: "time")
-        XCTAssert(find?.first!.author == "531EDFA6-A361-4E15-873F-45E4EA0AF120")
+        XCTAssert(find?.first?.author == "531EDFA6-A361-4E15-873F-45E4EA0AF120")
     }
     
     func test_find_books_should_fail() async throws {
@@ -67,7 +69,7 @@ final class BooksAPITest: XCTestCase {
     
     func test_fetch_authors_with_success() async throws {
         let authors = try await booksRepository?.getAuthors()
-        XCTAssert(authors?.first!.id == "531EDFA6-A361-4E15-873F-45E4EA0AF120")
+        XCTAssert(authors?.first?.id == "531EDFA6-A361-4E15-873F-45E4EA0AF120")
     }
     
     func test_fetch_authors_should_fail() async throws {
@@ -82,7 +84,7 @@ final class BooksAPITest: XCTestCase {
     
     func test_get_author_by_id_with_success() async throws {
         let author = try await booksRepository?.getAuthor("531EDFA6-A361-4E15-873F-45E4EA0AF120")
-        XCTAssert(author!.name == "H. G. Wells")
+        XCTAssert(author?.name == "H. G. Wells")
     }
     
     func testget_author_by_id_should_fail() async throws {

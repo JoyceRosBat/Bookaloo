@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct BooksView: View {
+public struct BooksView: View {
     var dependencies: BooksDependenciesResolver
     @EnvironmentObject var viewModel: BooksViewModel
     @State var showAlert: Bool = false
     
-    var body: some View {
+    public var body: some View {
         BaseViewContent(viewModel: viewModel) {
             if viewModel.books.isEmpty {
                 Text("books_empty_list")
