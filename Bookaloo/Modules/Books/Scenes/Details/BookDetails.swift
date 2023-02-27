@@ -182,9 +182,11 @@ public struct BookDetailsView: View {
         }//: ZStack
         .toolbar(UIDevice.current.userInterfaceIdiom == .pad ? .visible : .hidden, for: .tabBar)
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                BookalooToolbarTitle()
-            }//: ToolbarItem - Title
+            if UIDevice.current.userInterfaceIdiom != .pad {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    BookalooToolbarTitle()
+                }//: ToolbarItem - Title
+            }
         }//: Toolbar
         .edgesIgnoringSafeArea(.bottom)
         .overlay {

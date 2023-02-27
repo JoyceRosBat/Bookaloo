@@ -14,14 +14,18 @@ public struct BooksViewiPad: View {
     @State var bookSelected: Book?
     
     public var body: some View {
-        NavigationSplitView {
-            BooksList(dependencies: dependencies, showAlert: $showAlert, selected: $bookSelected)
-        } detail: {
-            let book = bookSelected != nil ? bookSelected : viewModel.books.first
-            if let book {
-                dependencies.resolve(book)
-            }
-        }
+        ModifiedContent(
+            content: NavigationSplitView {
+                BooksList(dependencies: dependencies, showAlert: $showAlert, selected: $bookSelected)
+            } detail: {
+                let book = bookSelected != nil ? bookSelected : viewModel.books.first
+                if let book {
+                    dependencies.resolve(book)
+                }
+            },
+            modifier: BooksListModifier(showAlert: $showAlert)
+        )
+        
     }
 }
 

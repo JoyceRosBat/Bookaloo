@@ -73,7 +73,7 @@ public class ObservableBaseViewModel: ViewModelProtocol, ObservableObject {
     ///        viewModel.onAppear()
     /// ```
     public func onAppear() {
-        myUserToModify = UserData(email: user?.email ?? "", name: user?.email ?? "", location: user?.location ?? "", role: user?.role ?? .user)
+        myUserToModify = UserData(email: user?.email ?? "", name: user?.name ?? "", location: user?.location ?? "", role: user?.role ?? .user)
     }
     
     /// Show loading animation

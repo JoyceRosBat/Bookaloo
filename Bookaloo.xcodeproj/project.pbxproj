@@ -35,6 +35,7 @@
 		3965F49E29AD593600460957 /* LogoutConfirmationPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3965F49D29AD593600460957 /* LogoutConfirmationPopup.swift */; };
 		3965F4A029AD598C00460957 /* LogoutOptionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3965F49F29AD598C00460957 /* LogoutOptionMenu.swift */; };
 		3965F4A229AD59C800460957 /* BooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3965F4A129AD59C800460957 /* BooksList.swift */; };
+		3965F4A429AD5F6A00460957 /* BooksListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3965F4A329AD5F6A00460957 /* BooksListModifier.swift */; };
 		39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E229901E7F00A2658B /* Image+Ext.swift */; };
 		39A444E529901EBC00A2658B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E429901EBC00A2658B /* ImageLoader.swift */; };
 		39A444FE29902D8C00A2658B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FD29902D8C00A2658B /* LoginView.swift */; };
@@ -185,6 +186,7 @@
 		3965F49D29AD593600460957 /* LogoutConfirmationPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutConfirmationPopup.swift; sourceTree = "<group>"; };
 		3965F49F29AD598C00460957 /* LogoutOptionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutOptionMenu.swift; sourceTree = "<group>"; };
 		3965F4A129AD59C800460957 /* BooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksList.swift; sourceTree = "<group>"; };
+		3965F4A329AD5F6A00460957 /* BooksListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListModifier.swift; sourceTree = "<group>"; };
 		39A444E229901E7F00A2658B /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		39A444E429901EBC00A2658B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		39A444FD29902D8C00A2658B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				3965F49D29AD593600460957 /* LogoutConfirmationPopup.swift */,
 				3965F49F29AD598C00460957 /* LogoutOptionMenu.swift */,
 				3965F4A129AD59C800460957 /* BooksList.swift */,
+				3965F4A329AD5F6A00460957 /* BooksListModifier.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -1375,6 +1378,7 @@
 				39A9632C2988449600F0C055 /* NetworkRequest.swift in Sources */,
 				39A9637E298A550300F0C055 /* ShopDependenciesResolver.swift in Sources */,
 				39A963382988464E00F0C055 /* BooksRequest.swift in Sources */,
+				3965F4A429AD5F6A00460957 /* BooksListModifier.swift in Sources */,
 				39A9633A29884EA200F0C055 /* Book.swift in Sources */,
 				39BC548A29A2A3C500E42FA7 /* HandleOrderViewModel.swift in Sources */,
 				3924D2E3299C114000787A80 /* PurchaseStatus.swift in Sources */,

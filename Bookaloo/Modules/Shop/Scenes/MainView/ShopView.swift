@@ -66,7 +66,7 @@ public struct ShopView: View {
                     } label: {
                         Image(systemName: .shippingBoxFill)
                     }
-                }
+                }//: HStack
             }//: ToolbarItemGroup
         }//: Toolbar
         .overlay {

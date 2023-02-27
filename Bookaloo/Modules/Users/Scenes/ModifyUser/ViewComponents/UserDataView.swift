@@ -141,6 +141,13 @@ struct UserDataView: View {
                     .ignoresSafeArea()
             }
         }
+        .toolbar {
+            if editingOwnUser {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    BookalooToolbarTitle()
+                }//: ToolbarItem - Title
+            }
+        }//: Toolbar
     }
 }
 

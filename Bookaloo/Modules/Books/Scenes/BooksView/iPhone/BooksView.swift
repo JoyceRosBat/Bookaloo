@@ -14,7 +14,13 @@ public struct BooksView: View {
     @State var bookSelected: Book?
     
     public var body: some View {
-        BooksList(dependencies: dependencies, showAlert: $showAlert, selected: $bookSelected)
+        ModifiedContent(
+            content: BooksList(dependencies: dependencies, showAlert: $showAlert, selected: $bookSelected)
+                .navigationDestination(for: Book.self) { book in
+                    dependencies.resolve(book)
+                },
+            modifier: BooksListModifier(showAlert: $showAlert)
+        )
     }
 }
 
