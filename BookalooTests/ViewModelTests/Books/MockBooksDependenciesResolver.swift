@@ -35,6 +35,10 @@ final class MockBooksDependenciesResolver: BooksDependenciesResolver {
         fatalError()
     }
     
+    func resolve() -> BooksViewiPad {
+        fatalError()
+    }
+    
     func resolve(_ book: Book) -> BookDetailsView {
         fatalError()
     }

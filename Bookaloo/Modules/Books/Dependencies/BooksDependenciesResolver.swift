@@ -14,6 +14,7 @@ public protocol BooksDependenciesResolver {
     func resolve() -> BooksViewModel
     func resolve() -> BooksHomeView
     func resolve() -> BooksView
+    func resolve() -> BooksViewiPad
     func resolve(_ book: Book) -> BookDetailsView
     func resolve() -> LoginHomeView
 }
@@ -29,6 +30,10 @@ extension BooksDependenciesResolver {
     
     func resolve() -> BooksView {
         BooksView(dependencies: self)
+    }
+    
+    func resolve() -> BooksViewiPad {
+        BooksViewiPad(dependencies: self)
     }
     
     func resolve() -> BooksHomeView {

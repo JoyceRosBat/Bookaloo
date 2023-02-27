@@ -31,6 +31,10 @@
 		3924D2E1299C112900787A80 /* ShopBookCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2E0299C112900787A80 /* ShopBookCase.swift */; };
 		3924D2E3299C114000787A80 /* PurchaseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2E2299C114000787A80 /* PurchaseStatus.swift */; };
 		3924D2E5299C115300787A80 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D2E4299C115300787A80 /* SearchType.swift */; };
+		3965F49C29AD4F8300460957 /* BooksViewiPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3965F49B29AD4F8300460957 /* BooksViewiPad.swift */; };
+		3965F49E29AD593600460957 /* LogoutConfirmationPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3965F49D29AD593600460957 /* LogoutConfirmationPopup.swift */; };
+		3965F4A029AD598C00460957 /* LogoutOptionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3965F49F29AD598C00460957 /* LogoutOptionMenu.swift */; };
+		3965F4A229AD59C800460957 /* BooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3965F4A129AD59C800460957 /* BooksList.swift */; };
 		39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E229901E7F00A2658B /* Image+Ext.swift */; };
 		39A444E529901EBC00A2658B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444E429901EBC00A2658B /* ImageLoader.swift */; };
 		39A444FE29902D8C00A2658B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A444FD29902D8C00A2658B /* LoginView.swift */; };
@@ -177,6 +181,10 @@
 		3924D2E0299C112900787A80 /* ShopBookCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBookCase.swift; sourceTree = "<group>"; };
 		3924D2E2299C114000787A80 /* PurchaseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseStatus.swift; sourceTree = "<group>"; };
 		3924D2E4299C115300787A80 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
+		3965F49B29AD4F8300460957 /* BooksViewiPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewiPad.swift; sourceTree = "<group>"; };
+		3965F49D29AD593600460957 /* LogoutConfirmationPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutConfirmationPopup.swift; sourceTree = "<group>"; };
+		3965F49F29AD598C00460957 /* LogoutOptionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutOptionMenu.swift; sourceTree = "<group>"; };
+		3965F4A129AD59C800460957 /* BooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksList.swift; sourceTree = "<group>"; };
 		39A444E229901E7F00A2658B /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		39A444E429901EBC00A2658B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		39A444FD29902D8C00A2658B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -437,6 +445,22 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		3965F49929AD4F4F00460957 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				39A444FF29902E7900A2658B /* BooksView.swift */,
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		3965F49A29AD4F5600460957 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				3965F49B29AD4F8300460957 /* BooksViewiPad.swift */,
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
 		39A444E6299021DF00A2658B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +475,9 @@
 			isa = PBXGroup;
 			children = (
 				39A96F2B29901A7E00525E2B /* BookCellView.swift */,
+				3965F49D29AD593600460957 /* LogoutConfirmationPopup.swift */,
+				3965F49F29AD598C00460957 /* LogoutOptionMenu.swift */,
+				3965F4A129AD59C800460957 /* BooksList.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -1051,7 +1078,8 @@
 			children = (
 				39A444EA2990222000A2658B /* ViewModel */,
 				39A444E7299021F200A2658B /* ViewComponents */,
-				39A444FF29902E7900A2658B /* BooksView.swift */,
+				3965F49A29AD4F5600460957 /* iPad */,
+				3965F49929AD4F4F00460957 /* iPhone */,
 			);
 			path = BooksView;
 			sourceTree = "<group>";
@@ -1367,6 +1395,7 @@
 				39A96F28298F1DD200525E2B /* Role.swift in Sources */,
 				3924D2E1299C112900787A80 /* ShopBookCase.swift in Sources */,
 				39BC547429A0CD7D00E42FA7 /* ModifyUserView.swift in Sources */,
+				3965F4A029AD598C00460957 /* LogoutOptionMenu.swift in Sources */,
 				39A96F1C298D976100525E2B /* LoginViewModel.swift in Sources */,
 				3924D2D229994C4300787A80 /* OrdersList.swift in Sources */,
 				39A963672989644A00F0C055 /* BooksUseCase.swift in Sources */,
@@ -1379,6 +1408,7 @@
 				39BC547F29A2245C00E42FA7 /* Label+Ext.swift in Sources */,
 				39A96F0F298D950D00525E2B /* LoginRequest.swift in Sources */,
 				39A4450C2992867600A2658B /* OrderStatus.swift in Sources */,
+				3965F4A229AD59C800460957 /* BooksList.swift in Sources */,
 				39BC544C299EC9DC00E42FA7 /* UserDataView.swift in Sources */,
 				3924D2D0299949ED00787A80 /* PurchasedBooksList.swift in Sources */,
 				39A96F11298D951E00525E2B /* LoginRepositoryProtocol.swift in Sources */,
@@ -1417,8 +1447,10 @@
 				3924D2DE299BFB3F00787A80 /* HandleOrderCellView.swift in Sources */,
 				39BC549229A2B68300E42FA7 /* ScrollViewOffsetPreferenceKey.swift in Sources */,
 				39A96382298A553000F0C055 /* ShopViewModel.swift in Sources */,
+				3965F49E29AD593600460957 /* LogoutConfirmationPopup.swift in Sources */,
 				39A444E329901E7F00A2658B /* Image+Ext.swift in Sources */,
 				3924D2D4299961E800787A80 /* Text+Ext.swift in Sources */,
+				3965F49C29AD4F8300460957 /* BooksViewiPad.swift in Sources */,
 				3924D2C12994D91500787A80 /* BookShopCell.swift in Sources */,
 				39A96385298A554C00F0C055 /* ShopView.swift in Sources */,
 				39A96ED6298C10CC00525E2B /* EmptyResponse.swift in Sources */,

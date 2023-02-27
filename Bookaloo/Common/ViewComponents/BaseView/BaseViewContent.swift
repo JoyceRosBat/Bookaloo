@@ -31,7 +31,6 @@ struct BaseViewContent<Content: View>: View {
 }
 
 extension BaseViewContent {
-    @ViewBuilder
     var errorPopup: some View {
         PopupView(
             showAlert: $viewModel.showError,

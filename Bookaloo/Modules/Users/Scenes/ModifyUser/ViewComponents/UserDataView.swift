@@ -145,7 +145,6 @@ struct UserDataView: View {
 }
 
 extension UserDataView {
-    @ViewBuilder
     var userModifiedPopup: some View {
         PopupView(
             showAlert: $viewModel.showModifiedUserAlert,

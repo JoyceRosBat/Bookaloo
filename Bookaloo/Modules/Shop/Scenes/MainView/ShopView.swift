@@ -101,7 +101,6 @@ extension ShopView {
         } as [Double]).reduce(0, +)
     }
     
-    @ViewBuilder
     var removeConfirmationPopup: some View {
         PopupView(
             showAlert: $viewModel.showRemoveBookAlert,
@@ -129,7 +128,6 @@ extension ShopView {
             }
     }
     
-    @ViewBuilder
     var finishShopPopup: some View {
         PopupView(
             showAlert: $viewModel.finishShopAlert,
@@ -152,7 +150,6 @@ extension ShopView {
             }
     }
     
-    @ViewBuilder
     var shopCompletePopup: some View {
         PopupView(
             showAlert: $viewModel.shopCompleteAlert,

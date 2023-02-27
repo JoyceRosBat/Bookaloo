@@ -61,7 +61,6 @@ struct BookalooTextfield: View {
 
 private extension BookalooTextfield {
     // MARK: - Normal
-    @ViewBuilder
     var normalTextView: some View {
         VStack(alignment: .leading) {
             TextField(placeHolder ?? "", text: $textfieldText)
@@ -85,7 +84,6 @@ private extension BookalooTextfield {
     }
     
     // MARK: - Email
-    @ViewBuilder
     var emailTextView: some View {
         VStack(alignment: .leading) {
             TextField(placeHolder ?? "", text: $textfieldText)
@@ -124,7 +122,6 @@ private extension BookalooTextfield {
     }
     
     // MARK: - Numeric
-    @ViewBuilder
     var numericTextView: some View {
         VStack(alignment: .leading) {
             TextField(placeHolder ?? "", text: $textfieldText)
@@ -149,7 +146,6 @@ private extension BookalooTextfield {
     }
     
     // MARK: - Secure
-    @ViewBuilder
     var secureTextView: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -222,7 +218,6 @@ private extension BookalooTextfield {
     }
     
     // MARK: - Searchable
-    @ViewBuilder
     var searchableText: some View {
         TextField(placeHolder ?? "", text: $textfieldText)
             .font(StyleConstants.bookalooFont)

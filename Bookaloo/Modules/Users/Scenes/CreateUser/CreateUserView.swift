@@ -137,7 +137,6 @@ public struct CreateUserView: View {
 }
 
 extension CreateUserView {
-    @ViewBuilder
     var createdUserPopup: some View {
         PopupView(
             showAlert: $viewModel.showCreatedUserAlert,

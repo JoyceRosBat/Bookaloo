@@ -16,10 +16,17 @@ public struct BooksHomeView: View {
     var booksView: BooksView {
         dependencies.resolve()
     }
+    var booksViewiPad: BooksViewiPad {
+        dependencies.resolve()
+    }
     
     public var body: some View {
         if viewModel.loggedIn {
-            booksView
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                booksViewiPad
+            } else {
+                booksView
+            }
         } else {
             loginHomeView
         }

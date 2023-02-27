@@ -1,18 +1,19 @@
 //
-//  BooksView.swift
+//  BooksList.swift
 //  Bookaloo
 //
-//  Created by Joyce Rosario Batista on 5/2/23.
+//  Created by Joyce Rosario Batista on 27/2/23.
 //
 
 import SwiftUI
 
-public struct BooksView: View {
+struct BooksList: View {
     var dependencies: BooksDependenciesResolver
     @EnvironmentObject var viewModel: BooksViewModel
-    @State var showAlert: Bool = false
+    @Binding var showAlert: Bool
+    @Binding var selected: Book?
     
-    public var body: some View {
+    var body: some View {
         BaseViewContent(viewModel: viewModel) {
             if viewModel.books.isEmpty {
                 Text("books_empty_list")
@@ -39,8 +40,10 @@ public struct BooksView: View {
                                 } label: {
                                     Image(systemName: book.read == true ? .eye : .eyeSlash)
                                 }
-//                                .tint(book.read == true ? .accentColor : .gray)
                             }
+                                          .onTapGesture {
+                                              selected = book
+                                          }
                         }//: NavigationLink
                     }//: ForEach
                     
@@ -58,7 +61,7 @@ public struct BooksView: View {
         .toolbar(showAlert ? .hidden : .visible, for: .tabBar)
         .overlay {
             if showAlert {
-                logoutConfirmationPopup
+                LogoutConfirmationPopup(showAlert: $showAlert)
             }
         }//: Overlay - Show logout confirmation popup
         .toolbar {
@@ -79,7 +82,7 @@ public struct BooksView: View {
                         Label("edit_profile",
                               systemImage: .lock)
                     }
-                    logoutOptionMenuButton
+                    LogoutOptionMenu(showAlert: $showAlert)
                 } label: {
                     Label("profile", systemImage: .personCircle)
                 }//: Menu
@@ -88,46 +91,9 @@ public struct BooksView: View {
     }
 }
 
-extension BooksView {
-    @ViewBuilder
-    var logoutOptionMenuButton: some View {
-        Button {
-            viewModel.alertTitle = "logout_warning_popup_title"
-            viewModel.alertMessage = "logout_warning_popup_message"
-            showAlert = true
-        } label: {
-            Label("logout",
-                  systemImage: .arrowTurnUpBackward)
-        }
-    }
-    
-    @ViewBuilder
-    var logoutConfirmationPopup: some View {
-        PopupView(
-            showAlert: $showAlert,
-            title: LocalizedStringKey(viewModel.alertTitle)) {
-                Text(LocalizedStringKey(viewModel.alertMessage))
-            } buttons: {
-                Button {
-                    showAlert.toggle()
-                } label: {
-                    Text("cancel")
-                }
-                Button {
-                    viewModel.doLogout()
-                    showAlert.toggle()
-                } label: {
-                    Text("accept")
-                }
-            }
-    }
-}
-
-struct BooksView_Previews: PreviewProvider {
+struct BooksList_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            BooksView(dependencies: ModuleDependencies())
-                .environmentObject(ModuleDependencies().resolve() as BooksViewModel)
-        }
+        BooksList(dependencies: ModuleDependencies(), showAlert: .constant(false), selected: .constant(.test))
+            .environmentObject(ModuleDependencies().resolve() as BooksViewModel)
     }
 }

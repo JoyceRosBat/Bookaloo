@@ -180,7 +180,7 @@ public struct BookDetailsView: View {
                 .padding()
             }//: ZStack
         }//: ZStack
-        .toolbar(.hidden, for: .tabBar)
+        .toolbar(UIDevice.current.userInterfaceIdiom == .pad ? .visible : .hidden, for: .tabBar)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 BookalooToolbarTitle()
@@ -196,7 +196,6 @@ public struct BookDetailsView: View {
 }
 
 extension BookDetailsView {
-    @ViewBuilder
     var fullBooksPopup: some View {
         PopupView(
             showAlert: $showErrorMessage,
