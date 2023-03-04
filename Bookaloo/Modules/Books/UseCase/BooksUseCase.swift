@@ -89,14 +89,13 @@ public final class BooksUseCase: BooksUseCaseProtocol {
     ///   - from: The string to repeat.
     private func getBookList(from list: [Book]) async throws -> [Book] {
         let report = try? await getReport(user?.email ?? "")
-        var returnValues = [Book]()
-        for try await item in AsyncBooks(books: list) {
-            var book = item
-            let author = try await repository.getAuthors().first(where: { $0.id == book.author })
-            book.author = author?.name ?? ""
+        let authors = try? await repository.getAuthors()
+        var returnValues = list.map { book in
+            var book = book
+            book.author = authors?.first(where: { $0.id == book.author })?.name ?? ""
             book.purchased = report?.ordered?.contains(book.apiID) ?? false
             book.read = report?.read?.contains(book.apiID) ?? false
-            returnValues.append(book)
+            return book
         }
         return returnValues
     }
