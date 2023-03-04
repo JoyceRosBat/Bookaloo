@@ -8,47 +8,36 @@
 import SwiftUI
 
 struct RatingView: View {
-    @Binding var rating: Int
-    var label = ""
+    var rating: Double
     var maxRating = 5
-    
-    var offImage: Image?
-    var onImage = Image(systemName: .starFill)
-    
-    var offColor = Color.gray
-    var onColor = Color.yellow
-    
-    var allowTouch: Bool = true
-    
+  
     var body: some View {
-        HStack {
-            if !label.isEmpty {
-                Text(label)
-            }
-            
-            ForEach(1..<maxRating + 1, id: \.self) { number in
-                image(for: number)
-                    .foregroundColor(number > rating ? offColor : onColor)
-                    .onTapGesture {
-                        if allowTouch {
-                            rating = number
-                        }
-                    }
+        let stars = HStack(spacing: 0) {
+            ForEach(0..<maxRating, id: \.self) { _ in
+                Image(systemName: .starFill)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
             }
         }
-    }
-}
-
-extension RatingView {
-    func image(for number: Int) -> Image {
-        guard number < rating else { return offImage ?? onImage }
-        return onImage
+        
+        stars.overlay(
+            GeometryReader { geo in
+                let width = rating / CGFloat(maxRating) * geo.size.width
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .frame(width: width)
+                        .foregroundColor(.yellow)
+                }//: ZStack
+            }//: GeometryReader
+            .mask(stars)
+        )//: Overlay
+        .foregroundColor(.gray)
     }
 }
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView(rating: .constant(3))
+        RatingView(rating: 2.5)
     }
 }
 

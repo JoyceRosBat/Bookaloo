@@ -23,13 +23,7 @@ public struct BookDetailsView: View {
     @State var hideHeader: Bool = false
     
     public var body: some View {
-        var rating = book.rating
-        let bindingRating = Binding(
-            get: { Int(rating ?? 0) },
-            set: { rating = Double($0) }
-        )
-        
-        return ZStack {
+        ZStack {
             ZStack {
                 Color.backgroundColor
                 VStack(spacing: 0) {
@@ -53,7 +47,8 @@ public struct BookDetailsView: View {
                             .font(.futura(24))
                             .bold()
                         
-                        RatingView(rating: bindingRating, allowTouch: false)
+                        RatingView(rating: book.rating ?? 0)
+                            .frame(height: 20)
                         
                         if let price = book.price {
                             Text(String(format: "%.2f%@", price, Locale.current.currencySymbol ?? "€"))

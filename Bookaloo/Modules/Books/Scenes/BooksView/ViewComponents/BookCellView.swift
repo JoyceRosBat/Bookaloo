@@ -12,19 +12,14 @@ struct BookCellView: View {
     let title: String
     let author: String
     let year: Int
-    @State var rating: Double?
+    let rating: Double?
     let purchased: Bool
     let read: Bool
     let price: Double?
     let showRating: Bool
     
     var body: some View {
-        let bindingRating = Binding(
-            get: { Int(rating ?? 0) },
-            set: { rating = Double($0) }
-        )
-        
-        return HStack(alignment: .center, spacing: 16) {
+        HStack(alignment: .center, spacing: 16) {
             ImageLoader(url: imageURL)
                 .frame(width: 60)
                 .cornerRadius(5)
@@ -53,7 +48,8 @@ struct BookCellView: View {
                         .opacity(0.7)
                 }
                 if showRating {
-                    RatingView(rating: bindingRating, allowTouch: false)
+                    RatingView(rating: rating ?? 0)
+                        .frame(height: 15)
                 }
             }//: VStack
             
