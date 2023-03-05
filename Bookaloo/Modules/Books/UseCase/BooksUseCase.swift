@@ -32,12 +32,8 @@ public final class BooksUseCase: BooksUseCaseProtocol {
     ///        booksUseCase.fetch()
     /// ```
     public func fetch() async throws -> [Book] {
-        if let books = Cache.shared.books {
-            return books
-        }
         let books = try await repository.getBooks()
         let booksFormattedList = try await getBookList(from: books)
-        Cache.shared.books = booksFormattedList
         return booksFormattedList
     }
     

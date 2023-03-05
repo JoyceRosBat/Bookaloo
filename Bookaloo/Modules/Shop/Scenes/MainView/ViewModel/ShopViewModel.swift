@@ -84,29 +84,28 @@ public final class ShopViewModel: ObservableBaseViewModel {
     @MainActor
     func finishShop() {
         showLoading(true)
-        Task {
-            if let email = self.user?.email {
-                var order = Order(email: email)
-                order.order = []
-                booksToShop.forEach { (book, quantity) in
-                    for _ in 0..<quantity {
-                        order.order?.append(book)
-                    }
-                }
-                Task {
-                    do {
-                        pendingOrder = try await self.shopUseCase.new(order)
-                        booksToShop.removeAll()
-                        booksOrdered = 0
-                        Storage.shared.save(self.booksToShop, key: .cart)
-                        showLoading(false)
-                        shopCompleteAlert = true
-                    } catch let error as NetworkError {
-                        showNetworkError(error)
-                    }
-                }
-            } else {
-                showLoading(false)
+        guard let email = user?.email else {
+            showLoading(false)
+            return
+        }
+        var order = Order(email: email)
+        order.order = []
+        booksToShop.forEach { (book, quantity) in
+            for _ in 0..<quantity {
+                order.order?.append(book)
+            }
+        }
+        Task { [weak self] in
+            guard let self = self else { return }
+            do {
+                self.pendingOrder = try await self.shopUseCase.new(order)
+                self.booksToShop.removeAll()
+                self.booksOrdered = 0
+                Storage.shared.save(self.booksToShop, key: .cart)
+                self.showLoading(false)
+                self.shopCompleteAlert = true
+            } catch let error as NetworkError {
+                self.showNetworkError(error)
             }
         }
     }

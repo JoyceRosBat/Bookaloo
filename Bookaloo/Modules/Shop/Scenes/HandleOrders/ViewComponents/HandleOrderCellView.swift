@@ -31,10 +31,10 @@ struct HandleOrderCellView: View {
                 }
                 
                 if let date {
-                    Text(date.formatted(date: .abbreviated, time: .omitted))
+                    Text(date.formatted(date: .complete, time: .omitted).capitalized)
                         .font(.futura(14))
                         .bold()
-                        .opacity(0.7)
+                        .opacity(0.6)
                 }
                 
                 Menu {

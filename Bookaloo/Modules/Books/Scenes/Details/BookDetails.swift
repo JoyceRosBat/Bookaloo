@@ -189,6 +189,7 @@ public struct BookDetailsView: View {
                 fullBooksPopup
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

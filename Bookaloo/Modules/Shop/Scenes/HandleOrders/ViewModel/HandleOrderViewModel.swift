@@ -29,14 +29,14 @@ public final class HandleOrderViewModel: ObservableBaseViewModel {
         guard let email = user?.email else { return }
         cleanSearchOrders()
         showLoading(true)
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
-                let list = try await shopUseCase.getAll(email)
-                searchOrders = list
-                ordersEmpty = searchOrders.isEmpty
-                showLoading(false)
+                self.searchOrders = try await self.shopUseCase.getAll(email)
+                self.ordersEmpty = self.searchOrders.isEmpty
+                self.showLoading(false)
             } catch let error as NetworkError {
-                showNetworkError(error)
+                self.showNetworkError(error)
             }
         }
     }
@@ -51,14 +51,14 @@ public final class HandleOrderViewModel: ObservableBaseViewModel {
     func getOrders(by email: String) {
         cleanSearchOrders()
         showLoading(true)
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
-                let list = try await shopUseCase.orders(of: email)
-                searchOrders = list
-                ordersEmpty = searchOrders.isEmpty
-                showLoading(false)
+                self.searchOrders = try await self.shopUseCase.orders(of: email)
+                self.ordersEmpty = self.searchOrders.isEmpty
+                self.showLoading(false)
             } catch let error as NetworkError {
-                showNetworkError(error)
+                self.showNetworkError(error)
             }
         }
     }
@@ -73,14 +73,15 @@ public final class HandleOrderViewModel: ObservableBaseViewModel {
     func getOrder(by id: String) {
         cleanSearchOrders()
         showLoading(true)
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
                 let order = try await shopUseCase.check(by: id)
-                searchOrders = [order]
-                ordersEmpty = searchOrders.isEmpty
-                showLoading(false)
+                self.searchOrders = [order]
+                self.ordersEmpty = searchOrders.isEmpty
+                self.showLoading(false)
             } catch let error as NetworkError {
-                showNetworkError(error)
+                self.showNetworkError(error)
             }
         }
     }
@@ -95,20 +96,21 @@ public final class HandleOrderViewModel: ObservableBaseViewModel {
     func modify(_ orderId: String?, status: Status) {
         guard let orderId else { return }
         showLoading(true)
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
                 let orderToModify = OrderModify(
                     id: orderId,
                     status: status,
                     admin: user?.email ?? ""
                 )
-                try await shopUseCase.modify(orderToModify)
-                if let index = searchOrders.firstIndex(where: { $0.id == orderId }) {
-                    searchOrders[index].status = status
+                try await self.shopUseCase.modify(orderToModify)
+                if let index = self.searchOrders.firstIndex(where: { $0.id == orderId }) {
+                    self.searchOrders[index].status = status
                 }
-                showLoading(false)
+                self.showLoading(false)
             } catch let error as NetworkError {
-                showNetworkError(error)
+                self.showNetworkError(error)
             }
         }
     }

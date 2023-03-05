@@ -28,10 +28,11 @@ public final class BooksViewModel: ObservableBaseViewModel {
     // On appear, fetch list of books
     public override func onAppear() {
         super.onAppear()
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             await MainActor.run {
-                getBooks()
-                getReport()
+                self.getBooks()
+                self.getReport()
             }
         }
     }
@@ -43,12 +44,13 @@ public final class BooksViewModel: ObservableBaseViewModel {
     @MainActor
     public func getReport() {
         showLoading(true)
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
-                report = try await booksUseCase.getReport(user?.email ?? "")
-                showLoading(false)
+                self.report = try await self.booksUseCase.getReport(user?.email ?? "")
+                self.showLoading(false)
             } catch let error as NetworkError {
-                showNetworkError(error)
+                self.showNetworkError(error)
             }
         }
     }
@@ -60,15 +62,16 @@ public final class BooksViewModel: ObservableBaseViewModel {
     @MainActor
     public func getBooks(removingCache: Bool = false) {
         showLoading(true)
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
                 if removingCache {
-                    Cache.shared.books = nil
+                    Cache.shared.clean()
                 }
-                books = try await booksUseCase.fetch()
-                showLoading(false)
+                self.books = try await self.booksUseCase.fetch()
+                self.showLoading(false)
             } catch let error as NetworkError {
-                showNetworkError(error)
+                self.showNetworkError(error)
             }
         }
     }
@@ -81,20 +84,16 @@ public final class BooksViewModel: ObservableBaseViewModel {
     ///   - readBooks: Books to mark as read
     @MainActor
     public func markAsRead(_ book: Book) {
-        Task {
-            if report.read?.contains(book.apiID) == true {
-                report.read?.removeAll(where: { $0 == book.apiID })
-            } else {
-                report.read?.append(book.apiID)
-            }
+        Task { [weak self] in
+            guard let self = self else { return }
+            let readBooks = ReadBooks(email: user?.email ?? "", books: [book.apiID])
+            try await self.booksUseCase.read(readBooks)
+            self.report = try await self.booksUseCase.getReport(user?.email ?? "")
             
-            let readBooks = ReadBooks(email: user?.email ?? "", books: report.read ?? [book.apiID])
-            try await booksUseCase.read(readBooks)
-            
-            if let index = books.firstIndex(of: book) {
-                books[index].read = report.read?.contains(book.apiID) == true
+            if let index = self.books.firstIndex(of: book) {
+                self.books[index].read = self.report.read?.contains(book.apiID) == true
             }
-            Cache.shared.books = books
+            Cache.shared.books = self.books
         }
     }
 }

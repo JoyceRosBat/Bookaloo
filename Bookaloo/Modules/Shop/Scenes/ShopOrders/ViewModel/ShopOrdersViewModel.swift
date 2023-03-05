@@ -34,24 +34,25 @@ public final class ShopOrdersViewModel: ObservableBaseViewModel {
             showLoading(false)
             return
         }
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
-                self.userOrders = try await shopUseCase.orders(of: email)
+                self.userOrders = try await self.shopUseCase.orders(of: email)
                 
-                inProgressList = userOrders
+                self.inProgressList = self.userOrders
                     .filter{ $0.status == .processing || $0.status == .sent || $0.status == .received }
                     .sorted(by: { $0.status?.rawValue ?? "" < $1.status?.rawValue ?? "" })
                     .sorted(by: { $0.date ?? .now < $1.date ?? .now })
-                deliveredList = userOrders.filter{ $0.status == .delivered }
+                self.deliveredList = self.userOrders.filter{ $0.status == .delivered }
                     .sorted(by: { $0.date ?? .now < $1.date ?? .now })
-                cancelledList = userOrders
+                self.cancelledList = self.userOrders
                     .filter{ $0.status == .canceled || $0.status == .returned }
                     .sorted(by: { $0.status?.rawValue ?? "" < $1.status?.rawValue ?? "" })
                     .sorted(by: { $0.date ?? .now < $1.date ?? .now })
                 
-                showLoading(false)
+                self.showLoading(false)
             } catch let error as NetworkError {
-                showNetworkError(error)
+                self.showNetworkError(error)
             }
         }
     }

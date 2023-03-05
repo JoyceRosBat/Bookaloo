@@ -35,13 +35,8 @@ public final class UsersRepository: UsersRepositoryProtocol {
     }
     
     public func report(_ email: String) async throws -> Report {
-        if let report = Cache.shared.report {
-            return report
-        }
         let request = UsersRequest.report(email)
-        let report: Report = try await networkRequester.doRequest(request: request)
-        Cache.shared.report = report
-        return report
+        return try await networkRequester.doRequest(request: request)
     }
     
     public func read(_ email: String) async throws -> Report {

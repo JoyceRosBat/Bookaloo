@@ -34,16 +34,16 @@ struct OrdersList: View {
                         }
                         
                         if let date = order.date.wrappedValue,
-                           let dateString = date.formatted(date: .abbreviated, time: .omitted) {
+                           let dateString = date.formatted(date: .complete, time: .omitted) {
                             HStack(alignment: .top) {
                                 Text("date_title")
                                     .bold()
                                     .font(.futura(12))
                                 Spacer()
-                                Text(dateString)
+                                Text(dateString.capitalized)
                                     .font(.futura(12))
                                     .bold()
-                                    .opacity(0.7)
+                                    .opacity(0.6)
                                     .foregroundColor(.accentColor)
                             }//:Hstack
                         }

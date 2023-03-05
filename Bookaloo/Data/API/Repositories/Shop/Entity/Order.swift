@@ -16,7 +16,7 @@ public struct Order: Codable, Identifiable {
     var books: [Int]? = nil
     
     enum CodingKeys: String, CodingKey {
-        case email, books
+        case email, books, date
         case status = "estado"
         case order = "pedido"
         case id = "npedido"
