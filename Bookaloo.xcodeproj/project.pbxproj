@@ -1174,7 +1174,7 @@
 		39BC54A029A5401700E42FA7 /* BookalooTests */ = {
 			isa = PBXGroup;
 			children = (
-				390F30AE29AADBD7000AA8E5 /* XCTestCase+Ext.swift */,
+				39CA792F29B49C1000CDC00E /* Common */,
 				39BC54C129A572B000E42FA7 /* APITests */,
 				390F30B129AADF8B000AA8E5 /* ViewModelTests */,
 			);
@@ -1247,6 +1247,14 @@
 				39BC54E729A5814E00E42FA7 /* user_login.json */,
 			);
 			path = json;
+			sourceTree = "<group>";
+		};
+		39CA792F29B49C1000CDC00E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				390F30AE29AADBD7000AA8E5 /* XCTestCase+Ext.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,6 +8,13 @@
 import XCTest
 
 extension XCTestCase {
+    /// Waits untill fullfill an expectation condition
+    /// ```
+    ///        wait(condition)
+    /// ```
+    /// - Parameters:
+    ///   - condition: Condition  to fullfill.
+    ///   - timeout: Timeout interval to wait until fullfill the condition
     func wait(
         _ condition: @escaping @autoclosure () -> (Bool),
         timeout: TimeInterval = 10)

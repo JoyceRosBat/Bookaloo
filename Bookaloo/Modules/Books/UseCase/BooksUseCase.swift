@@ -90,7 +90,7 @@ public final class BooksUseCase: BooksUseCaseProtocol {
     private func getBookList(from list: [Book]) async throws -> [Book] {
         let report = try? await getReport(user?.email ?? "")
         let authors = try? await repository.getAuthors()
-        var returnValues = list.map { book in
+        let returnValues = list.map { book in
             var book = book
             book.author = authors?.first(where: { $0.id == book.author })?.name ?? ""
             book.purchased = report?.ordered?.contains(book.apiID) ?? false
