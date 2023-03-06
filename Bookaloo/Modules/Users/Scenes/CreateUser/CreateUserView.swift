@@ -117,7 +117,7 @@ public struct CreateUserView: View {
                 
             }//: VStack
         }//: BaseViewContent
-        .padding(.bottom, 50)
+        .edgesIgnoringSafeArea(.all)
         .onTapGesture {
             isFocused = false
         }//: onTapGesture
@@ -132,7 +132,17 @@ public struct CreateUserView: View {
             }//: ToolbarItem - Title
         }//: Toolbar
         .toolbar(.hidden, for: .tabBar)
-        .ignoresSafeArea()
+        .toolbarBackground(
+            Color.backgroundColor,
+            for: .navigationBar
+        )
+        .toolbarBackground(
+            .visible,
+            for: .navigationBar
+        )
+        .onDisappear {
+            viewModel.resetUsersValidation()
+        }
     }
 }
 

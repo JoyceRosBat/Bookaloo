@@ -34,7 +34,7 @@ public final class UsersViewModel: ObservableBaseViewModel {
     
     /// Get user's data
     /// ```
-    ///        usersUseCase.getUserData()
+    ///        viewModel.getUserData()
     /// ```
     @MainActor
     func getUserData() {
@@ -44,7 +44,7 @@ public final class UsersViewModel: ObservableBaseViewModel {
     
     /// Get a user's data by its email
     /// ```
-    ///        usersUseCase.findUser("email")
+    ///        viewModel.findUser("email")
     /// ```
     /// - Parameters:
     ///   - email: Email of the user to find
@@ -55,7 +55,7 @@ public final class UsersViewModel: ObservableBaseViewModel {
     
     /// Modify user's data
     /// ```
-    ///        usersUseCase.modify()
+    ///        viewModel.modify()
     /// ```
     @MainActor
     func modify(_ userData: UserData) {
@@ -78,7 +78,7 @@ public final class UsersViewModel: ObservableBaseViewModel {
     
     /// Saves new user
     /// ```
-    ///        usersUseCase.save()
+    ///        viewModel.save()
     /// ```
     @MainActor
     func save() {
@@ -102,6 +102,22 @@ public final class UsersViewModel: ObservableBaseViewModel {
                 self.showNetworkError(error)
             }
         }
+    }
+    
+    /// Resets all validation and users
+    /// ```
+    ///        viewModel.resetUsersValidation()
+    /// ```
+    func resetUsersValidation() {
+        userFound = UserData(email: "", name: "", location: "", role: .user)
+        newUser = UserData(email: "", name: "", location: "", role: .user)
+        validEmail = true
+        validName = true
+        validLocation = true
+        validEmailText = "valid_email_text"
+        validNotEmptyText = "valid_empty_text"
+        showCreatedUserAlert = false
+        showModifiedUserAlert = false
     }
 }
 

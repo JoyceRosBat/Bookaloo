@@ -37,18 +37,35 @@ public struct ShopOrdersView: View {
                 }
                 
                 Spacer()
-            }
-            .toolbar(.hidden, for: .tabBar)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    BookalooToolbarTitle()
-                }//: ToolbarItem - Title
-            }//: Toolbar
+            }//: VStack
         }//: BaseViewContent
+        .toolbar(.hidden, for: .tabBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                BookalooToolbarTitle()
+            }//: ToolbarItem - Title
+        }//: Toolbar
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             viewModel.getOrders()
         }
+        .toolbarBackground(
+            Color.backgroundColor,
+            for: .navigationBar
+        )
+        .toolbarBackground(
+            .visible,
+            for: .navigationBar
+        )
+        .toolbarBackground(
+            Color.backgroundColor,
+            for: .tabBar
+        )
+        .toolbarBackground(
+            .visible,
+            for: .tabBar
+        )
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

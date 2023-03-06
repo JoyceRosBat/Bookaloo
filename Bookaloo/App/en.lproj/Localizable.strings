@@ -62,7 +62,7 @@
 "user_created_popup_message" = "The user has been successfully created";
 "user_modified_popup_title" = "User modified";
 "user_modified_popup_message" = "User modified successfully";
-"orders_finish_popup_message1" = "Your oder number:\n**%@**\n\nYou can check all your orders on the button ";
+"orders_finish_popup_message1" = "Your oder number:\n%@\n\nYou can check all your orders on the button ";
 "orders_finish_popup_message2" = " at the top";
 
 "new_user_header_title" = "New user";
@@ -75,15 +75,15 @@
 "see_less" = "See less...";
 "see_more" = "See more...";
 
-"no_orders" = "There are no orders **%@**";
+"no_orders" = "There are no orders %@";
 
-"no_orders_for" = "There are no orders for *%@*";
+"no_orders_for" = "There are no orders for %@";
 
 "max_books_reached" = "You have reached the maximun number of books to shop with this title on the same order";
 
 "books_empty_list" = "**The list of books is empty.**\n\nTry to update again later";
 
-"orders_emtpy_list" = "**There are no books ordered yet.**\n\nSelect a book and press *Shop* button to order one.";
+"orders_emtpy_list" = "**There are no books ordered yet.**\n\nSelect a book and press **Shop** button to order one.";
 
 "valid_email_text" = "The email format is not valid. Example: something@email.com";
 "valid_password_text" = "The password should have 8 characters or more";

@@ -62,7 +62,7 @@
 "user_created_popup_message" = "El usuario ha sido creado correctamente";
 "user_modified_popup_title" = "Usuario modificado";
 "user_modified_popup_message" = "El usuario se ha modificado correctamente";
-"orders_finish_popup_message1" = "Su número de pedido:\n**%@**\n\nPuede revisar todos sus pedidos en el botón ";
+"orders_finish_popup_message1" = "Su número de pedido:\n%@\n\nPuede revisar todos sus pedidos en el botón ";
 "orders_finish_popup_message2" = " arriba";
 
 "new_user_header_title" = "Nuevo usuario";
@@ -75,15 +75,15 @@
 "see_less" = "Ver menos...";
 "see_more" = "Ver más...";
 
-"no_orders" = "No hay pedidos **%@**";
+"no_orders" = "No hay pedidos %@";
 
-"no_orders_for" = "No hay pedidos para *%@*";
+"no_orders_for" = "No hay pedidos para %@";
 
 "max_books_reached" = "Ha llegado al número máximo de pedidos para el mismo libro en el mismo pedido";
 
 "books_empty_list" = "**La lista de libros está vacía.**\nIntente actualizar de nuevo más tarde";
 
-"orders_emtpy_list" = "**Aún no hay pedidos.**\nSeleccione un libro y presione el botón de *Comprar* para pedir uno.";
+"orders_emtpy_list" = "**Aún no hay pedidos.**\nSeleccione un libro y presione el botón de **Comprar** para pedir uno.";
 
 "valid_email_text" = "El formato del email no es válido. Ejemplo: email@email.com";
 "valid_password_text" = "La contraseña debe tener al menos 8 caracteres";

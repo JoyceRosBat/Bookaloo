@@ -17,9 +17,11 @@ public struct ModifyUserView: View {
             VStack {
                 HStack {
                     BookalooTextfield(textfieldText: $searchText, orientation: .vertical(.searchable))
+                        .focused($isFocused)
                     
                     Button {
                         viewModel.findUser(by: searchText)
+                        isFocused = false
                         searchText = ""
                     } label: {
                         Text("search")
@@ -35,6 +37,7 @@ public struct ModifyUserView: View {
                 Spacer()
             }//: VStack
         }//: BaseViewContent
+        .edgesIgnoringSafeArea(.bottom)
         .onTapGesture {
             isFocused = false
         }//: onTapGesture
@@ -44,6 +47,17 @@ public struct ModifyUserView: View {
             }//: ToolbarItem - Title
         }//: Toolbar
         .toolbar(.hidden, for: .tabBar)
+        .toolbarBackground(
+            Color.backgroundColor,
+            for: .navigationBar
+        )
+        .toolbarBackground(
+            .visible,
+            for: .navigationBar
+        )
+        .onDisappear {
+            viewModel.resetUsersValidation()
+        }
     }
 }
 

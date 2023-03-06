@@ -144,9 +144,8 @@ public struct BookDetailsView: View {
                                         .animation(.easeOut(duration: 0.5), value: seeMore)
                                     
                                     Button {
-                                        withAnimation(.easeInOut(duration: 1)) {
-                                            seeMore.toggle()
-                                        }
+                                        seeMore.toggle()
+                                        scrollOffset = seeMore ? 1 : 0
                                     } label: {
                                         Text(seeMore ? "see_less" : "see_more")
                                             .foregroundStyle(StyleConstants.bookalooGradient)
@@ -156,13 +155,16 @@ public struct BookDetailsView: View {
                             } //: ScrollView
                             .scrollIndicators(.hidden)
                             .onChange(of: scrollOffset) { scrollOfset in
-                                if scrollOfset > 0 {
-                                    withAnimation(.easeIn(duration: 0.5), {
-                                        hideHeader = true
-                                    })
-                                } else if scrollOfset < 0 {
+                                if scrollOfset <= 0  {
                                     withAnimation(.easeIn(duration: 0.5), {
                                         hideHeader = false
+                                    })
+                                } else {
+                                    if !seeMore {
+                                        seeMore.toggle()
+                                    }
+                                    withAnimation(.easeIn(duration: 0.5), {
+                                        hideHeader = true
                                     })
                                 }
                             }//: OnChange scroll
@@ -190,6 +192,14 @@ public struct BookDetailsView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(
+            Color.backgroundColor,
+            for: .navigationBar
+        )
+        .toolbarBackground(
+            .visible,
+            for: .navigationBar
+        )
     }
 }
 

@@ -28,6 +28,14 @@ public struct HomeView: View {
         TabView {
             NavigationStack {
                 booksHomeView
+                    .toolbarBackground(
+                        Color.backgroundColor,
+                        for: .tabBar
+                    )
+                    .toolbarBackground(
+                        .visible,
+                        for: .tabBar
+                    )
             }//: booksView NavigationStack
             .tabItem {
                 Label("books", systemImage: .book)
@@ -44,6 +52,22 @@ public struct HomeView: View {
             
             NavigationStack {
                 shopView
+                    .toolbarBackground(
+                        Color.backgroundColor,
+                        for: .navigationBar
+                    )
+                    .toolbarBackground(
+                        .visible,
+                        for: .navigationBar
+                    )
+                    .toolbarBackground(
+                        Color.backgroundColor,
+                        for: .tabBar
+                    )
+                    .toolbarBackground(
+                        .visible,
+                        for: .tabBar
+                    )
             }//: shopView NavigationStack
             .tabItem {
                 Label("shop", systemImage: .cart)

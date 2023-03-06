@@ -45,11 +45,21 @@ public final class LoginViewModel: ObservableBaseViewModel {
                 
                 self.showLoading(false)
                 self.myUserToModify = UserData(email: self.user?.email ?? "", name: self.user?.name ?? "", location: self.user?.location ?? "", role: self.user?.role ?? .user)
-                self.email = ""
-                self.password = ""
+                resetValidStatus()
             } catch let error as NetworkError {
                 self.showNetworkError(error)
             }
         }
+    }
+    
+    /// Resets validations and fields
+    /// ```
+    ///        viewModel.resetValidStatus()
+    /// ```
+    func resetValidStatus() {
+        email = ""
+        password = ""
+        validEmail = true
+        validPassword = true
     }
 }

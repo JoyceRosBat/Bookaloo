@@ -73,6 +73,9 @@ public struct LoginView: View {
         }//: onTapGesture
         .toolbar(.hidden, for: .tabBar)
         .edgesIgnoringSafeArea(.all)
+        .onDisappear {
+            viewModel.resetValidStatus()
+        }
     }
 }
 

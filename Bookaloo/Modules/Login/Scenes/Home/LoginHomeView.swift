@@ -24,6 +24,8 @@ public struct LoginHomeView: View {
             NavigationStack {
                 loginView
             }
+            .toolbarBackground(Color.backgroundColor, for: .navigationBar)
+            .toolbarBackground(Color.backgroundColor, for: .tabBar)
         }
     }
 }
