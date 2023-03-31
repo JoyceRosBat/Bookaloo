@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct ShopOrdersView: View {
-    @StateObject var viewModel: ShopOrdersViewModel
+    @ObservedObject var viewModel: ShopOrdersViewModel
     @State var statusSelected: PurchaseStatus = .inProgress
     
 //    init(){

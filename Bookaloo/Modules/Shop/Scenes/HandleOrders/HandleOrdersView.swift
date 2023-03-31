@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct HandleOrdersView: View {
-    @StateObject var viewModel: HandleOrderViewModel
+    @ObservedObject var viewModel: HandleOrderViewModel
     @State var searchType: SearchType = .email
     @State var searchText: String = ""
     @State var scrollOffset: CGFloat = 0
