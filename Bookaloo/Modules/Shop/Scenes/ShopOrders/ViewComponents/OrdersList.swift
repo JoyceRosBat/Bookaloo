@@ -33,8 +33,8 @@ struct OrdersList: View {
                             }//:Hstack
                         }
                         
-                        if let date = order.date.wrappedValue,
-                           let dateString = date.formatted(date: .complete, time: .omitted) {
+                        if let date = order.date.wrappedValue {
+                            let dateString = date.formatted(date: .complete, time: .omitted)
                             HStack(alignment: .top) {
                                 Text("date_title")
                                     .bold()

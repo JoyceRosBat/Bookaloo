@@ -33,7 +33,7 @@ struct LogoutConfirmationPopup: View {
 }
 struct LogoutConfirmationPopup_Previews: PreviewProvider {
     static var previews: some View {
-        LogoutConfirmationPopup(showAlert: .constant(false))
+        LogoutConfirmationPopup(showAlert: .constant(true))
             .environmentObject(ModuleDependencies().resolve() as BooksViewModel)
     }
 }

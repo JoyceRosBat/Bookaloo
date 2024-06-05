@@ -75,7 +75,7 @@ private extension BookalooTextfield {
                 .background(Color.textFieldBackgroundColor)
                 .cornerRadius(8)
             
-            if let valid, !valid, let validationText {
+            if !valid, let validationText {
                 Text(validationText)
                     .font(.futura(10))
                     .foregroundColor(.red)
@@ -113,7 +113,7 @@ private extension BookalooTextfield {
                 .cornerRadius(8)
             
             
-            if let valid, !valid, let validationText {
+            if !valid, let validationText {
                 Text(validationText)
                     .font(.futura(10))
                     .foregroundColor(.red)
@@ -137,7 +137,7 @@ private extension BookalooTextfield {
                 .background(Color.textFieldBackgroundColor)
                 .cornerRadius(8)
             
-            if let valid, !valid, let validationText {
+            if !valid, let validationText {
                 Text(validationText)
                     .font(.futura(10))
                     .foregroundColor(.red)
@@ -209,7 +209,7 @@ private extension BookalooTextfield {
                 }//: Button
             }//: HStack
             
-            if let valid, !valid, let validationText {
+            if !valid, let validationText {
                 Text(validationText)
                     .font(.futura(10))
                     .foregroundColor(.red)
