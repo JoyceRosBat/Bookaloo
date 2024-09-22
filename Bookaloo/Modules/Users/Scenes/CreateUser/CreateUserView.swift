@@ -111,7 +111,7 @@ public struct CreateUserView: View {
                 } label: {
                     Label("save", systemImage: .squareArrowDown)
                 }//: Button save
-                .buttonStyle(.bookalooStyle)
+                .buttonStyle(.bookalooStyle())
                 
                 Spacer(minLength: 10)
                 

@@ -26,7 +26,7 @@ public struct ModifyUserView: View {
                     } label: {
                         Text("search")
                     }//: Button search
-                    .buttonStyle(.bookalooStyle)
+                    .buttonStyle(.bookalooStyle())
                 }//: HStack
                 .padding(.trailing, 16)
                 .padding(.horizontal, 8)

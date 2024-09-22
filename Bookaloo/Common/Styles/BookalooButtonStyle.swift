@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct BookalooButton: ButtonStyle {
+    var enabled: Bool = true
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(StyleConstants.bookalooFont)
-            .foregroundStyle(StyleConstants.bookalooGradient)
+            .foregroundStyle(enabled ? StyleConstants.bookalooGradient : StyleConstants.blackGradient)
             .padding(.top, 10)
             .padding(.bottom, 10)
             .padding(.leading, 20)
@@ -22,7 +24,7 @@ struct BookalooButton: ButtonStyle {
             }
             .overlay {
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .stroke(StyleConstants.bookalooGradient, lineWidth: 3)
+                    .stroke(enabled ? StyleConstants.bookalooGradient : StyleConstants.blackGradient, lineWidth: 3)
             }
             .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 2)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
@@ -30,7 +32,7 @@ struct BookalooButton: ButtonStyle {
 }
 
 extension ButtonStyle where Self == BookalooButton {
-    static var bookalooStyle: BookalooButton {
-        BookalooButton()
+    static func bookalooStyle(enabled: Bool = true) -> BookalooButton {
+        BookalooButton(enabled: enabled)
     }
 }

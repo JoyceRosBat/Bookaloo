@@ -70,7 +70,7 @@ public struct BookDetailsView: View {
                         } label: {
                             Label("shop", systemImage: .cart)
                         }
-                        .buttonStyle(.bookalooStyle)
+                        .buttonStyle(.bookalooStyle())
                     }//: VStack
                     .frame(height: hideHeader ? .zero : nil)
                     .opacity(hideHeader ? 0 : 1)
@@ -126,7 +126,7 @@ public struct BookDetailsView: View {
                                 Image(systemName: .cart)
                                     .font(.futura(12))
                             }
-                            .buttonStyle(.bookalooStyle)
+                            .buttonStyle(.bookalooStyle())
                             .frame(width: hideHeader ? 30 : .zero)
                             .opacity(hideHeader ? 1 : 0)
                             

@@ -125,7 +125,7 @@ struct UserDataView: View {
                         } label: {
                             Label("save", systemImage: .squareArrowDown)
                         }//: Button save
-                        .buttonStyle(.bookalooStyle)
+                        .buttonStyle(.bookalooStyle())
                     }
                     Spacer()
                 }//: VStack

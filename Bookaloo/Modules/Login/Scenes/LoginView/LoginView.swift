@@ -11,6 +11,7 @@ public struct LoginView: View {
     var dependencies: LoginDependenciesResolver
     @EnvironmentObject var viewModel: LoginViewModel
     @FocusState private var isFocused: Bool
+    @State var loginButtonEnabled: Bool = false
     var createUserView: CreateUserView {
         dependencies.resolve()
     }
@@ -44,6 +45,9 @@ public struct LoginView: View {
                     orientation: .vertical(.secure)
                 )//: TexField
                 .focused($isFocused)
+                .onChange(of: viewModel.password) { newValue in
+                    loginButtonEnabled = newValue.count >= 8
+                }
                 
                 Button {
                     viewModel.doLogin()
@@ -51,7 +55,8 @@ public struct LoginView: View {
                     Text("login")
                         .font(.futura(24))
                 }//: Button
-                .buttonStyle(.bookalooStyle)
+                .buttonStyle(.bookalooStyle(enabled: loginButtonEnabled))
+                .disabled(!loginButtonEnabled)
                 
                 Spacer()
                 

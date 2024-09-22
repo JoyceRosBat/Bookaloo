@@ -35,7 +35,7 @@ struct PopupView<TextContent: View, ButtonsContent: View>: View {
                     buttons()
                 }
                 .padding()
-                .buttonStyle(.bookalooStyle)
+                .buttonStyle(.bookalooStyle())
             }
             .background {
                 RoundedRectangle(cornerRadius: 10)

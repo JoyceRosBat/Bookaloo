@@ -39,7 +39,7 @@ public struct ShopView: View {
                             Label("shop", systemImage: .cart)
                                 .font(.futura(12))
                         }
-                        .buttonStyle(.bookalooStyle)
+                        .buttonStyle(.bookalooStyle())
 //                        .frame(width: UIScreen.main.bounds.width * 0.8)
                         .padding()
                         

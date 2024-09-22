@@ -33,7 +33,7 @@ public struct HandleOrdersView: View {
                         Text("search_all")
                             .font(.futura(12))
                     }//: Button search all
-                    .buttonStyle(.bookalooStyle)
+                    .buttonStyle(.bookalooStyle())
                     Spacer()
                 }
             } content: {
@@ -73,7 +73,7 @@ public struct HandleOrdersView: View {
                                 Text("search")
                                     .font(.futura(12))
                             }//: Button search
-                            .buttonStyle(.bookalooStyle)
+                            .buttonStyle(.bookalooStyle())
                         }//: HStack
                     }//: HStack
                     //                        .padding(.horizontal, 16)
