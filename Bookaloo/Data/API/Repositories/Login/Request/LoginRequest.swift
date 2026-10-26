@@ -16,11 +16,7 @@ extension LoginRequest: APIRequest {
         "/client"
     }
     
-    var path: String {
-        switch self {
-        case .validate: return "/query"
-        }
-    }
+    var joyce: String = "Joyce"
     
     var method: HTTPMethod {
         switch self {
